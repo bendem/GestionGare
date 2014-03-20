@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 class LoginFrame extends Frame implements ActionListener {
-    
+
     private final TextField login;
     private final TextField pwd;
     private final Button ok;
@@ -17,27 +17,27 @@ class LoginFrame extends Frame implements ActionListener {
 
     public LoginFrame() {
         super("YOLO");
-        this.addWindowListener(new WindowListener(this));
         setLayout(new GridLayout(3, 2));
         setVisible(true);
         setLocationRelativeTo(null);
-        
+
         // Add stuff
         login = new TextField();
         pwd = new TextField();
         pwd.setEchoChar('*');
         ok = new Button("OK");
         abort = new Button("abort");
-        
+
         add(new Label("Votre Login"));
         add(login);
         add(new Label("Votre mot de passe"));
         add(pwd);
         add(ok);
         add(abort);
-        
+
         ok.addActionListener(this);
         abort.addActionListener(this);
+        addWindowListener(new WindowListener(this));
     }
 
     @Override
@@ -48,5 +48,5 @@ class LoginFrame extends Frame implements ActionListener {
             dispose();
         }
     }
-    
+
 }
