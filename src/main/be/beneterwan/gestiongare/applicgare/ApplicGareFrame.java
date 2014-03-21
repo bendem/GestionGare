@@ -1,5 +1,6 @@
 package be.beneterwan.gestiongare.applicgare;
 
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -12,6 +13,9 @@ public class ApplicGareFrame extends JFrame {
      */
     public ApplicGareFrame() {
         initComponents();
+        Logger.getLogger(ApplicGareFrame.class.getName()).info(ApplicGare.getRessourceFile("train.jpg").getAbsolutePath());
+        //Icon image = new ImageIcon();
+        //trainPicture.setIcon(image);
     }
 
     /**
@@ -25,8 +29,8 @@ public class ApplicGareFrame extends JFrame {
     private void initComponents() {
 
         topPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        responsable = new javax.swing.JLabel();
+        trainPicture = new javax.swing.JLabel();
         nextTrainPanel = new javax.swing.JPanel();
         notifyButtonsPanel = new javax.swing.JPanel();
         answerPanel = new javax.swing.JPanel();
@@ -35,26 +39,27 @@ public class ApplicGareFrame extends JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridLayout(5, 1));
 
-        topPanel.setLayout(new java.awt.GridLayout(1, 2));
+        topPanel.setLayout(new java.awt.CardLayout());
 
-        jLabel1.setText("Responsable gare");
-        topPanel.add(jLabel1);
+        responsable.setText("Responsable gare");
+        topPanel.add(responsable, "card2");
 
-        jLabel2.setText("Image");
-        topPanel.add(jLabel2);
+        trainPicture.setText("Image");
+        trainPicture.setAlignmentY(0.0F);
+        topPanel.add(trainPicture, "card3");
 
         getContentPane().add(topPanel);
 
-        nextTrainPanel.setLayout(new java.awt.GridLayout());
+        nextTrainPanel.setLayout(new java.awt.GridLayout(1, 0));
         getContentPane().add(nextTrainPanel);
 
-        notifyButtonsPanel.setLayout(new java.awt.GridLayout());
+        notifyButtonsPanel.setLayout(new java.awt.GridLayout(1, 0));
         getContentPane().add(notifyButtonsPanel);
 
-        answerPanel.setLayout(new java.awt.GridLayout());
+        answerPanel.setLayout(new java.awt.GridLayout(1, 0));
         getContentPane().add(answerPanel);
 
-        railwayOccupationTablePanel.setLayout(new java.awt.GridLayout());
+        railwayOccupationTablePanel.setLayout(new java.awt.GridLayout(1, 0));
         getContentPane().add(railwayOccupationTablePanel);
 
         pack();
@@ -93,11 +98,11 @@ public class ApplicGareFrame extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JPanel answerPanel;
-    protected javax.swing.JLabel jLabel1;
-    protected javax.swing.JLabel jLabel2;
     protected javax.swing.JPanel nextTrainPanel;
     protected javax.swing.JPanel notifyButtonsPanel;
     protected javax.swing.JPanel railwayOccupationTablePanel;
+    protected javax.swing.JLabel responsable;
     protected javax.swing.JPanel topPanel;
+    protected javax.swing.JLabel trainPicture;
     // End of variables declaration//GEN-END:variables
 }
