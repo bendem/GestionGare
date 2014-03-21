@@ -9,15 +9,25 @@ for %%a in (%*) do (
     if [%%a]==[-noclean] set clean="no"
     if [%%a]==[-nojar] set jar="no"
     if [%%a]==[-v] set verbose="yes"
+    if [%%a]==[-h] (
+        echo.
+        echo Available parameters : -noclean, -nojar, -v, -h
+        echo.
+        echo -noclean : Don't clean the target directory before building
+        echo -nojar   : Don't create jar files
+        echo -v       : Verbose debug infos
+        echo -h       : Display this help
+        goto eof
+    )
 )
 
 if %clean%=="no" goto compile
 
 echo.
 echo Nettoyage...
-rmdir /s /q target\classes
-mkdir target\classes
-
+IF EXIST target\*.jar del /S /Q /F target\*.jar
+IF EXIST target\classes rmdir /s /q target\classes
+IF NOT EXIST target\classes mkdir target\classes
 
 :compile
 echo.
@@ -58,3 +68,5 @@ cd ../..
 
 :end
 echo.
+
+:eof
