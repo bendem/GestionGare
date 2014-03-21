@@ -3,7 +3,8 @@
 pushd %cd%
 
 set netbeansClasses=/Dropbox/école/2013-2014/Java/GestionGare/lib/swing-layout/swing-layout-1.0.4.jar
-set sourceFolder=src/main
+set sourceFolder=src/main/java
+set resourceFolder=src/main/resources
 set buildFolder=target
 set mainPackage=be.beneterwan.gestiongare
 set mainPackageDir=be/beneterwan/gestiongare
