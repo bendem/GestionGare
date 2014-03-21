@@ -76,7 +76,7 @@ if %verbose%=="yes" (
 ) else (
     jar cfme %makeJar%
 )
-set makeJar=../Applic_Gare.jar ../../manifest.mf be.beneterwan.gestiongare.applicgare.ApplicGareFrame be/beneterwan/gestiongare/applicgare/
+set makeJar=../Applic_Gare.jar ../../manifest.mf be.beneterwan.gestiongare.applicgare.ApplicGare be/beneterwan/gestiongare/applicgare/
 echo Creation de Applic_Gare.jar...
 if %verbose%=="yes" (
     jar cvfme %makeJar%
