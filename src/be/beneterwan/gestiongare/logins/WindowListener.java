@@ -1,14 +1,14 @@
 package be.beneterwan.gestiongare.logins;
 
+import java.awt.Frame;
 import java.awt.event.WindowEvent;
 
 public class WindowListener implements java.awt.event.WindowListener {
-    
-    private final LoginFrame frame;
 
-    public WindowListener(LoginFrame frame) {
+    private final Frame frame;
+
+    public WindowListener(Frame frame) {
         this.frame = frame;
-        
     }
 
     @Override
@@ -34,5 +34,5 @@ public class WindowListener implements java.awt.event.WindowListener {
 
     @Override
     public void windowDeactivated(WindowEvent we) {}
-    
+
 }
