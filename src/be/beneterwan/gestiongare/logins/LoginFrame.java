@@ -1,5 +1,7 @@
 package be.beneterwan.gestiongare.logins;
 
+import be.beneterwan.gestiongare.authenticate.Critere;
+import be.beneterwan.gestiongare.authenticate.User;
 import java.awt.Button;
 import java.awt.Frame;
 import java.awt.GridLayout;
@@ -43,7 +45,12 @@ class LoginFrame extends Frame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getActionCommand().equals("OK")) {
-            System.out.println("Login : '" + login.getText() + "', mot de passe : '" + pwd.getText() + '\'');
+            Critere critereLoginPwdArray = new CritereLoginPasswordArray(new User(login.getText(), pwd.getText()));
+            if(critereLoginPwdArray.isOk()) {
+                System.out.println("Success");
+            } else {
+                System.out.println("Wrong!");
+            }
         } else {
             dispose();
         }
