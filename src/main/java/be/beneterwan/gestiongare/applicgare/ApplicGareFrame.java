@@ -2,6 +2,8 @@ package be.beneterwan.gestiongare.applicgare;
 
 import be.beneterwan.gestiongare.logger.CustomLogger;
 import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -13,7 +15,8 @@ import javax.swing.SwingConstants;
  */
 public class ApplicGareFrame extends JFrame {
 
-    public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
+    public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class
+            .getSimpleName());
 
     /**
      * Creates new form ApplicGareFrame
@@ -23,10 +26,21 @@ public class ApplicGareFrame extends JFrame {
 
         initComponents();
 
+        GridBagLayout layout = (GridBagLayout) topPanel.getLayout();
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.fill = GridBagConstraints.BOTH;
+        constraints.weightx = 0.90;
+        layout.setConstraints(responsable, constraints);
+        constraints.fill = GridBagConstraints.REMAINDER;
+        constraints.weightx = 0.10;
+        layout.setConstraints(trainPicture, constraints);
+
+        responsable.setVerticalAlignment(SwingConstants.TOP);
         Icon image = new ImageIcon(ApplicGare.getResourceFile("train.jpg"));
         trainPicture.setIcon(image);
         trainPicture.setVerticalAlignment(SwingConstants.TOP);
-        setPreferredSize(new Dimension(960, 700));
+
+        setPreferredSize(new Dimension(1500, 900));
         pack();
         setLocationRelativeTo(null);
     }
@@ -50,16 +64,16 @@ public class ApplicGareFrame extends JFrame {
         railwayOccupationTablePanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setName("frame"); // NOI18N
         getContentPane().setLayout(new java.awt.GridLayout(5, 1));
 
-        topPanel.setLayout(new java.awt.GridLayout());
+        topPanel.setLayout(new java.awt.GridBagLayout());
 
         responsable.setText("Responsable gare");
-        topPanel.add(responsable);
+        topPanel.add(responsable, new java.awt.GridBagConstraints());
 
-        trainPicture.setText("Image");
         trainPicture.setAlignmentY(0.0F);
-        topPanel.add(trainPicture);
+        topPanel.add(trainPicture, new java.awt.GridBagConstraints());
 
         getContentPane().add(topPanel);
 
