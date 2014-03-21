@@ -1,21 +1,34 @@
 package be.beneterwan.gestiongare.applicgare;
 
+import be.beneterwan.gestiongare.logger.CustomLogger;
+import java.awt.Dimension;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.SwingConstants;
 
 /**
  * @author bendem
  */
 public class ApplicGareFrame extends JFrame {
 
+    public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
+
     /**
      * Creates new form ApplicGareFrame
      */
     public ApplicGareFrame() {
+        LOGGER.info("Starting application...");
+
         initComponents();
-        Logger.getLogger(ApplicGareFrame.class.getName()).info(ApplicGare.getRessourceFile("train.jpg").getAbsolutePath());
-        //Icon image = new ImageIcon();
-        //trainPicture.setIcon(image);
+
+        Icon image = new ImageIcon(ApplicGare.getResourceFile("train.jpg"));
+        trainPicture.setIcon(image);
+        trainPicture.setVerticalAlignment(SwingConstants.TOP);
+        setPreferredSize(new Dimension(960, 700));
+        pack();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -39,14 +52,14 @@ public class ApplicGareFrame extends JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridLayout(5, 1));
 
-        topPanel.setLayout(new java.awt.CardLayout());
+        topPanel.setLayout(new java.awt.GridLayout());
 
         responsable.setText("Responsable gare");
-        topPanel.add(responsable, "card2");
+        topPanel.add(responsable);
 
         trainPicture.setText("Image");
         trainPicture.setAlignmentY(0.0F);
-        topPanel.add(trainPicture, "card3");
+        topPanel.add(trainPicture);
 
         getContentPane().add(topPanel);
 
