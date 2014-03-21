@@ -1,8 +1,11 @@
 @echo off
 
+pushd %cd%
+
 set clean="yes"
 set jar="yes"
 set verbose="no"
+set netbeansClasses="E:\NetBeans 8.0\platform\modules\ext\swing-layout-1.0.4.jar"
 
 rem parsage des arguments
 for %%a in (%*) do (
@@ -25,9 +28,11 @@ if %clean%=="no" goto compile
 
 echo.
 echo Nettoyage...
-IF EXIST target\*.jar del /S /Q /F target\*.jar
-IF EXIST target\classes rmdir /s /q target\classes
-IF NOT EXIST target\classes mkdir target\classes
+cd target
+IF EXIST *.jar del /Q /F *.jar
+IF EXIST classes rmdir /s /q classes
+IF NOT EXIST classes mkdir classes
+cd ..
 
 :compile
 echo.
@@ -45,6 +50,13 @@ if %verbose%=="yes" (
 ) else (
     javac %compile%
 )
+echo Compilation du package applicgare...
+set compile=-classpath "target/classes";%netbeansClasses% -s src -d target/classes src/be/beneterwan/gestiongare/applicgare/*.java
+if %verbose%=="yes" (
+    javac -verbose %compile%
+) else (
+    javac %compile%
+)
 
 if %jar%=="no" goto end
 :jar
@@ -57,12 +69,19 @@ if %verbose%=="yes" (
 ) else (
     jar cf %makeJar%
 )
-set makeJar=../gestiongare.jar ../../manifest.mf be/beneterwan/gestiongare/logins/
+set makeJar=../gestiongare.jar ../../manifest.mf be.beneterwan.gestiongare.logins.FenLogin be/beneterwan/gestiongare/logins/
 echo Creation de gestiongare.jar...
 if %verbose%=="yes" (
-    jar cvfm %makeJar%
+    jar cvfme %makeJar%
 ) else (
-    jar cfm %makeJar%
+    jar cfme %makeJar%
+)
+set makeJar=../Applic_Gare.jar ../../manifest.mf be.beneterwan.gestiongare.applicgare.ApplicGareFrame be/beneterwan/gestiongare/applicgare/
+echo Creation de Applic_Gare.jar...
+if %verbose%=="yes" (
+    jar cvfme %makeJar%
+) else (
+    jar cfme %makeJar%
 )
 cd ../..
 
@@ -70,3 +89,5 @@ cd ../..
 echo.
 
 :eof
+
+popd
