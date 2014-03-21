@@ -31,7 +31,7 @@ echo Nettoyage...
 cd target
 IF EXIST *.jar del /Q /F *.jar
 IF EXIST classes rmdir /s /q classes
-IF NOT EXIST classes mkdir classes
+IF NOT EXIST classes\ mkdir classes
 cd ..
 
 :compile
