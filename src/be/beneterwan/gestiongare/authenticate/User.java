@@ -9,10 +9,16 @@ public class User {
 
     private String login;
     private String password;
+    private boolean admin;
 
     public User(String login, String password) {
+        this(login, password, false);
+    }
+
+    public User(String login, String password, boolean admin) {
         this.login = login;
         this.password = password;
+        this.admin = admin;
     }
 
     public String getLogin() {
