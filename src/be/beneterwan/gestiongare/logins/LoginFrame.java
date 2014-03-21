@@ -47,9 +47,9 @@ class LoginFrame extends Frame implements ActionListener {
         if(ae.getActionCommand().equals("OK")) {
             Critere critereLoginPwdArray = new CritereLoginPasswordArray(new User(login.getText(), pwd.getText()));
             if(critereLoginPwdArray.isOk()) {
-                System.out.println("Success");
+                System.out.println("Oui");
             } else {
-                System.out.println("Wrong!");
+                System.out.println("Non");
             }
         } else {
             dispose();
