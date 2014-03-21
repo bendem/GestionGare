@@ -2,13 +2,21 @@
 
 pushd %cd%
 
+REM +----------------------------------------------------------
+REM | Change these values only!
+REM +----------------------------------------------------------
 set netbeansClasses=/Dropbox/école/2013-2014/Java/GestionGare/lib/swing-layout/swing-layout-1.0.4.jar
 set sourceFolder=src/main/java
 set resourceFolder=src/main/resources
 set buildFolder=target
 set mainPackage=be.beneterwan.gestiongare
-set mainPackageDir=be/beneterwan/gestiongare
+
+REM -----------------------------------------------------------
+set absolutePath=%~dp0
+set absolutePath=%absolutePath:\=/%
+set absolutePath=%absolutePath:~2%
 set mainPackageDir=%mainPackage:.=/%
+set fullMainPackageDir=%sourceFolder%/%mainPackageDir%
 
 set clean="yes"
 set jar="yes"
@@ -38,27 +46,36 @@ echo Nettoyage...
 cd %buildFolder%
 IF EXIST *.jar del /Q /F *.jar
 IF EXIST classes rmdir /s /q classes
-IF NOT EXIST classes\ mkdir classes
+mkdir classes
 cd ..
+IF NOT EXIST target\classes GOTO eof
+
 
 :compile
 echo.
 echo Compilation du package authenticate...
-set compile=-s src -d %buildFolder%/classes %sourceFolder%/%mainPackageDir%/authenticate/*.java
+set compile=-s src -d %buildFolder%/classes %fullMainPackageDir%/authenticate/*.java
+if %verbose%=="yes" (
+    javac -verbose %compile%
+) else (
+    javac %compile%
+)
+echo Compilation du package logger...
+set compile=-s src -d %buildFolder%/classes %fullMainPackageDir%/logger/*.java
 if %verbose%=="yes" (
     javac -verbose %compile%
 ) else (
     javac %compile%
 )
 echo Compilation du package logins...
-set compile=-classpath %buildFolder%/classes -s %sourceFolder% -d %buildFolder%/classes %sourceFolder%/%mainPackageDir%/logins/*.java
+set compile=-classpath %buildFolder%/classes -s %sourceFolder% -d %buildFolder%/classes %fullMainPackageDir%/logins/*.java
 if %verbose%=="yes" (
     javac -verbose %compile%
 ) else (
     javac %compile%
 )
 echo Compilation du package applicgare...
-set compile=-classpath "%buildFolder%/classes";%netbeansClasses% -s %sourceFolder% -d %buildFolder%/classes %sourceFolder%/%mainPackageDir%/applicgare/*.java
+set compile=-classpath "%buildFolder%/classes";%netbeansClasses% -s %sourceFolder% -d %buildFolder%/classes %fullMainPackageDir%/applicgare/*.java
 if %verbose%=="yes" (
     javac -verbose %compile%
 ) else (
@@ -76,6 +93,13 @@ if %verbose%=="yes" (
 ) else (
     jar cf %makeJar%
 )
+set makeJar=../logger.jar %mainPackageDir%/logger/
+echo Creation de logger.jar...
+if %verbose%=="yes" (
+    jar cvf %makeJar%
+) else (
+    jar cf %makeJar%
+)
 set makeJar=../gestiongare.jar ../../manifest.mf %mainPackage%.logins.FenLogin %mainPackageDir%/logins/
 echo Creation de gestiongare.jar...
 if %verbose%=="yes" (
@@ -83,7 +107,8 @@ if %verbose%=="yes" (
 ) else (
     jar cfme %makeJar%
 )
-set makeJar=../Applic_Gare.jar ../../manifest.mf %mainPackage%.applicgare.ApplicGare %mainPackageDir%/applicgare/
+xcopy %absolutePath:/=\%%resourceFolder:/=\% resources\ /S /Y
+set makeJar=../Applic_Gare.jar ../../manifest.mf %mainPackage%.applicgare.ApplicGare %mainPackageDir%/applicgare/ resources/train.jpg
 echo Creation de Applic_Gare.jar...
 if %verbose%=="yes" (
     jar cvfme %makeJar%
@@ -96,5 +121,4 @@ cd ../..
 echo.
 
 :eof
-
 popd
