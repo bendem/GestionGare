@@ -1,7 +1,7 @@
 target/*
 nbproject/*
 lib/*
-*.bat
+setpath.bat
 build.xml
 manifest.mf
 /build/
