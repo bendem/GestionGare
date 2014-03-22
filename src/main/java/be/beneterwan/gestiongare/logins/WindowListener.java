@@ -3,6 +3,9 @@ package be.beneterwan.gestiongare.logins;
 import java.awt.Frame;
 import java.awt.event.WindowEvent;
 
+/**
+ * @author bendem
+ */
 public class WindowListener implements java.awt.event.WindowListener {
 
     private final Frame frame;

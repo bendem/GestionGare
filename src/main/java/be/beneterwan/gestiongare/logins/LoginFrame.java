@@ -10,6 +10,9 @@ import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author bendem
+ */
 class LoginFrame extends Frame implements ActionListener {
 
     private final TextField login;

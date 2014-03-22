@@ -3,7 +3,7 @@ package be.beneterwan.gestiongare.authenticate;
 import java.util.Objects;
 
 /**
- * @author Ben
+ * @author bendem
  */
 public class User {
 
