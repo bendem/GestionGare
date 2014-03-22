@@ -54,14 +54,14 @@ IF NOT EXIST target\classes GOTO eof
 :compile
 echo.
 echo Compilation du package authenticate...
-set compile=-s src -d %buildFolder%/classes %fullMainPackageDir%/authenticate/*.java
+set compile=-s %sourceFolder% -d %buildFolder%/classes %fullMainPackageDir%/authenticate/*.java
 if %verbose%=="yes" (
     javac -verbose %compile%
 ) else (
     javac %compile%
 )
 echo Compilation du package logger...
-set compile=-s src -d %buildFolder%/classes %fullMainPackageDir%/logger/*.java
+set compile=-s %sourceFolder% -d %buildFolder%/classes %fullMainPackageDir%/logger/*.java
 if %verbose%=="yes" (
     javac -verbose %compile%
 ) else (
