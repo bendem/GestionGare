@@ -54,28 +54,28 @@ IF NOT EXIST target\classes GOTO eof
 :compile
 echo.
 echo Compilation du package authenticate...
-set compile=-s %sourceFolder% -d %buildFolder%/classes %fullMainPackageDir%/authenticate/*.java
+set compile=-encoding utf-8 -s %sourceFolder% -d %buildFolder%/classes %fullMainPackageDir%/authenticate/*.java
 if %verbose%=="yes" (
     javac -verbose %compile%
 ) else (
     javac %compile%
 )
 echo Compilation du package logger...
-set compile=-s %sourceFolder% -d %buildFolder%/classes %fullMainPackageDir%/logger/*.java
+set compile=-encoding utf-8 -s %sourceFolder% -d %buildFolder%/classes %fullMainPackageDir%/logger/*.java
 if %verbose%=="yes" (
     javac -verbose %compile%
 ) else (
     javac %compile%
 )
 echo Compilation du package logins...
-set compile=-classpath %buildFolder%/classes -s %sourceFolder% -d %buildFolder%/classes %fullMainPackageDir%/logins/*.java
+set compile=-encoding utf-8 -classpath %buildFolder%/classes -s %sourceFolder% -d %buildFolder%/classes %fullMainPackageDir%/logins/*.java
 if %verbose%=="yes" (
     javac -verbose %compile%
 ) else (
     javac %compile%
 )
 echo Compilation du package applicgare...
-set compile=-classpath "%buildFolder%/classes";%netbeansClasses% -s %sourceFolder% -d %buildFolder%/classes %fullMainPackageDir%/applicgare/*.java
+set compile=-encoding utf-8 -classpath "%buildFolder%/classes";%netbeansClasses% -s %sourceFolder% -d %buildFolder%/classes %fullMainPackageDir%/applicgare/*.java
 if %verbose%=="yes" (
     javac -verbose %compile%
 ) else (
