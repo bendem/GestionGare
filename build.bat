@@ -74,8 +74,15 @@ if %verbose%=="yes" (
 ) else (
     javac %compile%
 )
+echo Compilation du package trains...
+set compile=-encoding utf-8 -classpath %buildFolder%/classes -s %sourceFolder% -d %buildFolder%/classes %fullMainPackageDir%/trains/*.java
+if %verbose%=="yes" (
+    javac -verbose %compile%
+) else (
+    javac %compile%
+)
 echo Compilation du package applicgare...
-set compile=-encoding utf-8 -classpath "%buildFolder%/classes";%netbeansClasses% -s %sourceFolder% -d %buildFolder%/classes %fullMainPackageDir%/applicgare/*.java
+set compile=-Xlint:unchecked -encoding utf-8 -classpath "%buildFolder%/classes";%netbeansClasses% -s %sourceFolder% -d %buildFolder%/classes %fullMainPackageDir%/applicgare/*.java
 if %verbose%=="yes" (
     javac -verbose %compile%
 ) else (
@@ -108,7 +115,7 @@ if %verbose%=="yes" (
     jar cfme %makeJar%
 )
 xcopy %absolutePath:/=\%%resourceFolder:/=\% resources\ /S /Y
-set makeJar=../Applic_Gare.jar ../../manifest.mf %mainPackage%.applicgare.ApplicGare %mainPackageDir%/applicgare/ resources/train.jpg
+set makeJar=../Applic_Gare.jar ../../manifest.mf %mainPackage%.applicgare.ApplicGare %mainPackageDir%/applicgare/ %mainPackageDir%/trains/ resources/train.jpg
 echo Creation de Applic_Gare.jar...
 if %verbose%=="yes" (
     jar cvfme %makeJar%
