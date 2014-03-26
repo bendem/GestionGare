@@ -1,48 +1,59 @@
 package be.beneterwan.gestiongare.applicgare;
 
 import be.beneterwan.gestiongare.logger.CustomLogger;
+import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 /**
  * @author bendem
  */
 public class ApplicGareFrame extends JFrame {
 
-    public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class
-            .getSimpleName());
+    public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
+
+    protected final List<String> trains = new ArrayList<>();
 
     /**
      * Creates new form ApplicGareFrame
      */
     public ApplicGareFrame() {
+        super("ApplicGare");
         LOGGER.info("Starting application...");
 
         initComponents();
 
-        GridBagLayout layout = (GridBagLayout) topPanel.getLayout();
-        GridBagConstraints constraints = new GridBagConstraints();
-        constraints.fill = GridBagConstraints.BOTH;
-        constraints.weightx = 0.90;
-        layout.setConstraints(responsable, constraints);
-        constraints.fill = GridBagConstraints.REMAINDER;
-        constraints.weightx = 0.10;
-        layout.setConstraints(trainPicture, constraints);
+        // Ajout des trains
+        trains.add("IC4512 Aachen - Oostende : 8h30 8h42");
+        trains.add("IC4512 Aachen - Oostende : 8h30 8h42");
+        trains.add("IC4512 Aachen - Oostende : 8h30 8h42");
+        trains.add("IC4512 Aachen - Oostende : 8h30 8h42");
+        trainListUpdate();
 
-        responsable.setVerticalAlignment(SwingConstants.TOP);
+        // Setup de topPanel
         Icon image = new ImageIcon(ApplicGare.getResourceFile("train.jpg"));
         trainPicture.setIcon(image);
         trainPicture.setVerticalAlignment(SwingConstants.TOP);
+        trainPicture.setBorder(new LineBorder(Color.white, 2));
 
-        setPreferredSize(new Dimension(1500, 900));
+        setPreferredSize(new Dimension(1000, 900));
         pack();
         setLocationRelativeTo(null);
+    }
+
+    public void trainListUpdate() {
+        LOGGER.fine("Updating train list...");
+        topPanelTrainList.removeAllItems();
+        for(String train : trains) {
+            topPanelTrainList.addItem(train);
+        }
     }
 
     /**
@@ -54,9 +65,13 @@ public class ApplicGareFrame extends JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         topPanel = new javax.swing.JPanel();
+        topPanelLeft = new javax.swing.JPanel();
         responsable = new javax.swing.JLabel();
+        topPanelLabel = new javax.swing.JLabel();
+        topPanelTrainList = new javax.swing.JComboBox();
         trainPicture = new javax.swing.JLabel();
         nextTrainPanel = new javax.swing.JPanel();
         notifyButtonsPanel = new javax.swing.JPanel();
@@ -69,11 +84,28 @@ public class ApplicGareFrame extends JFrame {
 
         topPanel.setLayout(new java.awt.GridBagLayout());
 
+        topPanelLeft.setLayout(new java.awt.GridLayout(3, 0));
+
         responsable.setText("Responsable gare");
-        topPanel.add(responsable, new java.awt.GridBagConstraints());
+        responsable.setFocusable(false);
+        responsable.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        topPanelLeft.add(responsable);
+
+        topPanelLabel.setText("Trains arrivés et repartis");
+        topPanelLeft.add(topPanelLabel);
+
+        topPanelTrainList.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        topPanelLeft.add(topPanelTrainList);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.weightx = 0.95;
+        topPanel.add(topPanelLeft, gridBagConstraints);
 
         trainPicture.setAlignmentY(0.0F);
-        topPanel.add(trainPicture, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.weightx = 0.05;
+        topPanel.add(trainPicture, gridBagConstraints);
 
         getContentPane().add(topPanel);
 
@@ -130,6 +162,9 @@ public class ApplicGareFrame extends JFrame {
     protected javax.swing.JPanel railwayOccupationTablePanel;
     protected javax.swing.JLabel responsable;
     protected javax.swing.JPanel topPanel;
+    protected javax.swing.JLabel topPanelLabel;
+    protected javax.swing.JPanel topPanelLeft;
+    protected javax.swing.JComboBox topPanelTrainList;
     protected javax.swing.JLabel trainPicture;
     // End of variables declaration//GEN-END:variables
 }
