@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
@@ -20,6 +21,7 @@ public class ApplicGareFrame extends JFrame {
     public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
 
     protected final List<String> trains = new ArrayList<>();
+    protected final JComboBox<String> topPanelTrainList = new JComboBox<>();
 
     /**
      * Creates new form ApplicGareFrame
@@ -31,6 +33,7 @@ public class ApplicGareFrame extends JFrame {
         initComponents();
 
         // Ajout des trains
+        topPanelLeft.add(topPanelTrainList);
         trains.add("IC4512 Aachen - Oostende : 8h30 8h42");
         trains.add("IC4512 Aachen - Oostende : 8h30 8h42");
         trains.add("IC4512 Aachen - Oostende : 8h30 8h42");
@@ -71,7 +74,6 @@ public class ApplicGareFrame extends JFrame {
         topPanelLeft = new javax.swing.JPanel();
         responsable = new javax.swing.JLabel();
         topPanelLabel = new javax.swing.JLabel();
-        topPanelTrainList = new javax.swing.JComboBox();
         trainPicture = new javax.swing.JLabel();
         nextTrainPanel = new javax.swing.JPanel();
         notifyButtonsPanel = new javax.swing.JPanel();
@@ -93,9 +95,6 @@ public class ApplicGareFrame extends JFrame {
 
         topPanelLabel.setText("Trains arrivés et repartis");
         topPanelLeft.add(topPanelLabel);
-
-        topPanelTrainList.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        topPanelLeft.add(topPanelTrainList);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.weightx = 0.95;
@@ -149,6 +148,7 @@ public class ApplicGareFrame extends JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new ApplicGareFrame().setVisible(true);
             }
@@ -164,7 +164,6 @@ public class ApplicGareFrame extends JFrame {
     protected javax.swing.JPanel topPanel;
     protected javax.swing.JLabel topPanelLabel;
     protected javax.swing.JPanel topPanelLeft;
-    protected javax.swing.JComboBox topPanelTrainList;
     protected javax.swing.JLabel trainPicture;
     // End of variables declaration//GEN-END:variables
 }
