@@ -1,9 +1,18 @@
 package be.beneterwan.gestiongare.applicgare;
 
+import be.beneterwan.gestiongare.logger.CustomLogger;
+import java.util.logging.Logger;
+
 public class ApplicGareFrame extends javax.swing.JFrame {
 
+    public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
+
     public ApplicGareFrame() {
+        LOGGER.info("Building window...");
         initComponents();
+        setLocationRelativeTo(null);
+        pack();
+        LOGGER.info("Window built");
     }
 
     /**
