@@ -34,8 +34,8 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         buttonControleIn = new javax.swing.JButton();
         buttonDepot = new javax.swing.JButton();
         buttonControleOut = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        picture = new javax.swing.JPanel();
+        scrollPaneTable = new javax.swing.JScrollPane();
         tableOccupationVoies = new javax.swing.JTable();
         labelReponseControleIn = new javax.swing.JLabel();
         fieldControleIn = new javax.swing.JTextField();
@@ -47,7 +47,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         fieldControleOut = new javax.swing.JTextField();
         labelReponseControleOut = new javax.swing.JLabel();
         labelOccupationVoies = new javax.swing.JLabel();
-        TopMenuBar = new javax.swing.JMenuBar();
+        topMenuBar = new javax.swing.JMenuBar();
         menuUtilisateur = new javax.swing.JMenu();
         menuTrains = new javax.swing.JMenu();
         menuIncidents = new javax.swing.JMenu();
@@ -76,16 +76,16 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
         buttonControleOut.setText("Prévenir poste contrôle out");
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        picture.setBackground(new java.awt.Color(102, 102, 102));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pictureLayout = new javax.swing.GroupLayout(picture);
+        picture.setLayout(pictureLayout);
+        pictureLayout.setHorizontalGroup(
+            pictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pictureLayout.setVerticalGroup(
+            pictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 203, Short.MAX_VALUE)
         );
 
@@ -122,7 +122,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
             }
         });
         tableOccupationVoies.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(tableOccupationVoies);
+        scrollPaneTable.setViewportView(tableOccupationVoies);
 
         labelReponseControleIn.setText("Réponse :");
 
@@ -147,25 +147,25 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
         labelOccupationVoies.setText("Occupation des voies :");
 
-        TopMenuBar.setBackground(new java.awt.Color(153, 153, 153));
-        TopMenuBar.setBorder(null);
+        topMenuBar.setBackground(new java.awt.Color(153, 153, 153));
+        topMenuBar.setBorder(null);
 
         menuUtilisateur.setText("Utilisateurs");
-        TopMenuBar.add(menuUtilisateur);
+        topMenuBar.add(menuUtilisateur);
 
         menuTrains.setText("Trains");
-        TopMenuBar.add(menuTrains);
+        topMenuBar.add(menuTrains);
 
         menuIncidents.setText("Incidents");
-        TopMenuBar.add(menuIncidents);
+        topMenuBar.add(menuIncidents);
 
         menuConfiguration.setText("Configuration");
-        TopMenuBar.add(menuConfiguration);
+        topMenuBar.add(menuConfiguration);
 
         menuAide.setText("Aide");
-        TopMenuBar.add(menuAide);
+        topMenuBar.add(menuAide);
 
-        setJMenuBar(TopMenuBar);
+        setJMenuBar(topMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -190,8 +190,8 @@ public class ApplicGareFrame extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(buttonTrainSuivant)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1)
+                        .addComponent(picture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(scrollPaneTable)
                     .addComponent(labelOccupationVoies)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,7 +239,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(fieldProchainTrain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(buttonTrainSuivant)))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(picture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonControleIn)
@@ -266,7 +266,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addComponent(labelOccupationVoies)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollPaneTable, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -306,7 +306,6 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar TopMenuBar;
     private javax.swing.JButton buttonControleIn;
     private javax.swing.JButton buttonControleOut;
     private javax.swing.JButton buttonDepot;
@@ -316,8 +315,6 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     private javax.swing.JTextField fieldControleOut;
     private javax.swing.JTextField fieldDepot;
     private javax.swing.JTextField fieldProchainTrain;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelControleIn;
     private javax.swing.JLabel labelControleOut;
     private javax.swing.JLabel labelDepot;
@@ -333,6 +330,9 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     private javax.swing.JMenu menuIncidents;
     private javax.swing.JMenu menuTrains;
     private javax.swing.JMenu menuUtilisateur;
+    private javax.swing.JPanel picture;
+    private javax.swing.JScrollPane scrollPaneTable;
     private javax.swing.JTable tableOccupationVoies;
+    private javax.swing.JMenuBar topMenuBar;
     // End of variables declaration//GEN-END:variables
 }
