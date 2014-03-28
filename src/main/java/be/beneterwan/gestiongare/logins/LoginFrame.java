@@ -2,6 +2,7 @@ package be.beneterwan.gestiongare.logins;
 
 import be.beneterwan.gestiongare.authenticate.Critere;
 import be.beneterwan.gestiongare.authenticate.User;
+import be.beneterwan.gestiongare.logger.CustomLogger;
 import java.awt.Button;
 import java.awt.Frame;
 import java.awt.GridLayout;
@@ -11,11 +12,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.logging.Logger;
 
 /**
  * @author bendem
  */
 public class LoginFrame extends Frame implements ActionListener {
+
+    private static final Logger LOGGER = new CustomLogger(LoginFrame.class.getSimpleName());
 
     private final TextField login;
     private final TextField pwd;
@@ -47,7 +51,7 @@ public class LoginFrame extends Frame implements ActionListener {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent we) {
-                System.out.println("Closing...");
+                LOGGER.info("Closing...");
                 we.getWindow().dispose();
             }
         });
@@ -59,9 +63,9 @@ public class LoginFrame extends Frame implements ActionListener {
         if(ae.getActionCommand().equals("OK")) {
             Critere critereLoginPwdArray = new CritereLoginPasswordArray(new User(login.getText(), pwd.getText()));
             if(critereLoginPwdArray.isOk()) {
-                System.out.println("Oui");
+                LOGGER.info("Oui");
             } else {
-                System.out.println("Non");
+                LOGGER.info("Non");
             }
         } else {
             dispose();
