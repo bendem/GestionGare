@@ -1,5 +1,5 @@
 @echo off
 
 cd target
-java -jar gestiongare.jar
+java -jar target\Applic_Gare.jar
 cd ..
