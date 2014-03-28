@@ -10,7 +10,7 @@ import java.util.logging.Logger;
  */
 public class ApplicGareFrameEventHandler implements LoginListener {
 
-    private static Logger LOGGER = new CustomLogger(ApplicGareFrameEventHandler.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(ApplicGareFrameEventHandler.class.getSimpleName());
 
     protected final ApplicGareFrame frame;
 
