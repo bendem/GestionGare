@@ -10,7 +10,8 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
 
     private final ApplicGareFrameEventHandler eventHandler = new ApplicGareFrameEventHandler(this);
-    private Frame fenLogin;
+    private LoginFrame fenLogin;
+    private boolean loggedIn = false;
 
     public ApplicGareFrame() {
         super("== ApplicGare ==");
@@ -24,12 +25,21 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     public void openLoginFrame() {
         LOGGER.info("Opening Login window...");
         fenLogin = new LoginFrame();
+        fenLogin.addLoginListener(eventHandler);
         fenLogin.requestFocusInWindow();
         LOGGER.info("Login window opened.");
     }
 
     public Frame getFenLogin() {
         return fenLogin;
+    }
+
+    public void setLoggedIn(boolean b) {
+        loggedIn = b;
+    }
+
+    public boolean isLoggedIn() {
+        return loggedIn;
     }
 
     /**
