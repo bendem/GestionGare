@@ -9,9 +9,11 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
     public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
 
-    protected Frame fenLogin;
+    private final ApplicGareFrameEventHandler eventHandler = new ApplicGareFrameEventHandler(this);
+    private Frame fenLogin;
 
     public ApplicGareFrame() {
+        super("== ApplicGare ==");
         LOGGER.info("Building window...");
         initComponents();
         setLocationRelativeTo(null);
