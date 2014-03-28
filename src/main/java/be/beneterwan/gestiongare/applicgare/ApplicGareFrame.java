@@ -9,6 +9,8 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
     public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
 
+    protected Frame fenLogin;
+
     public ApplicGareFrame() {
         LOGGER.info("Building window...");
         initComponents();
@@ -19,9 +21,13 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
     public void openLoginFrame() {
         LOGGER.info("Opening Login window...");
-        Frame fenLogin = new LoginFrame();
+        fenLogin = new LoginFrame();
         fenLogin.requestFocusInWindow();
         LOGGER.info("Login window opened.");
+    }
+
+    public Frame getFenLogin() {
+        return fenLogin;
     }
 
     /**
