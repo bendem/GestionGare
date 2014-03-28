@@ -21,7 +21,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         LOGGER.info("Building window...");
         initComponents();
         setLocationRelativeTo(null);
-        picture.setIcon(new ImageIcon(ApplicGare.getResourceFile("train.jpg")));
+        picture.setIcon(new ImageIcon(ApplicGare.getResourceFile("img/train.jpg")));
         pack();
         LOGGER.info("Window built");
     }

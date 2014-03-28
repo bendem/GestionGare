@@ -22,7 +22,7 @@ public class ApplicGare {
     }
 
     public static URL getResourceFile(String filename) {
-        return ApplicGare.class.getClassLoader().getResource("resources/" + filename);
+        return ApplicGare.class.getClassLoader().getResource(filename);
     }
 
 }
