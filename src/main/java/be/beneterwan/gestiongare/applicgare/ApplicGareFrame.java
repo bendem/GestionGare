@@ -1,6 +1,7 @@
 package be.beneterwan.gestiongare.applicgare;
 
 import be.beneterwan.gestiongare.logger.CustomLogger;
+import be.beneterwan.gestiongare.logins.FenLogin;
 import java.util.logging.Logger;
 
 public class ApplicGareFrame extends javax.swing.JFrame {
@@ -13,6 +14,13 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         pack();
         LOGGER.info("Window built");
+        OpenLoginFrame(null);
+    }
+    
+    public void OpenLoginFrame(String[] args){
+        LOGGER.info("Opening Login window...");
+        FenLogin.main(args);
+        LOGGER.info("Login window opened.");
     }
 
     /**
