@@ -1,29 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Menu class="javax.swing.JMenuBar" name="menu">
+    <Menu class="javax.swing.JMenuBar" name="TopMenuBar">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="99" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
+        </Property>
+      </Properties>
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="menuUtilisateurs">
+        <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Utilisateurs"/>
           </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="menuUtilisateursLogout">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Logout"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menuUtilisateursNouveau">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Nouvel utilisateurs"/>
-              </Properties>
-            </MenuItem>
-          </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="menuTrains">
+        <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Trains"/>
+          </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Incidents"/>
+          </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Configuration"/>
+          </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu5">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Aide"/>
           </Properties>
         </Menu>
       </SubComponents>
@@ -31,10 +42,10 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="name" type="java.lang.String" value="frame" noResource="true"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
-    <SyntheticProperty name="menuBar" type="java.lang.String" value="menu"/>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="TopMenuBar"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
@@ -44,87 +55,326 @@
     <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
     <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
-    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="2"/>
-    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="2"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
-    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="4"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,44,0,0,1,-55"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
   </AuxValues>
 
-  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-    <Property name="columns" type="int" value="1"/>
-    <Property name="rows" type="int" value="6"/>
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="LabelProchainTrain" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="508" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jComboBox1" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="LabelResponsableGare" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LabelTrainArrivesRepartis" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="FieldProchainTrain" alignment="0" min="-2" pref="480" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="ButtonTrainSuivant" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Component id="jPanel1" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="LabelOccupationVoies" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="ButtonControleIn" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="LabelReponse1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="41" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="LabelControleIn" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="FieldControleIn" min="-2" pref="150" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="LabelReponse2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="LabelDepot" min="-2" max="-2" attributes="0"/>
+                                  <Component id="FieldDepot" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="ButtonDepot" min="-2" pref="240" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="93" pref="93" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="LabelReponse3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="LabelControleOut" min="-2" max="-2" attributes="0"/>
+                                  <Component id="FieldControleOut" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="ButtonControleOut" min="-2" pref="240" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="LabelResponsableGare" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="LabelTrainArrivesRepartis" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="LabelProchainTrain" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="FieldProchainTrain" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ButtonTrainSuivant" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="ButtonControleIn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ButtonDepot" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ButtonControleOut" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="LabelDepot" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="LabelControleIn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="FieldControleIn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="LabelReponse2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="FieldDepot" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="LabelReponse1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="LabelControleOut" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="LabelReponse3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="FieldControleOut" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <Component id="LabelOccupationVoies" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="202" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="topPanel">
+    <Component class="javax.swing.JLabel" name="LabelResponsableGare">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Responsable gare :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LabelTrainArrivesRepartis">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Trains arriv&#xe9;s et repartis : "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jComboBox1">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LabelProchainTrain">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Prochain train :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="FieldProchainTrain">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="FieldProchainTrain"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="ButtonTrainSuivant">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Train suivant"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="ButtonControleIn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pr&#xe9;venir poste contr&#xf4;le in"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="ButtonDepot">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pr&#xe9;venir hangar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="ButtonControleOut">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pr&#xe9;venir poste contr&#xf4;le out"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="66" type="rgb"/>
+        </Property>
+      </Properties>
 
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="203" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="topPanelLeft">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-              <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.95" weightY="0.0"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-            <Property name="columns" type="int" value="0"/>
-            <Property name="rows" type="int" value="3"/>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="responsable">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Responsable gare"/>
-                <Property name="focusable" type="boolean" value="false"/>
-                <Property name="horizontalTextPosition" type="int" value="2"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="topPanelLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Trains arriv&#xe9;s et repartis"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Component class="javax.swing.JLabel" name="trainPicture">
+        <Component class="javax.swing.JTable" name="TableTrain">
           <Properties>
-            <Property name="alignmentY" type="float" value="0.0"/>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="6" rowCount="17">
+                <Column editable="true" title="Voie" type="java.lang.Integer"/>
+                <Column editable="true" title="Train n&#xb0;" type="java.lang.Object"/>
+                <Column editable="true" title="Arriv&#xe9;e" type="java.lang.Object"/>
+                <Column editable="true" title="D&#xe9;part pr&#xe9;vu" type="java.lang.Object"/>
+                <Column editable="true" title="Train pr&#xe9;sent" type="java.lang.Boolean"/>
+                <Column editable="true" title="Minutes de retard" type="java.lang.Object"/>
+              </Table>
+            </Property>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
+            </Property>
+            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+              <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
+            </Property>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-              <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.05" weightY="0.0"/>
-            </Constraint>
-          </Constraints>
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="nextTrainPanel">
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-        <Property name="columns" type="int" value="0"/>
-        <Property name="rows" type="int" value="1"/>
-      </Layout>
-    </Container>
-    <Container class="javax.swing.JPanel" name="notifyButtonsPanel">
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-        <Property name="columns" type="int" value="0"/>
-        <Property name="rows" type="int" value="1"/>
-      </Layout>
-    </Container>
-    <Container class="javax.swing.JPanel" name="answerPanel">
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-        <Property name="columns" type="int" value="0"/>
-        <Property name="rows" type="int" value="1"/>
-      </Layout>
-    </Container>
-    <Container class="javax.swing.JPanel" name="railwayOccupationTablePanel">
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-        <Property name="columns" type="int" value="0"/>
-        <Property name="rows" type="int" value="1"/>
-      </Layout>
-    </Container>
+    <Component class="javax.swing.JLabel" name="LabelReponse1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="R&#xe9;ponse :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="FieldControleIn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="FieldControleIn"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LabelControleIn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Contr&#xf4;le in"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LabelReponse2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="R&#xe9;ponse :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="FieldDepot">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="FieldDepot"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LabelDepot">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Depot"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LabelControleOut">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Contr&#xf4;le out"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="FieldControleOut">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="FieldControleOut"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LabelReponse3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="R&#xe9;ponse :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LabelOccupationVoies">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Occupation des voies :"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>
