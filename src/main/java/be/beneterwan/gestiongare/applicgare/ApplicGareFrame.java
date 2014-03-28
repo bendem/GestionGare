@@ -1,10 +1,13 @@
 package be.beneterwan.gestiongare.applicgare;
 
 import be.beneterwan.gestiongare.logger.CustomLogger;
+import be.beneterwan.gestiongare.trains.Locomotive;
+import be.beneterwan.gestiongare.trains.Train;
+import be.beneterwan.gestiongare.trains.TrainWithoutLocomotiveException;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -20,8 +23,8 @@ public class ApplicGareFrame extends JFrame {
 
     public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
 
-    protected final List<String> trains = new ArrayList<>();
-    protected final JComboBox<String> topPanelTrainList = new JComboBox<>();
+    protected final Set<Train> trains = new HashSet<>();
+    protected final JComboBox<Train> topPanelTrainList = new JComboBox<>();
 
     /**
      * Creates new form ApplicGareFrame
@@ -34,10 +37,11 @@ public class ApplicGareFrame extends JFrame {
 
         // Ajout des trains
         topPanelLeft.add(topPanelTrainList);
-        trains.add("IC4512 Aachen - Oostende : 8h30 8h42");
-        trains.add("IC4512 Aachen - Oostende : 8h30 8h42");
-        trains.add("IC4512 Aachen - Oostende : 8h30 8h42");
-        trains.add("IC4512 Aachen - Oostende : 8h30 8h42");
+        try {
+            trains.add(new Train(new Locomotive(50f, 120, 1990), null, Train.Type.IC, 15, "Aachen", "Oostende"));
+        } catch(TrainWithoutLocomotiveException ex) {
+            LOGGER.severe("Train sans locomotive!");
+        }
         trainListUpdate();
 
         // Setup de topPanel
@@ -54,7 +58,7 @@ public class ApplicGareFrame extends JFrame {
     public void trainListUpdate() {
         LOGGER.fine("Updating train list...");
         topPanelTrainList.removeAllItems();
-        for(String train : trains) {
+        for(Train train : trains) {
             topPanelTrainList.addItem(train);
         }
     }
@@ -79,10 +83,15 @@ public class ApplicGareFrame extends JFrame {
         notifyButtonsPanel = new javax.swing.JPanel();
         answerPanel = new javax.swing.JPanel();
         railwayOccupationTablePanel = new javax.swing.JPanel();
+        menu = new javax.swing.JMenuBar();
+        menuUtilisateurs = new javax.swing.JMenu();
+        menuUtilisateursLogout = new javax.swing.JMenuItem();
+        menuUtilisateursNouveau = new javax.swing.JMenuItem();
+        menuTrains = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("frame"); // NOI18N
-        getContentPane().setLayout(new java.awt.GridLayout(5, 1));
+        getContentPane().setLayout(new java.awt.GridLayout(6, 1));
 
         topPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -119,6 +128,21 @@ public class ApplicGareFrame extends JFrame {
 
         railwayOccupationTablePanel.setLayout(new java.awt.GridLayout(1, 0));
         getContentPane().add(railwayOccupationTablePanel);
+
+        menuUtilisateurs.setText("Utilisateurs");
+
+        menuUtilisateursLogout.setText("Logout");
+        menuUtilisateurs.add(menuUtilisateursLogout);
+
+        menuUtilisateursNouveau.setText("Nouvel utilisateurs");
+        menuUtilisateurs.add(menuUtilisateursNouveau);
+
+        menu.add(menuUtilisateurs);
+
+        menuTrains.setText("Trains");
+        menu.add(menuTrains);
+
+        setJMenuBar(menu);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -157,6 +181,11 @@ public class ApplicGareFrame extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JPanel answerPanel;
+    protected javax.swing.JMenuBar menu;
+    protected javax.swing.JMenu menuTrains;
+    protected javax.swing.JMenu menuUtilisateurs;
+    protected javax.swing.JMenuItem menuUtilisateursLogout;
+    protected javax.swing.JMenuItem menuUtilisateursNouveau;
     protected javax.swing.JPanel nextTrainPanel;
     protected javax.swing.JPanel notifyButtonsPanel;
     protected javax.swing.JPanel railwayOccupationTablePanel;
