@@ -49,6 +49,9 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         labelOccupationVoies = new javax.swing.JLabel();
         topMenuBar = new javax.swing.JMenuBar();
         menuUtilisateur = new javax.swing.JMenu();
+        menuUtilisateurLogout = new javax.swing.JMenuItem();
+        menuUtilisateurNouvelUtilisateur = new javax.swing.JMenuItem();
+        menuUtilisateurListe = new javax.swing.JMenuItem();
         menuTrains = new javax.swing.JMenu();
         menuIncidents = new javax.swing.JMenu();
         menuConfiguration = new javax.swing.JMenu();
@@ -151,6 +154,16 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         topMenuBar.setBorder(null);
 
         menuUtilisateur.setText("Utilisateurs");
+
+        menuUtilisateurLogout.setText("Logout");
+        menuUtilisateur.add(menuUtilisateurLogout);
+
+        menuUtilisateurNouvelUtilisateur.setText("Nouvel utilisateur");
+        menuUtilisateur.add(menuUtilisateurNouvelUtilisateur);
+
+        menuUtilisateurListe.setText("Liste");
+        menuUtilisateur.add(menuUtilisateurListe);
+
         topMenuBar.add(menuUtilisateur);
 
         menuTrains.setText("Trains");
@@ -330,6 +343,9 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     private javax.swing.JMenu menuIncidents;
     private javax.swing.JMenu menuTrains;
     private javax.swing.JMenu menuUtilisateur;
+    private javax.swing.JMenuItem menuUtilisateurListe;
+    private javax.swing.JMenuItem menuUtilisateurLogout;
+    private javax.swing.JMenuItem menuUtilisateurNouvelUtilisateur;
     private javax.swing.JPanel picture;
     private javax.swing.JScrollPane scrollPaneTable;
     private javax.swing.JTable tableOccupationVoies;

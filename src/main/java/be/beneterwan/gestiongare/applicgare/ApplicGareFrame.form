@@ -16,6 +16,23 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Utilisateurs"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuUtilisateurLogout">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Logout"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuUtilisateurNouvelUtilisateur">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nouvel utilisateur"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuUtilisateurListe">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Liste"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuTrains">
           <Properties>
