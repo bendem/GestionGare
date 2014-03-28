@@ -107,8 +107,8 @@ if %verbose%=="yes" (
 ) else (
     jar cf %makeJar%
 )
-set makeJar=../gestiongare.jar ../../manifest.mf %mainPackage%.logins.FenLogin %mainPackageDir%/logins/
-echo Creation de gestiongare.jar...
+set makeJar=../FenLogin.jar ../../manifest.mf %mainPackage%.logins.FenLogin %mainPackageDir%/logins/
+echo Creation de FenLogin.jar...
 if %verbose%=="yes" (
     jar cvfme %makeJar%
 ) else (

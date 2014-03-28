@@ -15,7 +15,7 @@ import java.awt.event.WindowEvent;
 /**
  * @author bendem
  */
-class LoginFrame extends Frame implements ActionListener {
+public class LoginFrame extends Frame implements ActionListener {
 
     private final TextField login;
     private final TextField pwd;
@@ -51,6 +51,7 @@ class LoginFrame extends Frame implements ActionListener {
                 we.getWindow().dispose();
             }
         });
+        pack();
     }
 
     @Override

@@ -11,9 +11,13 @@ public class ApplicGare {
 
     public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
 
+    protected static ApplicGareFrame applicGareFrame;
+
     public static void main(String[] args) {
-        ApplicGareFrame.main(args);
-        //new ApplicGareFrame();
+        //ApplicGareFrame.main(args);
+        applicGareFrame = new ApplicGareFrame();
+        applicGareFrame.setVisible(true);
+        applicGareFrame.openLoginFrame();
     }
 
     public static URL getResourceFile(String filename) {
