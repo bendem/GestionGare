@@ -12,27 +12,27 @@
         </Property>
       </Properties>
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="menuUtilisateur">
           <Properties>
             <Property name="text" type="java.lang.String" value="Utilisateurs"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="menuTrains">
           <Properties>
             <Property name="text" type="java.lang.String" value="Trains"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu3">
+        <Menu class="javax.swing.JMenu" name="menuIncidents">
           <Properties>
             <Property name="text" type="java.lang.String" value="Incidents"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu4">
+        <Menu class="javax.swing.JMenu" name="menuConfiguration">
           <Properties>
             <Property name="text" type="java.lang.String" value="Configuration"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu5">
+        <Menu class="javax.swing.JMenu" name="menuAide">
           <Properties>
             <Property name="text" type="java.lang.String" value="Aide"/>
           </Properties>
@@ -70,20 +70,20 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="LabelProchainTrain" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelProchainTrain" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="508" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jComboBox1" max="32767" attributes="0"/>
+                                  <Component id="comboBoxTrain" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="LabelResponsableGare" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="LabelTrainArrivesRepartis" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="FieldProchainTrain" alignment="0" min="-2" pref="480" max="-2" attributes="0"/>
+                                          <Component id="labelResponsableGare" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelTrainArrivesRepartis" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldProchainTrain" alignment="0" min="-2" pref="480" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="ButtonTrainSuivant" min="-2" max="-2" attributes="0"/>
+                                      <Component id="buttonTrainSuivant" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -92,42 +92,42 @@
                       <Component id="jPanel1" max="32767" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="LabelOccupationVoies" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelOccupationVoies" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="ButtonControleIn" max="32767" attributes="0"/>
+                          <Component id="buttonControleIn" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="LabelReponse1" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelReponseControleIn" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="41" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="LabelControleIn" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="FieldControleIn" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="labelControleIn" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="fieldControleIn" min="-2" pref="150" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="LabelReponse2" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelReponseDepot" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="LabelDepot" min="-2" max="-2" attributes="0"/>
-                                  <Component id="FieldDepot" max="32767" attributes="0"/>
+                                  <Component id="labelDepot" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fieldDepot" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="ButtonDepot" min="-2" pref="240" max="-2" attributes="0"/>
+                          <Component id="buttonDepot" min="-2" pref="240" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="93" pref="93" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="LabelReponse3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelReponseControleOut" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="LabelControleOut" min="-2" max="-2" attributes="0"/>
-                                  <Component id="FieldControleOut" max="32767" attributes="0"/>
+                                  <Component id="labelControleOut" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fieldControleOut" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="ButtonControleOut" min="-2" pref="240" max="-2" attributes="0"/>
+                          <Component id="buttonControleOut" min="-2" pref="240" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -141,53 +141,53 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="LabelResponsableGare" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelResponsableGare" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="LabelTrainArrivesRepartis" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelTrainArrivesRepartis" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboBoxTrain" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="LabelProchainTrain" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelProchainTrain" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="FieldProchainTrain" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ButtonTrainSuivant" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fieldProchainTrain" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonTrainSuivant" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="ButtonControleIn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ButtonDepot" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ButtonControleOut" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonControleIn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonDepot" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonControleOut" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="LabelDepot" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="LabelControleIn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelDepot" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelControleIn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="FieldControleIn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="LabelReponse2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="FieldDepot" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="LabelReponse1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fieldControleIn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelReponseDepot" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fieldDepot" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelReponseControleIn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="LabelControleOut" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelControleOut" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="LabelReponse3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="FieldControleOut" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelReponseControleOut" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fieldControleOut" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-              <Component id="LabelOccupationVoies" min="-2" max="-2" attributes="0"/>
+              <Component id="labelOccupationVoies" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="202" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
@@ -196,17 +196,17 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="LabelResponsableGare">
+    <Component class="javax.swing.JLabel" name="labelResponsableGare">
       <Properties>
         <Property name="text" type="java.lang.String" value="Responsable gare :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="LabelTrainArrivesRepartis">
+    <Component class="javax.swing.JLabel" name="labelTrainArrivesRepartis">
       <Properties>
         <Property name="text" type="java.lang.String" value="Trains arriv&#xe9;s et repartis : "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="comboBoxTrain">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="2">
@@ -216,32 +216,33 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="LabelProchainTrain">
+    <Component class="javax.swing.JLabel" name="labelProchainTrain">
       <Properties>
         <Property name="text" type="java.lang.String" value="Prochain train :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="FieldProchainTrain">
+    <Component class="javax.swing.JTextField" name="fieldProchainTrain">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="text" type="java.lang.String" value="FieldProchainTrain"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="ButtonTrainSuivant">
+    <Component class="javax.swing.JButton" name="buttonTrainSuivant">
       <Properties>
         <Property name="text" type="java.lang.String" value="Train suivant"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="ButtonControleIn">
+    <Component class="javax.swing.JButton" name="buttonControleIn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Pr&#xe9;venir poste contr&#xf4;le in"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="ButtonDepot">
+    <Component class="javax.swing.JButton" name="buttonDepot">
       <Properties>
         <Property name="text" type="java.lang.String" value="Pr&#xe9;venir hangar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="ButtonControleOut">
+    <Component class="javax.swing.JButton" name="buttonControleOut">
       <Properties>
         <Property name="text" type="java.lang.String" value="Pr&#xe9;venir poste contr&#xf4;le out"/>
       </Properties>
@@ -273,7 +274,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="TableTrain">
+        <Component class="javax.swing.JTable" name="tableOccupationVoies">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="6" rowCount="17">
@@ -326,52 +327,55 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="LabelReponse1">
+    <Component class="javax.swing.JLabel" name="labelReponseControleIn">
       <Properties>
         <Property name="text" type="java.lang.String" value="R&#xe9;ponse :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="FieldControleIn">
+    <Component class="javax.swing.JTextField" name="fieldControleIn">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="text" type="java.lang.String" value="FieldControleIn"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="LabelControleIn">
+    <Component class="javax.swing.JLabel" name="labelControleIn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Contr&#xf4;le in"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="LabelReponse2">
+    <Component class="javax.swing.JLabel" name="labelReponseDepot">
       <Properties>
         <Property name="text" type="java.lang.String" value="R&#xe9;ponse :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="FieldDepot">
+    <Component class="javax.swing.JTextField" name="fieldDepot">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="text" type="java.lang.String" value="FieldDepot"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="LabelDepot">
+    <Component class="javax.swing.JLabel" name="labelDepot">
       <Properties>
         <Property name="text" type="java.lang.String" value="Depot"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="LabelControleOut">
+    <Component class="javax.swing.JLabel" name="labelControleOut">
       <Properties>
         <Property name="text" type="java.lang.String" value="Contr&#xf4;le out"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="FieldControleOut">
+    <Component class="javax.swing.JTextField" name="fieldControleOut">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="text" type="java.lang.String" value="FieldControleOut"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="LabelReponse3">
+    <Component class="javax.swing.JLabel" name="labelReponseControleOut">
       <Properties>
         <Property name="text" type="java.lang.String" value="R&#xe9;ponse :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="LabelOccupationVoies">
+    <Component class="javax.swing.JLabel" name="labelOccupationVoies">
       <Properties>
         <Property name="text" type="java.lang.String" value="Occupation des voies :"/>
       </Properties>

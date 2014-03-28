@@ -25,55 +25,56 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        LabelResponsableGare = new javax.swing.JLabel();
-        LabelTrainArrivesRepartis = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
-        LabelProchainTrain = new javax.swing.JLabel();
-        FieldProchainTrain = new javax.swing.JTextField();
-        ButtonTrainSuivant = new javax.swing.JButton();
-        ButtonControleIn = new javax.swing.JButton();
-        ButtonDepot = new javax.swing.JButton();
-        ButtonControleOut = new javax.swing.JButton();
+        labelResponsableGare = new javax.swing.JLabel();
+        labelTrainArrivesRepartis = new javax.swing.JLabel();
+        comboBoxTrain = new javax.swing.JComboBox();
+        labelProchainTrain = new javax.swing.JLabel();
+        fieldProchainTrain = new javax.swing.JTextField();
+        buttonTrainSuivant = new javax.swing.JButton();
+        buttonControleIn = new javax.swing.JButton();
+        buttonDepot = new javax.swing.JButton();
+        buttonControleOut = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TableTrain = new javax.swing.JTable();
-        LabelReponse1 = new javax.swing.JLabel();
-        FieldControleIn = new javax.swing.JTextField();
-        LabelControleIn = new javax.swing.JLabel();
-        LabelReponse2 = new javax.swing.JLabel();
-        FieldDepot = new javax.swing.JTextField();
-        LabelDepot = new javax.swing.JLabel();
-        LabelControleOut = new javax.swing.JLabel();
-        FieldControleOut = new javax.swing.JTextField();
-        LabelReponse3 = new javax.swing.JLabel();
-        LabelOccupationVoies = new javax.swing.JLabel();
+        tableOccupationVoies = new javax.swing.JTable();
+        labelReponseControleIn = new javax.swing.JLabel();
+        fieldControleIn = new javax.swing.JTextField();
+        labelControleIn = new javax.swing.JLabel();
+        labelReponseDepot = new javax.swing.JLabel();
+        fieldDepot = new javax.swing.JTextField();
+        labelDepot = new javax.swing.JLabel();
+        labelControleOut = new javax.swing.JLabel();
+        fieldControleOut = new javax.swing.JTextField();
+        labelReponseControleOut = new javax.swing.JLabel();
+        labelOccupationVoies = new javax.swing.JLabel();
         TopMenuBar = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        menuUtilisateur = new javax.swing.JMenu();
+        menuTrains = new javax.swing.JMenu();
+        menuIncidents = new javax.swing.JMenu();
+        menuConfiguration = new javax.swing.JMenu();
+        menuAide = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        LabelResponsableGare.setText("Responsable gare :");
+        labelResponsableGare.setText("Responsable gare :");
 
-        LabelTrainArrivesRepartis.setText("Trains arrivés et repartis : ");
+        labelTrainArrivesRepartis.setText("Trains arrivés et repartis : ");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2" }));
+        comboBoxTrain.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2" }));
 
-        LabelProchainTrain.setText("Prochain train :");
+        labelProchainTrain.setText("Prochain train :");
 
-        FieldProchainTrain.setText("FieldProchainTrain");
+        fieldProchainTrain.setEditable(false);
+        fieldProchainTrain.setText("FieldProchainTrain");
 
-        ButtonTrainSuivant.setText("Train suivant");
+        buttonTrainSuivant.setText("Train suivant");
 
-        ButtonControleIn.setText("Prévenir poste contrôle in");
+        buttonControleIn.setText("Prévenir poste contrôle in");
 
-        ButtonDepot.setText("Prévenir hangar");
+        buttonDepot.setText("Prévenir hangar");
 
-        ButtonControleOut.setText("Prévenir poste contrôle out");
+        buttonControleOut.setText("Prévenir poste contrôle out");
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -88,7 +89,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
             .addGap(0, 203, Short.MAX_VALUE)
         );
 
-        TableTrain.setModel(new javax.swing.table.DefaultTableModel(
+        tableOccupationVoies.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -120,46 +121,49 @@ public class ApplicGareFrame extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        TableTrain.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(TableTrain);
+        tableOccupationVoies.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tableOccupationVoies);
 
-        LabelReponse1.setText("Réponse :");
+        labelReponseControleIn.setText("Réponse :");
 
-        FieldControleIn.setText("FieldControleIn");
+        fieldControleIn.setEditable(false);
+        fieldControleIn.setText("FieldControleIn");
 
-        LabelControleIn.setText("Contrôle in");
+        labelControleIn.setText("Contrôle in");
 
-        LabelReponse2.setText("Réponse :");
+        labelReponseDepot.setText("Réponse :");
 
-        FieldDepot.setText("FieldDepot");
+        fieldDepot.setEditable(false);
+        fieldDepot.setText("FieldDepot");
 
-        LabelDepot.setText("Depot");
+        labelDepot.setText("Depot");
 
-        LabelControleOut.setText("Contrôle out");
+        labelControleOut.setText("Contrôle out");
 
-        FieldControleOut.setText("FieldControleOut");
+        fieldControleOut.setEditable(false);
+        fieldControleOut.setText("FieldControleOut");
 
-        LabelReponse3.setText("Réponse :");
+        labelReponseControleOut.setText("Réponse :");
 
-        LabelOccupationVoies.setText("Occupation des voies :");
+        labelOccupationVoies.setText("Occupation des voies :");
 
         TopMenuBar.setBackground(new java.awt.Color(153, 153, 153));
         TopMenuBar.setBorder(null);
 
-        jMenu1.setText("Utilisateurs");
-        TopMenuBar.add(jMenu1);
+        menuUtilisateur.setText("Utilisateurs");
+        TopMenuBar.add(menuUtilisateur);
 
-        jMenu2.setText("Trains");
-        TopMenuBar.add(jMenu2);
+        menuTrains.setText("Trains");
+        TopMenuBar.add(menuTrains);
 
-        jMenu3.setText("Incidents");
-        TopMenuBar.add(jMenu3);
+        menuIncidents.setText("Incidents");
+        TopMenuBar.add(menuIncidents);
 
-        jMenu4.setText("Configuration");
-        TopMenuBar.add(jMenu4);
+        menuConfiguration.setText("Configuration");
+        TopMenuBar.add(menuConfiguration);
 
-        jMenu5.setText("Aide");
-        TopMenuBar.add(jMenu5);
+        menuAide.setText("Aide");
+        TopMenuBar.add(menuAide);
 
         setJMenuBar(TopMenuBar);
 
@@ -173,49 +177,49 @@ public class ApplicGareFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(LabelProchainTrain)
+                                .addComponent(labelProchainTrain)
                                 .addGap(508, 508, 508))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(comboBoxTrain, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(LabelResponsableGare, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(LabelTrainArrivesRepartis, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(FieldProchainTrain, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(labelResponsableGare, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(labelTrainArrivesRepartis, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(fieldProchainTrain, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(ButtonTrainSuivant)))
+                                        .addComponent(buttonTrainSuivant)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jScrollPane1)
-                    .addComponent(LabelOccupationVoies)
+                    .addComponent(labelOccupationVoies)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ButtonControleIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonControleIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(LabelReponse1)
+                                .addComponent(labelReponseControleIn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LabelControleIn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(FieldControleIn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(labelControleIn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fieldControleIn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(87, 87, 87)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(LabelReponse2)
+                                .addComponent(labelReponseDepot)
                                 .addGap(41, 41, 41)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LabelDepot)
-                                    .addComponent(FieldDepot)))
-                            .addComponent(ButtonDepot, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(labelDepot)
+                                    .addComponent(fieldDepot)))
+                            .addComponent(buttonDepot, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(93, 93, 93)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(LabelReponse3)
+                                .addComponent(labelReponseControleOut)
                                 .addGap(41, 41, 41)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LabelControleOut)
-                                    .addComponent(FieldControleOut)))
-                            .addComponent(ButtonControleOut, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(labelControleOut)
+                                    .addComponent(fieldControleOut)))
+                            .addComponent(buttonControleOut, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -224,43 +228,43 @@ public class ApplicGareFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(LabelResponsableGare)
+                        .addComponent(labelResponsableGare)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(LabelTrainArrivesRepartis)
+                        .addComponent(labelTrainArrivesRepartis)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboBoxTrain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LabelProchainTrain)
+                        .addComponent(labelProchainTrain)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(FieldProchainTrain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ButtonTrainSuivant)))
+                            .addComponent(fieldProchainTrain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonTrainSuivant)))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonControleIn)
-                    .addComponent(ButtonDepot)
-                    .addComponent(ButtonControleOut))
+                    .addComponent(buttonControleIn)
+                    .addComponent(buttonDepot)
+                    .addComponent(buttonControleOut))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LabelDepot)
-                            .addComponent(LabelControleIn))
+                            .addComponent(labelDepot)
+                            .addComponent(labelControleIn))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(FieldControleIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LabelReponse2)
-                            .addComponent(FieldDepot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LabelReponse1)))
+                            .addComponent(fieldControleIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelReponseDepot)
+                            .addComponent(fieldDepot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelReponseControleIn)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(LabelControleOut)
+                        .addComponent(labelControleOut)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LabelReponse3)
-                            .addComponent(FieldControleOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(labelReponseControleOut)
+                            .addComponent(fieldControleOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(42, 42, 42)
-                .addComponent(LabelOccupationVoies)
+                .addComponent(labelOccupationVoies)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -302,33 +306,33 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ButtonControleIn;
-    private javax.swing.JButton ButtonControleOut;
-    private javax.swing.JButton ButtonDepot;
-    private javax.swing.JButton ButtonTrainSuivant;
-    private javax.swing.JTextField FieldControleIn;
-    private javax.swing.JTextField FieldControleOut;
-    private javax.swing.JTextField FieldDepot;
-    private javax.swing.JTextField FieldProchainTrain;
-    private javax.swing.JLabel LabelControleIn;
-    private javax.swing.JLabel LabelControleOut;
-    private javax.swing.JLabel LabelDepot;
-    private javax.swing.JLabel LabelOccupationVoies;
-    private javax.swing.JLabel LabelProchainTrain;
-    private javax.swing.JLabel LabelReponse1;
-    private javax.swing.JLabel LabelReponse2;
-    private javax.swing.JLabel LabelReponse3;
-    private javax.swing.JLabel LabelResponsableGare;
-    private javax.swing.JLabel LabelTrainArrivesRepartis;
-    private javax.swing.JTable TableTrain;
     private javax.swing.JMenuBar TopMenuBar;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
+    private javax.swing.JButton buttonControleIn;
+    private javax.swing.JButton buttonControleOut;
+    private javax.swing.JButton buttonDepot;
+    private javax.swing.JButton buttonTrainSuivant;
+    private javax.swing.JComboBox comboBoxTrain;
+    private javax.swing.JTextField fieldControleIn;
+    private javax.swing.JTextField fieldControleOut;
+    private javax.swing.JTextField fieldDepot;
+    private javax.swing.JTextField fieldProchainTrain;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelControleIn;
+    private javax.swing.JLabel labelControleOut;
+    private javax.swing.JLabel labelDepot;
+    private javax.swing.JLabel labelOccupationVoies;
+    private javax.swing.JLabel labelProchainTrain;
+    private javax.swing.JLabel labelReponseControleIn;
+    private javax.swing.JLabel labelReponseControleOut;
+    private javax.swing.JLabel labelReponseDepot;
+    private javax.swing.JLabel labelResponsableGare;
+    private javax.swing.JLabel labelTrainArrivesRepartis;
+    private javax.swing.JMenu menuAide;
+    private javax.swing.JMenu menuConfiguration;
+    private javax.swing.JMenu menuIncidents;
+    private javax.swing.JMenu menuTrains;
+    private javax.swing.JMenu menuUtilisateur;
+    private javax.swing.JTable tableOccupationVoies;
     // End of variables declaration//GEN-END:variables
 }
