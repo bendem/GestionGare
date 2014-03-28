@@ -3,7 +3,7 @@ package be.beneterwan.gestiongare.logins;
 import java.awt.Frame;
 
 /**
- * @author bendem
+ * @author bendem et Curlybear
  */
 public class FenLogin {
 

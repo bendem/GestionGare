@@ -3,7 +3,7 @@ package be.beneterwan.gestiongare.logins;
 import be.beneterwan.gestiongare.authenticate.User;
 
 /**
- * @author bendem
+ * @author bendem et Curlybear
  */
 public class LoginEvent {
 

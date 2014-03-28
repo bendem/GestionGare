@@ -6,7 +6,7 @@ import be.beneterwan.gestiongare.logins.LoginListener;
 import java.util.logging.Logger;
 
 /**
- * @author bendem
+ * @author bendem et Curlybear
  */
 public class ApplicGareFrameEventHandler implements LoginListener {
 

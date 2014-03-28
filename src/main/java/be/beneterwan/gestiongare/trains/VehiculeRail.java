@@ -1,7 +1,7 @@
 package be.beneterwan.gestiongare.trains;
 
 /**
- * @author bendem
+ * @author bendem et Curlybear
  */
 abstract public class VehiculeRail {
 

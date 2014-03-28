@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.logging.Logger;
 
 /**
- * @author bendem
+ * @author bendem et Curlybear
  */
 public class Train {
 

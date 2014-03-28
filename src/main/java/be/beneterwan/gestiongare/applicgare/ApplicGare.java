@@ -5,7 +5,7 @@ import java.net.URL;
 import java.util.logging.Logger;
 
 /**
- * @author bendem
+ * @author bendem et Curlybear
  */
 public class ApplicGare {
 

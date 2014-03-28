@@ -4,7 +4,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * @author bendem
+ * @author bendem et Curlybear
  */
 public class CustomLogger extends Logger {
 

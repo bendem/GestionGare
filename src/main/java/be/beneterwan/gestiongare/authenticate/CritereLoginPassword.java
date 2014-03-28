@@ -1,7 +1,7 @@
 package be.beneterwan.gestiongare.authenticate;
 
 /**
- * @author bendem
+ * @author bendem et Curlybear
  */
 abstract public class CritereLoginPassword implements Critere {
 
