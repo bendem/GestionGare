@@ -17,6 +17,7 @@ public class ApplicGare {
         //ApplicGareFrame.main(args);
         applicGareFrame = new ApplicGareFrame();
         applicGareFrame.setVisible(true);
+        applicGareFrame.setLoggedIn(null);
         applicGareFrame.openLoginFrame();
     }
 

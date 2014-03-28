@@ -38,7 +38,12 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
     public void setLoggedIn(User user) {
         this.currentUser = user;
-        loggedIn = user == null;
+        loggedIn = user != null;
+        if(loggedIn) {
+            labelResponsableGare.setText("Responsable gare : " + user.getLogin());
+        } else {
+            labelResponsableGare.setText("Vous n'êtes pas connecté!");
+        }
     }
 
     public User getCurrentUser() {
