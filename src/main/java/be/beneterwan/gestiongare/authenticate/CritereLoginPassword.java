@@ -19,4 +19,6 @@ abstract public class CritereLoginPassword implements Critere {
         return password == null ? false : user.getPassword().equals(password);
     }
 
+    abstract public User getUserByName(String login);
+
 }

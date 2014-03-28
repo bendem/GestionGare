@@ -26,9 +26,18 @@ public class CritereLoginPasswordArray extends CritereLoginPassword {
 
     @Override
     public String findPassword(String login) {
+        User user = getUserByName(login);
+        if(user == null) {
+            return null;
+        }
+        return user.getPassword();
+    }
+
+    @Override
+    public User getUserByName(String login) {
         for(User user : users) {
             if(user.getLogin().equals(login)) {
-                return user.getPassword();
+                return user;
             }
         }
         return null;
