@@ -29,6 +29,10 @@ public class User {
         return password;
     }
 
+    public boolean isAdmin() {
+        return admin;
+    }
+
     public void setLogin(String login) {
         this.login = login;
     }

@@ -64,7 +64,6 @@ public class Train {
         return this.numero == other.numero;
     }
 
-
     public enum Type {
         IC, L, IR, Thalis, ICE
     }
