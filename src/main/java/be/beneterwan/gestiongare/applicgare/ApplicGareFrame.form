@@ -106,7 +106,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="picture" max="32767" attributes="0"/>
+                      <Component id="picturePanel" max="32767" attributes="0"/>
                   </Group>
                   <Component id="scrollPaneTable" alignment="0" max="32767" attributes="0"/>
                   <Component id="labelOccupationVoies" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -171,7 +171,7 @@
                           <Component id="buttonTrainSuivant" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="picture" min="-2" max="-2" attributes="0"/>
+                  <Component id="picturePanel" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -264,7 +264,7 @@
         <Property name="text" type="java.lang.String" value="Pr&#xe9;venir poste contr&#xf4;le out"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JPanel" name="picture">
+    <Container class="javax.swing.JPanel" name="picturePanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="66" type="rgb"/>
@@ -274,15 +274,19 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="picture" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="203" max="32767" attributes="0"/>
+              <Component id="picture" alignment="0" pref="203" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="picture">
+        </Component>
+      </SubComponents>
     </Container>
     <Container class="javax.swing.JScrollPane" name="scrollPaneTable">
       <AuxValues>

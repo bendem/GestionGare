@@ -5,6 +5,7 @@ import be.beneterwan.gestiongare.logger.CustomLogger;
 import be.beneterwan.gestiongare.logins.LoginFrame;
 import java.awt.Frame;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 public class ApplicGareFrame extends javax.swing.JFrame {
 
@@ -20,6 +21,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         LOGGER.info("Building window...");
         initComponents();
         setLocationRelativeTo(null);
+        picture.setIcon(new ImageIcon(ApplicGare.getResourceFile("train.jpg")));
         pack();
         LOGGER.info("Window built");
     }
@@ -73,7 +75,8 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         buttonControleIn = new javax.swing.JButton();
         buttonDepot = new javax.swing.JButton();
         buttonControleOut = new javax.swing.JButton();
-        picture = new javax.swing.JPanel();
+        picturePanel = new javax.swing.JPanel();
+        picture = new javax.swing.JLabel();
         scrollPaneTable = new javax.swing.JScrollPane();
         tableOccupationVoies = new javax.swing.JTable();
         labelReponseControleIn = new javax.swing.JLabel();
@@ -118,17 +121,17 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
         buttonControleOut.setText("Prévenir poste contrôle out");
 
-        picture.setBackground(new java.awt.Color(102, 102, 102));
+        picturePanel.setBackground(new java.awt.Color(102, 102, 102));
 
-        javax.swing.GroupLayout pictureLayout = new javax.swing.GroupLayout(picture);
-        picture.setLayout(pictureLayout);
-        pictureLayout.setHorizontalGroup(
-            pictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        javax.swing.GroupLayout picturePanelLayout = new javax.swing.GroupLayout(picturePanel);
+        picturePanel.setLayout(picturePanelLayout);
+        picturePanelLayout.setHorizontalGroup(
+            picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(picture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        pictureLayout.setVerticalGroup(
-            pictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 203, Short.MAX_VALUE)
+        picturePanelLayout.setVerticalGroup(
+            picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(picture, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
         );
 
         tableOccupationVoies.setModel(new javax.swing.table.DefaultTableModel(
@@ -242,7 +245,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(buttonTrainSuivant)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addComponent(picture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(picturePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(scrollPaneTable)
                     .addComponent(labelOccupationVoies)
                     .addGroup(layout.createSequentialGroup()
@@ -291,7 +294,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(fieldProchainTrain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(buttonTrainSuivant)))
-                    .addComponent(picture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(picturePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonControleIn)
@@ -385,7 +388,8 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuUtilisateurListe;
     private javax.swing.JMenuItem menuUtilisateurLogout;
     private javax.swing.JMenuItem menuUtilisateurNouvelUtilisateur;
-    private javax.swing.JPanel picture;
+    private javax.swing.JLabel picture;
+    private javax.swing.JPanel picturePanel;
     private javax.swing.JScrollPane scrollPaneTable;
     private javax.swing.JTable tableOccupationVoies;
     private javax.swing.JMenuBar topMenuBar;
