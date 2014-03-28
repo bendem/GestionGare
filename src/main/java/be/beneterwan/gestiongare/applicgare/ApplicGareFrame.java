@@ -1,5 +1,6 @@
 package be.beneterwan.gestiongare.applicgare;
 
+import be.beneterwan.gestiongare.authenticate.User;
 import be.beneterwan.gestiongare.logger.CustomLogger;
 import be.beneterwan.gestiongare.logins.LoginFrame;
 import java.awt.Frame;
@@ -12,6 +13,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     private final ApplicGareFrameEventHandler eventHandler = new ApplicGareFrameEventHandler(this);
     private LoginFrame fenLogin;
     private boolean loggedIn = false;
+    private User currentUser = null;
 
     public ApplicGareFrame() {
         super("== ApplicGare ==");
@@ -34,8 +36,13 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         return fenLogin;
     }
 
-    public void setLoggedIn(boolean b) {
-        loggedIn = b;
+    public void setLoggedIn(User user) {
+        this.currentUser = user;
+        loggedIn = user == null;
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
     }
 
     public boolean isLoggedIn() {

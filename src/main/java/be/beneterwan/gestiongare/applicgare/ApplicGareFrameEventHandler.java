@@ -21,7 +21,7 @@ public class ApplicGareFrameEventHandler implements LoginListener {
     @Override
     public void onLogin(LoginEvent event) {
         LOGGER.info(event.getUser().getLogin() + " just logged in...");
-        frame.setLoggedIn(true);
+        frame.setLoggedIn(event.getUser());
         frame.getFenLogin().dispose();
     }
 
