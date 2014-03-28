@@ -4,6 +4,8 @@ import be.beneterwan.gestiongare.authenticate.User;
 import be.beneterwan.gestiongare.logger.CustomLogger;
 import be.beneterwan.gestiongare.logins.LoginFrame;
 import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
@@ -22,6 +24,16 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         picture.setIcon(new ImageIcon(ApplicGare.getResourceFile("img/train.jpg")));
+        menuUtilisateurLog.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(isLoggedIn()) {
+                    setLoggedIn(null);
+                } else {
+                    openLoginFrame();
+                }
+            }
+        });
         pack();
         LOGGER.info("Window built");
     }
@@ -43,8 +55,10 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         loggedIn = user != null;
         if(loggedIn) {
             labelResponsableGare.setText("Responsable gare : " + user.getLogin());
+            menuUtilisateurLog.setText("Logout");
         } else {
             labelResponsableGare.setText("Vous n'êtes pas connecté!");
+            menuUtilisateurLog.setText("Login");
         }
     }
 
@@ -91,7 +105,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         labelOccupationVoies = new javax.swing.JLabel();
         topMenuBar = new javax.swing.JMenuBar();
         menuUtilisateur = new javax.swing.JMenu();
-        menuUtilisateurLogout = new javax.swing.JMenuItem();
+        menuUtilisateurLog = new javax.swing.JMenuItem();
         menuUtilisateurNouvelUtilisateur = new javax.swing.JMenuItem();
         menuUtilisateurListe = new javax.swing.JMenuItem();
         menuTrains = new javax.swing.JMenu();
@@ -197,8 +211,8 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
         menuUtilisateur.setText("Utilisateurs");
 
-        menuUtilisateurLogout.setText("Logout");
-        menuUtilisateur.add(menuUtilisateurLogout);
+        menuUtilisateurLog.setText("Logout");
+        menuUtilisateur.add(menuUtilisateurLog);
 
         menuUtilisateurNouvelUtilisateur.setText("Nouvel utilisateur");
         menuUtilisateur.add(menuUtilisateurNouvelUtilisateur);
@@ -386,7 +400,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     private javax.swing.JMenu menuTrains;
     private javax.swing.JMenu menuUtilisateur;
     private javax.swing.JMenuItem menuUtilisateurListe;
-    private javax.swing.JMenuItem menuUtilisateurLogout;
+    private javax.swing.JMenuItem menuUtilisateurLog;
     private javax.swing.JMenuItem menuUtilisateurNouvelUtilisateur;
     private javax.swing.JLabel picture;
     private javax.swing.JPanel picturePanel;
