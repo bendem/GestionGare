@@ -13,7 +13,30 @@ public class CustomFormatter extends Formatter {
     @Override
     public String format(LogRecord lr) {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss, SSS");
-        return "[" + lr.getLoggerName() + " " + sdf.format(new Date()) +  "] [" + lr.getLevel().getName() + "] " + lr.getMessage();
+        String header = "[" + lr.getLoggerName() + " " + sdf.format(new Date()) + "] [" + lr.getLevel().getName() + "] ";
+        StringBuilder message = new StringBuilder(header);
+        message.append(lr.getMessage());
+
+        Throwable error = lr.getThrown();
+        if(error != null) {
+            message
+                .append('\n')
+                .append(header)
+                .append("Error : ")
+                .append(error.getMessage());
+
+            Throwable cause = error.getCause();
+            if(cause != null) {
+                message
+                    .append('\n')
+                    .append(header)
+                    .append("Caused by : ")
+                    .append(cause.getMessage());
+            }
+
+
+        }
+        return message.toString();
     }
 
 }
