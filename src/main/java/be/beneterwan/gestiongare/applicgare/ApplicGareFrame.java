@@ -360,8 +360,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
                 }
             }
         } catch(ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ApplicGareFrame.class.getName())
-                    .log(java.util.logging.Level.SEVERE, null, ex);
+            LOGGER.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
