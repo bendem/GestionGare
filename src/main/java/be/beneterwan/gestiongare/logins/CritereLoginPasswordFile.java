@@ -18,7 +18,7 @@ import serialize.ObjectSaver;
 public class CritereLoginPasswordFile extends CritereLoginPassword {
 
     private static final Logger LOGGER = new CustomLogger(CritereLoginPasswordFile.class.getSimpleName());
-    private static final Set<User> users = new HashSet<>();;
+    private static final Set<User> users = new HashSet<>();
     public static final  String FILE_NAME = "users.dat";
 
     static {
