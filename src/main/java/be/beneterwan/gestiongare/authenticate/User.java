@@ -1,11 +1,12 @@
 package be.beneterwan.gestiongare.authenticate;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * @author bendem et Curlybear
  */
-public class User {
+public class User implements Serializable {
 
     private String login;
     private String password;

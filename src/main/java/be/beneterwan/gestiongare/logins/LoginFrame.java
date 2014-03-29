@@ -65,7 +65,7 @@ public class LoginFrame extends Frame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getActionCommand().equals("OK")) {
-            CritereLoginPassword critereLoginPassword = new CritereLoginPasswordArray(new User(login.getText(), pwd.getText()));
+            CritereLoginPassword critereLoginPassword = new CritereLoginPasswordFile(new User(login.getText(), pwd.getText()));
             if(critereLoginPassword.isOk()) {
                 LOGGER.info("Oui");
                 LoginEvent event = new LoginEvent(critereLoginPassword.getUserByName(login.getText()));
