@@ -1,6 +1,7 @@
 target/*
 nbproject/*
 lib/*
+!lib/BasicStoreAndLoadLib.jar
 setpath.bat
 build.xml
 manifest.mf
