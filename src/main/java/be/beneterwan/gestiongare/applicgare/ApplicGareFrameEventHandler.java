@@ -1,5 +1,6 @@
 package be.beneterwan.gestiongare.applicgare;
 
+import be.beneterwan.gestiongare.authenticate.User;
 import be.beneterwan.gestiongare.logger.CustomLogger;
 import be.beneterwan.gestiongare.logins.LoginEvent;
 import be.beneterwan.gestiongare.logins.LoginListener;
@@ -20,8 +21,9 @@ public class ApplicGareFrameEventHandler implements LoginListener {
 
     @Override
     public void onLogin(LoginEvent event) {
-        LOGGER.info(event.getUser().getLogin() + " just logged in...");
-        frame.setLoggedIn(event.getUser());
+        User user = event.getUser();
+        LOGGER.info(user.getLogin() + " just logged in as " + (user.isAdmin() ? "admin" : "user") + "...");
+        frame.setLoggedIn(user);
         frame.getFenLogin().dispose();
     }
 

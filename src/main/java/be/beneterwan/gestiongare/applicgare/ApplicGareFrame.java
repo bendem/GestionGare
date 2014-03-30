@@ -76,22 +76,24 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         changeInterfaceLockState(true);
     }
 
-    private void changeInterfaceLockState(boolean lockState) {
-        menuTrains.setEnabled(lockState);
-        menuIncidents.setEnabled(lockState);
-        menuConfiguration.setEnabled(lockState);
-        menuUtilisateurListe.setEnabled(lockState);
-        menuUtilisateurNouvelUtilisateur.setEnabled(lockState);
-        comboBoxTrain.setEnabled(lockState);
-        fieldProchainTrain.setEnabled(lockState);
-        buttonTrainSuivant.setEnabled(lockState);
-        buttonControleIn.setEnabled(lockState);
-        buttonControleOut.setEnabled(lockState);
-        buttonDepot.setEnabled(lockState);
-        fieldControleIn.setEnabled(lockState);
-        fieldControleOut.setEnabled(lockState);
-        fieldProchainTrain.setEnabled(lockState);
-        tableOccupationVoies.setEnabled(lockState);
+    private void changeInterfaceLockState(boolean enableState) {
+        menuTrains.setEnabled(enableState);
+        menuIncidents.setEnabled(enableState);
+        menuConfiguration.setEnabled(enableState);
+        if(!enableState || (enableState && currentUser.isAdmin())) {
+            menuUtilisateurListe.setEnabled(enableState);
+            menuUtilisateurNouvelUtilisateur.setEnabled(enableState);
+        }
+        comboBoxTrain.setEnabled(enableState);
+        fieldProchainTrain.setEnabled(enableState);
+        buttonTrainSuivant.setEnabled(enableState);
+        buttonControleIn.setEnabled(enableState);
+        buttonControleOut.setEnabled(enableState);
+        buttonDepot.setEnabled(enableState);
+        fieldControleIn.setEnabled(enableState);
+        fieldControleOut.setEnabled(enableState);
+        fieldProchainTrain.setEnabled(enableState);
+        tableOccupationVoies.setEnabled(enableState);
     }
 
     public User getCurrentUser() {
