@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
 
 public class ApplicGareFrame extends javax.swing.JFrame {
 
@@ -54,12 +55,43 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         this.currentUser = user;
         loggedIn = user != null;
         if(loggedIn) {
-            labelResponsableGare.setText("Responsable gare : " + user.getLogin());
-            menuUtilisateurLog.setText("Logout");
+            unlockInterface(user.getLogin());
         } else {
-            labelResponsableGare.setText("Vous n'êtes pas connecté!");
-            menuUtilisateurLog.setText("Login");
+            lockInterface();
         }
+    }
+
+    private void lockInterface() {
+        labelResponsableGare.setText("Vous n'êtes pas connecté!");
+        menuUtilisateurLog.setText("Login");
+        ((DefaultTableModel) tableOccupationVoies.getModel()).setRowCount(0);
+        comboBoxTrain.removeAllItems();
+        changeInterfaceLockState(false);
+    }
+
+    private void unlockInterface(String login) {
+        labelResponsableGare.setText("Responsable gare : " + login);
+        menuUtilisateurLog.setText("Logout");
+        // TODO Add stuff to tableOccupationVoies and comboBoxTrain
+        changeInterfaceLockState(true);
+    }
+
+    private void changeInterfaceLockState(boolean lockState) {
+        menuTrains.setEnabled(lockState);
+        menuIncidents.setEnabled(lockState);
+        menuConfiguration.setEnabled(lockState);
+        menuUtilisateurListe.setEnabled(lockState);
+        menuUtilisateurNouvelUtilisateur.setEnabled(lockState);
+        comboBoxTrain.setEnabled(lockState);
+        fieldProchainTrain.setEnabled(lockState);
+        buttonTrainSuivant.setEnabled(lockState);
+        buttonControleIn.setEnabled(lockState);
+        buttonControleOut.setEnabled(lockState);
+        buttonDepot.setEnabled(lockState);
+        fieldControleIn.setEnabled(lockState);
+        fieldControleOut.setEnabled(lockState);
+        fieldProchainTrain.setEnabled(lockState);
+        tableOccupationVoies.setEnabled(lockState);
     }
 
     public User getCurrentUser() {
