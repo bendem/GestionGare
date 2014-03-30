@@ -26,7 +26,9 @@ public class CritereLoginPasswordFile extends CritereLoginPassword {
         if(userFile.exists()) {
             ObjectLoader loader = new ObjectLoader(FILE_NAME);
             try {
-                users.addAll((Set<User>) loader.load());
+                @SuppressWarnings("unchecked")
+                Set<User> usersFromFile = (Set<User>) loader.load();
+                users.addAll(usersFromFile);
             } catch(IOException | ClassNotFoundException ex) {
                 LOGGER.log(Level.SEVERE, "Impossible de charger le fichier!", ex);
             }
