@@ -53,6 +53,18 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Aide"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuAideDate">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Date format"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuAideAbout">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="A propos"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>

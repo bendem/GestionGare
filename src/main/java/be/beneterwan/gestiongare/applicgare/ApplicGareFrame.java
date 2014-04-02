@@ -146,6 +146,8 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         menuIncidents = new javax.swing.JMenu();
         menuConfiguration = new javax.swing.JMenu();
         menuAide = new javax.swing.JMenu();
+        menuAideDate = new javax.swing.JMenuItem();
+        menuAideAbout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -266,6 +268,13 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         topMenuBar.add(menuConfiguration);
 
         menuAide.setText("Aide");
+
+        menuAideDate.setText("Date format");
+        menuAide.add(menuAideDate);
+
+        menuAideAbout.setText("A propos");
+        menuAide.add(menuAideAbout);
+
         topMenuBar.add(menuAide);
 
         setJMenuBar(topMenuBar);
@@ -428,6 +437,8 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     private javax.swing.JLabel labelResponsableGare;
     private javax.swing.JLabel labelTrainArrivesRepartis;
     private javax.swing.JMenu menuAide;
+    private javax.swing.JMenuItem menuAideAbout;
+    private javax.swing.JMenuItem menuAideDate;
     private javax.swing.JMenu menuConfiguration;
     private javax.swing.JMenu menuIncidents;
     private javax.swing.JMenu menuTrains;
