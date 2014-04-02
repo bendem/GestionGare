@@ -1,16 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package be.beneterwan.gestiongare.applicgare.help;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
 
 /**
- *
- * @author Ben
+ * @author bendem et Curlybear
  */
 public class DateFormatFrame extends javax.swing.JFrame {
 
@@ -34,22 +27,103 @@ public class DateFormatFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        comboBoxPays = new javax.swing.JComboBox();
+        comboBoxFormatDate = new javax.swing.JComboBox();
+        comboBoxFormatHeure = new javax.swing.JComboBox();
+        labelPays = new javax.swing.JLabel();
+        labelFormatDate = new javax.swing.JLabel();
+        labelFormatHeure = new javax.swing.JLabel();
+        bouttonOK = new javax.swing.JButton();
+        bouttonAnnuler = new javax.swing.JButton();
+        sampleText = new javax.swing.JLabel();
+        sampleContent = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        comboBoxPays.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "France", "Royaume Uni", "Allemagne", "Italie", "U.S.A." }));
+
+        comboBoxFormatDate.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "dd-MM-YY", "dd-MM-YYYY", "dd/MM/YY", "dd/MM/YYYY", "MM-dd-YY", "MM-dd-YYYY", "MM/dd/YY", "MM/dd/YYYY", "YY-dd-MM", "YY-MM-dd", "YY/dd/MM", "YY/MM/dd", "YYYY-dd-MM", "YYYY-MM-dd", "YYYY/dd/MM", "YYYY/MM/dd" }));
+
+        comboBoxFormatHeure.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "h a. m", "H:m", "H:m:s", "HH:mm", "HH:mm:ss" }));
+
+        labelPays.setText("Pays");
+
+        labelFormatDate.setText("Format date");
+
+        labelFormatHeure.setText("Format heure");
+
+        bouttonOK.setText("OK");
+
+        bouttonAnnuler.setText("Annuler");
+
+        sampleText.setText("Exemple : ");
+
+        sampleContent.setText("lol");
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 400, Short.MAX_VALUE)
+            .add(layout.createSequentialGroup()
+                .addContainerGap()
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(labelFormatDate)
+                            .add(labelFormatHeure)
+                            .add(labelPays))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 127, Short.MAX_VALUE)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                            .add(comboBoxFormatHeure, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .add(comboBoxFormatDate, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .add(comboBoxPays, 0, 188, Short.MAX_VALUE)))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                        .add(sampleText)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(sampleContent)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .add(bouttonOK, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 55, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(18, 18, 18)
+                        .add(bouttonAnnuler)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 300, Short.MAX_VALUE)
+            .add(layout.createSequentialGroup()
+                .addContainerGap()
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(comboBoxPays, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(labelPays))
+                .add(46, 46, 46)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(comboBoxFormatDate, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(labelFormatDate))
+                .add(42, 42, 42)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(comboBoxFormatHeure, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(labelFormatHeure))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 35, Short.MAX_VALUE)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(bouttonAnnuler)
+                    .add(bouttonOK)
+                    .add(sampleText)
+                    .add(sampleContent))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    protected javax.swing.JButton bouttonAnnuler;
+    protected javax.swing.JButton bouttonOK;
+    protected javax.swing.JComboBox comboBoxFormatDate;
+    protected javax.swing.JComboBox comboBoxFormatHeure;
+    protected javax.swing.JComboBox comboBoxPays;
+    protected javax.swing.JLabel labelFormatDate;
+    protected javax.swing.JLabel labelFormatHeure;
+    protected javax.swing.JLabel labelPays;
+    protected javax.swing.JLabel sampleContent;
+    protected javax.swing.JLabel sampleText;
     // End of variables declaration//GEN-END:variables
 }

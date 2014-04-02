@@ -23,13 +23,151 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="labelFormatDate" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelFormatHeure" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelPays" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="127" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="comboBoxFormatHeure" max="32767" attributes="0"/>
+                          <Component id="comboBoxFormatDate" alignment="0" max="32767" attributes="0"/>
+                          <Component id="comboBoxPays" alignment="0" pref="188" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="sampleText" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="sampleContent" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="bouttonOK" min="-2" pref="55" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="bouttonAnnuler" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="comboBoxPays" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelPays" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="comboBoxFormatDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelFormatDate" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="comboBoxFormatHeure" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelFormatHeure" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="bouttonAnnuler" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bouttonOK" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="sampleText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="sampleContent" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JComboBox" name="comboBoxPays">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="5">
+            <StringItem index="0" value="France"/>
+            <StringItem index="1" value="Royaume Uni"/>
+            <StringItem index="2" value="Allemagne"/>
+            <StringItem index="3" value="Italie"/>
+            <StringItem index="4" value="U.S.A."/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="comboBoxFormatDate">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="16">
+            <StringItem index="0" value="dd-MM-YY"/>
+            <StringItem index="1" value="dd-MM-YYYY"/>
+            <StringItem index="2" value="dd/MM/YY"/>
+            <StringItem index="3" value="dd/MM/YYYY"/>
+            <StringItem index="4" value="MM-dd-YY"/>
+            <StringItem index="5" value="MM-dd-YYYY"/>
+            <StringItem index="6" value="MM/dd/YY"/>
+            <StringItem index="7" value="MM/dd/YYYY"/>
+            <StringItem index="8" value="YY-dd-MM"/>
+            <StringItem index="9" value="YY-MM-dd"/>
+            <StringItem index="10" value="YY/dd/MM"/>
+            <StringItem index="11" value="YY/MM/dd"/>
+            <StringItem index="12" value="YYYY-dd-MM"/>
+            <StringItem index="13" value="YYYY-MM-dd"/>
+            <StringItem index="14" value="YYYY/dd/MM"/>
+            <StringItem index="15" value="YYYY/MM/dd"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="comboBoxFormatHeure">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="5">
+            <StringItem index="0" value="h a. m"/>
+            <StringItem index="1" value="H:m"/>
+            <StringItem index="2" value="H:m:s"/>
+            <StringItem index="3" value="HH:mm"/>
+            <StringItem index="4" value="HH:mm:ss"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelPays">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pays"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelFormatDate">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Format date"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelFormatHeure">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Format heure"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="bouttonOK">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="OK"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="bouttonAnnuler">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Annuler"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="sampleText">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Exemple : "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="sampleContent">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="lol"/>
+      </Properties>
+    </Component>
+  </SubComponents>
 </Form>
