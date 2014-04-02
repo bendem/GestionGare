@@ -24,20 +24,18 @@ public class ApplicGareFrameEventHandler extends AbstractEventHandler implements
 
     public void addListener(LoginFrame loginFrame, EventHandler handler) {
         loginFrame.addLoginListener(this);
-        handlerList.put("login", handler);
+        registerHandler(loginFrame, handler);
     }
 
     public void addListener(JMenuItem item, EventHandler handler) {
         item.addActionListener(this);
-        handlerList.put(item.getActionCommand(), handler);
+        registerHandler(item, handler);
     }
 
     @Override
     public void onLogin(LoginEvent event) {
         LOGGER.info("Login performed : " + event.getUser().getLogin() + (event.getUser().isAdmin() ? " (a)" : ""));
-        if(handlerList.containsKey("login")) {
-            handlerList.get("login").execute(event);
-        }
+        dispatchEvent(event);
     }
 
 }
