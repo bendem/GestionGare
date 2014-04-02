@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package be.beneterwan.gestiongare.users;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
@@ -20,6 +14,7 @@ public class AddUserFrame extends javax.swing.JFrame {
      * Creates new form AddUserFrame
      */
     public AddUserFrame(ApplicGareFrame parent) {
+        super("Nouvel utilisateur");
         initComponents();
         this.parent = parent;
         setLocationRelativeTo(null);
