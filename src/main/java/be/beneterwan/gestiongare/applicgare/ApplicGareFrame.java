@@ -1,11 +1,12 @@
 package be.beneterwan.gestiongare.applicgare;
 
+import be.beneterwan.gestiongare.applicgare.events.EventHandler;
 import be.beneterwan.gestiongare.authenticate.User;
 import be.beneterwan.gestiongare.logger.CustomLogger;
+import be.beneterwan.gestiongare.logins.LoginEvent;
 import be.beneterwan.gestiongare.logins.LoginFrame;
 import java.awt.Frame;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.EventObject;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
@@ -25,9 +26,9 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         picture.setIcon(new ImageIcon(ApplicGare.getResourceFile("img/train.jpg")));
-        menuUtilisateurLog.addActionListener(new ActionListener() {
+        eventHandler.addListener(menuUtilisateurLog, new EventHandler() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void execute(EventObject event) {
                 if(isLoggedIn()) {
                     setLoggedIn(null);
                 } else {
@@ -42,7 +43,14 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     public void openLoginFrame() {
         LOGGER.info("Opening Login window...");
         fenLogin = new LoginFrame();
-        fenLogin.addLoginListener(eventHandler);
+        eventHandler.addListener(fenLogin, new EventHandler() {
+            @Override
+            public void execute(EventObject event) {
+                User user = ((LoginEvent) event).getUser();
+                setLoggedIn(user);
+                getFenLogin().dispose();
+            }
+        });
         fenLogin.requestFocusInWindow();
         LOGGER.info("Login window opened.");
     }
