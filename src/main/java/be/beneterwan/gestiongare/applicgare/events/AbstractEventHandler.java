@@ -17,7 +17,7 @@ import org.w3c.dom.events.EventException;
 /**
  * @author bendem et Curlybear
  */
-public abstract class AbstractEventHandler implements ActionListener { // TODO Using (String) getActionCommand is wrong...
+public abstract class AbstractEventHandler implements ActionListener {
 
     private static final Logger LOGGER = new CustomLogger(ApplicGareFrameEventHandler.class.getSimpleName());
     protected static final Map<Object, List<EventHandler>> handlerList = new HashMap<>();
