@@ -33,7 +33,6 @@ public class LoginFrame extends Frame implements ActionListener {
     public LoginFrame() {
         super("YOLO");
         setLayout(new GridLayout(3, 2));
-        setVisible(true);
         setLocationRelativeTo(null);
 
         // Add stuff
@@ -60,6 +59,7 @@ public class LoginFrame extends Frame implements ActionListener {
             }
         });
         pack();
+        setVisible(true);
     }
 
     @Override
