@@ -7,7 +7,7 @@
     <version>0.1</version>
     <packaging>jar</packaging>
 
-    <name>Game</name>
+    <name>ApplicGare</name>
     <url>https://github.com/bendem/GestionGare</url>
 
     <properties>
