@@ -1,6 +1,5 @@
 package be.beneterwan.gestiongare.applicgare;
 
-import be.beneterwan.gestiongare.applicgare.events.EventManager;
 import be.beneterwan.gestiongare.applicgare.handlers.LoginHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuAideAboutHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuAideDateHandler;
@@ -68,10 +67,6 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
     public JDialog getFenDateFormat() {
         return fenDate;
-    }
-
-    public EventManager getEventManager() {
-        return eventManager;
     }
 
     public void setLoggedIn(User user) {
