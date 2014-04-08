@@ -1,6 +1,9 @@
 package be.beneterwan.gestiongare.applicgare;
 
 import be.beneterwan.gestiongare.applicgare.events.EventHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.MenuAiderAboutHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurLogHandler;
+import be.beneterwan.gestiongare.applicgare.help.AProposFrame;
 import be.beneterwan.gestiongare.authenticate.User;
 import be.beneterwan.gestiongare.logger.CustomLogger;
 import be.beneterwan.gestiongare.logins.LoginEvent;
@@ -15,8 +18,9 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
     public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
 
-    private final ApplicGareFrameEventManager eventHandler = new ApplicGareFrameEventManager(this);
+    private final ApplicGareFrameEventManager eventManager = new ApplicGareFrameEventManager(this);
     private LoginFrame fenLogin;
+    private AProposFrame fenAbout;
     private boolean loggedIn = false;
     private User currentUser = null;
 
@@ -26,7 +30,8 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         picture.setIcon(new ImageIcon(ApplicGare.getResourceFile("img/train.jpg")));
-        eventHandler.addListener(menuUtilisateurLog, new MenuUtilisateurLogHandler(this));
+        eventManager.addListener(menuUtilisateurLog, new MenuUtilisateurLogHandler(this));
+        eventManager.addListener(menuAideAbout, new MenuAiderAboutHandler(this));
         pack();
         LOGGER.info("Window built");
     }
@@ -34,7 +39,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     public void openLoginFrame() {
         LOGGER.info("Opening Login window...");
         fenLogin = new LoginFrame();
-        eventHandler.addListener(fenLogin, new EventHandler() {
+        eventManager.addListener(fenLogin, new EventHandler() {
             @Override
             public void execute(EventObject event) {
                 User user = ((LoginEvent) event).getUser();
@@ -46,8 +51,17 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         LOGGER.info("Login window opened.");
     }
 
+    public void openAboutFrame() {
+        LOGGER.info("Opening About window...");
+        fenAbout = new AProposFrame();
+    }
+
     public Frame getFenLogin() {
         return fenLogin;
+    }
+
+    public Frame getFenAbout() {
+        return fenAbout;
     }
 
     public void setLoggedIn(User user) {

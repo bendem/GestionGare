@@ -1,5 +1,6 @@
-package be.beneterwan.gestiongare.applicgare;
+package be.beneterwan.gestiongare.applicgare.handlers;
 
+import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
 import be.beneterwan.gestiongare.applicgare.events.EventHandler;
 import java.util.EventObject;
 
@@ -8,7 +9,7 @@ import java.util.EventObject;
  */
 public class MenuUtilisateurLogHandler implements EventHandler {
 
-    private ApplicGareFrame frame;
+    private final ApplicGareFrame frame;
 
     public MenuUtilisateurLogHandler(ApplicGareFrame frame) {
         this.frame = frame;
