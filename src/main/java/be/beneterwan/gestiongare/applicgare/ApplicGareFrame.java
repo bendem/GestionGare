@@ -26,16 +26,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         picture.setIcon(new ImageIcon(ApplicGare.getResourceFile("img/train.jpg")));
-        eventHandler.addListener(menuUtilisateurLog, new EventHandler() {
-            @Override
-            public void execute(EventObject event) {
-                if(isLoggedIn()) {
-                    setLoggedIn(null);
-                } else {
-                    openLoginFrame();
-                }
-            }
-        });
+        eventHandler.addListener(menuUtilisateurLog, new MenuUtilisateurLogHandler(this));
         pack();
         LOGGER.info("Window built");
     }
