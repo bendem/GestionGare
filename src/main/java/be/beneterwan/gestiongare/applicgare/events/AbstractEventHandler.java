@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JMenuItem;
 import org.w3c.dom.events.EventException;
 
 /**
@@ -32,20 +33,19 @@ public abstract class AbstractEventHandler implements ActionListener {
         registerHandler(comboBox, handler);
     }
 
-    public void registerHandler(Object source, EventHandler handler) {
+    public void addListener(JMenuItem item, EventHandler handler) {
+        item.addActionListener(this);
+        registerHandler(item, handler);
+    }
+
+    protected void registerHandler(Object source, EventHandler handler) {
         if(!handlerList.containsKey(source)) {
             handlerList.put(source, new ArrayList<EventHandler>());
         }
         handlerList.get(source).add(handler);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent event) {
-        LOGGER.info("Action performed : " + event.getActionCommand() + ", params : " + event.paramString());
-        dispatchEvent(event);
-    }
-
-    public void dispatchEvent(EventObject event) {
+    protected void dispatchEvent(EventObject event) {
         if(handlerList.containsKey(event.getSource())) {
             for(EventHandler handler : handlerList.get(event.getSource())) {
                 handler.execute(event);
@@ -53,6 +53,12 @@ public abstract class AbstractEventHandler implements ActionListener {
         } else {
             throw new EventException((short) 0, "No handler registered");
         }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent event) {
+        LOGGER.info("Action performed : " + event.getActionCommand() + ", params : " + event.paramString());
+        dispatchEvent(event);
     }
 
 }

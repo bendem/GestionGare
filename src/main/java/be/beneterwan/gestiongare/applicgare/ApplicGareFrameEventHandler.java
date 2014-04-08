@@ -7,7 +7,6 @@ import be.beneterwan.gestiongare.logins.LoginEvent;
 import be.beneterwan.gestiongare.logins.LoginFrame;
 import be.beneterwan.gestiongare.logins.LoginListener;
 import java.util.logging.Logger;
-import javax.swing.JMenuItem;
 
 /**
  * @author bendem et Curlybear
@@ -25,11 +24,6 @@ public class ApplicGareFrameEventHandler extends AbstractEventHandler implements
     public void addListener(LoginFrame loginFrame, EventHandler handler) {
         loginFrame.addLoginListener(this);
         registerHandler(loginFrame, handler);
-    }
-
-    public void addListener(JMenuItem item, EventHandler handler) {
-        item.addActionListener(this);
-        registerHandler(item, handler);
     }
 
     @Override
