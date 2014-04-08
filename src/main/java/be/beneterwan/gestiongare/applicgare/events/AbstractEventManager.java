@@ -1,6 +1,6 @@
 package be.beneterwan.gestiongare.applicgare.events;
 
-import be.beneterwan.gestiongare.applicgare.ApplicGareFrameEventHandler;
+import be.beneterwan.gestiongare.applicgare.ApplicGareFrameEventManager;
 import be.beneterwan.gestiongare.logger.CustomLogger;
 import java.awt.Button;
 import java.awt.event.ActionEvent;
@@ -18,9 +18,9 @@ import org.w3c.dom.events.EventException;
 /**
  * @author bendem et Curlybear
  */
-public abstract class AbstractEventHandler implements ActionListener {
+public abstract class AbstractEventManager implements ActionListener {
 
-    private static final Logger LOGGER = new CustomLogger(ApplicGareFrameEventHandler.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(ApplicGareFrameEventManager.class.getSimpleName());
     protected static final Map<Object, List<EventHandler>> handlerList = new HashMap<>();
 
     public void addListener(Button button, EventHandler handler) {

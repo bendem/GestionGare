@@ -15,7 +15,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
     public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
 
-    private final ApplicGareFrameEventHandler eventHandler = new ApplicGareFrameEventHandler(this);
+    private final ApplicGareFrameEventManager eventHandler = new ApplicGareFrameEventManager(this);
     private LoginFrame fenLogin;
     private boolean loggedIn = false;
     private User currentUser = null;
