@@ -1,7 +1,7 @@
 package be.beneterwan.gestiongare.applicgare;
 
 import be.beneterwan.gestiongare.applicgare.handlers.LoginHandler;
-import be.beneterwan.gestiongare.applicgare.handlers.MenuAiderAboutHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.MenuAideAboutHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurLogHandler;
 import be.beneterwan.gestiongare.applicgare.help.AProposFrame;
 import be.beneterwan.gestiongare.authenticate.User;
@@ -29,7 +29,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         picture.setIcon(new ImageIcon(ApplicGare.getResourceFile("img/train.jpg")));
         eventManager.addListener(menuUtilisateurLog, new MenuUtilisateurLogHandler(this));
-        eventManager.addListener(menuAideAbout, new MenuAiderAboutHandler(this));
+        eventManager.addListener(menuAideAbout, new MenuAideAboutHandler(this));
         pack();
         LOGGER.info("Window built");
     }

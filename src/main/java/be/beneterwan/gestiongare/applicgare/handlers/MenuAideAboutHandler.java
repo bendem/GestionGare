@@ -7,11 +7,11 @@ import java.util.EventObject;
 /**
  * @author bendem et Curlybear
  */
-public class MenuAiderAboutHandler implements EventHandler {
+public class MenuAideAboutHandler implements EventHandler {
 
     private final ApplicGareFrame frame;
 
-    public MenuAiderAboutHandler(ApplicGareFrame frame) {
+    public MenuAideAboutHandler(ApplicGareFrame frame) {
         this.frame = frame;
     }
 
