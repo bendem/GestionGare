@@ -2,14 +2,17 @@ package be.beneterwan.gestiongare.applicgare;
 
 import be.beneterwan.gestiongare.applicgare.handlers.LoginHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuAideAboutHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.MenuAideDateHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurLogHandler;
 import be.beneterwan.gestiongare.applicgare.help.AProposFrame;
+import be.beneterwan.gestiongare.applicgare.help.DateFormatFrame;
 import be.beneterwan.gestiongare.authenticate.User;
 import be.beneterwan.gestiongare.logger.CustomLogger;
 import be.beneterwan.gestiongare.logins.LoginFrame;
 import java.awt.Frame;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.table.DefaultTableModel;
 
 public class ApplicGareFrame extends javax.swing.JFrame {
@@ -19,6 +22,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     private final ApplicGareFrameEventManager eventManager = new ApplicGareFrameEventManager(this);
     private LoginFrame fenLogin;
     private AProposFrame fenAbout;
+    private DateFormatFrame fenDate;
     private boolean loggedIn = false;
     private User currentUser = null;
 
@@ -30,6 +34,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         picture.setIcon(new ImageIcon(ApplicGare.getResourceFile("img/train.jpg")));
         eventManager.addListener(menuUtilisateurLog, new MenuUtilisateurLogHandler(this));
         eventManager.addListener(menuAideAbout, new MenuAideAboutHandler(this));
+        eventManager.addListener(menuAideDate, new MenuAideDateHandler(this));
         pack();
         LOGGER.info("Window built");
     }
@@ -44,15 +49,24 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
     public void openAboutFrame() {
         LOGGER.info("Opening About window...");
-        fenAbout = new AProposFrame();
+        fenAbout = new AProposFrame(this);
+    }
+
+    public void openDateFormatFrame() {
+        LOGGER.info("Opening Date format window...");
+        fenDate = new DateFormatFrame(this);
     }
 
     public Frame getFenLogin() {
         return fenLogin;
     }
 
-    public Frame getFenAbout() {
+    public JDialog getFenAbout() {
         return fenAbout;
+    }
+
+    public JDialog getFenDateFormat() {
+        return fenDate;
     }
 
     public void setLoggedIn(User user) {

@@ -5,11 +5,12 @@ import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
 /**
  * @author bendem et Curlybear
  */
-public class DateFormatFrame extends javax.swing.JFrame {
+public class DateFormatFrame extends javax.swing.JDialog {
 
     private final ApplicGareFrame parent;
 
     public DateFormatFrame(ApplicGareFrame parent) {
+        super(parent, "Date format", true);
         initComponents();
         this.parent = parent;
         setLocationRelativeTo(null);
@@ -38,7 +39,7 @@ public class DateFormatFrame extends javax.swing.JFrame {
         sampleText = new javax.swing.JLabel();
         sampleContent = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         comboBoxPays.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "France", "Royaume Uni", "Allemagne", "Italie", "U.S.A." }));
 

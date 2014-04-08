@@ -1,17 +1,19 @@
 package be.beneterwan.gestiongare.applicgare.help;
 
+import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
+
 /**
  *
  * @author Bear
  */
-public class AProposFrame extends javax.swing.JFrame {
+public class AProposFrame extends javax.swing.JDialog {
 
-    /**
-     * Creates new form AProposFrame
-     */
-    public AProposFrame() {
-        super("A propos");
+    private final ApplicGareFrame parent;
+
+    public AProposFrame(ApplicGareFrame parent) {
+        super(parent, "A propos", true);
         initComponents();
+        this.parent = parent;
         setLocationRelativeTo(null);
         pack();
         setVisible(true);
