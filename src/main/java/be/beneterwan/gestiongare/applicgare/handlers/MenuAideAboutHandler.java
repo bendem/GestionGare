@@ -17,7 +17,7 @@ public class MenuAideAboutHandler implements EventHandler {
 
     @Override
     public void execute(EventObject event) {
-        frame.openAboutFrame();
+        frame.openAboutDialog();
     }
 
 }

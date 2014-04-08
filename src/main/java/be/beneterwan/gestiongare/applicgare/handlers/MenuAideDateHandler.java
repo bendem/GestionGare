@@ -17,7 +17,7 @@ public class MenuAideDateHandler implements EventHandler {
 
     @Override
     public void execute(EventObject event) {
-        frame.openDateFormatFrame();
+        frame.openDateFormatDialog();
     }
 
 }

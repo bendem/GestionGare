@@ -47,12 +47,12 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         LOGGER.info("Login window opened.");
     }
 
-    public void openAboutFrame() {
+    public void openAboutDialog() {
         LOGGER.info("Opening About window...");
         fenAbout = new AProposDialog(this);
     }
 
-    public void openDateFormatFrame() {
+    public void openDateFormatDialog() {
         LOGGER.info("Opening Date format window...");
         fenDate = new DateFormatDialog(this);
     }
