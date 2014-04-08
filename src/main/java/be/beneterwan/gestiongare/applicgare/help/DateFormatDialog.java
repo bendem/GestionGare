@@ -5,11 +5,11 @@ import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
 /**
  * @author bendem et Curlybear
  */
-public class DateFormatFrame extends javax.swing.JDialog {
+public class DateFormatDialog extends javax.swing.JDialog {
 
     private final ApplicGareFrame parent;
 
-    public DateFormatFrame(ApplicGareFrame parent) {
+    public DateFormatDialog(ApplicGareFrame parent) {
         super(parent, "Date format", true);
         initComponents();
         this.parent = parent;

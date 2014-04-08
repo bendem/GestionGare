@@ -6,11 +6,11 @@ import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
  *
  * @author Bear
  */
-public class AProposFrame extends javax.swing.JDialog {
+public class AProposDialog extends javax.swing.JDialog {
 
     private final ApplicGareFrame parent;
 
-    public AProposFrame(ApplicGareFrame parent) {
+    public AProposDialog(ApplicGareFrame parent) {
         super(parent, "A propos", true);
         initComponents();
         this.parent = parent;

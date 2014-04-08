@@ -4,8 +4,8 @@ import be.beneterwan.gestiongare.applicgare.handlers.LoginHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuAideAboutHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuAideDateHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurLogHandler;
-import be.beneterwan.gestiongare.applicgare.help.AProposFrame;
-import be.beneterwan.gestiongare.applicgare.help.DateFormatFrame;
+import be.beneterwan.gestiongare.applicgare.help.AProposDialog;
+import be.beneterwan.gestiongare.applicgare.help.DateFormatDialog;
 import be.beneterwan.gestiongare.authenticate.User;
 import be.beneterwan.gestiongare.logger.CustomLogger;
 import be.beneterwan.gestiongare.logins.LoginFrame;
@@ -21,8 +21,8 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
     private final ApplicGareFrameEventManager eventManager = new ApplicGareFrameEventManager(this);
     private LoginFrame fenLogin;
-    private AProposFrame fenAbout;
-    private DateFormatFrame fenDate;
+    private AProposDialog fenAbout;
+    private DateFormatDialog fenDate;
     private boolean loggedIn = false;
     private User currentUser = null;
 
@@ -49,12 +49,12 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
     public void openAboutFrame() {
         LOGGER.info("Opening About window...");
-        fenAbout = new AProposFrame(this);
+        fenAbout = new AProposDialog(this);
     }
 
     public void openDateFormatFrame() {
         LOGGER.info("Opening Date format window...");
-        fenDate = new DateFormatFrame(this);
+        fenDate = new DateFormatDialog(this);
     }
 
     public Frame getFenLogin() {
