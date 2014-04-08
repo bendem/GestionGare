@@ -1,6 +1,9 @@
 package be.beneterwan.gestiongare.applicgare.help;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
+import be.beneterwan.gestiongare.applicgare.events.EventHandler;
+import be.beneterwan.gestiongare.applicgare.events.EventManager;
+import java.util.EventObject;
 
 /**
  * @author bendem et Curlybear
@@ -8,12 +11,20 @@ import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
 public class DateFormatDialog extends javax.swing.JDialog {
 
     private final ApplicGareFrame parent;
+    private final EventManager eventManager;
 
     public DateFormatDialog(ApplicGareFrame parent) {
         super(parent, "Date format", true);
         initComponents();
         this.parent = parent;
         setLocationRelativeTo(null);
+        eventManager = new EventManager() {};
+        eventManager.addListener(bouttonAnnuler, new EventHandler() {
+            @Override
+            public void execute(EventObject event) {
+                dispose();
+            }
+        });
         pack();
         setVisible(true);
     }

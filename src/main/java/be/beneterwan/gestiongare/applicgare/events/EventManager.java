@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JMenuItem;
 import org.w3c.dom.events.EventException;
@@ -18,12 +19,17 @@ import org.w3c.dom.events.EventException;
 /**
  * @author bendem et Curlybear
  */
-public abstract class AbstractEventManager implements ActionListener {
+public class EventManager implements ActionListener {
 
     private static final Logger LOGGER = new CustomLogger(ApplicGareFrameEventManager.class.getSimpleName());
     protected static final Map<Object, List<EventHandler>> handlerList = new HashMap<>();
 
     public void addListener(Button button, EventHandler handler) {
+        button.addActionListener(this);
+        registerHandler(button, handler);
+    }
+
+    public void addListener(JButton button, EventHandler handler) {
         button.addActionListener(this);
         registerHandler(button, handler);
     }
