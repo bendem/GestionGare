@@ -11,7 +11,7 @@ import java.util.EventObject;
  */
 public class LoginHandler implements EventHandler {
 
-    private ApplicGareFrame frame;
+    private final ApplicGareFrame frame;
 
     public LoginHandler(ApplicGareFrame frame) {
         this.frame = frame;
