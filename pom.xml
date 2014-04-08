@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>be.beneterwan.gestiongare.applicgare</groupId>
-    <artifactId>ApplicGare</artifactId>
+    <artifactId>GestionGare</artifactId>
     <version>0.1</version>
     <packaging>jar</packaging>
 
-    <name>ApplicGare</name>
+    <name>GestionGare</name>
     <url>https://github.com/bendem/GestionGare</url>
 
     <properties>
