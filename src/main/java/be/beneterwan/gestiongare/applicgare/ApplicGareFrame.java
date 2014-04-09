@@ -20,6 +20,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
 
     private final ApplicGareFrameEventManager eventManager = new ApplicGareFrameEventManager(this);
+    private DateFormat dateFormat;
     private LoginFrame fenLogin;
     private AProposDialog fenAbout;
     private DateFormatDialog fenDate;
@@ -32,9 +33,16 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         picture.setIcon(new ImageIcon(ApplicGare.getResourceFile("img/train.jpg")));
+
+        // Setting default windows
+        dateFormat = new DateFormat();
+
+        // Setting up events
         eventManager.addListener(menuUtilisateurLog, new MenuUtilisateurLogHandler(this));
         eventManager.addListener(menuAideAbout, new MenuAideAboutHandler(this));
         eventManager.addListener(menuAideDate, new MenuAideDateHandler(this));
+
+        // Packing windows to fit constructor changes
         pack();
         LOGGER.info("Window built");
     }
@@ -67,6 +75,14 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
     public JDialog getFenDateFormat() {
         return fenDate;
+    }
+
+    public DateFormat getDateFormat() {
+        return dateFormat;
+    }
+
+    public void setDateFormat(DateFormat dateFormat) {
+        this.dateFormat = dateFormat;
     }
 
     public void setLoggedIn(User user) {

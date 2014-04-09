@@ -1,9 +1,12 @@
 package be.beneterwan.gestiongare.applicgare.help;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
+import be.beneterwan.gestiongare.applicgare.DateFormat;
 import be.beneterwan.gestiongare.applicgare.events.EventHandler;
 import be.beneterwan.gestiongare.applicgare.events.EventManager;
 import java.util.EventObject;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 
 /**
  * @author bendem et Curlybear
@@ -16,15 +19,37 @@ public class DateFormatDialog extends javax.swing.JDialog {
         super(parent, "Date format", true);
         initComponents();
         setLocationRelativeTo(null);
-        eventManager = new EventManager() {};
+
+        // Add custom combobox values
+        comboBoxPays.setModel(new DefaultComboBoxModel<>(DateFormat.Country.values()));
+
+        // TODO Use parent.getDateFormat to set default values
+
+        // Setting up events
+        eventManager = new EventManager();
         eventManager.addListener(bouttonAnnuler, new EventHandler() {
             @Override
             public void execute(EventObject event) {
                 dispose();
             }
         });
+        eventManager.addListener(bouttonOK, new OkHandler(this));
+
+        // Repacking window
         pack();
         setVisible(true);
+    }
+
+    public JComboBox getComboBoxFormatDate() {
+        return comboBoxFormatDate;
+    }
+
+    public JComboBox getComboBoxFormatHeure() {
+        return comboBoxFormatHeure;
+    }
+
+    public JComboBox<DateFormat.Country> getComboBoxPays() {
+        return comboBoxPays;
     }
 
     /**
@@ -37,9 +62,9 @@ public class DateFormatDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        comboBoxPays = new javax.swing.JComboBox();
-        comboBoxFormatDate = new javax.swing.JComboBox();
-        comboBoxFormatHeure = new javax.swing.JComboBox();
+        comboBoxPays = new javax.swing.JComboBox<>();
+        comboBoxFormatDate = new javax.swing.JComboBox<>();
+        comboBoxFormatHeure = new javax.swing.JComboBox<>();
         labelPays = new javax.swing.JLabel();
         labelFormatDate = new javax.swing.JLabel();
         labelFormatHeure = new javax.swing.JLabel();
@@ -49,8 +74,6 @@ public class DateFormatDialog extends javax.swing.JDialog {
         sampleContent = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        comboBoxPays.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "France", "Royaume Uni", "Allemagne", "Italie", "U.S.A." }));
 
         comboBoxFormatDate.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "dd-MM-YY", "dd-MM-YYYY", "dd/MM/YY", "dd/MM/YYYY", "MM-dd-YY", "MM-dd-YYYY", "MM/dd/YY", "MM/dd/YYYY", "YY-dd-MM", "YY-MM-dd", "YY/dd/MM", "YY/MM/dd", "YYYY-dd-MM", "YYYY-MM-dd", "YYYY/dd/MM", "YYYY/MM/dd" }));
 
@@ -127,9 +150,9 @@ public class DateFormatDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton bouttonAnnuler;
     protected javax.swing.JButton bouttonOK;
-    protected javax.swing.JComboBox comboBoxFormatDate;
-    protected javax.swing.JComboBox comboBoxFormatHeure;
-    protected javax.swing.JComboBox comboBoxPays;
+    protected javax.swing.JComboBox<String> comboBoxFormatDate;
+    protected javax.swing.JComboBox<String> comboBoxFormatHeure;
+    protected javax.swing.JComboBox<DateFormat.Country> comboBoxPays;
     protected javax.swing.JLabel labelFormatDate;
     protected javax.swing.JLabel labelFormatHeure;
     protected javax.swing.JLabel labelPays;
