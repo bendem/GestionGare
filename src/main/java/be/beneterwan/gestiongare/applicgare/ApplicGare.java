@@ -15,6 +15,9 @@ public class ApplicGare {
 
     public static void main(String[] args) {
         //ApplicGareFrame.main(args);
+        System.out.println("\n  #######################################");
+        System.out.println("  #   Gestion Gare : Application Gare   #");
+        System.out.println("  #######################################\n");
         applicGareFrame = new ApplicGareFrame();
         applicGareFrame.setVisible(true);
         applicGareFrame.setLoggedIn(null);
