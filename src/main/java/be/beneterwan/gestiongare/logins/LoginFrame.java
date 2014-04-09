@@ -33,7 +33,6 @@ public class LoginFrame extends Frame implements ActionListener {
     public LoginFrame() {
         super("YOLO");
         setLayout(new GridLayout(3, 2));
-        setLocationRelativeTo(null);
 
         // Add stuff
         login = new TextField();
@@ -59,6 +58,7 @@ public class LoginFrame extends Frame implements ActionListener {
             }
         });
         pack();
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 

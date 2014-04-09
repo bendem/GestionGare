@@ -31,7 +31,6 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         super("== ApplicGare ==");
         LOGGER.info("Building window...");
         initComponents();
-        setLocationRelativeTo(null);
         picture.setIcon(new ImageIcon(ApplicGare.getResourceFile("img/train.jpg")));
 
         // Setting default windows
@@ -44,6 +43,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
         // Packing windows to fit constructor changes
         pack();
+        setLocationRelativeTo(null);
         LOGGER.info("Window built");
     }
 
