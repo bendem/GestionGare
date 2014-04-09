@@ -1,10 +1,7 @@
 package be.beneterwan.gestiongare.applicgare.help;
 
-import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
 import be.beneterwan.gestiongare.applicgare.DateFormat;
 import be.beneterwan.gestiongare.applicgare.events.EventHandler;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.EventObject;
 
 /**
@@ -19,21 +16,14 @@ public class JComboBoxValueChangeHandler implements EventHandler {
 
     @Override
     public void execute(EventObject event) {
-        ApplicGareFrame parent = (ApplicGareFrame) dialog.getParent();
-        
         if(event.getSource() == dialog.getComboBoxPays()){
             dialog.getDateFormat().setCountry((DateFormat.Country) dialog.getComboBoxPays().getSelectedItem());
+        } else if(event.getSource() == dialog.getComboBoxFormatDate()){
+            dialog.getDateFormat().setDateFormat((String) dialog.getComboBoxFormatDate().getSelectedItem());
+        } else if(event.getSource() == dialog.getComboBoxFormatHeure()){
+            dialog.getDateFormat().setTimeFormat((String) dialog.getComboBoxFormatHeure().getSelectedItem());
         }
-        else{
-            if(event.getSource() == dialog.getComboBoxFormatDate()){
-                dialog.getDateFormat().setDateFormat((String)dialog.getComboBoxFormatDate().getSelectedItem());
-            }
-            else{
-                if(event.getSource() == dialog.getComboBoxFormatHeure()){
-                    dialog.getDateFormat().setTimeFormat((String)dialog.getComboBoxFormatHeure().getSelectedItem());
-                }
-            }
-        }
-        dialog.RefreshSampleContent();
+        dialog.refreshSampleContent();
     }
+    
 }
