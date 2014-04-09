@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package be.beneterwan.gestiongare.applicgare.help;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
@@ -14,37 +8,33 @@ import java.util.Calendar;
 import java.util.EventObject;
 
 /**
- *
  * @author Bear
  */
-public class jComboBoxValueChangeHandler implements EventHandler {
+public class JComboBoxValueChangeHandler implements EventHandler {
 
     private final DateFormatDialog dialog;
-    private final Calendar c = Calendar.getInstance();
-    private final SimpleDateFormat s = new SimpleDateFormat();
+    private final Calendar calendar = Calendar.getInstance();
+    private final SimpleDateFormat dateFormatter = new SimpleDateFormat();
 
-    public jComboBoxValueChangeHandler(DateFormatDialog dialog) {
+    public JComboBoxValueChangeHandler(DateFormatDialog dialog) {
         this.dialog = dialog;
     }
 
     @Override
     public void execute(EventObject event) {
         ApplicGareFrame parent = (ApplicGareFrame) dialog.getParent();
-        DateFormat.Country tCountry;
-        String tDateFormat;
-        String tTimeFormat;
 
-        tCountry = (DateFormat.Country) dialog.getComboBoxPays().getSelectedItem();
-        tDateFormat = (String) dialog.getComboBoxFormatDate().getSelectedItem();
-        tTimeFormat = (String) dialog.getComboBoxFormatHeure().getSelectedItem();
+        DateFormat.Country country = (DateFormat.Country) dialog.getComboBoxPays().getSelectedItem();
+        String dateFormat = (String) dialog.getComboBoxFormatDate().getSelectedItem();
+        String timeFormat = (String) dialog.getComboBoxFormatHeure().getSelectedItem();
 
-        if(tCountry != null){
-            c.setTimeZone(tCountry.getTimeZone());
+        if(country != null){
+            calendar.setTimeZone(country.getTimeZone());
         }
-        if(tDateFormat != null && tTimeFormat != null){
-            s.applyPattern(dialog.comboBoxFormatDate+", "+dialog.comboBoxFormatHeure);
+        if(dateFormat != null && timeFormat != null){
+            dateFormatter.applyPattern(dateFormat + ", " + timeFormat);
         }
-        
-        dialog.sampleContent.setText(s.format(c.getTime()));
+
+        dialog.sampleContent.setText(dateFormatter.format(calendar.getTime()));
     }
 }
