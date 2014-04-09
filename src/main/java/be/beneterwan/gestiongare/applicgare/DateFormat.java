@@ -1,5 +1,7 @@
 package be.beneterwan.gestiongare.applicgare;
 
+import java.util.TimeZone;
+
 /**
  * @author bendem et Curlybear
  */
@@ -45,11 +47,23 @@ public class DateFormat {
     }
 
     public enum Country {
-        France,
-        RoyaumeUni,
-        Allemagne,
-        Italie,
-        USA;
+        
+        France("Europe/Paris"),
+        RoyaumeUni("Europe/London"),
+        Allemagne("Europe/Berlin"),
+        Italie("Europe/Rome"),
+        USA("America/New_York");
+
+        private final TimeZone timeZone;
+
+        private Country(String timeZone) {
+            this.timeZone = TimeZone.getTimeZone(timeZone);
+        }
+
+        public TimeZone getTimeZone() {
+            return timeZone;
+        }
+
     }
 
 }
