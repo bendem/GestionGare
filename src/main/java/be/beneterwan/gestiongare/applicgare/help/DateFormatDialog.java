@@ -14,7 +14,7 @@ import javax.swing.JComboBox;
 public class DateFormatDialog extends javax.swing.JDialog {
 
     private final EventManager eventManager;
-
+    private final jComboBoxValueChangeHandler cBoxHandler = new jComboBoxValueChangeHandler(this);
     public DateFormatDialog(ApplicGareFrame parent) {
         super(parent, "Date format", true);
         initComponents();
@@ -34,6 +34,10 @@ public class DateFormatDialog extends javax.swing.JDialog {
             }
         });
         eventManager.addListener(bouttonOK, new OkHandler(this));
+        
+        eventManager.addListener(comboBoxFormatHeure, cBoxHandler);
+        eventManager.addListener(comboBoxFormatDate, cBoxHandler);
+        eventManager.addListener(comboBoxPays, cBoxHandler);
 
         // Repacking window
         pack();
