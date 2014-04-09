@@ -40,11 +40,11 @@ public class DateFormatDialog extends javax.swing.JDialog {
         setVisible(true);
     }
 
-    public JComboBox getComboBoxFormatDate() {
+    public JComboBox<String> getComboBoxFormatDate() {
         return comboBoxFormatDate;
     }
 
-    public JComboBox getComboBoxFormatHeure() {
+    public JComboBox<String> getComboBoxFormatHeure() {
         return comboBoxFormatHeure;
     }
 
