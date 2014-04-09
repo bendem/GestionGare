@@ -1,7 +1,7 @@
 package be.beneterwan.gestiongare.applicgare;
 
-import be.beneterwan.gestiongare.applicgare.events.EventManager;
 import be.beneterwan.gestiongare.applicgare.events.EventHandler;
+import be.beneterwan.gestiongare.applicgare.events.EventManager;
 import be.beneterwan.gestiongare.logger.CustomLogger;
 import be.beneterwan.gestiongare.logins.LoginEvent;
 import be.beneterwan.gestiongare.logins.LoginFrame;
@@ -28,7 +28,7 @@ public class ApplicGareFrameEventManager extends EventManager implements LoginLi
 
     @Override
     public void onLogin(LoginEvent event) {
-        LOGGER.info("Login performed : " + event.getUser().getLogin() + (event.getUser().isAdmin() ? " (a)" : ""));
+        LOGGER.fine("Login performed : " + event.getUser().getLogin() + (event.getUser().isAdmin() ? " (a)" : ""));
         dispatchEvent(event);
     }
 

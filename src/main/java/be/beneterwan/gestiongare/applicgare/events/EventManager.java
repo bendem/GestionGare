@@ -63,7 +63,7 @@ public class EventManager implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent event) {
-        LOGGER.info("Action performed : " + event.getActionCommand() + ", params : " + event.paramString());
+        LOGGER.fine(event.paramString());
         dispatchEvent(event);
     }
 
