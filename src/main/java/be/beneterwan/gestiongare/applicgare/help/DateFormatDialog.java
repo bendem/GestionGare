@@ -10,13 +10,11 @@ import java.util.EventObject;
  */
 public class DateFormatDialog extends javax.swing.JDialog {
 
-    private final ApplicGareFrame parent;
     private final EventManager eventManager;
 
     public DateFormatDialog(ApplicGareFrame parent) {
         super(parent, "Date format", true);
         initComponents();
-        this.parent = parent;
         setLocationRelativeTo(null);
         eventManager = new EventManager() {};
         eventManager.addListener(bouttonAnnuler, new EventHandler() {

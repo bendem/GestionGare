@@ -8,12 +8,9 @@ import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
  */
 public class AProposDialog extends javax.swing.JDialog {
 
-    private final ApplicGareFrame parent;
-
     public AProposDialog(ApplicGareFrame parent) {
         super(parent, "A propos", true);
         initComponents();
-        this.parent = parent;
         setLocationRelativeTo(null);
         pack();
         setVisible(true);
