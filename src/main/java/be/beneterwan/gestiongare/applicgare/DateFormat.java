@@ -75,7 +75,7 @@ public class DateFormat implements Cloneable {
         }
 
         public TimeZone getTimeZone() {
-            return timeZone;
+            return this.timeZone;
         }
 
     }

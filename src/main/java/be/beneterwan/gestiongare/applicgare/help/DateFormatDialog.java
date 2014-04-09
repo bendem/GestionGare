@@ -53,8 +53,10 @@ public class DateFormatDialog extends javax.swing.JDialog {
     }
 
     public final void refreshSampleContent() {
-        Calendar calendar = Calendar.getInstance(dateFormat.getCountry().getTimeZone());
-        SimpleDateFormat dateFormatter = new SimpleDateFormat(dateFormat.getDateFormat() + ", " + dateFormat.getTimeFormat());
+        Calendar calendar = Calendar.getInstance();
+        String format = dateFormat.getDateFormat() + ", " + dateFormat.getTimeFormat();
+        SimpleDateFormat dateFormatter = new SimpleDateFormat(format);
+        dateFormatter.setTimeZone(dateFormat.getCountry().getTimeZone());
         sampleContent.setText(dateFormatter.format(calendar.getTime()));
     }
 
