@@ -16,7 +16,7 @@ import javax.swing.JComboBox;
 public class DateFormatDialog extends javax.swing.JDialog {
 
     private final EventManager eventManager;
-    private DateFormat dateFormat = new DateFormat();
+    private final DateFormat dateFormat;
 
     public DateFormatDialog(ApplicGareFrame parent) {
         super(parent, "Date format", true);
@@ -26,7 +26,7 @@ public class DateFormatDialog extends javax.swing.JDialog {
         comboBoxPays.setModel(new DefaultComboBoxModel<>(DateFormat.Country.values()));
 
         // TODO Use parent.getDateFormat to set default values
-        parent.getDateFormat();
+        dateFormat = parent.getDateFormat().clone();
         comboBoxPays.setSelectedItem(dateFormat.getCountry());
         comboBoxFormatDate.setSelectedItem(dateFormat.getDateFormat());
         comboBoxFormatHeure.setSelectedItem(dateFormat.getTimeFormat());
@@ -53,7 +53,7 @@ public class DateFormatDialog extends javax.swing.JDialog {
     }
 
     public final void refreshSampleContent() {
-        Calendar calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance(dateFormat.getCountry().getTimeZone());
         SimpleDateFormat dateFormatter = new SimpleDateFormat(dateFormat.getDateFormat() + ", " + dateFormat.getTimeFormat());
         sampleContent.setText(dateFormatter.format(calendar.getTime()));
     }
@@ -72,10 +72,6 @@ public class DateFormatDialog extends javax.swing.JDialog {
 
     public DateFormat getDateFormat() {
         return dateFormat;
-    }
-
-    public void setDateFormat(DateFormat dateFormat) {
-        this.dateFormat = dateFormat;
     }
 
     /**

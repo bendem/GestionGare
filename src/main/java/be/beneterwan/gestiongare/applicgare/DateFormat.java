@@ -1,11 +1,16 @@
 package be.beneterwan.gestiongare.applicgare;
 
+import be.beneterwan.gestiongare.logger.CustomLogger;
 import java.util.TimeZone;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author bendem et Curlybear
  */
-public class DateFormat {
+public class DateFormat implements Cloneable {
+
+    private static final Logger LOGGER = new CustomLogger(DateFormat.class.getSimpleName());
 
     private String timeFormat;
     private String dateFormat;
@@ -45,8 +50,18 @@ public class DateFormat {
         return country;
     }
 
+    @Override
+    public DateFormat clone() {
+        try {
+            return (DateFormat) super.clone();
+        } catch(CloneNotSupportedException ex) {
+            LOGGER.log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+
     public enum Country {
-        
+
         France("Europe/Paris"),
         RoyaumeUni("Europe/London"),
         Allemagne("Europe/Berlin"),
