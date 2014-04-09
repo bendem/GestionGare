@@ -1,7 +1,6 @@
 package be.beneterwan.gestiongare.applicgare.help;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
-import be.beneterwan.gestiongare.applicgare.DateFormat;
 import be.beneterwan.gestiongare.applicgare.events.EventHandler;
 import java.util.EventObject;
 
@@ -22,4 +21,5 @@ public class OkHandler implements EventHandler {
         parent.setDateFormat(dialog.getDateFormat());
         dialog.dispose();
     }
+
 }
