@@ -4,6 +4,8 @@ import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
 import be.beneterwan.gestiongare.applicgare.DateFormat;
 import be.beneterwan.gestiongare.applicgare.events.EventHandler;
 import be.beneterwan.gestiongare.applicgare.events.EventManager;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.EventObject;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
@@ -14,6 +16,7 @@ import javax.swing.JComboBox;
 public class DateFormatDialog extends javax.swing.JDialog {
 
     private final EventManager eventManager;
+    private DateFormat dateFormat = new DateFormat();
 
     public DateFormatDialog(ApplicGareFrame parent) {
         super(parent, "Date format", true);
@@ -24,7 +27,11 @@ public class DateFormatDialog extends javax.swing.JDialog {
         comboBoxPays.setModel(new DefaultComboBoxModel<>(DateFormat.Country.values()));
 
         // TODO Use parent.getDateFormat to set default values
-
+        setDateFormat(parent.getDateFormat());
+        getComboBoxPays().setSelectedItem(getDateFormat().getCountry());
+        getComboBoxFormatDate().setSelectedItem(getDateFormat().getDateFormat());
+        getComboBoxFormatHeure().setSelectedItem(getDateFormat().getTimeFormat());
+        RefreshSampleContent();
         // Setting up events
         eventManager = new EventManager();
         eventManager.addListener(bouttonAnnuler, new EventHandler() {
@@ -44,6 +51,13 @@ public class DateFormatDialog extends javax.swing.JDialog {
         pack();
         setVisible(true);
     }
+    
+    public final void RefreshSampleContent(){
+        final Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat dateFormatter = new SimpleDateFormat(dateFormat.getDateFormat()+", "+dateFormat.getTimeFormat());
+        
+        sampleContent.setText(dateFormatter.format(calendar.getTime()));
+    }
 
     public JComboBox<String> getComboBoxFormatDate() {
         return comboBoxFormatDate;
@@ -56,7 +70,14 @@ public class DateFormatDialog extends javax.swing.JDialog {
     public JComboBox<DateFormat.Country> getComboBoxPays() {
         return comboBoxPays;
     }
+    
+    public DateFormat getDateFormat() {
+        return dateFormat;
+    }
 
+    public void setDateFormat(DateFormat dateFormat) {
+        this.dateFormat = dateFormat;
+    }
     /**
      * This method is called from within the constructor to
      * initialize the form.

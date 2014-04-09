@@ -12,8 +12,7 @@ public class DateFormat {
     private Country country;
 
     public DateFormat() {
-        // TODO Default values!!
-        this("", "", Country.France);
+        this("HH:mm", "dd-MM-YYYY", Country.France);
     }
 
     public DateFormat(String timeFormat, String dateFormat, Country country) {

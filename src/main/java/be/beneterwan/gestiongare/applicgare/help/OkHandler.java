@@ -19,11 +19,7 @@ public class OkHandler implements EventHandler {
     @Override
     public void execute(EventObject event) {
         ApplicGareFrame parent = (ApplicGareFrame) dialog.getParent();
-        DateFormat dateFormat = new DateFormat();
-        dateFormat.setCountry((DateFormat.Country) dialog.getComboBoxPays().getSelectedItem());
-        // TODO setDateFormat
-        // TODO setTimeFormat
-        parent.setDateFormat(dateFormat);
+        parent.setDateFormat(dialog.getDateFormat());
+        dialog.dispose();
     }
-
 }
