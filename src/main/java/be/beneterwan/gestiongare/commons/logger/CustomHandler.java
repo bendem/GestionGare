@@ -1,4 +1,4 @@
-package be.beneterwan.gestiongare.logger;
+package be.beneterwan.gestiongare.commons.logger;
 
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;

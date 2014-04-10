@@ -1,3 +1,3 @@
 @echo off
 
-java -jar target\GestionGare.jar
+java -jar target\ApplicGare-1.0.jar

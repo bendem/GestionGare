@@ -1,6 +1,6 @@
 package be.beneterwan.gestiongare.applicgare;
 
-import be.beneterwan.gestiongare.logger.CustomLogger;
+import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import java.util.TimeZone;
 import java.util.logging.Level;
 import java.util.logging.Logger;

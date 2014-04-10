@@ -1,6 +1,6 @@
 package be.beneterwan.gestiongare.applicgare;
 
-import be.beneterwan.gestiongare.logger.CustomLogger;
+import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import java.net.URL;
 import java.util.logging.Logger;
 

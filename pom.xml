@@ -2,10 +2,10 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>be.beneterwan.gestiongare.applicgare</groupId>
-    <artifactId>GestionGare</artifactId>
-    <version>0.1</version>
-    <packaging>jar</packaging>
+    <groupId>be.beneterwan.gestiongare</groupId>
+    <artifactId>Parent</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
 
     <name>GestionGare</name>
     <url>https://github.com/bendem/GestionGare</url>
@@ -14,102 +14,34 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>serialize</groupId>
-            <artifactId>BasicStoreAndLoadLib</artifactId>
-            <version>1.0</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.swinglabs</groupId>
-            <artifactId>swing-layout</artifactId>
-            <version>1.0.3</version>
-            <scope>compile</scope>
-      </dependency>
-    </dependencies>
+    <modules>
+        <module>modules/install</module>
+        <module>modules/commons</module>
+        <module>modules/authenticate</module>
+        <module>modules/logins</module>
+        <module>modules/applicgare</module>
+        <module>modules/applicpostes</module>
+        <module>modules/applicdepot</module>
+    </modules>
 
     <build>
-        <finalName>${project.artifactId}</finalName>
-        <defaultGoal>clean package</defaultGoal>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
-
+        <defaultGoal>clean install</defaultGoal>
         <plugins>
+            <!-- Empty target dir first -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>2.5</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                    <compilerArgs>
-                        <arg>-Xlint:unchecked</arg>
-                    </compilerArgs>
+                    <filesets>
+                        <fileset>
+                            <directory>target</directory>
+                            <includes>
+                                <include>**/*</include>
+                            </includes>
+                        </fileset>
+                    </filesets>
                 </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <mainClass>be.beneterwan.gestiongare.applicgare.ApplicGare</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-install-plugin</artifactId>
-                <version>2.5.1</version>
-                <executions>
-                    <execution>
-                        <id>install_BasicStoreAndLoadLib</id>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <configuration>
-                            <groupId>serialize</groupId>
-                            <artifactId>BasicStoreAndLoadLib</artifactId>
-                            <version>1.0</version>
-                            <packaging>jar</packaging>
-                            <repositoryLayout>default</repositoryLayout>
-                            <generatePom>true</generatePom>
-                            <file>lib/BasicStoreAndLoadLib.jar</file>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.1</version>
-                <executions>
-                    <execution>
-                        <id>copy-dependencies</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.directory}</outputDirectory>
-                            <overWriteReleases>false</overWriteReleases>
-                            <overWriteSnapshots>false</overWriteSnapshots>
-                            <overWriteIfNewer>true</overWriteIfNewer>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

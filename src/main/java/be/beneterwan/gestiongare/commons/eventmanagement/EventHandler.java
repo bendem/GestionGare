@@ -1,4 +1,4 @@
-package be.beneterwan.gestiongare.applicgare.events;
+package be.beneterwan.gestiongare.commons.eventmanagement;
 
 import java.util.EventObject;
 

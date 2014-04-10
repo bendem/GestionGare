@@ -1,7 +1,7 @@
 package be.beneterwan.gestiongare.applicgare.help;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
-import be.beneterwan.gestiongare.applicgare.events.EventHandler;
+import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import java.util.EventObject;
 
 /**

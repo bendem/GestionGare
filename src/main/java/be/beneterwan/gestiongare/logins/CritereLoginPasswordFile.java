@@ -2,7 +2,7 @@ package be.beneterwan.gestiongare.logins;
 
 import be.beneterwan.gestiongare.authenticate.CritereLoginPassword;
 import be.beneterwan.gestiongare.authenticate.User;
-import be.beneterwan.gestiongare.logger.CustomLogger;
+import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;

@@ -1,8 +1,8 @@
 package be.beneterwan.gestiongare.applicgare;
 
-import be.beneterwan.gestiongare.applicgare.events.EventHandler;
-import be.beneterwan.gestiongare.applicgare.events.EventManager;
-import be.beneterwan.gestiongare.logger.CustomLogger;
+import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
+import be.beneterwan.gestiongare.commons.eventmanagement.EventManager;
+import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.logins.LoginEvent;
 import be.beneterwan.gestiongare.logins.LoginFrame;
 import be.beneterwan.gestiongare.logins.LoginListener;

@@ -2,8 +2,8 @@ package be.beneterwan.gestiongare.applicgare.help;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
 import be.beneterwan.gestiongare.applicgare.DateFormat;
-import be.beneterwan.gestiongare.applicgare.events.EventHandler;
-import be.beneterwan.gestiongare.applicgare.events.EventManager;
+import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
+import be.beneterwan.gestiongare.commons.eventmanagement.EventManager;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.EventObject;

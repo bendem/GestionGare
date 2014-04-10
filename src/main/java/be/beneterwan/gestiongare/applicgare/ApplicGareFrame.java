@@ -7,7 +7,7 @@ import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurLogHandler;
 import be.beneterwan.gestiongare.applicgare.help.AProposDialog;
 import be.beneterwan.gestiongare.applicgare.help.DateFormatDialog;
 import be.beneterwan.gestiongare.authenticate.User;
-import be.beneterwan.gestiongare.logger.CustomLogger;
+import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.logins.LoginFrame;
 import java.awt.Frame;
 import java.util.logging.Logger;

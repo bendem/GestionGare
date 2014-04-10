@@ -1,7 +1,6 @@
-package be.beneterwan.gestiongare.applicgare.events;
+package be.beneterwan.gestiongare.commons.eventmanagement;
 
-import be.beneterwan.gestiongare.applicgare.ApplicGareFrameEventManager;
-import be.beneterwan.gestiongare.logger.CustomLogger;
+import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import java.awt.Button;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,14 +13,13 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JMenuItem;
-import org.w3c.dom.events.EventException;
 
 /**
  * @author bendem et Curlybear
  */
 public class EventManager implements ActionListener {
 
-    private static final Logger LOGGER = new CustomLogger(ApplicGareFrameEventManager.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(EventManager.class.getSimpleName());
     protected static final Map<Object, List<EventHandler>> handlerList = new HashMap<>();
 
     public void addListener(Button button, EventHandler handler) {
@@ -57,7 +55,7 @@ public class EventManager implements ActionListener {
                 handler.execute(event);
             }
         } else {
-            throw new EventException((short) 0, "No handler registered");
+            throw new Error("No handler registered");
         }
     }
 

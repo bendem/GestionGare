@@ -1,11 +1,30 @@
-target/*
+###################
+# netbeans stuff
+###################
+build/*
+dist/*
 nbproject/*
-lib/*
-!lib/BasicStoreAndLoadLib.jar
-setpath.bat
 build.xml
+lib/*
+
+###################
+# Maven stuff
+###################
+**/target/*
+
+###################
+# netbeans stuff
+###################
 manifest.mf
-/build/
-/dist/
-*.dat
+setpath.bat
 mvn.bat
+
+###################
+# Application data
+###################
+*.dat
+
+###################
+# Provided libs
+###################
+!lib/Basic*Lib*
