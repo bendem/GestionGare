@@ -1,6 +1,5 @@
 package be.beneterwan.gestiongare.applicgare;
 
-import be.beneterwan.gestiongare.commons.UserManager;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import java.net.URL;
 import java.util.logging.Logger;
@@ -10,7 +9,7 @@ import java.util.logging.Logger;
  */
 public class ApplicGare {
 
-    public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
 
     protected static ApplicGareFrame applicGareFrame;
 
@@ -19,6 +18,7 @@ public class ApplicGare {
         System.out.println("\n  #######################################");
         System.out.println("  #   Gestion Gare : Application Gare   #");
         System.out.println("  #######################################\n");
+        LOGGER.info("Starting up application...");
         applicGareFrame = new ApplicGareFrame();
         applicGareFrame.setVisible(true);
         applicGareFrame.setLoggedIn(null);
@@ -28,4 +28,5 @@ public class ApplicGare {
     public static URL getResourceFile(String filename) {
         return ApplicGare.class.getClassLoader().getResource(filename);
     }
+
 }

@@ -17,10 +17,11 @@ import serialize.ObjectSaver;
 public class UserManager {
 
     private final static Logger LOGGER = new CustomLogger(UserManager.class.getSimpleName());
+    private final static String FILE_NAME = "users.dat";
+    protected static UserManager instance;
+
     protected final Set<User> users;
-    public static final  String FILE_NAME = "users.dat";
-    protected static UserManager Instance;
-    
+
     protected UserManager() {
         users = new HashSet<>();
         load();
@@ -76,11 +77,13 @@ public class UserManager {
             save();
         }
     }
+
     public static UserManager getInstance(){
-        if (Instance == null){
-            Instance = new UserManager();
+        if (instance == null){
+            instance = new UserManager();
         }
-        
-        return Instance;
+
+        return instance;
     }
+
 }
