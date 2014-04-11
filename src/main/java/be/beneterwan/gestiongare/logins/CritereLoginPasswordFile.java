@@ -1,11 +1,12 @@
 package be.beneterwan.gestiongare.logins;
 
+import be.beneterwan.gestiongare.applicgare.ApplicGare;
+import static be.beneterwan.gestiongare.commons.UserManager.FILE_NAME;
 import be.beneterwan.gestiongare.authenticate.CritereLoginPassword;
 import be.beneterwan.gestiongare.authenticate.User;
+import be.beneterwan.gestiongare.commons.UserManager;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
-import java.io.File;
 import java.io.IOException;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,30 +19,11 @@ import serialize.ObjectSaver;
 public class CritereLoginPasswordFile extends CritereLoginPassword {
 
     private static final Logger LOGGER = new CustomLogger(CritereLoginPasswordFile.class.getSimpleName());
-    private static final Set<User> users = new HashSet<>();
-    public static final  String FILE_NAME = "users.dat";
+    private static final UserManager userManager = UserManager.getInstance();
+    private static final Set<User> users = userManager.getUsers();
 
     static {
-        File userFile = new File("." + File.separator + FILE_NAME);
-        if(userFile.exists()) {
-            ObjectLoader loader = new ObjectLoader(FILE_NAME);
-            try {
-                @SuppressWarnings("unchecked")
-                Set<User> usersFromFile = (Set<User>) loader.load();
-                users.addAll(usersFromFile);
-            } catch(IOException | ClassNotFoundException ex) {
-                LOGGER.log(Level.SEVERE, "Impossible de charger le fichier!", ex);
-            }
-        } else {
-            users.add(new User("bendem", "yolo", true));
-            try {
-                userFile.createNewFile();
-                ObjectSaver saver = new ObjectSaver(FILE_NAME);
-                saver.save(users);
-            } catch(IOException ex) {
-                LOGGER.log(Level.SEVERE, "Accès à " + userFile + " impossible!", ex);
-            }
-        }
+        userManager.load();
     }
 
     public CritereLoginPasswordFile(User user) {

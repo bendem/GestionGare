@@ -1,4 +1,4 @@
-package be.beneterwan.gestiongare.applicgare;
+package be.beneterwan.gestiongare.commons;
 
 import be.beneterwan.gestiongare.authenticate.User;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
@@ -19,9 +19,9 @@ public class UserManager {
     private final static Logger LOGGER = new CustomLogger(UserManager.class.getSimpleName());
     protected final Set<User> users;
     public static final  String FILE_NAME = "users.dat";
-
-
-    public UserManager() {
+    protected static UserManager Instance;
+    
+    protected UserManager() {
         users = new HashSet<>();
         load();
     }
@@ -76,5 +76,11 @@ public class UserManager {
             save();
         }
     }
-
+    public static UserManager getInstance(){
+        if (Instance == null){
+            Instance = new UserManager();
+        }
+        
+        return Instance;
+    }
 }

@@ -2,6 +2,7 @@ package be.beneterwan.gestiongare.applicgare.users;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGare;
 import be.beneterwan.gestiongare.authenticate.User;
+import be.beneterwan.gestiongare.commons.UserManager;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventManager;
 import java.util.EventObject;
@@ -18,7 +19,7 @@ public class ListUserDialog extends javax.swing.JDialog {
         super(parent, "User list", true);
         initComponents();
 
-        Set<User> users = ApplicGare.getUserManager().getUsers();
+        Set<User> users = UserManager.getInstance().getUsers();
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Login");
         model.addColumn("Is admin?");

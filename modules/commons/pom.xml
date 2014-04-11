@@ -13,6 +13,14 @@
         <version>1.0</version>
     </parent>
 
+    <dependencies>
+        <dependency>
+            <groupId>serialize</groupId>
+            <artifactId>BasicStoreAndLoadLib</artifactId>
+            <version>LATEST</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <sourceDirectory>../../src/main/java</sourceDirectory>
         <plugins>

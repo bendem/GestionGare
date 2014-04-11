@@ -3,6 +3,7 @@ package be.beneterwan.gestiongare.applicgare.users;
 import be.beneterwan.gestiongare.applicgare.ApplicGare;
 import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
 import be.beneterwan.gestiongare.authenticate.User;
+import be.beneterwan.gestiongare.commons.UserManager;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventManager;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
@@ -15,7 +16,7 @@ import java.util.logging.Logger;
 public class AddUserDialog extends javax.swing.JDialog {
 
     private static final Logger LOGGER = new CustomLogger(AddUserDialog.class.getSimpleName());
-
+    private UserManager userManager = UserManager.getInstance();
     private final EventManager eventManager;
 
     public AddUserDialog(ApplicGareFrame parent) {
@@ -35,8 +36,8 @@ public class AddUserDialog extends javax.swing.JDialog {
                 if(!setErrorMessage()) {
                     LOGGER.info("Adding new user...");
                     User newUser = new User(textFieldNomUser.getText(), new String(passwordFieldMdP1.getPassword()), checkBoxAdmin.isSelected());
-                    if(ApplicGare.getUserManager().add(newUser)) {
-                        ApplicGare.getUserManager().save();
+                    if(userManager.add(newUser)) {
+                        userManager.save();
                         dispose();
                     }
                     errorMessage.setText("O_o");
