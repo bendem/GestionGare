@@ -1,11 +1,15 @@
 package be.beneterwan.gestiongare.applicgare;
 
+import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurListHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurAddHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.LoginHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuAideAboutHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuAideDateHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurLogHandler;
 import be.beneterwan.gestiongare.applicgare.help.AProposDialog;
 import be.beneterwan.gestiongare.applicgare.help.DateFormatDialog;
+import be.beneterwan.gestiongare.applicgare.users.AddUserDialog;
+import be.beneterwan.gestiongare.applicgare.users.ListUserDialog;
 import be.beneterwan.gestiongare.authenticate.User;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.logins.LoginFrame;
@@ -24,6 +28,8 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     private LoginFrame fenLogin;
     private AProposDialog fenAbout;
     private DateFormatDialog fenDate;
+    private AddUserDialog fenAddUser;
+    private ListUserDialog fenListUser;
     private boolean loggedIn = false;
     private User currentUser = null;
 
@@ -40,6 +46,8 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         eventManager.addListener(menuUtilisateurLog, new MenuUtilisateurLogHandler(this));
         eventManager.addListener(menuAideAbout, new MenuAideAboutHandler(this));
         eventManager.addListener(menuAideDate, new MenuAideDateHandler(this));
+        eventManager.addListener(menuUtilisateurListe, new MenuUtilisateurListHandler(this));
+        eventManager.addListener(menuUtilisateurNouvelUtilisateur, new MenuUtilisateurAddHandler(this));
 
         // Packing windows to fit constructor changes
         pack();
@@ -65,6 +73,16 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         fenDate = new DateFormatDialog(this);
     }
 
+    public void openAddUserDialog() {
+        LOGGER.info("Opening Add User window...");
+        fenAddUser = new AddUserDialog(this);
+    }
+
+    public void openListUserDialog() {
+        LOGGER.info("Opening List User window...");
+        fenListUser = new ListUserDialog(this);
+    }
+
     public Frame getFenLogin() {
         return fenLogin;
     }
@@ -75,6 +93,14 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
     public JDialog getFenDateFormat() {
         return fenDate;
+    }
+
+    public JDialog getFenAddUser() {
+        return fenAddUser;
+    }
+
+    public JDialog getFenListUser() {
+        return fenListUser;
     }
 
     public DateFormat getDateFormat() {
