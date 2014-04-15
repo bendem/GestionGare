@@ -203,10 +203,18 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         menuUtilisateurNouvelUtilisateur = new javax.swing.JMenuItem();
         menuUtilisateurListe = new javax.swing.JMenuItem();
         menuTrains = new javax.swing.JMenu();
+        menuTrainListe = new javax.swing.JMenuItem();
+        menuTrainFormation = new javax.swing.JMenuItem();
         menuIncidents = new javax.swing.JMenu();
+        menuIncidentsListe = new javax.swing.JMenuItem();
+        menuIncidentsEnregistrer = new javax.swing.JMenuItem();
         menuConfiguration = new javax.swing.JMenu();
+        menuConfigurationParametreReseau = new javax.swing.JMenuItem();
+        menuConfigurationReglageTemps = new javax.swing.JMenuItem();
         menuAide = new javax.swing.JMenu();
         menuAideDate = new javax.swing.JMenuItem();
+        menuAideAfficherLog = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         menuAideAbout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -319,18 +327,43 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         topMenuBar.add(menuUtilisateur);
 
         menuTrains.setText("Trains");
+
+        menuTrainListe.setText("Liste du jour");
+        menuTrains.add(menuTrainListe);
+
+        menuTrainFormation.setText("Formation");
+        menuTrains.add(menuTrainFormation);
+
         topMenuBar.add(menuTrains);
 
         menuIncidents.setText("Incidents");
+
+        menuIncidentsListe.setText("Liste");
+        menuIncidents.add(menuIncidentsListe);
+
+        menuIncidentsEnregistrer.setText("Enregistrer");
+        menuIncidents.add(menuIncidentsEnregistrer);
+
         topMenuBar.add(menuIncidents);
 
         menuConfiguration.setText("Configuration");
+
+        menuConfigurationParametreReseau.setText("Paramètres réseaux");
+        menuConfiguration.add(menuConfigurationParametreReseau);
+
+        menuConfigurationReglageTemps.setText("Réglages des temps");
+        menuConfiguration.add(menuConfigurationReglageTemps);
+
         topMenuBar.add(menuConfiguration);
 
         menuAide.setText("Aide");
 
         menuAideDate.setText("Date format");
         menuAide.add(menuAideDate);
+
+        menuAideAfficherLog.setText("Afficher log");
+        menuAide.add(menuAideAfficherLog);
+        menuAide.add(jSeparator1);
 
         menuAideAbout.setText("A propos");
         menuAide.add(menuAideAbout);
@@ -486,6 +519,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     private javax.swing.JTextField fieldControleOut;
     private javax.swing.JTextField fieldDepot;
     private javax.swing.JTextField fieldProchainTrain;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JLabel labelControleIn;
     private javax.swing.JLabel labelControleOut;
     private javax.swing.JLabel labelDepot;
@@ -498,9 +532,16 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     private javax.swing.JLabel labelTrainArrivesRepartis;
     private javax.swing.JMenu menuAide;
     private javax.swing.JMenuItem menuAideAbout;
+    private javax.swing.JMenuItem menuAideAfficherLog;
     private javax.swing.JMenuItem menuAideDate;
     private javax.swing.JMenu menuConfiguration;
+    private javax.swing.JMenuItem menuConfigurationParametreReseau;
+    private javax.swing.JMenuItem menuConfigurationReglageTemps;
     private javax.swing.JMenu menuIncidents;
+    private javax.swing.JMenuItem menuIncidentsEnregistrer;
+    private javax.swing.JMenuItem menuIncidentsListe;
+    private javax.swing.JMenuItem menuTrainFormation;
+    private javax.swing.JMenuItem menuTrainListe;
     private javax.swing.JMenu menuTrains;
     private javax.swing.JMenu menuUtilisateur;
     private javax.swing.JMenuItem menuUtilisateurListe;

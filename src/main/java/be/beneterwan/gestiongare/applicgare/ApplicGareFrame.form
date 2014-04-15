@@ -38,16 +38,52 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Trains"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuTrainListe">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Liste du jour"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuTrainFormation">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Formation"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuIncidents">
           <Properties>
             <Property name="text" type="java.lang.String" value="Incidents"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuIncidentsListe">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Liste"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuIncidentsEnregistrer">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Enregistrer"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuConfiguration">
           <Properties>
             <Property name="text" type="java.lang.String" value="Configuration"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuConfigurationParametreReseau">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Param&#xe8;tres r&#xe9;seaux"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuConfigurationReglageTemps">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="R&#xe9;glages des temps"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuAide">
           <Properties>
@@ -58,6 +94,13 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Date format"/>
               </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuAideAfficherLog">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Afficher log"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuAideAbout">
               <Properties>
