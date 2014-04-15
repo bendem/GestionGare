@@ -6,6 +6,9 @@
 
 package be.beneterwan.gestiongare.applicdepot;
 
+import be.beneterwan.gestiongare.commons.ResourceManager;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Bear
@@ -17,6 +20,10 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
      */
     public ApplicDepotFrame() {
         initComponents();
+        picture.setIcon(new ImageIcon(ResourceManager.getResourceFile("img/train-3.jpg")));
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 
     /**
@@ -31,6 +38,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
         labelTrainConsidere = new javax.swing.JLabel();
         fieldTrainConsidere = new javax.swing.JTextField();
         picturePanel = new javax.swing.JPanel();
+        picture = new javax.swing.JLabel();
         buttonMsgRecu = new javax.swing.JButton();
         labelAnnonce = new javax.swing.JLabel();
         fieldAnnonce = new javax.swing.JTextField();
@@ -44,7 +52,6 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
         tableOccupationHangar = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(548, 327));
 
         labelTrainConsidere.setText("Train considéré:");
 
@@ -54,11 +61,11 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
         picturePanel.setLayout(picturePanelLayout);
         picturePanelLayout.setHorizontalGroup(
             picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 240, Short.MAX_VALUE)
+            .addComponent(picture, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
         );
         picturePanelLayout.setVerticalGroup(
             picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 145, Short.MAX_VALUE)
+            .addComponent(picture, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
         );
 
         buttonMsgRecu.setText("Message reçu");
@@ -169,7 +176,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -210,6 +217,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
     private javax.swing.JLabel labelGare;
     private javax.swing.JLabel labelTrainConsidere;
     private javax.swing.JLabel labelVoie;
+    private javax.swing.JLabel picture;
     private javax.swing.JPanel picturePanel;
     private javax.swing.JTable tableOccupationHangar;
     // End of variables declaration//GEN-END:variables
