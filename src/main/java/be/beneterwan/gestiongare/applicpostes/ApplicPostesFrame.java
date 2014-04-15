@@ -6,6 +6,9 @@
 
 package be.beneterwan.gestiongare.applicpostes;
 
+import be.beneterwan.gestiongare.commons.ResourceManager;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Bear
@@ -17,6 +20,10 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
      */
     public ApplicPostesFrame() {
         initComponents();
+        picture.setIcon(new ImageIcon(ResourceManager.getResourceFile("img/train-2.jpg")));
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 
     /**
@@ -31,6 +38,7 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
         comboBoxPostes = new javax.swing.JComboBox();
         buttonValider = new javax.swing.JButton();
         picturePanel = new javax.swing.JPanel();
+        picture = new javax.swing.JLabel();
         labelAnnonce = new javax.swing.JLabel();
         fieldAnnonce = new javax.swing.JTextField();
         labelGare = new javax.swing.JLabel();
@@ -54,11 +62,11 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
         picturePanel.setLayout(picturePanelLayout);
         picturePanelLayout.setHorizontalGroup(
             picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 226, Short.MAX_VALUE)
+            .addComponent(picture, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
         );
         picturePanelLayout.setVerticalGroup(
             picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 140, Short.MAX_VALUE)
+            .addComponent(picture, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
         );
 
         labelAnnonce.setText("Annonce:");
@@ -109,8 +117,8 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(fieldTrainConsidere))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonSignalPassageTrain, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)
+                        .addComponent(buttonSignalPassageTrain, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(labelTrainPartis)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1)))
@@ -160,7 +168,7 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -200,6 +208,7 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
     private javax.swing.JLabel labelGare;
     private javax.swing.JLabel labelTrainConsidere;
     private javax.swing.JLabel labelTrainPartis;
+    private javax.swing.JLabel picture;
     private javax.swing.JPanel picturePanel;
     private javax.swing.JTextArea textAreaTrainPartis;
     // End of variables declaration//GEN-END:variables
