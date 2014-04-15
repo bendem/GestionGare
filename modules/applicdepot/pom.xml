@@ -34,7 +34,7 @@
                         <arg>-Xlint:unchecked</arg>
                     </compilerArgs>
                     <includes>
-                        <include>**/applicdepot/**</include>
+                        <include>**/applicdepot/**.java</include>
                     </includes>
                 </configuration>
             </plugin>

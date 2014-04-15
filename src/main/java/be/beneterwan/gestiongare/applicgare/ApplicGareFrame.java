@@ -38,7 +38,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         super("== ApplicGare ==");
         LOGGER.info("Building window...");
         initComponents();
-        picture.setIcon(new ImageIcon(ResourceManager.getResourceFile("img/train.jpg")));
+        picture.setIcon(new ImageIcon(ResourceManager.getResourceFile("img/train-1.jpg")));
 
         // Setting default windows
         dateFormat = new DateFormat();

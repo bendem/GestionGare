@@ -34,7 +34,7 @@
                         <arg>-Xlint:unchecked</arg>
                     </compilerArgs>
                     <includes>
-                        <include>**/applicpostes/**</include>
+                        <include>**/applicpostes/**.java</include>
                     </includes>
                 </configuration>
             </plugin>
