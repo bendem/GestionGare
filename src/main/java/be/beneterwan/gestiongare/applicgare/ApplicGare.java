@@ -1,7 +1,6 @@
 package be.beneterwan.gestiongare.applicgare;
 
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
-import java.net.URL;
 import java.util.logging.Logger;
 
 /**
@@ -23,10 +22,6 @@ public class ApplicGare {
         applicGareFrame.setVisible(true);
         applicGareFrame.setLoggedIn(null);
         applicGareFrame.openLoginFrame();
-    }
-
-    public static URL getResourceFile(String filename) {
-        return ApplicGare.class.getClassLoader().getResource(filename);
     }
 
 }

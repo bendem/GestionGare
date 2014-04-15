@@ -11,6 +11,7 @@ import be.beneterwan.gestiongare.applicgare.help.DateFormatDialog;
 import be.beneterwan.gestiongare.applicgare.users.AddUserDialog;
 import be.beneterwan.gestiongare.applicgare.users.ListUserDialog;
 import be.beneterwan.gestiongare.authenticate.User;
+import be.beneterwan.gestiongare.commons.ResourceManager;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.logins.LoginFrame;
 import java.awt.Frame;
@@ -37,7 +38,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         super("== ApplicGare ==");
         LOGGER.info("Building window...");
         initComponents();
-        picture.setIcon(new ImageIcon(ApplicGare.getResourceFile("img/train.jpg")));
+        picture.setIcon(new ImageIcon(ResourceManager.getResourceFile("img/train.jpg")));
 
         // Setting default windows
         dateFormat = new DateFormat();
