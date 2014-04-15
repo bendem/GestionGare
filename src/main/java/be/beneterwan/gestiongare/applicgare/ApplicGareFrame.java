@@ -1,10 +1,10 @@
 package be.beneterwan.gestiongare.applicgare;
 
-import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurListHandler;
-import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurAddHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.LoginHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuAideAboutHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuAideDateHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurAddHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurListHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurLogHandler;
 import be.beneterwan.gestiongare.applicgare.help.AProposDialog;
 import be.beneterwan.gestiongare.applicgare.help.DateFormatDialog;
@@ -200,6 +200,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         topMenuBar = new javax.swing.JMenuBar();
         menuUtilisateur = new javax.swing.JMenu();
         menuUtilisateurLog = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
         menuUtilisateurNouvelUtilisateur = new javax.swing.JMenuItem();
         menuUtilisateurListe = new javax.swing.JMenuItem();
         menuTrains = new javax.swing.JMenu();
@@ -317,6 +318,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
         menuUtilisateurLog.setText("Logout");
         menuUtilisateur.add(menuUtilisateurLog);
+        menuUtilisateur.add(jSeparator2);
 
         menuUtilisateurNouvelUtilisateur.setText("Nouvel utilisateur");
         menuUtilisateur.add(menuUtilisateurNouvelUtilisateur);
@@ -520,6 +522,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     private javax.swing.JTextField fieldDepot;
     private javax.swing.JTextField fieldProchainTrain;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JLabel labelControleIn;
     private javax.swing.JLabel labelControleOut;
     private javax.swing.JLabel labelDepot;

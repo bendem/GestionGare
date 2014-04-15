@@ -22,6 +22,8 @@
                 <Property name="text" type="java.lang.String" value="Logout"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator2">
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuUtilisateurNouvelUtilisateur">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nouvel utilisateur"/>
