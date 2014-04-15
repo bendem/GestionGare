@@ -1,4 +1,4 @@
-package be.beneterwan.gestiongare.trains;
+package be.beneterwan.gestiongare.commons.trains;
 
 /**
  * @author bendem et Curlybear

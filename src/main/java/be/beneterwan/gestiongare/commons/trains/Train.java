@@ -1,4 +1,4 @@
-package be.beneterwan.gestiongare.trains;
+package be.beneterwan.gestiongare.commons.trains;
 
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import java.util.HashSet;
