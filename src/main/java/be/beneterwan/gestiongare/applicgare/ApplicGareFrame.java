@@ -24,7 +24,8 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
     public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
 
-    private final ApplicGareFrameEventManager eventManager = new ApplicGareFrameEventManager(this);
+    private final ApplicGare applicController;
+    private final ApplicGareFrameEventManager eventManager;
     private DateFormat dateFormat;
     private LoginFrame fenLogin;
     private AProposDialog fenAbout;
@@ -32,18 +33,20 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     private AddUserDialog fenAddUser;
     private ListUserDialog fenListUser;
     private boolean loggedIn = false;
-    private User currentUser = null;
+    private User currentUser;
 
-    public ApplicGareFrame() {
+    public ApplicGareFrame(ApplicGare applicController) {
         super("== ApplicGare ==");
         LOGGER.info("Building window...");
         initComponents();
+        this.applicController = applicController;
         picture.setIcon(new ImageIcon(ResourceManager.getResourceFile("img/train-1.jpg")));
 
         // Setting default windows
         dateFormat = new DateFormat();
 
         // Setting up events
+        eventManager = new ApplicGareFrameEventManager(this);
         eventManager.addListener(menuUtilisateurLog, new MenuUtilisateurLogHandler(this));
         eventManager.addListener(menuAideAbout, new MenuAideAboutHandler(this));
         eventManager.addListener(menuAideDate, new MenuAideDateHandler(this));
@@ -127,17 +130,20 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         menuUtilisateurLog.setText("Login");
         ((DefaultTableModel) tableOccupationVoies.getModel()).setRowCount(0);
         comboBoxTrain.removeAllItems();
-        changeInterfaceLockState(false);
+        changeInterfaceEnableState(false);
     }
 
     private void unlockInterface(String login) {
         labelResponsableGare.setText("Responsable gare : " + login);
         menuUtilisateurLog.setText("Logout");
         // TODO Add stuff to tableOccupationVoies and comboBoxTrain
-        changeInterfaceLockState(true);
+        changeInterfaceEnableState(true);
+        // Starting threads
+        LOGGER.info("Starting threads...");
+
     }
 
-    private void changeInterfaceLockState(boolean enableState) {
+    private void changeInterfaceEnableState(boolean enableState) {
         menuTrains.setEnabled(enableState);
         menuIncidents.setEnabled(enableState);
         menuConfiguration.setEnabled(enableState);
@@ -480,37 +486,6 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for(javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager
-                    .getInstalledLookAndFeels()) {
-                if("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch(ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            LOGGER.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new ApplicGareFrame().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonControleIn;
