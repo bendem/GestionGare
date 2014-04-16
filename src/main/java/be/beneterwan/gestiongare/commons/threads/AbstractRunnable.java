@@ -22,9 +22,11 @@ public abstract class AbstractRunnable implements Runnable {
             work();
             pause(100);
         }
+        shutdown();
     }
 
     protected abstract void work();
+    protected abstract void shutdown();
 
     public void cancel() {
         this.cancelled = true;

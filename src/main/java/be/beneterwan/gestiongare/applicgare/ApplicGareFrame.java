@@ -24,7 +24,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
     public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
 
-    private final ApplicGare applicController;
+    private final ApplicGare applicGare;
     private final ApplicGareFrameEventManager eventManager;
     private DateFormat dateFormat;
     private LoginFrame fenLogin;
@@ -39,7 +39,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         super("== ApplicGare ==");
         LOGGER.info("Building window...");
         initComponents();
-        this.applicController = applicController;
+        this.applicGare = applicController;
         picture.setIcon(new ImageIcon(ResourceManager.getResourceFile("img/train-1.jpg")));
 
         // Setting default windows
@@ -138,9 +138,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         menuUtilisateurLog.setText("Logout");
         // TODO Add stuff to tableOccupationVoies and comboBoxTrain
         changeInterfaceEnableState(true);
-        // Starting threads
-        LOGGER.info("Starting threads...");
-
+        applicGare.startThreads();
     }
 
     private void changeInterfaceEnableState(boolean enableState) {

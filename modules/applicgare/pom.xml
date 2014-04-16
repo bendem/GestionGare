@@ -30,11 +30,6 @@
             <version>LATEST</version>
         </dependency>
         <dependency>
-            <groupId>be.beneterwan.gestiongare</groupId>
-            <artifactId>Authenticate</artifactId>
-            <version>LATEST</version>
-        </dependency>
-        <dependency>
             <groupId>network</groupId>
             <artifactId>BasicNetworkLib</artifactId>
             <version>1.0</version>

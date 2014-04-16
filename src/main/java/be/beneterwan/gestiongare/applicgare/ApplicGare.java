@@ -1,6 +1,9 @@
 package be.beneterwan.gestiongare.applicgare;
 
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
+import be.beneterwan.gestiongare.commons.threads.AbstractRunnable;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.logging.Logger;
@@ -14,6 +17,7 @@ public class ApplicGare {
     private static ApplicGare instance;
     private static ApplicGareFrame applicGareFrame;
 
+    private final AbstractRunnable applicDepotReceiver;
     private final Queue<String> applicDepotMessages;
 
     public ApplicGare() {
@@ -25,11 +29,28 @@ public class ApplicGare {
         applicGareFrame.setVisible(true);
         applicGareFrame.setLoggedIn(null);
         applicGareFrame.openLoginFrame();
+        applicGareFrame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent event) {
+                stopThreads();
+            }
+        });
         applicDepotMessages = new ConcurrentLinkedQueue<>();
+        applicDepotReceiver = new ApplicDepotReceiver(this);
     }
 
     void addApplicDepotMessage(String message) {
         applicDepotMessages.add(message);
+    }
+
+    public void startThreads() {
+        LOGGER.info("Starting threads");
+        new Thread(applicDepotReceiver).start();
+    }
+
+    public void stopThreads() {
+        LOGGER.info("Stopping threads");
+        applicDepotReceiver.cancel();
     }
 
     public static void main(String[] args) {
