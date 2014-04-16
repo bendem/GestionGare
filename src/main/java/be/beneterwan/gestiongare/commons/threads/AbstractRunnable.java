@@ -1,6 +1,5 @@
 package be.beneterwan.gestiongare.commons.threads;
 
-import be.beneterwan.gestiongare.commons.Tools;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import java.util.logging.Logger;
 
@@ -21,7 +20,7 @@ public abstract class AbstractRunnable implements Runnable {
     public void run() {
         while(!cancelled) {
             work();
-            Tools.pause(100);
+            pause(100);
         }
     }
 
@@ -29,6 +28,14 @@ public abstract class AbstractRunnable implements Runnable {
 
     public void cancel() {
         this.cancelled = true;
+    }
+
+    protected void pause(long time) {
+        try {
+            Thread.sleep(time);
+        } catch(InterruptedException ex) {
+            // Discard silently
+        }
     }
 
 }
