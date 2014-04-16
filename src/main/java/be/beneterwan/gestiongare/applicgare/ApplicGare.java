@@ -33,6 +33,7 @@ public class ApplicGare {
             @Override
             public void windowClosing(WindowEvent event) {
                 stopThreads();
+                applicGareFrame.dispose();
             }
         });
         applicDepotMessages = new ConcurrentLinkedQueue<>();
