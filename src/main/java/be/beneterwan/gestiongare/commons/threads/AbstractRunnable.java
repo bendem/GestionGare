@@ -1,14 +1,9 @@
 package be.beneterwan.gestiongare.commons.threads;
 
-import be.beneterwan.gestiongare.commons.logger.CustomLogger;
-import java.util.logging.Logger;
-
 /**
  * @author bendem et Curlybear
  */
 public abstract class AbstractRunnable implements Runnable {
-
-    private static final Logger LOGGER = new CustomLogger(AbstractRunnable.class.getSimpleName());
 
     private boolean cancelled;
 
