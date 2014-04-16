@@ -1,6 +1,8 @@
 package be.beneterwan.gestiongare.applicgare;
 
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.logging.Logger;
 
 /**
@@ -12,6 +14,8 @@ public class ApplicGare {
     private static ApplicGare instance;
     private static ApplicGareFrame applicGareFrame;
 
+    private final Queue<String> applicDepotMessages;
+
     public ApplicGare() {
         System.out.println("\n  #######################################");
         System.out.println("  #   Gestion Gare : Application Gare   #");
@@ -21,6 +25,11 @@ public class ApplicGare {
         applicGareFrame.setVisible(true);
         applicGareFrame.setLoggedIn(null);
         applicGareFrame.openLoginFrame();
+        applicDepotMessages = new ConcurrentLinkedQueue<>();
+    }
+
+    void addApplicDepotMessage(String message) {
+        applicDepotMessages.add(message);
     }
 
     public static void main(String[] args) {
