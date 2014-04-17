@@ -44,10 +44,10 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
         fieldAnnonce = new javax.swing.JTextField();
         labelGare = new javax.swing.JLabel();
         buttonValider = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        buttonSignal = new javax.swing.JButton();
         labelVoie = new javax.swing.JLabel();
         comboBoxVoie = new javax.swing.JComboBox();
-        jLabel5 = new javax.swing.JLabel();
+        labelOccupationHangar = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableOccupationHangar = new javax.swing.JTable();
 
@@ -76,13 +76,13 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
 
         buttonValider.setText("Valider");
 
-        jButton3.setText("Signaler arrivée du train");
+        buttonSignal.setText("Signaler arrivée du train");
 
         labelVoie.setText("Voie choisie:");
 
         comboBoxVoie.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel5.setText("Occupation du hangar:");
+        labelOccupationHangar.setText("Occupation du hangar:");
 
         tableOccupationHangar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -107,7 +107,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonSignal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(fieldTrainConsidere)
                             .addComponent(buttonMsgRecu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
@@ -131,7 +131,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(buttonValider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                        .addComponent(labelOccupationHangar)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -156,11 +156,11 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonValider)
-                    .addComponent(jButton3)
+                    .addComponent(buttonSignal)
                     .addComponent(labelVoie)
                     .addComponent(comboBoxVoie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
+                .addComponent(labelOccupationHangar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
                 .addContainerGap())
@@ -198,6 +198,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new ApplicDepotFrame().setVisible(true);
             }
@@ -206,15 +207,15 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonMsgRecu;
+    private javax.swing.JButton buttonSignal;
     private javax.swing.JButton buttonValider;
     private javax.swing.JComboBox comboBoxVoie;
     private javax.swing.JTextField fieldAnnonce;
     private javax.swing.JTextField fieldTrainConsidere;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelAnnonce;
     private javax.swing.JLabel labelGare;
+    private javax.swing.JLabel labelOccupationHangar;
     private javax.swing.JLabel labelTrainConsidere;
     private javax.swing.JLabel labelVoie;
     private javax.swing.JLabel picture;

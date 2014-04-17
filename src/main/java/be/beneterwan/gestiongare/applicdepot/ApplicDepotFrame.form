@@ -29,7 +29,7 @@
                   <Component id="jScrollPane1" pref="528" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButton3" max="32767" attributes="0"/>
+                          <Component id="buttonSignal" max="32767" attributes="0"/>
                           <Component id="fieldTrainConsidere" max="32767" attributes="0"/>
                           <Component id="buttonMsgRecu" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
@@ -61,7 +61,7 @@
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelOccupationHangar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -93,12 +93,12 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="buttonValider" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonSignal" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="labelVoie" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="comboBoxVoie" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+              <Component id="labelOccupationHangar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" pref="95" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -160,7 +160,7 @@
         <Property name="text" type="java.lang.String" value="Valider"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="buttonSignal">
       <Properties>
         <Property name="text" type="java.lang.String" value="Signaler arriv&#xe9;e du train"/>
       </Properties>
@@ -182,7 +182,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
+    <Component class="javax.swing.JLabel" name="labelOccupationHangar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Occupation du hangar:"/>
       </Properties>
