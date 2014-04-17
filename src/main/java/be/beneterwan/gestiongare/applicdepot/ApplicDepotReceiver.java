@@ -20,19 +20,19 @@ public class ApplicDepotReceiver extends AbstractRunnable{
     private final boolean cancelled;
     private static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
     private final NetworkStringReceiver receiver = new NetworkStringReceiver(50005);
-    private String Message = "RIEN";
+    private final ApplicDepot applicDepot;
     
-    public ApplicDepotReceiver(){
+    public ApplicDepotReceiver(ApplicDepot applicDepot) {
+        this.applicDepot = applicDepot;
         cancelled = false;
-    }
-    
-    public String getMessage() {
-        return Message;
     }
 
     @Override
     protected void work() {
-        Message = receiver.getMessage();
+        String message = receiver.getMessage();
+        if(!"RIEN".equals(message)) {
+            applicDepot.addApplicDepotMessage(message);
+        }
     }
 
     @Override

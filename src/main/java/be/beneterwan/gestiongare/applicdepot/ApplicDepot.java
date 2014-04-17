@@ -3,6 +3,8 @@ package be.beneterwan.gestiongare.applicdepot;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.logging.Logger;
 
 /**
@@ -13,7 +15,8 @@ public class ApplicDepot {
     private static final Logger LOGGER = new CustomLogger(ApplicDepotFrame.class.getSimpleName());
     protected static ApplicDepotFrame applicDepotFrame;
     private static ApplicDepot instance;
-    private static final ApplicDepotReceiver receiver = new ApplicDepotReceiver();
+    private final ApplicDepotReceiver receiver = new ApplicDepotReceiver(this);
+    private final Queue<String> applicDepotMessages;
     
     public ApplicDepot() {
         System.out.println("\n  ########################################");
@@ -30,6 +33,11 @@ public class ApplicDepot {
             }
         });
         startThreads();
+        applicDepotMessages = new ConcurrentLinkedQueue<>();
+    }
+
+    void addApplicDepotMessage(String message) {
+        applicDepotMessages.add(message);
     }
       
     public void startThreads() {
