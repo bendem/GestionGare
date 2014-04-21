@@ -14,8 +14,12 @@ public class CustomFormatter extends Formatter {
     public String format(LogRecord lr) {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss, SSS");
         String header = "[" + lr.getLevel().getName() + " " + sdf.format(new Date()) + "] [" + lr.getLoggerName() + "] ";
-        StringBuilder message = new StringBuilder(header);
-        message.append(lr.getMessage());
+        StringBuilder message = new StringBuilder();
+
+        String logMessage = lr.getMessage();
+        if(logMessage != null) {
+            message.append(header).append(logMessage);
+        }
 
         Throwable error = lr.getThrown();
         if(error != null) {
