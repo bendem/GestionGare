@@ -4,11 +4,8 @@ import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.commons.threads.AbstractRunnable;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -22,7 +19,6 @@ public class ApplicGare {
 
     private final AbstractRunnable applicDepotReceiver;
     private final Queue<String> applicDepotMessages;
-    private final List<Thread> threads;
 
     public ApplicGare() {
         System.out.println("\n  #######################################");
@@ -42,7 +38,6 @@ public class ApplicGare {
         });
         applicDepotMessages = new ConcurrentLinkedQueue<>();
         applicDepotReceiver = new ApplicDepotReceiver(this);
-        threads = new ArrayList<>();
     }
 
     void addApplicDepotMessage(String message) {
@@ -51,22 +46,12 @@ public class ApplicGare {
 
     public void startThreads() {
         LOGGER.info("Starting threads");
-        threads.add(new Thread(applicDepotReceiver));
-        for(Thread thread : threads) {
-            thread.start();
-        }
+        applicDepotReceiver.start();
     }
 
     public void stopThreads() {
         LOGGER.info("Stopping threads");
         applicDepotReceiver.cancel();
-        for(Thread thread : threads) {
-            try {
-                thread.join(500); // if it takes more than .5 sec, the thread has a problem...
-            } catch(InterruptedException ex) {
-                LOGGER.log(Level.SEVERE, null, ex);
-            }
-        }
     }
 
     public static void main(String[] args) {
