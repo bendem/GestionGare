@@ -56,7 +56,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         // Packing windows to fit constructor changes
         pack();
         setLocationRelativeTo(null);
-        LOGGER.info("Window built");
+        LOGGER.fine("Window built");
     }
 
     public void openLoginFrame() {
@@ -64,7 +64,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         fenLogin = new LoginFrame();
         eventManager.addListener(fenLogin, new LoginHandler(this));
         fenLogin.requestFocusInWindow();
-        LOGGER.info("Login window opened.");
+        LOGGER.fine("Login window opened.");
     }
 
     public void openAboutDialog() {

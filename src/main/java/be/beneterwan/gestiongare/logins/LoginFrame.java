@@ -53,7 +53,7 @@ public class LoginFrame extends Frame implements ActionListener {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent we) {
-                LOGGER.info("Closing...");
+                LOGGER.fine("Closing...");
                 we.getWindow().dispose();
             }
         });
@@ -67,7 +67,7 @@ public class LoginFrame extends Frame implements ActionListener {
         if(ae.getActionCommand().equals("OK")) {
             CritereLoginPassword critereLoginPassword = new CritereLoginPasswordFile(new User(login.getText(), pwd.getText()));
             if(critereLoginPassword.isOk()) {
-                LOGGER.info("Oui");
+                LOGGER.fine("Oui");
                 LoginEvent event = new LoginEvent(critereLoginPassword.getUserByName(login.getText()), this);
                 dispatchEvent(event);
             } else {

@@ -10,7 +10,7 @@ import network.NetworkStringReceiver;
  */
 public class ApplicDepotReceiver extends AbstractRunnable {
 
-    private static final Logger LOGGER = new CustomLogger(AbstractRunnable.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(ApplicDepotReceiver.class.getSimpleName());
 
     private final ApplicGare applicGare;
     private NetworkStringReceiver receiver;
