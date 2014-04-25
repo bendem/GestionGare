@@ -8,11 +8,15 @@ import network.NetworkStringReceiver;
  */
 public class ApplicDepotReceiver extends AbstractRunnable {
 
-    private final NetworkStringReceiver receiver;
     private final ApplicGare applicGare;
+    private NetworkStringReceiver receiver;
 
     public ApplicDepotReceiver(ApplicGare applicGare) {
         this.applicGare = applicGare;
+    }
+
+    @Override
+    protected void startup() {
         receiver = new NetworkStringReceiver(1500);
     }
 

@@ -13,33 +13,43 @@ public abstract class AbstractRunnable implements Runnable {
 
     private final Thread thread;
     private boolean cancelled;
+    private boolean running;
 
     public AbstractRunnable() {
         cancelled = false;
+        running = false;
         thread = new Thread(this);
     }
 
-    public void start() {
+    public final void start() {
         thread.start();
     }
 
-    public Thread getThread() {
+    public final Thread getThread() {
         return thread;
     }
 
+    public final synchronized boolean isRunning() {
+        return running;
+    }
+
     @Override
-    public void run() {
+    public final void run() {
+        running = true;
+        startup();
         while(!cancelled) {
             work();
             pause(100);
         }
         shutdown();
+        running = false;
     }
 
+    protected void startup() {}
     protected abstract void work();
-    protected abstract void shutdown();
+    protected void shutdown() {}
 
-    public void cancel() {
+    public final synchronized void cancel() {
         this.cancelled = true;
         try {
             thread.join(500);
@@ -48,7 +58,7 @@ public abstract class AbstractRunnable implements Runnable {
         }
     }
 
-    protected void pause(long time) {
+    protected final void pause(long time) {
         try {
             Thread.sleep(time);
         } catch(InterruptedException ex) {

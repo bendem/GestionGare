@@ -51,7 +51,10 @@ public class ApplicGare {
 
     public void stopThreads() {
         LOGGER.info("Stopping threads");
-        applicDepotReceiver.cancel();
+        if(applicDepotReceiver.isRunning()) {
+            applicDepotReceiver.cancel();
+        }
+        LOGGER.fine("Thread stopped");
     }
 
     public static void main(String[] args) {
