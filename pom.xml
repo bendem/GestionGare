@@ -18,6 +18,7 @@
         <module>modules/install</module>
         <module>modules/commons</module>
         <module>modules/authenticate</module>
+        <module>modules/schedulegenerator</module>
         <module>modules/logins</module>
         <module>modules/applicgare</module>
         <module>modules/applicpostes</module>
