@@ -101,7 +101,7 @@ public class ScheduleGenerator {
             LOGGER.log(Level.SEVERE, "Could not save schedules", ex);
         }
 
-        LOGGER.log(Level.INFO, "Création des trains terminée");
+        LOGGER.info("Création des trains terminée");
     }
 
 }
