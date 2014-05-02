@@ -32,6 +32,11 @@ public class Train implements Serializable {
         this.numero = numero;
     }
 
+    public Train add(VehiculeRail vehiculeRail) {
+        wagons.add(vehiculeRail);
+        return this;
+    }
+
     @Override
     public String toString() {
         return type.name() + numero;
