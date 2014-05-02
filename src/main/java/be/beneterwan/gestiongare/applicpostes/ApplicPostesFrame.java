@@ -19,6 +19,7 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
      * Creates new form ApplicPostesFrame
      */
     public ApplicPostesFrame() {
+        super("Applic Postes");
         initComponents();
         picture.setIcon(new ImageIcon(ResourceManager.getResourceFile("img/train-2.jpg")));
         pack();

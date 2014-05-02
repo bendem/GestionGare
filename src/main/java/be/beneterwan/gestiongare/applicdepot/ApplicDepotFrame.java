@@ -19,6 +19,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
      * Creates new form ApplicDepotFrame
      */
     public ApplicDepotFrame() {
+        super("Applic Dépot");
         initComponents();
         picture.setIcon(new ImageIcon(ResourceManager.getResourceFile("img/train-3.jpg")));
         pack();
