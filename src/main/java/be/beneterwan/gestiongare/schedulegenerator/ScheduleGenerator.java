@@ -100,6 +100,8 @@ public class ScheduleGenerator {
         } catch(IOException ex) {
             LOGGER.log(Level.SEVERE, "Could not save schedules", ex);
         }
+
+        LOGGER.log(Level.INFO, "Création des trains terminée");
     }
 
 }
