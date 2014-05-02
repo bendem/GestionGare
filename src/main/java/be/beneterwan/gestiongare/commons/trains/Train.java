@@ -20,7 +20,11 @@ public class Train implements Serializable {
     protected Type type;
     protected int numero;
 
-    public Train(Locomotive locomotive, Set<VehiculeRail> wagons, Type type, int numero, String origine, String destination) throws TrainWithoutLocomotiveException {
+    public Train(Locomotive locomotive, Type type, int numero) throws TrainWithoutLocomotiveException {
+        this(locomotive, null, type, numero);
+    }
+
+    public Train(Locomotive locomotive, Set<VehiculeRail> wagons, Type type, int numero) throws TrainWithoutLocomotiveException {
         if(locomotive == null) {
             throw new TrainWithoutLocomotiveException();
         }
@@ -33,7 +37,9 @@ public class Train implements Serializable {
     }
 
     public Train add(VehiculeRail vehiculeRail) {
-        wagons.add(vehiculeRail);
+        if(vehiculeRail != null) {
+            wagons.add(vehiculeRail);
+        }
         return this;
     }
 

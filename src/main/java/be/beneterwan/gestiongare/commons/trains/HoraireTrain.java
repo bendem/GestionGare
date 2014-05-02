@@ -1,7 +1,6 @@
 package be.beneterwan.gestiongare.commons.trains;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * @author bendem et Curlybear
@@ -11,11 +10,15 @@ public class HoraireTrain implements Serializable {
     private Train train;
     private String destination;
     private String origine;
-    private Date arrivee;
-    private Date depart;
+    private int arrivee;
+    private int depart;
     private int quai;
 
-    public HoraireTrain(Train train, String destination, String origine, Date arrivee, Date depart, int quai) {
+    public HoraireTrain(Train train, String destination, String origine, int heureArrivee, int minuteArrivee, int heureDepart, int minuteDepart, int quai) {
+        this(train, destination, origine, heureArrivee*60 + minuteArrivee, heureDepart*60 + minuteDepart, quai);
+    }
+
+    public HoraireTrain(Train train, String destination, String origine, int arrivee, int depart, int quai) {
         this.train = train;
         this.destination = destination;
         this.origine = origine;
@@ -48,19 +51,19 @@ public class HoraireTrain implements Serializable {
         this.origine = origine;
     }
 
-    public Date getArrivee() {
+    public int getArrivee() {
         return arrivee;
     }
 
-    public void setArrivee(Date arrivee) {
+    public void setArrivee(int arrivee) {
         this.arrivee = arrivee;
     }
 
-    public Date getDepart() {
+    public int getDepart() {
         return depart;
     }
 
-    public void setDepart(Date depart) {
+    public void setDepart(int depart) {
         this.depart = depart;
     }
 
