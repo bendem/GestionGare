@@ -1,14 +1,15 @@
 package be.beneterwan.gestiongare.schedulegenerator;
 
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
+import be.beneterwan.gestiongare.commons.trains.HoraireComparator;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
 import be.beneterwan.gestiongare.commons.trains.Locomotive;
 import be.beneterwan.gestiongare.commons.trains.Train;
 import be.beneterwan.gestiongare.commons.trains.TrainWithoutLocomotiveException;
 import be.beneterwan.gestiongare.commons.trains.Wagon;
 import java.io.IOException;
-import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import serialize.ObjectSaver;
@@ -23,7 +24,7 @@ public class ScheduleGenerator {
     public static void main(String[] args) {
         LOGGER.info("Generating schedules...");
 
-        Set<HoraireTrain> horaires = new HashSet<>();
+        Set<HoraireTrain> horaires = new TreeSet<>(new HoraireComparator());
 
         Locomotive loc1 = new Locomotive(4500, 501, 1990);
         Locomotive loc2 = new Locomotive(5400, 502, 1989);
@@ -41,9 +42,9 @@ public class ScheduleGenerator {
             .add(new Wagon(26, Wagon.Type.Voyageur, 102, 2009))
             .add(new Wagon(26, Wagon.Type.Voyageur, 103, 1999));
 
-        horaires.add(new HoraireTrain(train, "bruxelles-midi", "eupen", 9, 33, 9, 36, 1));        
-        
-        
+        horaires.add(new HoraireTrain(train, "bruxelles-midi", "eupen", 9, 33, 9, 36, 1));
+
+
         try {
             train = new Train(loc2, Train.Type.ICE, 123);
         } catch(TrainWithoutLocomotiveException ex) {
@@ -53,10 +54,10 @@ public class ScheduleGenerator {
         train
             .add(new Wagon(10, Wagon.Type.Marchandise, 104, 2002))
             .add(new Wagon(10, Wagon.Type.Marchandise, 105, 1998));
-        
+
         horaires.add(new HoraireTrain(train, "Aachen", "Ostende", 12, 50, 13, 48, 2));
 
-        
+
         try {
             train = new Train(loc3, Train.Type.IR, 456);
         } catch(TrainWithoutLocomotiveException ex) {
@@ -68,7 +69,7 @@ public class ScheduleGenerator {
             .add(new Wagon(22, Wagon.Type.Voyageur, 107, 2004));
 
         horaires.add(new HoraireTrain(train, "Liège-G", "Maastricht", 18, 47, 19, 56, 3));
-        
+
         try {
             train = new Train(loc4, Train.Type.L, 789);
         } catch(TrainWithoutLocomotiveException ex) {
@@ -80,7 +81,7 @@ public class ScheduleGenerator {
             .add(new Wagon(15, Wagon.Type.Marchandise, 109, 2001));
 
         horaires.add(new HoraireTrain(train, "Liège-G", "Vise", 2, 14, 3, 01, 4));
-        
+
         try {
             train = new Train(loc1, Train.Type.Thalis, 159);
         } catch(TrainWithoutLocomotiveException ex) {
