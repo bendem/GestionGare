@@ -31,21 +31,4 @@ abstract public class VehiculeRail implements Serializable {
         this.anneeMiseEnService = anneeMiseEnService;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if(obj == null) {
-            return false;
-        }
-        if(getClass() != obj.getClass()) {
-            return false;
-        }
-        final VehiculeRail other = (VehiculeRail) obj;
-        return this.numero == other.numero;
-    }
-
-    @Override
-    public int hashCode() {
-        return numero;
-    }
-
 }

@@ -3,13 +3,15 @@ package be.beneterwan.gestiongare.applicgare;
 import be.beneterwan.gestiongare.applicgare.handlers.LoginHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuAideAboutHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuAideDateHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.MenuTrainListHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurAddHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurListHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurLogHandler;
 import be.beneterwan.gestiongare.applicgare.help.AProposDialog;
 import be.beneterwan.gestiongare.applicgare.help.DateFormatDialog;
+import be.beneterwan.gestiongare.applicgare.trains.TrainListDialog;
 import be.beneterwan.gestiongare.applicgare.users.AddUserDialog;
-import be.beneterwan.gestiongare.applicgare.users.ListUserDialog;
+import be.beneterwan.gestiongare.applicgare.users.UserListDialog;
 import be.beneterwan.gestiongare.authenticate.User;
 import be.beneterwan.gestiongare.commons.ResourceManager;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
@@ -20,20 +22,26 @@ import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ * @author bendem et Curlybear
+ */
 public class ApplicGareFrame extends javax.swing.JFrame {
 
     public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
 
     private final ApplicGare applicGare;
     private final ApplicGareFrameEventManager eventManager;
+    private boolean loggedIn = false;
+    private User currentUser;
+
+    // All other windows
     private DateFormat dateFormat;
     private LoginFrame fenLogin;
     private AProposDialog fenAbout;
     private DateFormatDialog fenDate;
     private AddUserDialog fenAddUser;
-    private ListUserDialog fenListUser;
-    private boolean loggedIn = false;
-    private User currentUser;
+    private UserListDialog fenListUser;
+    private TrainListDialog fenTrainList;
 
     public ApplicGareFrame(ApplicGare applicController) {
         super("== ApplicGare ==");
@@ -52,6 +60,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         eventManager.addListener(menuAideDate, new MenuAideDateHandler(this));
         eventManager.addListener(menuUtilisateurListe, new MenuUtilisateurListHandler(this));
         eventManager.addListener(menuUtilisateurNouvelUtilisateur, new MenuUtilisateurAddHandler(this));
+        eventManager.addListener(menuTrainListe, new MenuTrainListHandler(this));
 
         // Packing windows to fit constructor changes
         pack();
@@ -83,8 +92,13 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     }
 
     public void openListUserDialog() {
-        LOGGER.info("Opening List User window...");
-        fenListUser = new ListUserDialog(this);
+        LOGGER.info("Opening User List window...");
+        fenListUser = new UserListDialog(this);
+    }
+
+    public void openTrainListDialog() {
+        LOGGER.info("Opening Train List window...");
+        fenTrainList = new TrainListDialog(this);
     }
 
     public Frame getFenLogin() {
@@ -167,6 +181,10 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
     public boolean isLoggedIn() {
         return loggedIn;
+    }
+
+    public ApplicGare getApplicGare() {
+        return applicGare;
     }
 
     /**

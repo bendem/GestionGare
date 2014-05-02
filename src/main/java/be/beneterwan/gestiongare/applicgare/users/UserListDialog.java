@@ -1,6 +1,5 @@
 package be.beneterwan.gestiongare.applicgare.users;
 
-import be.beneterwan.gestiongare.applicgare.ApplicGare;
 import be.beneterwan.gestiongare.authenticate.User;
 import be.beneterwan.gestiongare.commons.UserManager;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
@@ -13,9 +12,9 @@ import javax.swing.table.DefaultTableModel;
 /**
  * @author bendem et Curlybear
  */
-public class ListUserDialog extends javax.swing.JDialog {
+public class UserListDialog extends javax.swing.JDialog {
 
-    public ListUserDialog(JFrame parent) {
+    public UserListDialog(JFrame parent) {
         super(parent, "User list", true);
         initComponents();
 

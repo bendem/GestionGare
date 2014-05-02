@@ -2,11 +2,16 @@ package be.beneterwan.gestiongare.applicgare;
 
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.commons.threads.AbstractRunnable;
+import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.util.Queue;
+import java.util.Set;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.logging.Level;
 import java.util.logging.Logger;
+import serialize.ObjectLoader;
 
 /**
  * @author bendem et Curlybear
@@ -19,12 +24,14 @@ public class ApplicGare {
 
     private final AbstractRunnable applicDepotReceiver;
     private final Queue<String> applicDepotMessages;
+    private Set<HoraireTrain> horaires;
 
     public ApplicGare() {
         System.out.println("\n  #######################################");
         System.out.println("  #   Gestion Gare : Application Gare   #");
         System.out.println("  #######################################\n");
         LOGGER.info("Starting up application...");
+        // Loading interface
         applicGareFrame = new ApplicGareFrame(this);
         applicGareFrame.setVisible(true);
         applicGareFrame.setLoggedIn(null);
@@ -36,8 +43,22 @@ public class ApplicGare {
                 applicGareFrame.dispose();
             }
         });
+
+        // Starting utilities
         applicDepotMessages = new ConcurrentLinkedQueue<>();
         applicDepotReceiver = new ApplicDepotReceiver(this);
+
+        try {
+            // Loading train list
+            horaires = (Set<HoraireTrain>) new ObjectLoader("./schedules.dat").load();
+        } catch(IOException | ClassNotFoundException ex) {
+            LOGGER.log(Level.SEVERE, "Could not load trains schedule, exiting...", ex);
+            System.exit(0);
+        }
+    }
+
+    public Set<HoraireTrain> getHoraires() {
+        return horaires;
     }
 
     void addApplicDepotMessage(String message) {

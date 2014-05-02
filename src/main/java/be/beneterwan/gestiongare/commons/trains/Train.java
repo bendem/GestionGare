@@ -3,7 +3,6 @@ package be.beneterwan.gestiongare.commons.trains;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import java.io.Serializable;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 import java.util.logging.Logger;
 
@@ -43,32 +42,25 @@ public class Train implements Serializable {
         return this;
     }
 
+    public Set<VehiculeRail> getWagons() {
+        return wagons;
+    }
+
+    public Locomotive getLocomotive() {
+        return locomotive;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
     @Override
     public String toString() {
         return type.name() + numero;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 71 * hash + Objects.hashCode(this.type);
-        hash = 71 * hash + this.numero;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if(obj == null) {
-            return false;
-        }
-        if(getClass() != obj.getClass()) {
-            return false;
-        }
-        final Train other = (Train) obj;
-        if(this.type != other.type) {
-            return false;
-        }
-        return this.numero == other.numero;
     }
 
     public enum Type {
