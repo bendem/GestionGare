@@ -1,6 +1,7 @@
 package be.beneterwan.gestiongare.commons.trains;
 
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -9,7 +10,7 @@ import java.util.logging.Logger;
 /**
  * @author bendem et Curlybear
  */
-public class Train {
+public class Train implements Serializable {
 
     public static final Logger LOGGER = new CustomLogger(Train.class.getSimpleName());
 
@@ -18,8 +19,6 @@ public class Train {
 
     protected Type type;
     protected int numero;
-    protected String destination;
-    protected String origine;
 
     public Train(Locomotive locomotive, Set<VehiculeRail> wagons, Type type, int numero, String origine, String destination) throws TrainWithoutLocomotiveException {
         if(locomotive == null) {
@@ -31,14 +30,11 @@ public class Train {
         }
         this.type = type;
         this.numero = numero;
-        this.origine = origine;
-        this.destination = destination;
     }
 
     @Override
     public String toString() {
-        return type.name() + numero + " "
-                + origine + " - " + destination;
+        return type.name() + numero;
     }
 
     @Override

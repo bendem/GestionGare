@@ -1,9 +1,11 @@
 package be.beneterwan.gestiongare.commons.trains;
 
+import java.io.Serializable;
+
 /**
  * @author bendem et Curlybear
  */
-abstract public class VehiculeRail {
+abstract public class VehiculeRail implements Serializable {
 
     protected int numero;
     protected int anneeMiseEnService;
