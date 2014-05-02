@@ -11,13 +11,13 @@ import java.util.logging.Logger;
  * @author bendem et Curlybear
  */
 public class ApplicDepot {
-    
+
     private static final Logger LOGGER = new CustomLogger(ApplicDepotFrame.class.getSimpleName());
     protected static ApplicDepotFrame applicDepotFrame;
     private static ApplicDepot instance;
     private final ApplicDepotReceiver receiver = new ApplicDepotReceiver(this);
     private final Queue<String> applicDepotMessages;
-    
+
     public ApplicDepot() {
         System.out.println("\n  ########################################");
         System.out.println("  #   Gestion Gare : Application Depot   #");
@@ -39,7 +39,7 @@ public class ApplicDepot {
     void addApplicDepotMessage(String message) {
         applicDepotMessages.add(message);
     }
-      
+
     public void startThreads() {
         LOGGER.info("Starting threads");
         LOGGER.info("-Starting up receive thread...");
@@ -52,7 +52,7 @@ public class ApplicDepot {
         receiver.cancel();
     }
 
-    
+
     public static void main(String[] args) {
         instance = new ApplicDepot();
     }
