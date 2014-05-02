@@ -67,7 +67,9 @@ public class ApplicGare {
 
     public void startThreads() {
         LOGGER.info("Starting threads");
-        applicDepotReceiver.start();
+        if(!applicDepotReceiver.isRunning()) {
+            applicDepotReceiver.start();
+        }
     }
 
     public void stopThreads() {
