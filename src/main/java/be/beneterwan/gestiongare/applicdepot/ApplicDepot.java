@@ -43,7 +43,7 @@ public class ApplicDepot {
     public void startThreads() {
         LOGGER.info("Starting threads");
         LOGGER.info("-Starting up receive thread...");
-        new Thread(receiver).start();
+        receiver.start();
     }
 
     public void stopThreads() {
