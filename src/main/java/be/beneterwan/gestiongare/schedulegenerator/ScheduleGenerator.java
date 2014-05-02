@@ -41,7 +41,57 @@ public class ScheduleGenerator {
             .add(new Wagon(26, Wagon.Type.Voyageur, 102, 2009))
             .add(new Wagon(26, Wagon.Type.Voyageur, 103, 1999));
 
-        horaires.add(new HoraireTrain(train, "bruxelles-midi", "eupen", 9, 33, 9, 36, 1));
+        horaires.add(new HoraireTrain(train, "bruxelles-midi", "eupen", 9, 33, 9, 36, 1));        
+        
+        
+        try {
+            train = new Train(loc2, Train.Type.ICE, 123);
+        } catch(TrainWithoutLocomotiveException ex) {
+            LOGGER.log(Level.SEVERE, "Y U NO LOCO?!?", ex);
+        }
+
+        train
+            .add(new Wagon(10, Wagon.Type.Marchandise, 104, 2002))
+            .add(new Wagon(10, Wagon.Type.Marchandise, 105, 1998));
+        
+        horaires.add(new HoraireTrain(train, "Aachen", "Ostende", 12, 50, 13, 48, 2));
+
+        
+        try {
+            train = new Train(loc3, Train.Type.IR, 456);
+        } catch(TrainWithoutLocomotiveException ex) {
+            LOGGER.log(Level.SEVERE, "Y U NO LOCO?!?", ex);
+        }
+
+        train
+            .add(new Wagon(20, Wagon.Type.Marchandise, 106, 2012))
+            .add(new Wagon(22, Wagon.Type.Voyageur, 107, 2004));
+
+        horaires.add(new HoraireTrain(train, "Liège-G", "Maastricht", 18, 47, 19, 56, 3));
+        
+        try {
+            train = new Train(loc4, Train.Type.L, 789);
+        } catch(TrainWithoutLocomotiveException ex) {
+            LOGGER.log(Level.SEVERE, "Y U NO LOCO?!?", ex);
+        }
+
+        train
+            .add(new Wagon(15, Wagon.Type.Marchandise, 108, 2014))
+            .add(new Wagon(15, Wagon.Type.Marchandise, 109, 2001));
+
+        horaires.add(new HoraireTrain(train, "Liège-G", "Vise", 2, 14, 3, 01, 4));
+        
+        try {
+            train = new Train(loc1, Train.Type.Thalis, 159);
+        } catch(TrainWithoutLocomotiveException ex) {
+            LOGGER.log(Level.SEVERE, "Y U NO LOCO?!?", ex);
+        }
+
+        train
+            .add(new Wagon(26, Wagon.Type.Voyageur, 102, 2009))
+            .add(new Wagon(26, Wagon.Type.Voyageur, 103, 1999));
+
+        horaires.add(new HoraireTrain(train, "bruxelles-midi", "Lille", 10, 40, 11, 02, 5));
 
         ObjectSaver saver = new ObjectSaver("./schedules.dat");
         try {
