@@ -73,7 +73,7 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         textAreaTrainPartis = new javax.swing.JTextArea();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         comboBoxPostes.setModel(new DefaultComboBoxModel<>(ApplicPostes.Type.values()));
 

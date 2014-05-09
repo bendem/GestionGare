@@ -2,6 +2,8 @@ package be.beneterwan.gestiongare.applicpostes;
 
 import be.beneterwan.gestiongare.applicpostes.handlers.PosteTypeChoiceHandler;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventManager;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -22,6 +24,13 @@ public class ApplicPostes {
         eventManager = new EventManager();
         applicPostesMessages= new ConcurrentLinkedQueue<>();
         eventManager.addListener(frame.getButtonValider(), new PosteTypeChoiceHandler(this));
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent event) {
+                receiver.cancel();
+                frame.dispose();
+            }
+        });
     }
 
     public void startApplication(Type type) {
