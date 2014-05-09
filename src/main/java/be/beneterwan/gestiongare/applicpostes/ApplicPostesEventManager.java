@@ -2,7 +2,7 @@ package be.beneterwan.gestiongare.applicpostes;
 
 import be.beneterwan.gestiongare.applicpostes.receiver.MessageEvent;
 import be.beneterwan.gestiongare.applicpostes.receiver.MessageListener;
-import be.beneterwan.gestiongare.applicpostes.receiver.Receiver;
+import be.beneterwan.gestiongare.applicpostes.receiver.NetworkReceiver;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventManager;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
@@ -15,7 +15,7 @@ public class ApplicPostesEventManager extends EventManager implements MessageLis
 
     private static Logger LOGGER = new CustomLogger(ApplicPostesEventManager.class.getSimpleName());
 
-    public void addListener(Receiver receiver, EventHandler hanlder) {
+    public void addListener(NetworkReceiver receiver, EventHandler hanlder) {
         receiver.addMessageListener(this);
         registerHandler(receiver, hanlder);
     }

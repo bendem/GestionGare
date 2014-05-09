@@ -11,30 +11,30 @@ import network.NetworkStringReceiver;
 /* package */ class ReceiverThread extends AbstractRunnable {
 
     private static final Logger LOGGER = new CustomLogger(ReceiverThread.class.getSimpleName());
-    private NetworkStringReceiver networkReceiver;
-    private final Receiver receiver;
+    private NetworkStringReceiver networkStringReceiver;
+    private final NetworkReceiver networkReceiver;
 
-    /* package */  ReceiverThread(Receiver receiver) {
-        this.receiver = receiver;
+    /* package */  ReceiverThread(NetworkReceiver receiver) {
+        this.networkReceiver = receiver;
     }
 
     @Override
     protected void startup() {
-        networkReceiver = new NetworkStringReceiver(receiver.getPort());
+        networkStringReceiver = new NetworkStringReceiver(networkReceiver.getPort());
     }
 
     @Override
     protected void work() {
-        String message = networkReceiver.getMessage();
+        String message = networkStringReceiver.getMessage();
         if(!"RIEN".equals(message)) {
-            receiver.dispatchMessage(message);
+            networkReceiver.dispatchMessage(message);
         }
     }
 
     @Override
     protected void shutdown() {
         try {
-            networkReceiver.endReceiving();
+            networkStringReceiver.endReceiving();
         } catch(NullPointerException e) {
             LOGGER.severe("Could not stop receiving, the program will not shutdown correctly!");
         }

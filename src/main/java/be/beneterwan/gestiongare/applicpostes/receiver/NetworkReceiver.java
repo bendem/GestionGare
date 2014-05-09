@@ -8,14 +8,14 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 /**
  * @author bendem et Curlybear
  */
-public class Receiver {
+public class NetworkReceiver {
 
     private final List<MessageListener> handlers;
     private final ReceiverThread receiverThread;
     private final Queue<String> messages;
     private int port;
 
-    public Receiver() {
+    public NetworkReceiver() {
         handlers = new ArrayList<>();
         receiverThread = new ReceiverThread(this);
         messages = new ConcurrentLinkedQueue<>();
