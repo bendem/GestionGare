@@ -19,6 +19,11 @@
             <artifactId>BasicStoreAndLoadLib</artifactId>
             <version>LATEST</version>
         </dependency>
+        <dependency>
+            <groupId>network</groupId>
+            <artifactId>BasicNetworkLib</artifactId>
+            <version>LATEST</version>
+        </dependency>
     </dependencies>
 
     <build>
