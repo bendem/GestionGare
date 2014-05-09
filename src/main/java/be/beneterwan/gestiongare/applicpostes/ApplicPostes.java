@@ -1,6 +1,6 @@
 package be.beneterwan.gestiongare.applicpostes;
 
-import be.beneterwan.gestiongare.applicpostes.handlers.PosteTypeChoiceListener;
+import be.beneterwan.gestiongare.applicpostes.handlers.PosteTypeChoiceHandler;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventManager;
 
 /**
@@ -16,7 +16,7 @@ public class ApplicPostes {
     public ApplicPostes() {
         frame = new ApplicPostesFrame(this);
         eventManager = new EventManager();
-        eventManager.addListener(frame.getButtonValider(), new PosteTypeChoiceListener(this));
+        eventManager.addListener(frame.getButtonValider(), new PosteTypeChoiceHandler(this));
     }
 
     public EventManager getEventManager() {

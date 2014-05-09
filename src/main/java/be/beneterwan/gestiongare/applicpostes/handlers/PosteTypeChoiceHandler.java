@@ -8,11 +8,11 @@ import javax.swing.JComboBox;
 /**
  * @author bendem et Curlybear
  */
-public class PosteTypeChoiceListener implements EventHandler {
+public class PosteTypeChoiceHandler implements EventHandler {
 
     private final ApplicPostes applicPostes;
 
-    public PosteTypeChoiceListener(ApplicPostes applicPostes) {
+    public PosteTypeChoiceHandler(ApplicPostes applicPostes) {
         this.applicPostes = applicPostes;
     }
 
