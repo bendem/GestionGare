@@ -34,7 +34,7 @@ public class ApplicPostes {
     }
 
     public void startApplication(Type type) {
-        if(type != null) {
+        if(this.type != null) {
             throw new IllegalStateException("Application already started");
         }
         this.type = type;
