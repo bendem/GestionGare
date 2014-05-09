@@ -21,10 +21,9 @@ public class ApplicGareReceiver extends AbstractRunnable {
 
     @Override
     protected void startup() {
-        if(applicPostes.getType().equals(ApplicPostes.Type.In)){
+        if(applicPostes.getType().equals(ApplicPostes.Type.In)) {
             receiver = new NetworkStringReceiver(50000);
-        }
-        else{
+        } else {
             receiver = new NetworkStringReceiver(50001);
         }
     }
