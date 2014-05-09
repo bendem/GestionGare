@@ -1,12 +1,12 @@
-package be.beneterwan.gestiongare.applicpostes.receiver;
+package be.beneterwan.gestiongare.commons.networkreceiver;
 
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.commons.threads.AbstractRunnable;
 import java.util.logging.Logger;
 import network.NetworkStringReceiver;
+
 /**
- *
- * @author Bear
+ * @author bendem et Curlybear
  */
 /* package */ class ReceiverThread extends AbstractRunnable {
 

@@ -2,7 +2,7 @@ package be.beneterwan.gestiongare.applicpostes;
 
 import be.beneterwan.gestiongare.applicpostes.handlers.MessageHandler;
 import be.beneterwan.gestiongare.applicpostes.handlers.PosteTypeChoiceHandler;
-import be.beneterwan.gestiongare.applicpostes.receiver.NetworkReceiver;
+import be.beneterwan.gestiongare.commons.networkreceiver.NetworkReceiver;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 

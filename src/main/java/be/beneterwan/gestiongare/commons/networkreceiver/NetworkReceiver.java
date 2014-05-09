@@ -1,4 +1,4 @@
-package be.beneterwan.gestiongare.applicpostes.receiver;
+package be.beneterwan.gestiongare.commons.networkreceiver;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,8 @@
 package be.beneterwan.gestiongare.applicpostes;
 
-import be.beneterwan.gestiongare.applicpostes.receiver.MessageEvent;
-import be.beneterwan.gestiongare.applicpostes.receiver.MessageListener;
-import be.beneterwan.gestiongare.applicpostes.receiver.NetworkReceiver;
+import be.beneterwan.gestiongare.commons.networkreceiver.MessageEvent;
+import be.beneterwan.gestiongare.commons.networkreceiver.MessageListener;
+import be.beneterwan.gestiongare.commons.networkreceiver.NetworkReceiver;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventManager;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
