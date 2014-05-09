@@ -1,16 +1,19 @@
 package be.beneterwan.gestiongare.applicpostes;
 
 import be.beneterwan.gestiongare.commons.ResourceManager;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 
 /**
  * @author bendem et Curlybear
  */
 public class ApplicPostesFrame extends javax.swing.JFrame {
-    
+
     private final ApplicPostes applicPostes;
 
-    ApplicPostesFrame(ApplicPostes applicController) {
+    public ApplicPostesFrame(ApplicPostes applicController) {
         super("Applic Postes");
         applicPostes = applicController;
         initComponents();
@@ -18,6 +21,22 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
+    }
+
+    public JButton getButtonMsgRecu() {
+        return buttonMsgRecu;
+    }
+
+    public JButton getButtonSignalPassageTrain() {
+        return buttonSignalPassageTrain;
+    }
+
+    public JButton getButtonValider() {
+        return buttonValider;
+    }
+
+    public JComboBox getComboBoxPostes() {
+        return comboBoxPostes;
     }
 
     /**
@@ -29,7 +48,7 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        comboBoxPostes = new javax.swing.JComboBox();
+        comboBoxPostes = new javax.swing.JComboBox<ApplicPostes.Type>();
         buttonValider = new javax.swing.JButton();
         picturePanel = new javax.swing.JPanel();
         picture = new javax.swing.JLabel();
@@ -46,7 +65,7 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        comboBoxPostes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "In", "Out" }));
+        comboBoxPostes.setModel(new DefaultComboBoxModel<>(ApplicPostes.Type.values()));
 
         buttonValider.setText("Valider");
 
@@ -65,18 +84,25 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
 
         labelAnnonce.setText("Annonce:");
 
+        fieldAnnonce.setEnabled(false);
+
         labelGare.setText("Gare");
 
         buttonMsgRecu.setText("Message reçu");
+        buttonMsgRecu.setEnabled(false);
 
         labelTrainConsidere.setText("Train considéré: ");
 
+        fieldTrainConsidere.setEnabled(false);
+
         buttonSignalPassageTrain.setText("Signaler passage train");
+        buttonSignalPassageTrain.setEnabled(false);
 
         labelTrainPartis.setText("Trains partis:");
 
         textAreaTrainPartis.setColumns(20);
         textAreaTrainPartis.setRows(5);
+        textAreaTrainPartis.setEnabled(false);
         jScrollPane1.setViewportView(textAreaTrainPartis);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -159,7 +185,7 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
     private javax.swing.JButton buttonMsgRecu;
     private javax.swing.JButton buttonSignalPassageTrain;
     private javax.swing.JButton buttonValider;
-    private javax.swing.JComboBox comboBoxPostes;
+    private javax.swing.JComboBox<ApplicPostes.Type> comboBoxPostes;
     private javax.swing.JTextField fieldAnnonce;
     private javax.swing.JTextField fieldTrainConsidere;
     private javax.swing.JScrollPane jScrollPane1;
