@@ -13,14 +13,25 @@ public class ApplicPostes {
     private static ApplicPostes instance;
     private final EventManager eventManager;
     private final ApplicPostesFrame frame;
-    private Type type;
     private final Queue<String> applicPostesMessages;
+    private ApplicGareReceiver receiver;
+    private Type type;
 
     public ApplicPostes() {
         frame = new ApplicPostesFrame(this);
         eventManager = new EventManager();
-        applicPostesMessages= new ConcurrentLinkedQueue<String>();
+        applicPostesMessages= new ConcurrentLinkedQueue<>();
         eventManager.addListener(frame.getButtonValider(), new PosteTypeChoiceHandler(this));
+    }
+
+    public void startApplication(Type type) {
+        if(type != null) {
+            throw new IllegalStateException("Application already started");
+        }
+        this.type = type;
+        receiver = new ApplicGareReceiver(this);
+        receiver.start();
+        frame.startApplication();
     }
 
     public EventManager getEventManager() {
@@ -33,10 +44,6 @@ public class ApplicPostes {
 
     public Type getType() {
         return type;
-    }
-
-    public void setType(Type type) {
-        this.type = type;
     }
 
     void addApplicPostesMessage(String message) {

@@ -19,9 +19,7 @@ public class PosteTypeChoiceHandler implements EventHandler {
     @Override
     public void execute(EventObject event) {
         JComboBox<ApplicPostes.Type> choice = applicPostes.getFrame().getComboBoxPostes();
-        applicPostes.setType((ApplicPostes.Type) choice.getSelectedItem());
-        choice.setEnabled(false);
-        applicPostes.getFrame().getButtonValider().setEnabled(false);
+        applicPostes.startApplication((ApplicPostes.Type) choice.getSelectedItem());
     }
 
 }

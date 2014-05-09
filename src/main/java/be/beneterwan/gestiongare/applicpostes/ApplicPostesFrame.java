@@ -23,6 +23,16 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
         setVisible(true);
     }
 
+    public void startApplication() {
+        comboBoxPostes.setEnabled(false);
+        buttonValider.setEnabled(false);
+        fieldAnnonce.setEnabled(true);
+        buttonMsgRecu.setEnabled(true);
+        fieldTrainConsidere.setEnabled(true);
+        buttonSignalPassageTrain.setEnabled(true);
+        textAreaTrainPartis.setEnabled(true);
+    }
+
     public JButton getButtonMsgRecu() {
         return buttonMsgRecu;
     }
