@@ -2,6 +2,7 @@ package be.beneterwan.gestiongare.applicpostes;
 
 import be.beneterwan.gestiongare.applicpostes.handlers.PosteTypeChoiceHandler;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventManager;
+import java.util.Queue;
 
 /**
  * @author bendem et Curlybear
@@ -12,6 +13,7 @@ public class ApplicPostes {
     private final EventManager eventManager;
     private final ApplicPostesFrame frame;
     private Type type;
+    private final Queue<String> applicPostesMessages;
 
     public ApplicPostes() {
         frame = new ApplicPostesFrame(this);
@@ -33,6 +35,10 @@ public class ApplicPostes {
 
     public void setType(Type type) {
         this.type = type;
+    }
+    
+    void addApplicPostesMessage(String message) {
+        applicPostesMessages.add(message);
     }
 
     public static void main(String[] args) {
