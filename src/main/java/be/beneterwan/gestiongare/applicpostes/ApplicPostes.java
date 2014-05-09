@@ -3,6 +3,7 @@ package be.beneterwan.gestiongare.applicpostes;
 import be.beneterwan.gestiongare.applicpostes.handlers.PosteTypeChoiceHandler;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventManager;
 import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * @author bendem et Curlybear
@@ -18,6 +19,7 @@ public class ApplicPostes {
     public ApplicPostes() {
         frame = new ApplicPostesFrame(this);
         eventManager = new EventManager();
+        applicPostesMessages= new ConcurrentLinkedQueue<String>();
         eventManager.addListener(frame.getButtonValider(), new PosteTypeChoiceHandler(this));
     }
 
@@ -36,7 +38,7 @@ public class ApplicPostes {
     public void setType(Type type) {
         this.type = type;
     }
-    
+
     void addApplicPostesMessage(String message) {
         applicPostesMessages.add(message);
     }
