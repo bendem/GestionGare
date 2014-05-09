@@ -1,6 +1,5 @@
 package be.beneterwan.gestiongare.applicpostes;
 
-import be.beneterwan.gestiongare.applicgare.ApplicDepotReceiver;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.commons.threads.AbstractRunnable;
 import java.util.logging.Logger;
@@ -11,7 +10,7 @@ import network.NetworkStringReceiver;
  */
 public class ApplicGareReceiver extends AbstractRunnable {
 
-    private static final Logger LOGGER = new CustomLogger(ApplicDepotReceiver.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(ApplicGareReceiver.class.getSimpleName());
     private NetworkStringReceiver receiver;
     private final ApplicPostes applicPostes;
 
