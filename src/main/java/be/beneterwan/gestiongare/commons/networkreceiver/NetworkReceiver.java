@@ -41,6 +41,10 @@ public class NetworkReceiver {
         receiverThread.cancel();
     }
 
+    public boolean isRunning() {
+        return receiverThread.isRunning();
+    }
+
     public int getPort() {
         return port;
     }

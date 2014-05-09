@@ -1,4 +1,4 @@
-package be.beneterwan.gestiongare.applicpostes;
+package be.beneterwan.gestiongare.commons.eventmanagement;
 
 import be.beneterwan.gestiongare.commons.networkreceiver.MessageEvent;
 import be.beneterwan.gestiongare.commons.networkreceiver.MessageListener;
@@ -11,9 +11,9 @@ import java.util.logging.Logger;
 /**
  * @author bendem et Curlybear
  */
-public class ApplicPostesEventManager extends EventManager implements MessageListener {
+public class NetworkEventManager extends EventManager implements MessageListener {
 
-    private static Logger LOGGER = new CustomLogger(ApplicPostesEventManager.class.getSimpleName());
+    private static Logger LOGGER = new CustomLogger(NetworkEventManager.class.getSimpleName());
 
     public void addListener(NetworkReceiver receiver, EventHandler hanlder) {
         receiver.addMessageListener(this);

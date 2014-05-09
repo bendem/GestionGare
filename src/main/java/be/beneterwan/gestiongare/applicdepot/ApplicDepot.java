@@ -1,10 +1,11 @@
 package be.beneterwan.gestiongare.applicdepot;
 
+import be.beneterwan.gestiongare.applicdepot.handlers.MessageHandler;
+import be.beneterwan.gestiongare.commons.eventmanagement.NetworkEventManager;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
+import be.beneterwan.gestiongare.commons.networkreceiver.NetworkReceiver;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.logging.Logger;
 
 /**
@@ -15,8 +16,8 @@ public class ApplicDepot {
     private static final Logger LOGGER = new CustomLogger(ApplicDepotFrame.class.getSimpleName());
     protected static ApplicDepotFrame applicDepotFrame;
     private static ApplicDepot instance;
-    private final ApplicDepotReceiver receiver = new ApplicDepotReceiver(this);
-    private final Queue<String> applicDepotMessages;
+    private final NetworkReceiver networkReceiver;
+    private final NetworkEventManager eventManager;
 
     public ApplicDepot() {
         System.out.println("\n  ########################################");
@@ -32,24 +33,27 @@ public class ApplicDepot {
                 applicDepotFrame.dispose();
             }
         });
-        startThreads();
-        applicDepotMessages = new ConcurrentLinkedQueue<>();
-    }
+        eventManager = new NetworkEventManager();
+        networkReceiver = new NetworkReceiver();
 
-    void addApplicDepotMessage(String message) {
-        applicDepotMessages.add(message);
+        networkReceiver.setPort(50005);
+        eventManager.addListener(networkReceiver, new MessageHandler(this));
+
+        startThreads();
     }
 
     public void startThreads() {
         LOGGER.info("Starting threads");
-        LOGGER.info("-Starting up receive thread...");
-        receiver.start();
+        if(!networkReceiver.isRunning()) {
+            networkReceiver.start();
+        }
     }
 
     public void stopThreads() {
         LOGGER.info("Stopping threads");
-        LOGGER.info("-Stopping receive thread...");
-        receiver.cancel();
+        if(networkReceiver.isRunning()) {
+            networkReceiver.stop();
+        }
     }
 
 

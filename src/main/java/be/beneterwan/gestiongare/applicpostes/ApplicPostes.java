@@ -1,7 +1,9 @@
 package be.beneterwan.gestiongare.applicpostes;
 
+import static be.beneterwan.gestiongare.applicgare.ApplicGareFrame.LOGGER;
 import be.beneterwan.gestiongare.applicpostes.handlers.MessageHandler;
 import be.beneterwan.gestiongare.applicpostes.handlers.PosteTypeChoiceHandler;
+import be.beneterwan.gestiongare.commons.eventmanagement.NetworkEventManager;
 import be.beneterwan.gestiongare.commons.networkreceiver.NetworkReceiver;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -12,19 +14,19 @@ import java.awt.event.WindowEvent;
 public class ApplicPostes {
 
     private static ApplicPostes instance;
-    private final ApplicPostesEventManager eventManager;
+    private final NetworkEventManager eventManager;
     private final ApplicPostesFrame frame;
     private final NetworkReceiver networkReceiver;
     private Type type;
 
     public ApplicPostes() {
         frame = new ApplicPostesFrame(this);
-        eventManager = new ApplicPostesEventManager();
+        eventManager = new NetworkEventManager();
         eventManager.addListener(frame.getButtonValider(), new PosteTypeChoiceHandler(this));
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent event) {
-                networkReceiver.stop();
+                stopThreads();
                 frame.dispose();
             }
         });
@@ -40,12 +42,27 @@ public class ApplicPostes {
 
         networkReceiver.setPort(type.equals(Type.In) ? 50_000 : 50_001);
         eventManager.addListener(networkReceiver, new MessageHandler(this));
-        networkReceiver.start();
+
+        startThreads();
 
         frame.startApplication();
     }
 
-    public ApplicPostesEventManager getEventManager() {
+    public void startThreads() {
+        LOGGER.info("Starting threads");
+        if(!networkReceiver.isRunning()) {
+            networkReceiver.start();
+        }
+    }
+
+    public void stopThreads() {
+        LOGGER.info("Stopping threads");
+        if(networkReceiver.isRunning()) {
+            networkReceiver.stop();
+        }
+    }
+
+    public NetworkEventManager getEventManager() {
         return eventManager;
     }
 

@@ -1,14 +1,16 @@
 package be.beneterwan.gestiongare.applicgare;
 
+import be.beneterwan.gestiongare.applicgare.handlers.MessageDepotHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.MessagePostesInHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.MessagePostesOutHandler;
+import be.beneterwan.gestiongare.commons.eventmanagement.NetworkEventManager;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
-import be.beneterwan.gestiongare.commons.threads.AbstractRunnable;
+import be.beneterwan.gestiongare.commons.networkreceiver.NetworkReceiver;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
-import java.util.Queue;
 import java.util.Set;
-import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import serialize.ObjectLoader;
@@ -22,8 +24,10 @@ public class ApplicGare {
     private static ApplicGare instance;
     private static ApplicGareFrame applicGareFrame;
 
-    private final AbstractRunnable applicDepotReceiver;
-    private final Queue<String> applicDepotMessages;
+    private final NetworkEventManager eventManager;
+    private final NetworkReceiver postesInNetworkReceiver;
+    private final NetworkReceiver postesOutNetworkReceiver;
+    private final NetworkReceiver depotNetworkReceiver;
     private Set<HoraireTrain> horaires;
 
     public ApplicGare() {
@@ -31,6 +35,7 @@ public class ApplicGare {
         System.out.println("  #   Gestion Gare : Application Gare   #");
         System.out.println("  #######################################\n");
         LOGGER.info("Starting up application...");
+        eventManager = new NetworkEventManager();
         // Loading interface
         applicGareFrame = new ApplicGareFrame(this);
         applicGareFrame.setVisible(true);
@@ -45,8 +50,23 @@ public class ApplicGare {
         });
 
         // Starting utilities
-        applicDepotMessages = new ConcurrentLinkedQueue<>();
-        applicDepotReceiver = new ApplicDepotReceiver(this);
+        postesInNetworkReceiver = new NetworkReceiver();
+        postesOutNetworkReceiver = new NetworkReceiver();
+        depotNetworkReceiver = new NetworkReceiver();
+
+        postesInNetworkReceiver.setPort(50000);
+        postesOutNetworkReceiver.setPort(50001);
+        depotNetworkReceiver.setPort(50005);
+
+        postesInNetworkReceiver.start();
+        postesOutNetworkReceiver.start();
+        depotNetworkReceiver.start();
+
+        eventManager.addListener(postesInNetworkReceiver, new MessagePostesInHandler(this));
+        eventManager.addListener(postesOutNetworkReceiver, new MessagePostesOutHandler(this));
+        eventManager.addListener(depotNetworkReceiver, new MessageDepotHandler(this));
+
+
 
         try {
             // Loading train list
@@ -61,21 +81,29 @@ public class ApplicGare {
         return horaires;
     }
 
-    void addApplicDepotMessage(String message) {
-        applicDepotMessages.add(message);
-    }
-
     public void startThreads() {
         LOGGER.info("Starting threads");
-        if(!applicDepotReceiver.isRunning()) {
-            applicDepotReceiver.start();
+        if(!postesInNetworkReceiver.isRunning()) {
+            postesInNetworkReceiver.start();
+        }
+        if(!postesOutNetworkReceiver.isRunning()) {
+            postesOutNetworkReceiver.start();
+        }
+        if(!depotNetworkReceiver.isRunning()) {
+            depotNetworkReceiver.start();
         }
     }
 
     public void stopThreads() {
         LOGGER.info("Stopping threads");
-        if(applicDepotReceiver.isRunning()) {
-            applicDepotReceiver.cancel();
+        if(postesInNetworkReceiver.isRunning()) {
+            postesInNetworkReceiver.stop();
+        }
+        if(postesOutNetworkReceiver.isRunning()) {
+            postesOutNetworkReceiver.stop();
+        }
+        if(depotNetworkReceiver.isRunning()) {
+            depotNetworkReceiver.stop();
         }
         LOGGER.fine("Thread stopped");
     }
