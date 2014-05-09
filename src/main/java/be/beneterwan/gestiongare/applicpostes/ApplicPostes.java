@@ -5,8 +5,14 @@ package be.beneterwan.gestiongare.applicpostes;
  */
 public class ApplicPostes {
 
+    private static ApplicPostes instance;
+
+    public ApplicPostes() {
+        ApplicPostesFrame applicPostesFrame = new ApplicPostesFrame(this);
+    }
+
     public static void main(String[] args) {
-        ApplicPostesFrame applicPostesFrame = new ApplicPostesFrame();
+        instance = new ApplicPostes();
     }
 
 }

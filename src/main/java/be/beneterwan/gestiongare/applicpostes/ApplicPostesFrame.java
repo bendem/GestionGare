@@ -7,9 +7,12 @@ import javax.swing.ImageIcon;
  * @author bendem et Curlybear
  */
 public class ApplicPostesFrame extends javax.swing.JFrame {
+    
+    private final ApplicPostes applicPostes;
 
-    public ApplicPostesFrame() {
+    ApplicPostesFrame(ApplicPostes applicController) {
         super("Applic Postes");
+        applicPostes = applicController;
         initComponents();
         picture.setIcon(new ImageIcon(ResourceManager.getResourceFile("img/train-2.jpg")));
         pack();
