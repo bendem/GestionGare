@@ -25,7 +25,6 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
 
     private final ApplicGare applicGare;
-    private final ApplicGareEventManager eventManager;
     private boolean loggedIn = false;
     private User currentUser;
 
@@ -57,7 +56,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     public void openLoginFrame() {
         LOGGER.info("Opening Login window...");
         fenLogin = new LoginFrame();
-        eventManager.addListener(fenLogin, new LoginHandler(this));
+        applicGare.getEventManager().addListener(fenLogin, new LoginHandler(this));
         fenLogin.requestFocusInWindow();
         LOGGER.fine("Login window opened.");
     }

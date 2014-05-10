@@ -80,8 +80,6 @@ public class ApplicGare {
         eventManager.addListener(postesOutNetworkReceiver, new MessagePostesOutHandler(this));
         eventManager.addListener(depotNetworkReceiver, new MessageDepotHandler(this));
 
-
-
         try {
             // Loading train list
             horaires = (Set<HoraireTrain>) new ObjectLoader("./schedules.dat").load();
@@ -120,6 +118,10 @@ public class ApplicGare {
             depotNetworkReceiver.stop();
         }
         LOGGER.fine("Thread stopped");
+    }
+
+    public ApplicGareEventManager getEventManager() {
+        return eventManager;
     }
 
     public static void main(String[] args) {
