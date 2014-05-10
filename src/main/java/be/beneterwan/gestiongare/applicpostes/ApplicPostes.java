@@ -4,7 +4,7 @@ import static be.beneterwan.gestiongare.applicgare.ApplicGareFrame.LOGGER;
 import be.beneterwan.gestiongare.applicpostes.handlers.MessageHandler;
 import be.beneterwan.gestiongare.applicpostes.handlers.PosteTypeChoiceHandler;
 import be.beneterwan.gestiongare.commons.eventmanagement.NetworkEventManager;
-import be.beneterwan.gestiongare.commons.networkreceiver.NetworkReceiver;
+import be.beneterwan.gestiongare.commons.network.receiver.NetworkReceiver;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 

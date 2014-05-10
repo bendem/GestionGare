@@ -1,4 +1,4 @@
-package be.beneterwan.gestiongare.commons.networkreceiver;
+package be.beneterwan.gestiongare.commons.network.receiver;
 
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.commons.threads.AbstractRunnable;

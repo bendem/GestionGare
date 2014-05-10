@@ -3,7 +3,7 @@ package be.beneterwan.gestiongare.applicdepot;
 import be.beneterwan.gestiongare.applicdepot.handlers.MessageHandler;
 import be.beneterwan.gestiongare.commons.eventmanagement.NetworkEventManager;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
-import be.beneterwan.gestiongare.commons.networkreceiver.NetworkReceiver;
+import be.beneterwan.gestiongare.commons.network.receiver.NetworkReceiver;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.logging.Logger;

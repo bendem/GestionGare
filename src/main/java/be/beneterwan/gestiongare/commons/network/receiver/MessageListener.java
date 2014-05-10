@@ -1,4 +1,4 @@
-package be.beneterwan.gestiongare.commons.networkreceiver;
+package be.beneterwan.gestiongare.commons.network.receiver;
 
 /**
  * @author bendem & Curlybear

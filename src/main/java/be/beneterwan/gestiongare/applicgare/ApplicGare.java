@@ -10,7 +10,7 @@ import be.beneterwan.gestiongare.applicgare.handlers.MessageDepotHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MessagePostesInHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MessagePostesOutHandler;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
-import be.beneterwan.gestiongare.commons.networkreceiver.NetworkReceiver;
+import be.beneterwan.gestiongare.commons.network.receiver.NetworkReceiver;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
