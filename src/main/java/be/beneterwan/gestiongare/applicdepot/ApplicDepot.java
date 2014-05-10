@@ -37,7 +37,7 @@ public class ApplicDepot {
         });
         eventManager = new NetworkEventManager();
         networkReceiver = new NetworkReceiver();
-        networkSender = new NetworkStringSender("127.0.0.1", 50_002); // you know
+        networkSender = new NetworkStringSender("127.0.0.1", 50_015);
 
         networkReceiver.setPort(50005);
         eventManager.addListener(networkReceiver, new MessageHandler(this));

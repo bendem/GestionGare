@@ -49,18 +49,10 @@ public class ApplicPostes {
 
         networkSender = new NetworkStringSender("127.0.0.1", type.getSendPort());
         networkReceiver = new NetworkReceiver(type.getReceivePort());
+        networkReceiver.start();
         eventManager.addListener(networkReceiver, new MessageHandler(this));
 
-        startThreads();
-
         frame.startApplication();
-    }
-
-    public void startThreads() {
-        LOGGER.info("Starting threads");
-        if(!networkReceiver.isRunning()) {
-            networkReceiver.start();
-        }
     }
 
     public void stopThreads() {
@@ -68,6 +60,7 @@ public class ApplicPostes {
         if(networkReceiver.isRunning()) {
             networkReceiver.stop();
         }
+        networkSender.endSending();
     }
 
     public NetworkEventManager getEventManager() {
