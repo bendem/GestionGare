@@ -1,7 +1,7 @@
 package be.beneterwan.gestiongare.applicpostes;
 
 import be.beneterwan.gestiongare.commons.ResourceManager;
-import be.beneterwan.gestiongare.commons.trains.Train;
+import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -14,8 +14,8 @@ import javax.swing.JTextField;
 public class ApplicPostesFrame extends javax.swing.JFrame {
 
     private final ApplicPostes applicPostes;
-    private Train trainAnnonce;
-    private Train trainConsidere;
+    private HoraireTrain trainAnnonce;
+    private HoraireTrain trainConsidere;
 
     public ApplicPostesFrame(ApplicPostes applicController) {
         super("Applic Postes");
@@ -61,19 +61,19 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
         return fieldTrainConsidere;
     }
 
-    public Train getTrainAnnonce() {
+    public HoraireTrain getTrainAnnonce() {
         return trainAnnonce;
     }
 
-    public void setTrainAnnonce(Train trainAnnonce) {
+    public void setTrainAnnonce(HoraireTrain trainAnnonce) {
         this.trainAnnonce = trainAnnonce;
     }
 
-    public Train getTrainConsidere() {
+    public HoraireTrain getTrainConsidere() {
         return trainConsidere;
     }
 
-    public void setTrainConsidere(Train trainConsidere) {
+    public void setTrainConsidere(HoraireTrain trainConsidere) {
         this.trainConsidere = trainConsidere;
     }
 

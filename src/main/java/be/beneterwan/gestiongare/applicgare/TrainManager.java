@@ -62,6 +62,10 @@ public class TrainManager {
         saveOutboundTrains();
     }
 
+    public HoraireTrain getCurrent() {
+        return current;
+    }
+
     private void saveOutboundTrains() {
         // TODO
     }

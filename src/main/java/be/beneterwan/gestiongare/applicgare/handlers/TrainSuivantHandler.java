@@ -22,7 +22,10 @@ public class TrainSuivantHandler implements EventHandler {
 
         if(train != null) {
             applicGare.getFrame().getFieldProchainTrain().setText(train.toString());
+
             applicGare.getFrame().getButtonTrainSuivant().setEnabled(false);
+            applicGare.getFrame().getButtonControleIn().setEnabled(true);
+            applicGare.getFrame().getButtonDepot().setEnabled(true);
         } else {
             applicGare.getFrame().getFieldProchainTrain().setText("Pas de train disponible.");
         }

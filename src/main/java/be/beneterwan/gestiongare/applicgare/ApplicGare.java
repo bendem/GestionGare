@@ -17,6 +17,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Set;
 import java.util.logging.Logger;
+import network.NetworkStringSender;
 
 /**
  * @author bendem & Curlybear
@@ -32,6 +33,10 @@ public class ApplicGare {
     private final NetworkReceiver postesInNetworkReceiver;
     private final NetworkReceiver postesOutNetworkReceiver;
     private final NetworkReceiver depotNetworkReceiver;
+    private final NetworkStringSender postesInNetworkSender;
+    private final NetworkStringSender postesOutNetworkSender;
+    private final NetworkStringSender depotNetworkSender;
+
     private Set<HoraireTrain> horaires;
 
     public ApplicGare() {
@@ -69,6 +74,10 @@ public class ApplicGare {
         postesInNetworkReceiver = new NetworkReceiver(50_010);
         postesOutNetworkReceiver = new NetworkReceiver(50_011);
         depotNetworkReceiver = new NetworkReceiver(50_015);
+
+        postesInNetworkSender = new NetworkStringSender("127.0.0.1", 50_001);
+        postesOutNetworkSender = new NetworkStringSender("127.0.0.1", 50_002);
+        depotNetworkSender = new NetworkStringSender("127.0.0.1", 50_005);
 
         eventManager.addListener(postesInNetworkReceiver, new MessagePostesInHandler(this));
         eventManager.addListener(postesOutNetworkReceiver, new MessagePostesOutHandler(this));
@@ -118,6 +127,18 @@ public class ApplicGare {
 
     public TrainManager getTrainManager() {
         return trainManager;
+    }
+    
+    public NetworkStringSender getPostesInNetworkSender() {
+        return postesInNetworkSender;
+    }
+
+    public NetworkStringSender getPostesOutNetworkSender() {
+        return postesOutNetworkSender;
+    }
+
+    public NetworkStringSender getDepotNetworkSender() {
+        return depotNetworkSender;
     }
 
     public static void main(String[] args) {

@@ -220,6 +220,30 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         return fieldProchainTrain;
     }
 
+    public JButton getButtonControleIn() {
+        return buttonControleIn;
+    }
+
+    public JButton getButtonControleOut() {
+        return buttonControleOut;
+    }
+
+    public JButton getButtonDepot() {
+        return buttonDepot;
+    }
+
+    public JTextField getFieldControleIn() {
+        return fieldControleIn;
+    }
+
+    public JTextField getFieldControleOut() {
+        return fieldControleOut;
+    }
+
+    public JTextField getFieldDepot() {
+        return fieldDepot;
+    }
+
     public void setLoggedIn(User user) {
         this.currentUser = user;
         loggedIn = user != null;

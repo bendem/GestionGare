@@ -24,7 +24,7 @@ public class MessageHandler implements EventHandler {
         Message message = ((MessageEvent) event).getMessage();
 
         if(message.getType().equals(Type.TrainComing)){
-            applicPostes.getFrame().setTrainAnnonce(((TrainMessage)message).getTrain());
+            applicPostes.getFrame().setTrainAnnonce(((TrainMessage)message).getHoraireTrain());
             applicPostes.getFrame().getFieldAnnonce().setText(applicPostes.getFrame().getTrainAnnonce().toString());
         }
     }
