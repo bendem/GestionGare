@@ -75,6 +75,10 @@ public class ApplicGare {
         postesOutNetworkReceiver = new NetworkReceiver(50_011);
         depotNetworkReceiver = new NetworkReceiver(50_015);
 
+        postesInNetworkReceiver.start();
+        postesOutNetworkReceiver.start();
+        depotNetworkReceiver.start();
+
         eventManager.addListener(postesInNetworkReceiver, new MessagePostesInHandler(this));
         eventManager.addListener(postesOutNetworkReceiver, new MessagePostesOutHandler(this));
         eventManager.addListener(depotNetworkReceiver, new MessageDepotHandler(this));
@@ -83,16 +87,7 @@ public class ApplicGare {
     }
 
     public void startUtilities() {
-        LOGGER.info("Starting threads");
-        if(!postesInNetworkReceiver.isRunning()) {
-            postesInNetworkReceiver.start();
-        }
-        if(!postesOutNetworkReceiver.isRunning()) {
-            postesOutNetworkReceiver.start();
-        }
-        if(!depotNetworkReceiver.isRunning()) {
-            depotNetworkReceiver.start();
-        }
+        LOGGER.info("Starting utilities...");
 
         postesInNetworkSender = new NetworkStringSender("127.0.0.1", 50_001);
         postesOutNetworkSender = new NetworkStringSender("127.0.0.1", 50_002);
@@ -100,7 +95,8 @@ public class ApplicGare {
     }
 
     public void stopUtilities() {
-        LOGGER.info("Stopping threads");
+        LOGGER.info("Stopping utilities...");
+        
         if(postesInNetworkReceiver.isRunning()) {
             postesInNetworkReceiver.stop();
         }
@@ -110,11 +106,11 @@ public class ApplicGare {
         if(depotNetworkReceiver.isRunning()) {
             depotNetworkReceiver.stop();
         }
-        
+
         postesInNetworkSender.endSending();
         postesOutNetworkSender.endSending();
         depotNetworkSender.endSending();
-        LOGGER.fine("Thread stopped");
+        LOGGER.fine("Utilities stopped");
     }
 
     public Set<HoraireTrain> getHoraires() {
