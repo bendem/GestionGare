@@ -1,12 +1,6 @@
 package be.beneterwan.gestiongare.applicgare;
 
 import be.beneterwan.gestiongare.applicgare.handlers.LoginHandler;
-import be.beneterwan.gestiongare.applicgare.handlers.MenuAideAboutHandler;
-import be.beneterwan.gestiongare.applicgare.handlers.MenuAideDateHandler;
-import be.beneterwan.gestiongare.applicgare.handlers.MenuTrainListHandler;
-import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurAddHandler;
-import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurListHandler;
-import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurLogHandler;
 import be.beneterwan.gestiongare.applicgare.help.AProposDialog;
 import be.beneterwan.gestiongare.applicgare.help.DateFormatDialog;
 import be.beneterwan.gestiongare.applicgare.trains.TrainListDialog;
@@ -20,6 +14,7 @@ import java.awt.Frame;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
+import javax.swing.JMenuItem;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -52,15 +47,6 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
         // Setting default windows params
         dateFormat = new DateFormat();
-
-        // Setting up events
-        eventManager = new ApplicGareEventManager(this);
-        eventManager.addListener(menuUtilisateurLog, new MenuUtilisateurLogHandler(this));
-        eventManager.addListener(menuAideAbout, new MenuAideAboutHandler(this));
-        eventManager.addListener(menuAideDate, new MenuAideDateHandler(this));
-        eventManager.addListener(menuUtilisateurListe, new MenuUtilisateurListHandler(this));
-        eventManager.addListener(menuUtilisateurNouvelUtilisateur, new MenuUtilisateurAddHandler(this));
-        eventManager.addListener(menuTrainListe, new MenuTrainListHandler(this));
 
         // Packing windows to fit constructor changes
         pack();
@@ -171,6 +157,54 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
     public DateFormat getDateFormat() {
         return dateFormat;
+    }
+
+    public JMenuItem getMenuAideAbout() {
+        return menuAideAbout;
+    }
+
+    public JMenuItem getMenuAideAfficherLog() {
+        return menuAideAfficherLog;
+    }
+
+    public JMenuItem getMenuAideDate() {
+        return menuAideDate;
+    }
+
+    public JMenuItem getMenuConfigurationParametreReseau() {
+        return menuConfigurationParametreReseau;
+    }
+
+    public JMenuItem getMenuConfigurationReglageTemps() {
+        return menuConfigurationReglageTemps;
+    }
+
+    public JMenuItem getMenuIncidentsEnregistrer() {
+        return menuIncidentsEnregistrer;
+    }
+
+    public JMenuItem getMenuIncidentsListe() {
+        return menuIncidentsListe;
+    }
+
+    public JMenuItem getMenuTrainFormation() {
+        return menuTrainFormation;
+    }
+
+    public JMenuItem getMenuTrainListe() {
+        return menuTrainListe;
+    }
+
+    public JMenuItem getMenuUtilisateurListe() {
+        return menuUtilisateurListe;
+    }
+
+    public JMenuItem getMenuUtilisateurLog() {
+        return menuUtilisateurLog;
+    }
+
+    public JMenuItem getMenuUtilisateurNouvelUtilisateur() {
+        return menuUtilisateurNouvelUtilisateur;
     }
 
     public void setDateFormat(DateFormat dateFormat) {

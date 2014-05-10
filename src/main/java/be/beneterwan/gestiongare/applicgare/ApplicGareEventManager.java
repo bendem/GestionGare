@@ -15,12 +15,6 @@ public class ApplicGareEventManager extends NetworkEventManager implements Login
 
     private static final Logger LOGGER = new CustomLogger(ApplicGareEventManager.class.getSimpleName());
 
-    protected final ApplicGareFrame frame;
-
-    public ApplicGareEventManager(ApplicGareFrame frame) {
-        this.frame = frame;
-    }
-
     public void addListener(LoginFrame loginFrame, EventHandler handler) {
         loginFrame.addLoginListener(this);
         registerHandler(loginFrame, handler);

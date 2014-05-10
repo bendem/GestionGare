@@ -1,9 +1,14 @@
 package be.beneterwan.gestiongare.applicgare;
 
+import be.beneterwan.gestiongare.applicgare.handlers.MenuAideAboutHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.MenuAideDateHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.MenuTrainListHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurAddHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurListHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurLogHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MessageDepotHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MessagePostesInHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MessagePostesOutHandler;
-import be.beneterwan.gestiongare.commons.eventmanagement.NetworkEventManager;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.commons.networkreceiver.NetworkReceiver;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
@@ -22,9 +27,9 @@ public class ApplicGare {
 
     private static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
     private static ApplicGare instance;
-    private static ApplicGareFrame applicGareFrame;
+    private static ApplicGareFrame frame;
 
-    private final NetworkEventManager eventManager;
+    private final ApplicGareEventManager eventManager;
     private final NetworkReceiver postesInNetworkReceiver;
     private final NetworkReceiver postesOutNetworkReceiver;
     private final NetworkReceiver depotNetworkReceiver;
@@ -35,19 +40,28 @@ public class ApplicGare {
         System.out.println("  #   Gestion Gare : Application Gare   #");
         System.out.println("  #######################################\n");
         LOGGER.info("Starting up application...");
-        eventManager = new NetworkEventManager();
-        // Loading interface
-        applicGareFrame = new ApplicGareFrame(this);
-        applicGareFrame.setVisible(true);
-        applicGareFrame.setLoggedIn(null);
-        applicGareFrame.openLoginFrame();
-        applicGareFrame.addWindowListener(new WindowAdapter() {
+
+        // Loading ui
+        frame = new ApplicGareFrame(this);
+        frame.setVisible(true);
+        frame.setLoggedIn(null);
+        frame.openLoginFrame();
+        frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent event) {
                 stopThreads();
-                applicGareFrame.dispose();
+                frame.dispose();
             }
         });
+
+        // Setting up events
+        eventManager = new ApplicGareEventManager();
+        eventManager.addListener(frame.getMenuUtilisateurLog(), new MenuUtilisateurLogHandler(frame));
+        eventManager.addListener(frame.getMenuAideAbout(), new MenuAideAboutHandler(frame));
+        eventManager.addListener(frame.getMenuAideDate(), new MenuAideDateHandler(frame));
+        eventManager.addListener(frame.getMenuUtilisateurListe(), new MenuUtilisateurListHandler(frame));
+        eventManager.addListener(frame.getMenuUtilisateurNouvelUtilisateur(), new MenuUtilisateurAddHandler(frame));
+        eventManager.addListener(frame.getMenuTrainListe(), new MenuTrainListHandler(frame));
 
         // Starting utilities
         postesInNetworkReceiver = new NetworkReceiver();
