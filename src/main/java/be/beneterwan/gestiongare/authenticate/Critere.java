@@ -1,7 +1,7 @@
 package be.beneterwan.gestiongare.authenticate;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public interface Critere {
 

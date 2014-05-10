@@ -1,7 +1,7 @@
 package be.beneterwan.gestiongare.commons.networkreceiver;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public interface MessageListener {
 

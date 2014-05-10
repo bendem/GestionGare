@@ -8,7 +8,7 @@ import javax.swing.JDialog;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class TrainListDialog extends JDialog {
 

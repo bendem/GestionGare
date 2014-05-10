@@ -10,7 +10,7 @@ import java.util.EventObject;
 import java.util.logging.Logger;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class AddUserDialog extends javax.swing.JDialog {
 

@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.logging.Logger;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class Train implements Serializable {
 

@@ -7,7 +7,7 @@ import be.beneterwan.gestiongare.logins.LoginEvent;
 import java.util.EventObject;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class LoginHandler implements EventHandler {
 

@@ -3,7 +3,7 @@ package be.beneterwan.gestiongare.commons.trains;
 import java.io.Serializable;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 abstract public class VehiculeRail implements Serializable {
 

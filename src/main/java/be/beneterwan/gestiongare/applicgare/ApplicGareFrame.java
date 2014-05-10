@@ -18,7 +18,7 @@ import javax.swing.JMenuItem;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class ApplicGareFrame extends javax.swing.JFrame {
 

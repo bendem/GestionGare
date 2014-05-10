@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 import serialize.ObjectLoader;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class ApplicGare {
 

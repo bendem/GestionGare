@@ -6,7 +6,7 @@ import java.util.EventObject;
 import javax.swing.JComboBox;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class PosteTypeChoiceHandler implements EventHandler {
 

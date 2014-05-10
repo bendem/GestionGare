@@ -3,7 +3,7 @@ package be.beneterwan.gestiongare.commons;
 import java.net.URL;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class ResourceManager {
 

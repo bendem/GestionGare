@@ -4,7 +4,7 @@ import java.util.logging.Handler;
 import java.util.logging.LogRecord;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class CustomHandler extends Handler {
 

@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class CritereLoginPasswordArray extends CritereLoginPassword {
 

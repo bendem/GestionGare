@@ -12,7 +12,7 @@ import serialize.ObjectLoader;
 import serialize.ObjectSaver;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class UserManager {
 

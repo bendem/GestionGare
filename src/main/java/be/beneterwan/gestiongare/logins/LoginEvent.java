@@ -4,7 +4,7 @@ import be.beneterwan.gestiongare.authenticate.User;
 import java.util.EventObject;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class LoginEvent extends EventObject {
 

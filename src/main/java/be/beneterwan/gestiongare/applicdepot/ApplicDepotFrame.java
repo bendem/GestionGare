@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author Bear
+ * @author bendem & Curlybear
  */
 public class ApplicDepotFrame extends javax.swing.JFrame {
 

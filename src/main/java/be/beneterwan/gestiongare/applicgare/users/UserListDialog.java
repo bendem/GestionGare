@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class UserListDialog extends javax.swing.JDialog {
 

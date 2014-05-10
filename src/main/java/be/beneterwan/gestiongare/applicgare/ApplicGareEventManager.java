@@ -9,7 +9,7 @@ import be.beneterwan.gestiongare.logins.LoginListener;
 import java.util.logging.Logger;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class ApplicGareEventManager extends NetworkEventManager implements LoginListener {
 

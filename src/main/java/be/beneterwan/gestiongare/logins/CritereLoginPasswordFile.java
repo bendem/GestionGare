@@ -5,7 +5,7 @@ import be.beneterwan.gestiongare.authenticate.User;
 import be.beneterwan.gestiongare.commons.UserManager;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class CritereLoginPasswordFile extends CritereLoginPassword {
 

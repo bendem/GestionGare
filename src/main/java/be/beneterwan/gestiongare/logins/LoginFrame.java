@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class LoginFrame extends Frame implements ActionListener {
 

@@ -6,7 +6,7 @@ import java.util.EventObject;
 
 /**
  *
- * @author Bear
+ * @author bendem & Curlybear
  */
 public class MessageHandler implements EventHandler {
 

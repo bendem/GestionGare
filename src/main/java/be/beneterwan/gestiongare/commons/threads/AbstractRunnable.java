@@ -5,7 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public abstract class AbstractRunnable implements Runnable {
 

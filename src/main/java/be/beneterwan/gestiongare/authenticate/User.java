@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class User implements Serializable {
 

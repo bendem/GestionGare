@@ -7,7 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class ApplicPostesFrame extends javax.swing.JFrame {
 

@@ -6,7 +6,7 @@ import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class CustomFormatter extends Formatter {
 

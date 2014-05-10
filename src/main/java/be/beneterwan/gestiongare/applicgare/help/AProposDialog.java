@@ -4,7 +4,7 @@ import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
 
 /**
  *
- * @author Bear
+ * @author bendem & Curlybear
  */
 public class AProposDialog extends javax.swing.JDialog {
 

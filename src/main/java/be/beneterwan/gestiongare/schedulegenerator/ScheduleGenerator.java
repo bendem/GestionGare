@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 import serialize.ObjectSaver;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class ScheduleGenerator {
 

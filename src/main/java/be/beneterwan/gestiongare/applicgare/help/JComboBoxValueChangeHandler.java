@@ -5,7 +5,7 @@ import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import java.util.EventObject;
 
 /**
- * @author Bear
+ * @author bendem & Curlybear
  */
 public class JComboBoxValueChangeHandler implements EventHandler {
 
@@ -25,5 +25,5 @@ public class JComboBoxValueChangeHandler implements EventHandler {
         }
         dialog.refreshSampleContent();
     }
-    
+
 }

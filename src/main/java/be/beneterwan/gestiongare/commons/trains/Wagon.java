@@ -1,7 +1,7 @@
 package be.beneterwan.gestiongare.commons.trains;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class Wagon extends VehiculeRail {
 

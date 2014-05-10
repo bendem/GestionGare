@@ -15,7 +15,7 @@ import javax.swing.JComboBox;
 import javax.swing.JMenuItem;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class EventManager implements ActionListener {
 

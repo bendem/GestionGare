@@ -11,7 +11,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class DateFormatDialog extends javax.swing.JDialog {
 

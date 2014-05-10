@@ -6,7 +6,7 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class NetworkReceiver {
 

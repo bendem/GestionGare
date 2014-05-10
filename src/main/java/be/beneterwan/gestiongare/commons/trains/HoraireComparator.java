@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Comparator;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class HoraireComparator implements Comparator<HoraireTrain>, Serializable {
 

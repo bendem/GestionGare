@@ -3,7 +3,7 @@ package be.beneterwan.gestiongare.commons.networkreceiver;
 import java.util.EventObject;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class MessageEvent extends EventObject {
 

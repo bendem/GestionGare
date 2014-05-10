@@ -9,7 +9,7 @@ import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import java.util.logging.Logger;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class NetworkEventManager extends EventManager implements MessageListener {
 

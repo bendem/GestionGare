@@ -5,7 +5,7 @@ import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import java.util.EventObject;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 public class MenuUtilisateurListHandler implements EventHandler {
 

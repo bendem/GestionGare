@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 import network.NetworkStringReceiver;
 
 /**
- * @author bendem et Curlybear
+ * @author bendem & Curlybear
  */
 /* package */ class ReceiverThread extends AbstractRunnable {
 
