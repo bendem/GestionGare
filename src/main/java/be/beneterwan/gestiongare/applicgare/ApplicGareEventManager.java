@@ -11,13 +11,13 @@ import java.util.logging.Logger;
 /**
  * @author bendem et Curlybear
  */
-public class ApplicGareFrameEventManager extends EventManager implements LoginListener {
+public class ApplicGareEventManager extends EventManager implements LoginListener {
 
-    private static final Logger LOGGER = new CustomLogger(ApplicGareFrameEventManager.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(ApplicGareEventManager.class.getSimpleName());
 
     protected final ApplicGareFrame frame;
 
-    public ApplicGareFrameEventManager(ApplicGareFrame frame) {
+    public ApplicGareEventManager(ApplicGareFrame frame) {
         this.frame = frame;
     }
 

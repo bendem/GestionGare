@@ -30,7 +30,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
 
     private final ApplicGare applicGare;
-    private final ApplicGareFrameEventManager eventManager;
+    private final ApplicGareEventManager eventManager;
     private boolean loggedIn = false;
     private User currentUser;
 
@@ -54,7 +54,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         dateFormat = new DateFormat();
 
         // Setting up events
-        eventManager = new ApplicGareFrameEventManager(this);
+        eventManager = new ApplicGareEventManager(this);
         eventManager.addListener(menuUtilisateurLog, new MenuUtilisateurLogHandler(this));
         eventManager.addListener(menuAideAbout, new MenuAideAboutHandler(this));
         eventManager.addListener(menuAideDate, new MenuAideDateHandler(this));
