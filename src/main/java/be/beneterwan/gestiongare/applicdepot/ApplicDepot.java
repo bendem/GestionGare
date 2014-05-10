@@ -7,6 +7,7 @@ import be.beneterwan.gestiongare.commons.network.receiver.NetworkReceiver;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.logging.Logger;
+import network.NetworkStringSender;
 
 /**
  * @author bendem & Curlybear
@@ -17,6 +18,7 @@ public class ApplicDepot {
     protected static ApplicDepotFrame applicDepotFrame;
     private static ApplicDepot instance;
     private final NetworkReceiver networkReceiver;
+    private final NetworkStringSender networkSender;
     private final NetworkEventManager eventManager;
 
     public ApplicDepot() {
@@ -35,6 +37,7 @@ public class ApplicDepot {
         });
         eventManager = new NetworkEventManager();
         networkReceiver = new NetworkReceiver();
+        networkSender = new NetworkStringSender("127.0.0.1", 50_002); // you know
 
         networkReceiver.setPort(50005);
         eventManager.addListener(networkReceiver, new MessageHandler(this));
@@ -56,6 +59,10 @@ public class ApplicDepot {
         }
     }
 
+
+    public NetworkStringSender getNetworkSender() {
+        return networkSender;
+    }
 
     public static void main(String[] args) {
         instance = new ApplicDepot();

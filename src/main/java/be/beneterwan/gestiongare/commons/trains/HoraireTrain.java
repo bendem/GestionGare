@@ -55,12 +55,28 @@ public class HoraireTrain implements Serializable {
         return arrivee;
     }
 
+    public int getArriveeHeure() {
+        return arrivee/60;
+    }
+
+    public int getArriveeMinute() {
+        return arrivee%60;
+    }
+
     public void setArrivee(int arrivee) {
         this.arrivee = arrivee;
     }
 
     public int getDepart() {
         return depart;
+    }
+
+    public int getDepartHeure() {
+        return depart/60;
+    }
+
+    public int getDepartMinute() {
+        return depart%60;
     }
 
     public void setDepart(int depart) {
@@ -75,4 +91,11 @@ public class HoraireTrain implements Serializable {
         this.quai = quai;
     }
 
+    @Override
+    public String toString() {
+        return train.getType().name() + train.getNumero() + " : "
+            + getArriveeHeure() + "h" + getArriveeMinute() + " - "
+            + getDepartHeure() + "h" + getDepartMinute() + " - "
+            + origine + "-" + destination + " => "+ quai;
+    }
 }

@@ -1,7 +1,9 @@
-package be.beneterwan.gestiongare.applicgare.help;
+package be.beneterwan.gestiongare.applicgare.dialogs;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
 import be.beneterwan.gestiongare.applicgare.DateFormat;
+import be.beneterwan.gestiongare.applicgare.dialogs.handlers.DateFormatDialogComboBoxChangeHandler;
+import be.beneterwan.gestiongare.applicgare.dialogs.handlers.DateFormatDialogOkHandler;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventManager;
 import java.text.SimpleDateFormat;
@@ -39,9 +41,9 @@ public class DateFormatDialog extends javax.swing.JDialog {
                 dispose();
             }
         });
-        eventManager.addListener(bouttonOK, new OkHandler(this));
+        eventManager.addListener(bouttonOK, new DateFormatDialogOkHandler(this));
 
-        JComboBoxValueChangeHandler cBoxHandler = new JComboBoxValueChangeHandler(this);
+        DateFormatDialogComboBoxChangeHandler cBoxHandler = new DateFormatDialogComboBoxChangeHandler(this);
         eventManager.addListener(comboBoxFormatHeure, cBoxHandler);
         eventManager.addListener(comboBoxFormatDate, cBoxHandler);
         eventManager.addListener(comboBoxPays, cBoxHandler);

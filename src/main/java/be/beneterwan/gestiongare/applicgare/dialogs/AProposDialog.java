@@ -1,4 +1,4 @@
-package be.beneterwan.gestiongare.applicgare.help;
+package be.beneterwan.gestiongare.applicgare.dialogs;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
 

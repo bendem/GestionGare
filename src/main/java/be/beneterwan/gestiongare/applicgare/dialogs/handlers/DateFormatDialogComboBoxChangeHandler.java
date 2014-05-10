@@ -1,5 +1,6 @@
-package be.beneterwan.gestiongare.applicgare.help;
+package be.beneterwan.gestiongare.applicgare.dialogs.handlers;
 
+import be.beneterwan.gestiongare.applicgare.dialogs.DateFormatDialog;
 import be.beneterwan.gestiongare.applicgare.DateFormat;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import java.util.EventObject;
@@ -7,10 +8,10 @@ import java.util.EventObject;
 /**
  * @author bendem & Curlybear
  */
-public class JComboBoxValueChangeHandler implements EventHandler {
+public class DateFormatDialogComboBoxChangeHandler implements EventHandler {
 
     private final DateFormatDialog dialog;
-    public JComboBoxValueChangeHandler(DateFormatDialog dialog) {
+    public DateFormatDialogComboBoxChangeHandler(DateFormatDialog dialog) {
         this.dialog = dialog;
     }
 

@@ -1,10 +1,12 @@
 package be.beneterwan.gestiongare.applicpostes;
 
 import be.beneterwan.gestiongare.commons.ResourceManager;
+import be.beneterwan.gestiongare.commons.trains.Train;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 /**
  * @author bendem & Curlybear
@@ -12,6 +14,8 @@ import javax.swing.JComboBox;
 public class ApplicPostesFrame extends javax.swing.JFrame {
 
     private final ApplicPostes applicPostes;
+    private Train trainAnnonce;
+    private Train trainConsidere;
 
     public ApplicPostesFrame(ApplicPostes applicController) {
         super("Applic Postes");
@@ -47,6 +51,30 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
 
     public JComboBox getComboBoxPostes() {
         return comboBoxPostes;
+    }
+
+    public JTextField getFieldAnnonce() {
+        return fieldAnnonce;
+    }
+
+    public JTextField getFieldTrainConsidere() {
+        return fieldTrainConsidere;
+    }
+
+    public Train getTrainAnnonce() {
+        return trainAnnonce;
+    }
+
+    public void setTrainAnnonce(Train trainAnnonce) {
+        this.trainAnnonce = trainAnnonce;
+    }
+
+    public Train getTrainConsidere() {
+        return trainConsidere;
+    }
+
+    public void setTrainConsidere(Train trainConsidere) {
+        this.trainConsidere = trainConsidere;
     }
 
     /**

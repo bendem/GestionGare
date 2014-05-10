@@ -1,5 +1,6 @@
 package be.beneterwan.gestiongare.commons.network.receiver;
 
+import be.beneterwan.gestiongare.commons.network.messages.Message;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
@@ -16,10 +17,14 @@ public class NetworkReceiver {
     private int port;
 
     public NetworkReceiver() {
+        this(0);
+    }
+
+    public NetworkReceiver(int port) {
         handlers = new ArrayList<>();
         receiverThread = new ReceiverThread(this);
         messages = new ConcurrentLinkedQueue<>();
-        port = 0;
+        this.port = port;
     }
 
     public void addMessageListener(MessageListener listener) {
@@ -27,7 +32,7 @@ public class NetworkReceiver {
     }
 
     /* package */ void dispatchMessage(String message) {
-        MessageEvent event = new MessageEvent(message, this);
+        MessageEvent event = new MessageEvent(Message.deserialize(message), this);
         for(MessageListener listener : handlers) {
             listener.onMessage(event);
         }

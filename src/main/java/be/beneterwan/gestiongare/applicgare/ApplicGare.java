@@ -9,6 +9,7 @@ import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurLogHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MessageDepotHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MessagePostesInHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MessagePostesOutHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.TrainSuivantHandler;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.commons.network.receiver.NetworkReceiver;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
@@ -45,7 +46,6 @@ public class ApplicGare {
         frame = new ApplicGareFrame(this);
         frame.setVisible(true);
         frame.setLoggedIn(null);
-        frame.openLoginFrame();
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent event) {
@@ -62,19 +62,15 @@ public class ApplicGare {
         eventManager.addListener(frame.getMenuUtilisateurListe(), new MenuUtilisateurListHandler(frame));
         eventManager.addListener(frame.getMenuUtilisateurNouvelUtilisateur(), new MenuUtilisateurAddHandler(frame));
         eventManager.addListener(frame.getMenuTrainListe(), new MenuTrainListHandler(frame));
+        eventManager.addListener(frame.getButtonTrainSuivant(), new TrainSuivantHandler(frame));
 
-        // Starting utilities
-        postesInNetworkReceiver = new NetworkReceiver();
-        postesOutNetworkReceiver = new NetworkReceiver();
-        depotNetworkReceiver = new NetworkReceiver();
+        // Opening login frame
+        frame.openLoginFrame();
 
-        postesInNetworkReceiver.setPort(50000);
-        postesOutNetworkReceiver.setPort(50001);
-        depotNetworkReceiver.setPort(50005);
-
-        postesInNetworkReceiver.start();
-        postesOutNetworkReceiver.start();
-        depotNetworkReceiver.start();
+        // Preparing utilities
+        postesInNetworkReceiver = new NetworkReceiver(50_010);
+        postesOutNetworkReceiver = new NetworkReceiver(50_011);
+        depotNetworkReceiver = new NetworkReceiver(50_015);
 
         eventManager.addListener(postesInNetworkReceiver, new MessagePostesInHandler(this));
         eventManager.addListener(postesOutNetworkReceiver, new MessagePostesOutHandler(this));
@@ -82,15 +78,12 @@ public class ApplicGare {
 
         try {
             // Loading train list
+            LOGGER.info("Loading schedule...");
             horaires = (Set<HoraireTrain>) new ObjectLoader("./schedules.dat").load();
         } catch(IOException | ClassNotFoundException ex) {
             LOGGER.log(Level.SEVERE, "Could not load trains schedule, exiting...", ex);
             System.exit(0);
         }
-    }
-
-    public Set<HoraireTrain> getHoraires() {
-        return horaires;
     }
 
     public void startThreads() {
@@ -118,6 +111,10 @@ public class ApplicGare {
             depotNetworkReceiver.stop();
         }
         LOGGER.fine("Thread stopped");
+    }
+
+    public Set<HoraireTrain> getHoraires() {
+        return horaires;
     }
 
     public ApplicGareEventManager getEventManager() {

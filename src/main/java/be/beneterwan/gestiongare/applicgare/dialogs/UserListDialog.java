@@ -1,4 +1,4 @@
-package be.beneterwan.gestiongare.applicgare.users;
+package be.beneterwan.gestiongare.applicgare.dialogs;
 
 import be.beneterwan.gestiongare.authenticate.User;
 import be.beneterwan.gestiongare.commons.UserManager;

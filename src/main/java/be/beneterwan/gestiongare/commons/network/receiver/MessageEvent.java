@@ -1,5 +1,6 @@
 package be.beneterwan.gestiongare.commons.network.receiver;
 
+import be.beneterwan.gestiongare.commons.network.messages.Message;
 import java.util.EventObject;
 
 /**
@@ -7,14 +8,14 @@ import java.util.EventObject;
  */
 public class MessageEvent extends EventObject {
 
-    private final String message;
+    private final Message message;
 
-    public MessageEvent(String message, Object source) {
+    public MessageEvent(Message message, Object source) {
         super(source);
         this.message = message;
     }
 
-    public String getMessage() {
+    public Message getMessage() {
         return message;
     }
 

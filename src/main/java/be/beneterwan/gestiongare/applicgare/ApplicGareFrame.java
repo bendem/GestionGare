@@ -1,11 +1,11 @@
 package be.beneterwan.gestiongare.applicgare;
 
+import be.beneterwan.gestiongare.applicgare.dialogs.AProposDialog;
+import be.beneterwan.gestiongare.applicgare.dialogs.AddUserDialog;
+import be.beneterwan.gestiongare.applicgare.dialogs.DateFormatDialog;
+import be.beneterwan.gestiongare.applicgare.dialogs.TrainListDialog;
+import be.beneterwan.gestiongare.applicgare.dialogs.UserListDialog;
 import be.beneterwan.gestiongare.applicgare.handlers.LoginHandler;
-import be.beneterwan.gestiongare.applicgare.help.AProposDialog;
-import be.beneterwan.gestiongare.applicgare.help.DateFormatDialog;
-import be.beneterwan.gestiongare.applicgare.trains.TrainListDialog;
-import be.beneterwan.gestiongare.applicgare.users.AddUserDialog;
-import be.beneterwan.gestiongare.applicgare.users.UserListDialog;
 import be.beneterwan.gestiongare.authenticate.User;
 import be.beneterwan.gestiongare.commons.ResourceManager;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
@@ -13,6 +13,7 @@ import be.beneterwan.gestiongare.logins.LoginFrame;
 import java.awt.Frame;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JMenuItem;
 import javax.swing.table.DefaultTableModel;
@@ -208,6 +209,10 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
     public void setDateFormat(DateFormat dateFormat) {
         this.dateFormat = dateFormat;
+    }
+
+    public JButton getButtonTrainSuivant() {
+        return buttonTrainSuivant;
     }
 
     public void setLoggedIn(User user) {

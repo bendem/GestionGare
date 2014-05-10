@@ -1,5 +1,6 @@
-package be.beneterwan.gestiongare.applicgare.help;
+package be.beneterwan.gestiongare.applicgare.dialogs.handlers;
 
+import be.beneterwan.gestiongare.applicgare.dialogs.DateFormatDialog;
 import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import java.util.EventObject;
@@ -7,11 +8,11 @@ import java.util.EventObject;
 /**
  * @author bendem & Curlybear
  */
-public class OkHandler implements EventHandler {
+public class DateFormatDialogOkHandler implements EventHandler {
 
     private final DateFormatDialog dialog;
 
-    public OkHandler(DateFormatDialog dialog) {
+    public DateFormatDialogOkHandler(DateFormatDialog dialog) {
         this.dialog = dialog;
     }
 
