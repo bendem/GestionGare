@@ -3,6 +3,7 @@ package be.beneterwan.gestiongare.applicgare;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -28,7 +29,7 @@ public class TrainManager {
         try {
             // Loading train list
             LOGGER.info("Loading schedule...");
-            incomingTrains.addAll((Queue<HoraireTrain>) new ObjectLoader("./schedules.dat").load());
+            incomingTrains.addAll((Collection<HoraireTrain>) new ObjectLoader("./schedules.dat").load());
         } catch(IOException | ClassNotFoundException ex) {
             LOGGER.log(Level.SEVERE, "Could not load trains schedule, exiting...", ex);
             System.exit(0);
