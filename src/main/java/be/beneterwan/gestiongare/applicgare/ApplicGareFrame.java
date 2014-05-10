@@ -101,7 +101,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         menuUtilisateurLog.setText("Logout");
         // TODO Add stuff to tableOccupationVoies and comboBoxTrain
         changeInterfaceEnableState(true);
-        applicGare.startThreads();
+        applicGare.startUtilities();
     }
 
     private void changeInterfaceEnableState(boolean enableState) {

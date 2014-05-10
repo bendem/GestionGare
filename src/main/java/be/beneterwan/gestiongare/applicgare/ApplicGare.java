@@ -33,9 +33,9 @@ public class ApplicGare {
     private final NetworkReceiver postesInNetworkReceiver;
     private final NetworkReceiver postesOutNetworkReceiver;
     private final NetworkReceiver depotNetworkReceiver;
-    private final NetworkStringSender postesInNetworkSender;
-    private final NetworkStringSender postesOutNetworkSender;
-    private final NetworkStringSender depotNetworkSender;
+    private NetworkStringSender postesInNetworkSender;
+    private NetworkStringSender postesOutNetworkSender;
+    private NetworkStringSender depotNetworkSender;
 
     private Set<HoraireTrain> horaires;
 
@@ -52,7 +52,7 @@ public class ApplicGare {
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent event) {
-                stopThreads();
+                stopUtilities();
                 frame.dispose();
             }
         });
@@ -75,10 +75,6 @@ public class ApplicGare {
         postesOutNetworkReceiver = new NetworkReceiver(50_011);
         depotNetworkReceiver = new NetworkReceiver(50_015);
 
-        postesInNetworkSender = new NetworkStringSender("127.0.0.1", 50_001);
-        postesOutNetworkSender = new NetworkStringSender("127.0.0.1", 50_002);
-        depotNetworkSender = new NetworkStringSender("127.0.0.1", 50_005);
-
         eventManager.addListener(postesInNetworkReceiver, new MessagePostesInHandler(this));
         eventManager.addListener(postesOutNetworkReceiver, new MessagePostesOutHandler(this));
         eventManager.addListener(depotNetworkReceiver, new MessageDepotHandler(this));
@@ -86,7 +82,7 @@ public class ApplicGare {
         trainManager = new TrainManager();
     }
 
-    public void startThreads() {
+    public void startUtilities() {
         LOGGER.info("Starting threads");
         if(!postesInNetworkReceiver.isRunning()) {
             postesInNetworkReceiver.start();
@@ -97,9 +93,13 @@ public class ApplicGare {
         if(!depotNetworkReceiver.isRunning()) {
             depotNetworkReceiver.start();
         }
+
+        postesInNetworkSender = new NetworkStringSender("127.0.0.1", 50_001);
+        postesOutNetworkSender = new NetworkStringSender("127.0.0.1", 50_002);
+        depotNetworkSender = new NetworkStringSender("127.0.0.1", 50_005);
     }
 
-    public void stopThreads() {
+    public void stopUtilities() {
         LOGGER.info("Stopping threads");
         if(postesInNetworkReceiver.isRunning()) {
             postesInNetworkReceiver.stop();
@@ -110,6 +110,10 @@ public class ApplicGare {
         if(depotNetworkReceiver.isRunning()) {
             depotNetworkReceiver.stop();
         }
+        
+        postesInNetworkSender.endSending();
+        postesOutNetworkSender.endSending();
+        depotNetworkSender.endSending();
         LOGGER.fine("Thread stopped");
     }
 
@@ -128,7 +132,7 @@ public class ApplicGare {
     public TrainManager getTrainManager() {
         return trainManager;
     }
-    
+
     public NetworkStringSender getPostesInNetworkSender() {
         return postesInNetworkSender;
     }
