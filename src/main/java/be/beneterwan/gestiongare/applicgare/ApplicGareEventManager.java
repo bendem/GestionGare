@@ -1,7 +1,7 @@
 package be.beneterwan.gestiongare.applicgare;
 
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
-import be.beneterwan.gestiongare.commons.eventmanagement.EventManager;
+import be.beneterwan.gestiongare.commons.eventmanagement.NetworkEventManager;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.logins.LoginEvent;
 import be.beneterwan.gestiongare.logins.LoginFrame;
@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 /**
  * @author bendem et Curlybear
  */
-public class ApplicGareEventManager extends EventManager implements LoginListener {
+public class ApplicGareEventManager extends NetworkEventManager implements LoginListener {
 
     private static final Logger LOGGER = new CustomLogger(ApplicGareEventManager.class.getSimpleName());
 

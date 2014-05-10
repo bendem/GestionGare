@@ -50,7 +50,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         this.applicGare = applicController;
         picture.setIcon(new ImageIcon(ResourceManager.getResourceFile("img/train-1.jpg")));
 
-        // Setting default windows
+        // Setting default windows params
         dateFormat = new DateFormat();
 
         // Setting up events
@@ -101,44 +101,6 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         fenTrainList = new TrainListDialog(this);
     }
 
-    public Frame getFenLogin() {
-        return fenLogin;
-    }
-
-    public JDialog getFenAbout() {
-        return fenAbout;
-    }
-
-    public JDialog getFenDateFormat() {
-        return fenDate;
-    }
-
-    public JDialog getFenAddUser() {
-        return fenAddUser;
-    }
-
-    public JDialog getFenListUser() {
-        return fenListUser;
-    }
-
-    public DateFormat getDateFormat() {
-        return dateFormat;
-    }
-
-    public void setDateFormat(DateFormat dateFormat) {
-        this.dateFormat = dateFormat;
-    }
-
-    public void setLoggedIn(User user) {
-        this.currentUser = user;
-        loggedIn = user != null;
-        if(loggedIn) {
-            unlockInterface(user.getLogin());
-        } else {
-            lockInterface();
-        }
-    }
-
     private void lockInterface() {
         labelResponsableGare.setText("Vous n'êtes pas connecté!");
         menuUtilisateurLog.setText("Login");
@@ -185,6 +147,44 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
     public ApplicGare getApplicGare() {
         return applicGare;
+    }
+
+    public Frame getFenLogin() {
+        return fenLogin;
+    }
+
+    public JDialog getFenAbout() {
+        return fenAbout;
+    }
+
+    public JDialog getFenDateFormat() {
+        return fenDate;
+    }
+
+    public JDialog getFenAddUser() {
+        return fenAddUser;
+    }
+
+    public JDialog getFenListUser() {
+        return fenListUser;
+    }
+
+    public DateFormat getDateFormat() {
+        return dateFormat;
+    }
+
+    public void setDateFormat(DateFormat dateFormat) {
+        this.dateFormat = dateFormat;
+    }
+
+    public void setLoggedIn(User user) {
+        this.currentUser = user;
+        loggedIn = user != null;
+        if(loggedIn) {
+            unlockInterface(user.getLogin());
+        } else {
+            lockInterface();
+        }
     }
 
     /**
