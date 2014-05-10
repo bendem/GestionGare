@@ -15,11 +15,8 @@ import be.beneterwan.gestiongare.commons.network.receiver.NetworkReceiver;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.IOException;
 import java.util.Set;
-import java.util.logging.Level;
 import java.util.logging.Logger;
-import serialize.ObjectLoader;
 
 /**
  * @author bendem & Curlybear
@@ -30,6 +27,7 @@ public class ApplicGare {
     private static ApplicGare instance;
     private static ApplicGareFrame frame;
 
+    private final TrainManager trainManager;
     private final ApplicGareEventManager eventManager;
     private final NetworkReceiver postesInNetworkReceiver;
     private final NetworkReceiver postesOutNetworkReceiver;
@@ -62,7 +60,7 @@ public class ApplicGare {
         eventManager.addListener(frame.getMenuUtilisateurListe(), new MenuUtilisateurListHandler(frame));
         eventManager.addListener(frame.getMenuUtilisateurNouvelUtilisateur(), new MenuUtilisateurAddHandler(frame));
         eventManager.addListener(frame.getMenuTrainListe(), new MenuTrainListHandler(frame));
-        eventManager.addListener(frame.getButtonTrainSuivant(), new TrainSuivantHandler(frame));
+        eventManager.addListener(frame.getButtonTrainSuivant(), new TrainSuivantHandler(this));
 
         // Opening login frame
         frame.openLoginFrame();
@@ -76,14 +74,7 @@ public class ApplicGare {
         eventManager.addListener(postesOutNetworkReceiver, new MessagePostesOutHandler(this));
         eventManager.addListener(depotNetworkReceiver, new MessageDepotHandler(this));
 
-        try {
-            // Loading train list
-            LOGGER.info("Loading schedule...");
-            horaires = (Set<HoraireTrain>) new ObjectLoader("./schedules.dat").load();
-        } catch(IOException | ClassNotFoundException ex) {
-            LOGGER.log(Level.SEVERE, "Could not load trains schedule, exiting...", ex);
-            System.exit(0);
-        }
+        trainManager = new TrainManager();
     }
 
     public void startThreads() {
@@ -119,6 +110,14 @@ public class ApplicGare {
 
     public ApplicGareEventManager getEventManager() {
         return eventManager;
+    }
+
+    public ApplicGareFrame getFrame() {
+        return frame;
+    }
+
+    public TrainManager getTrainManager() {
+        return trainManager;
     }
 
     public static void main(String[] args) {

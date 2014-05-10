@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JMenuItem;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -213,6 +214,10 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
     public JButton getButtonTrainSuivant() {
         return buttonTrainSuivant;
+    }
+
+    public JTextField getFieldProchainTrain() {
+        return fieldProchainTrain;
     }
 
     public void setLoggedIn(User user) {

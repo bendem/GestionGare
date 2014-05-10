@@ -1,7 +1,8 @@
 package be.beneterwan.gestiongare.applicgare.handlers;
 
-import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
+import be.beneterwan.gestiongare.applicgare.ApplicGare;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
+import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
 import java.util.EventObject;
 
 /**
@@ -9,15 +10,21 @@ import java.util.EventObject;
  */
 public class TrainSuivantHandler implements EventHandler {
 
-    private final ApplicGareFrame frame;
+    private final ApplicGare applicGare;
 
-    public TrainSuivantHandler(ApplicGareFrame frame) {
-        this.frame = frame;
+    public TrainSuivantHandler(ApplicGare applicGare) {
+        this.applicGare = applicGare;
     }
 
     @Override
     public void execute(EventObject event) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+        HoraireTrain train = applicGare.getTrainManager().nextTrain();
 
+        if(train != null) {
+            applicGare.getFrame().getFieldProchainTrain().setText(train.toString());
+            applicGare.getFrame().getButtonTrainSuivant().setEnabled(false);
+        } else {
+            applicGare.getFrame().getFieldProchainTrain().setText("Pas de train disponible.");
+        }
+    }
 }
