@@ -5,6 +5,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 /**
  * @author bendem & Curlybear
@@ -47,6 +48,10 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
 
     public JComboBox getComboBoxPostes() {
         return comboBoxPostes;
+    }
+
+    public JTextField getFieldAnnonce() {
+        return fieldAnnonce;
     }
 
     /**

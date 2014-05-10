@@ -56,6 +56,9 @@ public class ApplicDepot {
         }
     }
 
+    public ApplicDepotFrame getFrame() {
+        return applicDepotFrame;
+    }
 
     public static void main(String[] args) {
         instance = new ApplicDepot();

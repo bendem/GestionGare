@@ -30,23 +30,23 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="buttonSignal" max="32767" attributes="0"/>
-                          <Component id="fieldTrainConsidere" max="32767" attributes="0"/>
                           <Component id="buttonMsgRecu" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="labelTrainConsidere" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelAnnonce" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="labelAnnonce" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="labelTrainConsidere" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="labelGare" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="fieldTrainConsidere" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="fieldAnnonce" max="32767" attributes="0"/>
+                                  <Component id="labelGare" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <Component id="fieldAnnonce" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -76,17 +76,18 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="picturePanel" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="labelTrainConsidere" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="fieldTrainConsidere" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      <Component id="labelAnnonce" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="fieldAnnonce" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="buttonMsgRecu" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="labelGare" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="fieldAnnonce" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelAnnonce" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelTrainConsidere" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fieldTrainConsidere" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
