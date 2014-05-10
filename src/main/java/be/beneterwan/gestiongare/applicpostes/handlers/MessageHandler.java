@@ -21,10 +21,7 @@ public class MessageHandler implements EventHandler {
 
     @Override
     public void execute(EventObject event) {
-        Message message;
-        MessageEvent mEvent = (MessageEvent)event;
-
-        message = mEvent.getMessage();
+        Message message = ((MessageEvent) event).getMessage();
 
         if(message.getType().equals(Type.TrainComing)){
             applicPostes.getFrame().setTrainAnnonce(((TrainMessage)message).getTrain());

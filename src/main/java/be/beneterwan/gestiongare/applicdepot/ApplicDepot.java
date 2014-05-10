@@ -59,6 +59,9 @@ public class ApplicDepot {
         }
     }
 
+    public ApplicDepotFrame getFrame() {
+        return applicDepotFrame;
+    }
 
     public NetworkStringSender getNetworkSender() {
         return networkSender;
