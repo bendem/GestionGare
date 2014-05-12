@@ -22,9 +22,6 @@ public class ApplicDepot {
     private final NetworkEventManager eventManager;
 
     public ApplicDepot() {
-        System.out.println("\n  ########################################");
-        System.out.println("  #   Gestion Gare : Application Depot   #");
-        System.out.println("  ########################################\n");
         LOGGER.info("Starting up application...");
         applicDepotFrame = new ApplicDepotFrame();
         applicDepotFrame.setVisible(true);

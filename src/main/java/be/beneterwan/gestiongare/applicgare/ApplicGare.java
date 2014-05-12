@@ -89,8 +89,8 @@ public class ApplicGare {
     public void startUtilities() {
         LOGGER.info("Starting utilities...");
 
-        postesInNetworkSender = new NetworkStringSender("127.0.0.1", 50_001);
-        postesOutNetworkSender = new NetworkStringSender("127.0.0.1", 50_002);
+        postesInNetworkSender = new NetworkStringSender("127.0.0.1", 50_000);
+        postesOutNetworkSender = new NetworkStringSender("127.0.0.1", 50_001);
         depotNetworkSender = new NetworkStringSender("127.0.0.1", 50_005);
     }
 

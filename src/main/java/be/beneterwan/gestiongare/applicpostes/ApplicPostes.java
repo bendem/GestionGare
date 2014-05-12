@@ -26,6 +26,7 @@ public class ApplicPostes {
     private Type type;
 
     public ApplicPostes() {
+        LOGGER.info("Starting up application...");
         frame = new ApplicPostesFrame(this);
         eventManager = new NetworkEventManager();
         eventManager.addListener(frame.getButtonValider(), new PosteTypeChoiceHandler(this));
