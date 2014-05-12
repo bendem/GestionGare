@@ -28,7 +28,6 @@ import network.NetworkStringSender;
 public class ApplicGare {
 
     private static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
-    private static ApplicGare instance;
     private static ApplicGareFrame frame;
 
     private final TrainManager trainManager;
@@ -47,6 +46,8 @@ public class ApplicGare {
         System.out.println("  #   Gestion Gare : Application Gare   #");
         System.out.println("  #######################################\n");
         LOGGER.info("Starting up application...");
+
+        trainManager = new TrainManager();
 
         // Loading ui
         frame = new ApplicGareFrame(this);
@@ -88,8 +89,6 @@ public class ApplicGare {
         eventManager.addListener(postesInNetworkReceiver, new MessagePostesInHandler(this));
         eventManager.addListener(postesOutNetworkReceiver, new MessagePostesOutHandler(this));
         eventManager.addListener(depotNetworkReceiver, new MessageDepotHandler(this));
-
-        trainManager = new TrainManager();
     }
 
     public void startUtilities() {
@@ -148,7 +147,7 @@ public class ApplicGare {
     }
 
     public static void main(String[] args) {
-        instance = new ApplicGare();
+        new ApplicGare();
     }
 
 }

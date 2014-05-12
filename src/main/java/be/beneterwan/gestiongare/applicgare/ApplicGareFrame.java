@@ -17,7 +17,6 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JMenuItem;
 import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
 
 /**
  * @author bendem & Curlybear
@@ -42,16 +41,13 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     public ApplicGareFrame(ApplicGare applicController) {
         super("== ApplicGare ==");
         LOGGER.info("Building window...");
-        initComponents();
         this.applicGare = applicController;
+        initComponents();
         picture.setIcon(new ImageIcon(ResourceManager.getResourceFile("img/train-1.jpg")));
-        
+
         // Setting default windows params
         dateFormat = new DateFormat();
 
-        // Setting model to the table
-        tableOccupationVoies.setModel(new OccupationVoiesTableModel(applicGare.getTrainManager().getInboundTrains()));
-        
         // Packing windows to fit constructor changes
         pack();
         setLocationRelativeTo(null);
@@ -94,7 +90,6 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     private void lockInterface() {
         labelResponsableGare.setText("Vous n'êtes pas connecté!");
         menuUtilisateurLog.setText("Login");
-        ((DefaultTableModel) tableOccupationVoies.getModel()).setRowCount(0);
         comboBoxTrain.removeAllItems();
         changeInterfaceEnableState(false);
     }
@@ -346,14 +341,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
             .addComponent(picture, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
         );
 
-        tableOccupationVoies.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
+        tableOccupationVoies.setModel(new OccupationVoiesTableModel(getApplicGare().getTrainManager().getInboundTrains()));
         tableOccupationVoies.getTableHeader().setReorderingAllowed(false);
         scrollPaneTable.setViewportView(tableOccupationVoies);
 

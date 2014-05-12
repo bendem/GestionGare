@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Queue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,8 +37,6 @@ public class TrainManager {
         }
         inboundTrains = new ArrayList<>();
         outboundTrains = new LinkedList<>();
-        
-        
     }
 
     // TODO Fucking load of state check and exceptions
@@ -81,5 +78,5 @@ public class TrainManager {
     private void saveOutboundTrains() {
         // TODO
     }
-    
+
 }
