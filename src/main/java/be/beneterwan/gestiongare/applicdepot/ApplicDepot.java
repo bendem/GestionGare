@@ -54,6 +54,7 @@ public class ApplicDepot {
         if(networkReceiver.isRunning()) {
             networkReceiver.stop();
         }
+        networkSender.endSending();
     }
 
     public ApplicDepotFrame getFrame() {
