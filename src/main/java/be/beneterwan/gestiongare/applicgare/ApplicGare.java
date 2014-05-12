@@ -1,5 +1,6 @@
 package be.beneterwan.gestiongare.applicgare;
 
+import be.beneterwan.gestiongare.applicgare.handlers.ControleInHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuAideAboutHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuAideDateHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuTrainListHandler;
@@ -66,6 +67,7 @@ public class ApplicGare {
         eventManager.addListener(frame.getMenuUtilisateurNouvelUtilisateur(), new MenuUtilisateurAddHandler(frame));
         eventManager.addListener(frame.getMenuTrainListe(), new MenuTrainListHandler(frame));
         eventManager.addListener(frame.getButtonTrainSuivant(), new TrainSuivantHandler(this));
+        eventManager.addListener(frame.getButtonControleIn(), new ControleInHandler(this));
 
         // Opening login frame
         frame.openLoginFrame();
@@ -96,7 +98,7 @@ public class ApplicGare {
 
     public void stopUtilities() {
         LOGGER.info("Stopping utilities...");
-        
+
         if(postesInNetworkReceiver.isRunning()) {
             postesInNetworkReceiver.stop();
         }
