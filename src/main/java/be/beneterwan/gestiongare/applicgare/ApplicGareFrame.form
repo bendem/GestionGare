@@ -355,14 +355,7 @@
         <Component class="javax.swing.JTable" name="tableOccupationVoies">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="6" rowCount="17">
-                <Column editable="true" title="Voie" type="java.lang.Integer"/>
-                <Column editable="true" title="Train n&#xb0;" type="java.lang.Object"/>
-                <Column editable="true" title="Arriv&#xe9;e" type="java.lang.Object"/>
-                <Column editable="true" title="D&#xe9;part pr&#xe9;vu" type="java.lang.Object"/>
-                <Column editable="true" title="Train pr&#xe9;sent" type="java.lang.Boolean"/>
-                <Column editable="true" title="Minutes de retard" type="java.lang.Object"/>
-              </Table>
+              <Table columnCount="0" rowCount="0"/>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">

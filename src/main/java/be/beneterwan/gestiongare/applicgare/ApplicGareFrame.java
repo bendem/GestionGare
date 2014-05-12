@@ -45,10 +45,13 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         initComponents();
         this.applicGare = applicController;
         picture.setIcon(new ImageIcon(ResourceManager.getResourceFile("img/train-1.jpg")));
-
+        
         // Setting default windows params
         dateFormat = new DateFormat();
 
+        // Setting model to the table
+        tableOccupationVoies.setModel(new OccupationVoiesTableModel(applicGare.getTrainManager().getInboundTrains()));
+        
         // Packing windows to fit constructor changes
         pack();
         setLocationRelativeTo(null);
@@ -345,36 +348,12 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
         tableOccupationVoies.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "Voie", "Train n°", "Arrivée", "Départ prévu", "Train présent", "Minutes de retard"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-        });
+        ));
         tableOccupationVoies.getTableHeader().setReorderingAllowed(false);
         scrollPaneTable.setViewportView(tableOccupationVoies);
 

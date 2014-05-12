@@ -5,6 +5,7 @@ import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import be.beneterwan.gestiongare.commons.network.messages.Message;
 import be.beneterwan.gestiongare.commons.network.messages.TrainTransited;
 import be.beneterwan.gestiongare.commons.network.receiver.MessageEvent;
+import be.beneterwan.gestiongare.commons.trains.Train;
 import java.util.EventObject;
 
 /**
@@ -24,16 +25,14 @@ public class MessagePostesInHandler implements EventHandler{
         Message message = ((MessageEvent) event).getMessage();
 
         if(message.getType().equals(Message.Type.TrainTransited)){
-            String str = ((TrainTransited)message).getHoraireTrain().getTrain().toString();
-            applicGare.getFrame().getFieldControleIn().setText(str);
-        } else {
-            if(message.getType().equals(Message.Type.Ack)) {
-                applicGare.getTrainManager().setCurrentTrainInbound();
+            Train train = ((TrainTransited) message).getHoraireTrain().getTrain();
+            applicGare.getFrame().getFieldControleIn().setText(train.toString());
+        } else if(message.getType().equals(Message.Type.Ack)) {
+            applicGare.getTrainManager().setCurrentTrainInbound();
 
-                applicGare.getFrame().getButtonTrainSuivant().setEnabled(true);
-                applicGare.getFrame().getButtonControleIn().setEnabled(false);
-                applicGare.getFrame().getButtonDepot().setEnabled(false);
-            }
+            applicGare.getFrame().getButtonTrainSuivant().setEnabled(true);
+            applicGare.getFrame().getButtonControleIn().setEnabled(false);
+            applicGare.getFrame().getButtonDepot().setEnabled(false);
         }
     }
 

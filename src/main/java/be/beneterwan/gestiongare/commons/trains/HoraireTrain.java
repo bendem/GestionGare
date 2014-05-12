@@ -13,6 +13,7 @@ public class HoraireTrain implements Serializable {
     private int arrivee;
     private int depart;
     private int quai;
+    private State state;
 
     public HoraireTrain(Train train, String destination, String origine, int heureArrivee, int minuteArrivee, int heureDepart, int minuteDepart, int quai) {
         this(train, destination, origine, heureArrivee*60 + minuteArrivee, heureDepart*60 + minuteDepart, quai);
@@ -25,6 +26,7 @@ public class HoraireTrain implements Serializable {
         this.arrivee = arrivee;
         this.depart = depart;
         this.quai = quai;
+        this.state = null;
     }
 
     public Train getTrain() {
@@ -91,6 +93,14 @@ public class HoraireTrain implements Serializable {
         this.quai = quai;
     }
 
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
     @Override
     public String toString() {
         return train.getType().name() + train.getNumero() + " : "
@@ -98,4 +108,9 @@ public class HoraireTrain implements Serializable {
             + getDepartHeure() + "h" + getDepartMinute() + " - "
             + origine + "-" + destination + " => "+ quai;
     }
+    
+    public enum State {
+        Inbound, Stationned, Leaving
+    }
+
 }

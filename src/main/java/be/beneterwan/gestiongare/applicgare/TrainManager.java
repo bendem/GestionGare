@@ -2,10 +2,12 @@ package be.beneterwan.gestiongare.applicgare;
 
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
+import be.beneterwan.gestiongare.commons.trains.HoraireTrain.State;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.logging.Level;
@@ -20,7 +22,7 @@ public class TrainManager {
     private static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
 
     private final Queue<HoraireTrain> incomingTrains;
-    private final Map<HoraireTrain, State> inboundTrains;
+    private final List<HoraireTrain> inboundTrains;
     private final LinkedList<HoraireTrain> outboundTrains;
     private HoraireTrain current;
 
@@ -34,8 +36,10 @@ public class TrainManager {
             LOGGER.log(Level.SEVERE, "Could not load trains schedule, exiting...", ex);
             System.exit(0);
         }
-        inboundTrains = new HashMap<>();
+        inboundTrains = new ArrayList<>();
         outboundTrains = new LinkedList<>();
+        
+        
     }
 
     // TODO Fucking load of state check and exceptions
@@ -46,15 +50,18 @@ public class TrainManager {
     }
 
     public void setCurrentTrainInbound() {
-        inboundTrains.put(current, State.Inbound);
+        current.setState(State.Inbound);
+        inboundTrains.add(current);
     }
 
     public void trainArrived(HoraireTrain horaire) {
-        inboundTrains.put(horaire, State.Stationned);
+        current.setState(State.Stationned);
+        inboundTrains.add(horaire);
     }
 
     public void trainLeaving(HoraireTrain horaire) {
-        inboundTrains.put(horaire, State.Leaving);
+        current.setState(State.Leaving);
+        inboundTrains.add(horaire);
     }
 
     public void trainLeft(HoraireTrain horaire) {
@@ -67,12 +74,12 @@ public class TrainManager {
         return current;
     }
 
+    public List<HoraireTrain> getInboundTrains() {
+        return inboundTrains;
+    }
+
     private void saveOutboundTrains() {
         // TODO
     }
-
-    public enum State {
-        Inbound, Stationned, Leaving
-    }
-
+    
 }
