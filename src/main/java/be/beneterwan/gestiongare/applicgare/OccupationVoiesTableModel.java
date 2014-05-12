@@ -11,6 +11,7 @@ public class OccupationVoiesTableModel extends AbstractTableModel {
     private final List<HoraireTrain> inboundTrains;
 
     OccupationVoiesTableModel(List<HoraireTrain> inboundTrains) {
+        super();
         this.inboundTrains = inboundTrains;
     }
 
@@ -26,7 +27,7 @@ public class OccupationVoiesTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        switch(columnIndex){
+        switch(columnIndex) {
             case 0:
                 return inboundTrains.get(rowIndex).getQuai();
             case 1:
@@ -41,8 +42,29 @@ public class OccupationVoiesTableModel extends AbstractTableModel {
                 return 1337; //TODO
             default:
                 throw new IllegalArgumentException("Invalid Index");
-            
+
         }
     }
-    
+
+
+    @Override
+    public String getColumnName(int column) {
+        switch(column) {
+            case 0:
+                return "Voie";
+            case 1:
+                return "Numéro";
+            case 2:
+                return "Arrivée";
+            case 3:
+                return "Départ";
+            case 4:
+                return "Présent";
+            case 5:
+                return "Retard";
+            default:
+                throw new IllegalArgumentException("Invalid Index");
+        }
+    }
+
 }

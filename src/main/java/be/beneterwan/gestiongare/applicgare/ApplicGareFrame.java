@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JMenuItem;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -240,6 +241,10 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
     public JTextField getFieldDepot() {
         return fieldDepot;
+    }
+
+    public JTable getTableOccupationVoies() {
+        return tableOccupationVoies;
     }
 
     public void setLoggedIn(User user) {
