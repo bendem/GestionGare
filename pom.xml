@@ -23,6 +23,7 @@
         <module>modules/applicgare</module>
         <module>modules/applicpostes</module>
         <module>modules/applicdepot</module>
+        <module>modules/launcher</module>
     </modules>
 
     <dependencies>
