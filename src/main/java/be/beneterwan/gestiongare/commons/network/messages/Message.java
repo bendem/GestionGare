@@ -1,6 +1,8 @@
 package be.beneterwan.gestiongare.commons.network.messages;
 
+import be.beneterwan.gestiongare.commons.trains.VehiculeRail;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import network.NetworkStringSender;
@@ -25,7 +27,11 @@ abstract public class Message {
     }
 
     public static Message deserialize(String serialized) {
-        Gson gson = new Gson();
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        // Register a deserializer to deserialize Wagon's and Locomotive's
+        gsonBuilder.registerTypeAdapter(VehiculeRail.class, new VehiculeRailDeserializer());
+
+        Gson gson = gsonBuilder.create();
         // Get JsonObject from String
         JsonObject json = (JsonObject) new JsonParser().parse(serialized);
         // Get Message type to be able to deserialize using the correct class
