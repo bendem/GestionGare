@@ -32,8 +32,8 @@ public class TrainListDialog extends JDialog {
                 train.getWagons().size(),
                 horaire.getOrigine(),
                 horaire.getDestination(),
-                String.format("%02d:%02d", horaire.getArrivee()/60, horaire.getArrivee()%60),
-                String.format("%02d:%02d", horaire.getDepart()/60, horaire.getDepart()%60)
+                String.format("%02d:%02d", horaire.getArriveeHeure(), horaire.getArriveeMinute()),
+                String.format("%02d:%02d", horaire.getDepartHeure(), horaire.getDepartMinute())
             });
         }
         trainList.setModel(model);

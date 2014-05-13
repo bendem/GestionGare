@@ -39,15 +39,17 @@ public class OccupationVoiesTableModel extends AbstractTableModel {
             return null;
         }
 
+        HoraireTrain horaire = inboundTrains.get(rowIndex);
+
         switch(columnIndex) {
             case 1:
-                return inboundTrains.get(rowIndex).getTrain().getNumero();
+                return horaire.getTrain().getNumero();
             case 2:
-                return inboundTrains.get(rowIndex).getArriveeHeure(); //TODO BETTER
+                return String.format("%02d:%02d", horaire.getArriveeHeure(), horaire.getArriveeMinute());
             case 3:
-                return inboundTrains.get(rowIndex).getDepartHeure(); //TODO BETTER
+                return String.format("%02d:%02d", horaire.getDepartHeure(), horaire.getDepartMinute());
             case 4:
-                return inboundTrains.get(rowIndex).getState().equals(HoraireTrain.State.Stationned);
+                return horaire.getState().equals(HoraireTrain.State.Stationned);
             case 5:
                 return 1337; //TODO
             default:
