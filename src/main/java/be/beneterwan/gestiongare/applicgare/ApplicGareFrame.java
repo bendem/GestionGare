@@ -114,9 +114,9 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         comboBoxTrain.setEnabled(enableState);
         fieldProchainTrain.setEnabled(enableState);
         buttonTrainSuivant.setEnabled(enableState);
-        buttonControleIn.setEnabled(enableState);
-        buttonControleOut.setEnabled(enableState);
-        buttonDepot.setEnabled(enableState);
+        buttonControleIn.setEnabled(false);
+        buttonControleOut.setEnabled(false);
+        buttonDepot.setEnabled(false);
         fieldControleIn.setEnabled(enableState);
         fieldControleOut.setEnabled(enableState);
         fieldProchainTrain.setEnabled(enableState);
