@@ -51,24 +51,24 @@ public class TrainManager {
 
     public void setCurrentTrainInbound() {
         current.setState(State.Inbound);
-        inboundTrains.add(current.getQuai(),current);
+        inboundTrains.add(current);
         updateTable();
     }
 
     public void trainArrived(HoraireTrain horaire) {
         horaire.setState(State.Stationned);
-        inboundTrains.add(horaire.getQuai(),horaire);
+        inboundTrains.add(horaire);
         updateTable();
     }
 
     public void trainLeaving(HoraireTrain horaire) {
         horaire.setState(State.Leaving);
-        inboundTrains.add(horaire.getQuai(),horaire);
+        inboundTrains.add(horaire);
         updateTable();
     }
 
     public void trainLeft(HoraireTrain horaire) {
-        outboundTrains.add(horaire.getQuai(),horaire);
+        outboundTrains.add(horaire);
         saveOutboundTrains();
         updateTable();
     }
