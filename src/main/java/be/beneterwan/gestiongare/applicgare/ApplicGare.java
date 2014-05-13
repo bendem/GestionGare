@@ -47,7 +47,7 @@ public class ApplicGare {
         System.out.println("  #######################################\n");
         LOGGER.info("Starting up application...");
 
-        trainManager = new TrainManager();
+        trainManager = new TrainManager(this);
 
         // Loading ui
         frame = new ApplicGareFrame(this);

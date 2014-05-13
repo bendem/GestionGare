@@ -23,9 +23,10 @@ public class TrainManager {
     private final Queue<HoraireTrain> incomingTrains;
     private final List<HoraireTrain> inboundTrains;
     private final LinkedList<HoraireTrain> outboundTrains;
+    private final ApplicGare applicGare;
     private HoraireTrain current;
 
-    public TrainManager() {
+    public TrainManager(ApplicGare applicGare) {
         incomingTrains = new LinkedList<>();
         try {
             // Loading train list
@@ -37,6 +38,8 @@ public class TrainManager {
         }
         inboundTrains = new ArrayList<>();
         outboundTrains = new LinkedList<>();
+        this.applicGare = applicGare;
+        initTable();
     }
 
     // TODO Fucking load of state check and exceptions
@@ -48,23 +51,26 @@ public class TrainManager {
 
     public void setCurrentTrainInbound() {
         current.setState(State.Inbound);
-        inboundTrains.add(current);
+        inboundTrains.add(current.getQuai(),current);
+        updateTable();
     }
 
     public void trainArrived(HoraireTrain horaire) {
-        current.setState(State.Stationned);
-        inboundTrains.add(horaire);
+        horaire.setState(State.Stationned);
+        inboundTrains.add(horaire.getQuai(),horaire);
+        updateTable();
     }
 
     public void trainLeaving(HoraireTrain horaire) {
-        current.setState(State.Leaving);
-        inboundTrains.add(horaire);
+        horaire.setState(State.Leaving);
+        inboundTrains.add(horaire.getQuai(),horaire);
+        updateTable();
     }
 
     public void trainLeft(HoraireTrain horaire) {
-        inboundTrains.remove(horaire);
-        outboundTrains.add(horaire);
+        outboundTrains.add(horaire.getQuai(),horaire);
         saveOutboundTrains();
+        updateTable();
     }
 
     public HoraireTrain getCurrent() {
@@ -78,5 +84,14 @@ public class TrainManager {
     private void saveOutboundTrains() {
         // TODO
     }
-
+    
+    private void updateTable() {
+        ((OccupationVoiesTableModel) applicGare.getFrame().getTableOccupationVoies().getModel()).fireTableDataChanged();
+    }
+    
+    private void initTable() {
+        
+        // TODO : Table needs to be initialized to be able to set specific trains to specific platform
+    }
+    
 }

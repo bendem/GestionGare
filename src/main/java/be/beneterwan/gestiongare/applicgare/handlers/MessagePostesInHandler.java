@@ -33,9 +33,10 @@ public class MessagePostesInHandler implements EventHandler {
         if(message.getType().equals(Message.Type.TrainTransited)){
             Train train = ((TrainTransited) message).getHoraireTrain().getTrain();
             applicGare.getFrame().getFieldControleIn().setText(train.toString());
+            applicGare.getTrainManager().trainArrived(((TrainTransited) message).getHoraireTrain());
+            
         } else if(message.getType().equals(Message.Type.Ack)) {
             applicGare.getTrainManager().setCurrentTrainInbound();
-            ((OccupationVoiesTableModel) applicGare.getFrame().getTableOccupationVoies().getModel()).fireTableDataChanged();
 
             applicGare.getFrame().getButtonTrainSuivant().setEnabled(true);
             applicGare.getFrame().getButtonControleIn().setEnabled(false);
