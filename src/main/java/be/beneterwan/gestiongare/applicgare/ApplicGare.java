@@ -12,6 +12,7 @@ import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurLogHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MessageDepotHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MessagePostesInHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MessagePostesOutHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.TableSelectionChangedHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.TrainSuivantHandler;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.commons.network.receiver.NetworkReceiver;
@@ -73,6 +74,7 @@ public class ApplicGare {
         eventManager.addListener(frame.getButtonControleIn(), new ControleInHandler(this));
         eventManager.addListener(frame.getButtonDepot(), new DepotHandler(this));
         eventManager.addListener(frame.getButtonControleOut(), new ControleOutHandler(this));
+        eventManager.addListener(frame.getTableOccupationVoies().getSelectionModel(), new TableSelectionChangedHandler(this));
 
         // Opening login frame
         frame.openLoginFrame();
