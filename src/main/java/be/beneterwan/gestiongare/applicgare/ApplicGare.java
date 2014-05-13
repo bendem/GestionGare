@@ -48,6 +48,15 @@ public class ApplicGare {
         System.out.println("  #######################################\n");
         LOGGER.info("Starting up application...");
 
+        // Preparing utilities
+        postesInNetworkReceiver = new NetworkReceiver(50_010);
+        postesOutNetworkReceiver = new NetworkReceiver(50_011);
+        depotNetworkReceiver = new NetworkReceiver(50_015);
+
+        postesInNetworkReceiver.start();
+        postesOutNetworkReceiver.start();
+        depotNetworkReceiver.start();
+
         trainManager = new TrainManager(this);
 
         // Loading ui
@@ -78,15 +87,6 @@ public class ApplicGare {
 
         // Opening login frame
         frame.openLoginFrame();
-
-        // Preparing utilities
-        postesInNetworkReceiver = new NetworkReceiver(50_010);
-        postesOutNetworkReceiver = new NetworkReceiver(50_011);
-        depotNetworkReceiver = new NetworkReceiver(50_015);
-
-        postesInNetworkReceiver.start();
-        postesOutNetworkReceiver.start();
-        depotNetworkReceiver.start();
 
         eventManager.addListener(postesInNetworkReceiver, new MessagePostesInHandler(this));
         eventManager.addListener(postesOutNetworkReceiver, new MessagePostesOutHandler(this));
