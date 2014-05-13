@@ -43,7 +43,7 @@ public class OccupationVoiesTableModel extends AbstractTableModel {
 
         switch(columnIndex) {
             case 1:
-                return horaire.getTrain().getNumero();
+                return horaire.getTrain().getType().name() + horaire.getTrain().getNumero();
             case 2:
                 return String.format("%02d:%02d", horaire.getArriveeHeure(), horaire.getArriveeMinute());
             case 3:
