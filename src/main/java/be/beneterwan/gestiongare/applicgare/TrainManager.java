@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.logging.Level;
@@ -45,6 +46,12 @@ public class TrainManager {
         initTable();
     }
 
+    private void initTable() {
+        for(int i = NB_VOIES; i > 0; --i) {
+            inboundTrains.put(i, null);
+        }
+    }
+
     // TODO Fucking load of state check and exceptions
 
     public HoraireTrain nextTrain() {
@@ -55,26 +62,27 @@ public class TrainManager {
     public void setCurrentTrainInbound() {
         newCurrent.setState(State.Inbound);
         inboundTrains.put(newCurrent.getQuai(), newCurrent);
-        updateTable();
+        updateStationedTrains();
     }
 
     public void trainArrived(HoraireTrain horaire) {
         horaire.setState(State.Stationned);
         inboundTrains.put(horaire.getQuai(), horaire);
-        updateTable();
+        updateStationedTrains();
     }
 
     public void trainLeaving(HoraireTrain horaire) {
         horaire.setState(State.Leaving);
         inboundTrains.put(horaire.getQuai(), horaire);
-        updateTable();
+        updateStationedTrains();
     }
 
     public void trainLeft(HoraireTrain horaire) {
         inboundTrains.put(horaire.getQuai(),null);
         outboundTrains.add(horaire);
         saveOutboundTrains();
-        updateTable();
+        updateStationedTrains();
+        ((TrainGoneComboBoxModel) applicGare.getFrame().getComboBoxTrain().getModel()).update();
     }
 
     public HoraireTrain getCurrent() {
@@ -92,20 +100,17 @@ public class TrainManager {
     public void setOutCurrent(HoraireTrain outCurrent) {
         this.outCurrent = outCurrent;
     }
-    
+
     private void saveOutboundTrains() {
         // TODO
     }
 
-    private void updateTable() {
+    private void updateStationedTrains() {
         ((OccupationVoiesTableModel) applicGare.getFrame().getTableOccupationVoies().getModel()).fireTableDataChanged();
     }
 
-    private void initTable() {
-        for(int i = NB_VOIES; i > 0; --i) {
-            inboundTrains.put(i, null);
-        }
-        // TODO : Table needs to be initialized to be able to set specific trains to specific platform
+    public List<HoraireTrain> getOutboundTrains() {
+        return outboundTrains;
     }
 
 }

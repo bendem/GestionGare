@@ -14,6 +14,7 @@ import java.awt.Frame;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JMenuItem;
 import javax.swing.JTable;
@@ -247,6 +248,10 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         return tableOccupationVoies;
     }
 
+    public JComboBox getComboBoxTrain() {
+        return comboBoxTrain;
+    }
+
     public void setLoggedIn(User user) {
         this.currentUser = user;
         loggedIn = user != null;
@@ -269,7 +274,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
         labelResponsableGare = new javax.swing.JLabel();
         labelTrainArrivesRepartis = new javax.swing.JLabel();
-        comboBoxTrain = new javax.swing.JComboBox();
+        comboBoxTrain = new javax.swing.JComboBox<>();
         labelProchainTrain = new javax.swing.JLabel();
         fieldProchainTrain = new javax.swing.JTextField();
         buttonTrainSuivant = new javax.swing.JButton();
@@ -318,7 +323,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
         labelTrainArrivesRepartis.setText("Trains arrivés et repartis : ");
 
-        comboBoxTrain.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2" }));
+        comboBoxTrain.setModel(new TrainGoneComboBoxModel(getApplicGare().getTrainManager().getOutboundTrains()));
 
         labelProchainTrain.setText("Prochain train :");
 
