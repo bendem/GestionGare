@@ -1,16 +1,17 @@
 package be.beneterwan.gestiongare.applicgare;
 
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
-import java.util.List;
+import java.util.Map;
 import javax.swing.table.AbstractTableModel;
 
 /**
  * @author bendem & Curlybear
  */
 public class OccupationVoiesTableModel extends AbstractTableModel {
-    private final List<HoraireTrain> inboundTrains;
 
-    OccupationVoiesTableModel(List<HoraireTrain> inboundTrains) {
+    private final Map<Integer, HoraireTrain> inboundTrains;
+
+    OccupationVoiesTableModel(Map<Integer, HoraireTrain> inboundTrains) {
         super();
         this.inboundTrains = inboundTrains;
     }
@@ -27,9 +28,16 @@ public class OccupationVoiesTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
+        // The Map goes from 1 to TrainManager.NB_VOIES
+        ++rowIndex;
+
+        if(!inboundTrains.containsKey(rowIndex) || inboundTrains.get(rowIndex) == null) {
+            return null;
+        }
+
         switch(columnIndex) {
             case 0:
-                return inboundTrains.get(rowIndex).getQuai();
+                return rowIndex;
             case 1:
                 return inboundTrains.get(rowIndex).getTrain().getNumero();
             case 2:

@@ -4,10 +4,10 @@ import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain.State;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,8 +20,10 @@ public class TrainManager {
 
     private static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
 
+    public static final int NB_VOIES = 8;
+
     private final Queue<HoraireTrain> incomingTrains;
-    private final List<HoraireTrain> inboundTrains;
+    private final Map<Integer, HoraireTrain> inboundTrains;
     private final LinkedList<HoraireTrain> outboundTrains;
     private final ApplicGare applicGare;
     private HoraireTrain current;
@@ -36,7 +38,7 @@ public class TrainManager {
             LOGGER.log(Level.SEVERE, "Could not load trains schedule, exiting...", ex);
             System.exit(0);
         }
-        inboundTrains = new ArrayList<>();
+        inboundTrains = new HashMap<>();
         outboundTrains = new LinkedList<>();
         this.applicGare = applicGare;
         initTable();
@@ -51,19 +53,19 @@ public class TrainManager {
 
     public void setCurrentTrainInbound() {
         current.setState(State.Inbound);
-        inboundTrains.add(current);
+        inboundTrains.put(current.getQuai(), current);
         updateTable();
     }
 
     public void trainArrived(HoraireTrain horaire) {
         horaire.setState(State.Stationned);
-        inboundTrains.add(horaire);
+        inboundTrains.put(horaire.getQuai(), horaire);
         updateTable();
     }
 
     public void trainLeaving(HoraireTrain horaire) {
         horaire.setState(State.Leaving);
-        inboundTrains.add(horaire);
+        inboundTrains.put(horaire.getQuai(), horaire);
         updateTable();
     }
 
@@ -77,21 +79,23 @@ public class TrainManager {
         return current;
     }
 
-    public List<HoraireTrain> getInboundTrains() {
+    public Map<Integer, HoraireTrain> getInboundTrains() {
         return inboundTrains;
     }
 
     private void saveOutboundTrains() {
         // TODO
     }
-    
+
     private void updateTable() {
         ((OccupationVoiesTableModel) applicGare.getFrame().getTableOccupationVoies().getModel()).fireTableDataChanged();
     }
-    
+
     private void initTable() {
-        
+        for(int i = NB_VOIES; i > 0; --i) {
+            inboundTrains.put(i, null);
+        }
         // TODO : Table needs to be initialized to be able to set specific trains to specific platform
     }
-    
+
 }
