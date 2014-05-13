@@ -19,10 +19,9 @@ public class ControleOutHandler implements EventHandler {
     @Override
     public void execute(EventObject event) {
         int id = applicGare.getFrame().getTableOccupationVoies().getSelectedRow();
-        HoraireTrain train;
         
-        if (applicGare.getFrame().getTableOccupationVoies().getSelectedRow() != -1) {
-            train = applicGare.getTrainManager().getInboundTrains().get(id);
+        if (id != -1) {
+            HoraireTrain train = applicGare.getTrainManager().getInboundTrains().get(id);
             if (train.getState() == HoraireTrain.State.Stationned) {
                 applicGare.getTrainManager().trainLeaving(train);
             }
