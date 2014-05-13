@@ -31,13 +31,15 @@ public class OccupationVoiesTableModel extends AbstractTableModel {
         // The Map goes from 1 to TrainManager.NB_VOIES
         ++rowIndex;
 
+        if(columnIndex == 0) {
+            return rowIndex;
+        }
+
         if(!inboundTrains.containsKey(rowIndex) || inboundTrains.get(rowIndex) == null) {
             return null;
         }
 
         switch(columnIndex) {
-            case 0:
-                return rowIndex;
             case 1:
                 return inboundTrains.get(rowIndex).getTrain().getNumero();
             case 2:
