@@ -28,7 +28,7 @@ import network.NetworkStringSender;
  */
 public class ApplicGare {
 
-    private static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(ApplicGare.class.getSimpleName());
     private static ApplicGareFrame frame;
 
     private final TrainManager trainManager;
@@ -96,9 +96,15 @@ public class ApplicGare {
     public void startUtilities() {
         LOGGER.info("Starting utilities...");
 
-        postesInNetworkSender = new NetworkStringSender("127.0.0.1", 50_000);
-        postesOutNetworkSender = new NetworkStringSender("127.0.0.1", 50_001);
-        depotNetworkSender = new NetworkStringSender("127.0.0.1", 50_005);
+        if(postesInNetworkSender == null) {
+            postesInNetworkSender = new NetworkStringSender("127.0.0.1", 50_000);
+        }
+        if(postesOutNetworkSender == null) {
+            postesOutNetworkSender = new NetworkStringSender("127.0.0.1", 50_001);
+        }
+        if(depotNetworkSender == null) {
+            depotNetworkSender = new NetworkStringSender("127.0.0.1", 50_005);
+        }
     }
 
     public void stopUtilities() {
@@ -114,9 +120,15 @@ public class ApplicGare {
             depotNetworkReceiver.stop();
         }
 
-        postesInNetworkSender.endSending();
-        postesOutNetworkSender.endSending();
-        depotNetworkSender.endSending();
+        if(postesInNetworkSender != null) {
+            postesInNetworkSender.endSending();
+        }
+        if(postesOutNetworkSender != null) {
+            postesOutNetworkSender.endSending();
+        }
+        if(depotNetworkSender != null) {
+            depotNetworkSender.endSending();
+        }
         LOGGER.fine("Utilities stopped");
     }
 
