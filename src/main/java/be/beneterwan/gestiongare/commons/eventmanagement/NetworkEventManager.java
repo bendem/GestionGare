@@ -1,11 +1,9 @@
 package be.beneterwan.gestiongare.commons.eventmanagement;
 
+import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.commons.network.receiver.MessageEvent;
 import be.beneterwan.gestiongare.commons.network.receiver.MessageListener;
 import be.beneterwan.gestiongare.commons.network.receiver.NetworkReceiver;
-import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
-import be.beneterwan.gestiongare.commons.eventmanagement.EventManager;
-import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import java.util.logging.Logger;
 
 /**
@@ -13,7 +11,7 @@ import java.util.logging.Logger;
  */
 public class NetworkEventManager extends EventManager implements MessageListener {
 
-    private static Logger LOGGER = new CustomLogger(NetworkEventManager.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(NetworkEventManager.class.getSimpleName());
 
     public void addListener(NetworkReceiver receiver, EventHandler hanlder) {
         receiver.addMessageListener(this);

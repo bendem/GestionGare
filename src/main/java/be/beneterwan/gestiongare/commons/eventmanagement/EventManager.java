@@ -13,11 +13,14 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JMenuItem;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  * @author bendem & Curlybear
  */
-public class EventManager implements ActionListener {
+public class EventManager implements ActionListener, ListSelectionListener {
 
     private static final Logger LOGGER = new CustomLogger(EventManager.class.getSimpleName());
     protected static final Map<Object, List<EventHandler>> handlerList = new HashMap<>();
@@ -42,6 +45,11 @@ public class EventManager implements ActionListener {
         registerHandler(item, handler);
     }
 
+    public void addListener(ListSelectionModel item, EventHandler handler) {
+        item.addListSelectionListener(this);
+        registerHandler(item, handler);
+    }
+
     protected void registerHandler(Object source, EventHandler handler) {
         if(!handlerList.containsKey(source)) {
             handlerList.put(source, new ArrayList<EventHandler>());
@@ -61,7 +69,11 @@ public class EventManager implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent event) {
-        LOGGER.fine(event.paramString());
+        dispatchEvent(event);
+    }
+
+    @Override
+    public void valueChanged(ListSelectionEvent event) {
         dispatchEvent(event);
     }
 
