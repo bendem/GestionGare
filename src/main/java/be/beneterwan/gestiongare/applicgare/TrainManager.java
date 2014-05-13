@@ -26,7 +26,8 @@ public class TrainManager {
     private final Map<Integer, HoraireTrain> inboundTrains;
     private final LinkedList<HoraireTrain> outboundTrains;
     private final ApplicGare applicGare;
-    private HoraireTrain current;
+    private HoraireTrain newCurrent;
+    private HoraireTrain outCurrent;
 
     public TrainManager(ApplicGare applicGare) {
         incomingTrains = new LinkedList<>();
@@ -47,13 +48,13 @@ public class TrainManager {
     // TODO Fucking load of state check and exceptions
 
     public HoraireTrain nextTrain() {
-        current = incomingTrains.poll();
-        return current;
+        newCurrent = incomingTrains.poll();
+        return newCurrent;
     }
 
     public void setCurrentTrainInbound() {
-        current.setState(State.Inbound);
-        inboundTrains.put(current.getQuai(), current);
+        newCurrent.setState(State.Inbound);
+        inboundTrains.put(newCurrent.getQuai(), newCurrent);
         updateTable();
     }
 
@@ -70,19 +71,28 @@ public class TrainManager {
     }
 
     public void trainLeft(HoraireTrain horaire) {
+        inboundTrains.put(horaire.getQuai(),null);
         outboundTrains.add(horaire);
         saveOutboundTrains();
         updateTable();
     }
 
     public HoraireTrain getCurrent() {
-        return current;
+        return newCurrent;
     }
 
     public Map<Integer, HoraireTrain> getInboundTrains() {
         return inboundTrains;
     }
 
+    public HoraireTrain getOutCurrent() {
+        return outCurrent;
+    }
+
+    public void setOutCurrent(HoraireTrain outCurrent) {
+        this.outCurrent = outCurrent;
+    }
+    
     private void saveOutboundTrains() {
         // TODO
     }

@@ -2,6 +2,7 @@ package be.beneterwan.gestiongare.applicgare.handlers;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGare;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
+import be.beneterwan.gestiongare.commons.network.messages.TrainComing;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
 import java.util.EventObject;
 
@@ -21,9 +22,11 @@ public class ControleOutHandler implements EventHandler {
         int id = applicGare.getFrame().getTableOccupationVoies().getSelectedRow();
         
         if (id != -1) {
-            HoraireTrain train = applicGare.getTrainManager().getInboundTrains().get(id);
-            if (train.getState() == HoraireTrain.State.Stationned) {
-                applicGare.getTrainManager().trainLeaving(train);
+            HoraireTrain train = applicGare.getTrainManager().getInboundTrains().get(id+1);
+            if (train.getState().equals(HoraireTrain.State.Stationned)) {
+                TrainComing message = new TrainComing(train);
+                applicGare.getTrainManager().setOutCurrent(train);
+                message.send(applicGare.getPostesOutNetworkSender());
             }
         }
     }
