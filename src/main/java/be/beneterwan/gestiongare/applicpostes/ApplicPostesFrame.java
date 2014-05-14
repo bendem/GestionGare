@@ -20,13 +20,11 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
     private final ApplicPostes applicPostes;
     private HoraireTrain trainAnnonce;
     private final Queue<HoraireTrain> trainConsidere;
-    private final DefaultListModel trainPartis;
 
     public ApplicPostesFrame(ApplicPostes applicController) {
         super("Applic Postes");
         applicPostes = applicController;
         trainConsidere = new LinkedList<>();
-        trainPartis = new DefaultListModel();
         initComponents();
         picture.setIcon(new ImageIcon(ResourceManager.getResourceFile("img/train-2.jpg")));
         pack();
@@ -83,17 +81,17 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
     public void addTrainConsidere(HoraireTrain trainConsidere) {
         this.trainConsidere.add(trainConsidere);
     }
-    
+
     public HoraireTrain withdrawTrainConsidere() {
         return trainConsidere.poll();
     }
-    
+
     public JList getListTrainPartis() {
         return listTrainPartis;
     }
-    
+
     public void addTrainPartis(HoraireTrain trainPartis) {
-        this.trainPartis.addElement(trainPartis);
+        ((DefaultListModel<HoraireTrain>) listTrainPartis.getModel()).addElement(trainPartis);
     }
 
     /**
@@ -118,7 +116,7 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
         buttonSignalPassageTrain = new javax.swing.JButton();
         labelTrainPartis = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        listTrainPartis = new javax.swing.JList();
+        listTrainPartis = new javax.swing.JList<HoraireTrain>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
@@ -159,6 +157,7 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
 
         labelTrainPartis.setText("Trains partis:");
 
+        listTrainPartis.setModel(new DefaultListModel());
         jScrollPane2.setViewportView(listTrainPartis);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -247,7 +246,7 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
     private javax.swing.JLabel labelGare;
     private javax.swing.JLabel labelTrainConsidere;
     private javax.swing.JLabel labelTrainPartis;
-    private javax.swing.JList listTrainPartis;
+    private javax.swing.JList<HoraireTrain> listTrainPartis;
     private javax.swing.JLabel picture;
     private javax.swing.JPanel picturePanel;
     // End of variables declaration//GEN-END:variables
