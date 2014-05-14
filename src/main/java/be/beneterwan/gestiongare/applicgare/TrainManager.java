@@ -4,6 +4,7 @@ import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.commons.trains.HoraireComparator;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain.State;
+import be.beneterwan.gestiongare.commons.trains.Train;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
@@ -16,6 +17,7 @@ import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import serialize.ObjectLoader;
+import serialize.ObjectSaver;
 
 /**
  * @author bendem & Curlybear
@@ -112,17 +114,26 @@ public class TrainManager {
     public void setOutCurrent(HoraireTrain outCurrent) {
         this.outCurrent = outCurrent;
     }
-    
+
     public void storeCurrent(){
         this.storeCurrent = this.newCurrent;
     }
-    
+
     public String getStoreCurrentNum(){
         return storeCurrent.getTrain().toString();
     }
 
     private void saveOutboundTrains() {
-        // TODO
+        ObjectSaver objectSaver = new ObjectSaver("train_gone.dat");
+        List<Train> trains = new LinkedList<>();
+        for(HoraireTrain horaire : outboundTrains) {
+            trains.add(horaire.getTrain());
+        }
+        try {
+            objectSaver.save(trains);
+        } catch(IOException ex) {
+            LOGGER.log(Level.SEVERE, "Could not save trains", ex);
+        }
     }
 
     private void updateStationedTrains() {
