@@ -18,6 +18,7 @@ public class ButtonSignalPassageTrainHandler implements EventHandler {
 
     @Override
     public void execute(EventObject event) {
+        applicPostes.getFrame().addTrainPartis(applicPostes.getFrame().getTrainConsidere());
         TrainTransited message = new TrainTransited(applicPostes.getFrame().withdrawTrainConsidere());
         if(applicPostes.getFrame().getTrainConsidere() != null) {
             applicPostes.getFrame().getFieldTrainConsidere().setText(applicPostes.getFrame().getTrainConsidere().toString());

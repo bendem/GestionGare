@@ -20,11 +20,13 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
     private final ApplicPostes applicPostes;
     private HoraireTrain trainAnnonce;
     private final Queue<HoraireTrain> trainConsidere;
+    private final DefaultListModel trainPartis;
 
     public ApplicPostesFrame(ApplicPostes applicController) {
         super("Applic Postes");
         applicPostes = applicController;
         trainConsidere = new LinkedList<>();
+        trainPartis = new DefaultListModel();
         initComponents();
         picture.setIcon(new ImageIcon(ResourceManager.getResourceFile("img/train-2.jpg")));
         pack();
@@ -78,7 +80,7 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
         return trainConsidere.peek();
     }
 
-    public void setTrainConsidere(HoraireTrain trainConsidere) {
+    public void addTrainConsidere(HoraireTrain trainConsidere) {
         this.trainConsidere.add(trainConsidere);
     }
     
@@ -88,6 +90,10 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
     
     public JList getListTrainPartis() {
         return listTrainPartis;
+    }
+    
+    public void addTrainPartis(HoraireTrain trainPartis) {
+        this.trainPartis.addElement(trainPartis);
     }
 
     /**

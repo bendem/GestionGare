@@ -21,7 +21,7 @@ public class ButtonMsgRecuHandler implements EventHandler{
     @Override
     public void execute(EventObject event) {
         if(!(applicPostesFrame.getTrainAnnonce()==null)) {
-            applicPostesFrame.setTrainConsidere(applicPostesFrame.getTrainAnnonce());
+            applicPostesFrame.addTrainConsidere(applicPostesFrame.getTrainAnnonce());
             applicPostesFrame.setTrainAnnonce(null);
             applicPostesFrame.getFieldAnnonce().setText("");
             applicPostesFrame.getFieldTrainConsidere().setText(applicPostesFrame.getTrainConsidere().toString());
