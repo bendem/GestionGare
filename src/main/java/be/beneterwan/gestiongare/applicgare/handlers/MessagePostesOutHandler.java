@@ -30,12 +30,12 @@ public class MessagePostesOutHandler implements EventHandler{
 
         if(message.getType().equals(Message.Type.TrainTransited)){
             Train train = ((TrainTransited) message).getHoraireTrain().getTrain();
-            applicGare.getFrame().getFieldControleIn().setText(train.toString());
+            applicGare.getFrame().getFieldControleOut().setText(train.toString());
             applicGare.getTrainManager().trainLeft(((TrainTransited) message).getHoraireTrain());
             
         } else if(message.getType().equals(Message.Type.Ack)) {
             applicGare.getTrainManager().trainLeaving(applicGare.getTrainManager().getOutCurrent());
-            applicGare.getFrame().getFieldControleIn().setText("ACK");
+            applicGare.getFrame().getFieldControleOut().setText("ACK");
             applicGare.getFrame().getButtonDepot().setEnabled(true);
         }
     }
