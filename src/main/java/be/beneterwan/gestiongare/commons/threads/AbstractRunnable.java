@@ -11,14 +11,20 @@ public abstract class AbstractRunnable implements Runnable {
 
     private static final Logger LOGGER = new CustomLogger(AbstractRunnable.class.getSimpleName());
 
+    private final int waitTime;
     private final Thread thread;
     private boolean cancelled;
     private boolean running;
 
     public AbstractRunnable() {
+        this(100);
+    }
+
+    public AbstractRunnable(int waitTime) {
         cancelled = false;
         running = false;
         thread = new Thread(this);
+        this.waitTime = waitTime;
     }
 
     public final void start() {
@@ -39,7 +45,7 @@ public abstract class AbstractRunnable implements Runnable {
         startup();
         while(!cancelled) {
             work();
-            pause(100);
+            pause(waitTime);
         }
         shutdown();
         running = false;
