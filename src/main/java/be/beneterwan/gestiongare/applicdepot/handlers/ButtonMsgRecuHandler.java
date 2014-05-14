@@ -26,7 +26,7 @@ public class ButtonMsgRecuHandler implements EventHandler{
             applicDepotFrame.setTrainAnnonce(null);
             applicDepotFrame.getFieldAnnonce().setText("");
             applicDepotFrame.getFieldTrainConsidere().setText(applicDepotFrame.getTrainConsidere().toString());
-            applicDepotFrame.getButtonSignalPassageTrain().setEnabled(true);
+            applicDepotFrame.getButtonSignalArriveeTrain().setEnabled(true);
             applicDepotFrame.getButtonMsgRecu().setEnabled(false);
 
             Ack message = new Ack();

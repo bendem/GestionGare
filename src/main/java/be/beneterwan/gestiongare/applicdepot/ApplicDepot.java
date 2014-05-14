@@ -41,7 +41,7 @@ public class ApplicDepot {
         networkReceiver.setPort(50005);
         eventManager.addListener(networkReceiver, new MessageHandler(this));
         eventManager.addListener(applicDepotFrame.getButtonMsgRecu(), new ButtonMsgRecuHandler(this));
-        eventManager.addListener(applicDepotFrame.getButtonSignalPassageTrain(), new ButtonSignalArriveeTrainHandler(this));
+        eventManager.addListener(applicDepotFrame.getButtonSignalArriveeTrain(), new ButtonSignalArriveeTrainHandler(this));
         startThreads();
     }
 

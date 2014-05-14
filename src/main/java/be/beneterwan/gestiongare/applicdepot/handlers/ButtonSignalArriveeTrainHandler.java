@@ -23,7 +23,7 @@ public class ButtonSignalArriveeTrainHandler implements EventHandler {
             applicDepot.getFrame().getFieldTrainConsidere().setText(applicDepot.getFrame().getTrainConsidere().toString());
         } else {
             applicDepot.getFrame().getFieldTrainConsidere().setText("");
-            applicDepot.getFrame().getButtonSignalPassageTrain().setEnabled(false);
+            applicDepot.getFrame().getButtonSignalArriveeTrain().setEnabled(false);
         }
         message.send(applicDepot.getNetworkSender());
     }

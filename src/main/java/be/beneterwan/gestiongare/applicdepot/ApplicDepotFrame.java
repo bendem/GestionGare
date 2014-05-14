@@ -23,7 +23,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
     private final ApplicDepot applicDepot;
     private HoraireTrain trainAnnonce;
     private final Queue<HoraireTrain> trainConsidere;
-    
+
     public ApplicDepotFrame(ApplicDepot applicController) {
         super("Applic Dépot");
         applicDepot = applicController;
@@ -38,11 +38,11 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
     public JTextField getFieldAnnonce() {
         return fieldAnnonce;
     }
-    
-    public JButton getButtonSignalPassageTrain() {
-        return buttonSignalPassageTrain;
+
+    public JButton getButtonSignalArriveeTrain() {
+        return buttonSignalArriveeTrain;
     }
-    
+
     public JButton getButtonMsgRecu() {
         return buttonMsgRecu;
     }
@@ -70,7 +70,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
     public HoraireTrain withdrawTrainConsidere() {
         return trainConsidere.poll();
     }
-    
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -90,7 +90,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
         fieldAnnonce = new javax.swing.JTextField();
         labelGare = new javax.swing.JLabel();
         buttonValider = new javax.swing.JButton();
-        buttonSignalPassageTrain = new javax.swing.JButton();
+        buttonSignalArriveeTrain = new javax.swing.JButton();
         labelVoie = new javax.swing.JLabel();
         comboBoxVoie = new javax.swing.JComboBox();
         labelOccupationHangar = new javax.swing.JLabel();
@@ -124,8 +124,8 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
         buttonValider.setText("Valider");
         buttonValider.setEnabled(false);
 
-        buttonSignalPassageTrain.setText("Signaler arrivée du train");
-        buttonSignalPassageTrain.setEnabled(false);
+        buttonSignalArriveeTrain.setText("Signaler arrivée du train");
+        buttonSignalArriveeTrain.setEnabled(false);
 
         labelVoie.setText("Voie choisie:");
 
@@ -156,7 +156,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buttonSignalPassageTrain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonSignalArriveeTrain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(buttonMsgRecu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelAnnonce)
@@ -206,7 +206,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonValider)
-                    .addComponent(buttonSignalPassageTrain)
+                    .addComponent(buttonSignalArriveeTrain)
                     .addComponent(labelVoie)
                     .addComponent(comboBoxVoie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -221,7 +221,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonMsgRecu;
-    private javax.swing.JButton buttonSignalPassageTrain;
+    private javax.swing.JButton buttonSignalArriveeTrain;
     private javax.swing.JButton buttonValider;
     private javax.swing.JComboBox comboBoxVoie;
     private javax.swing.JTextField fieldAnnonce;
