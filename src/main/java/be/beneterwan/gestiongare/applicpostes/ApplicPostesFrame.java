@@ -2,6 +2,8 @@ package be.beneterwan.gestiongare.applicpostes;
 
 import be.beneterwan.gestiongare.commons.ResourceManager;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
+import java.util.LinkedList;
+import java.util.Queue;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,11 +17,12 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
 
     private final ApplicPostes applicPostes;
     private HoraireTrain trainAnnonce;
-    private HoraireTrain trainConsidere;
+    private Queue<HoraireTrain> trainConsidere;
 
     public ApplicPostesFrame(ApplicPostes applicController) {
         super("Applic Postes");
         applicPostes = applicController;
+        trainConsidere = new LinkedList<>();
         initComponents();
         picture.setIcon(new ImageIcon(ResourceManager.getResourceFile("img/train-2.jpg")));
         pack();
@@ -31,9 +34,9 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
         comboBoxPostes.setEnabled(false);
         buttonValider.setEnabled(false);
         fieldAnnonce.setEnabled(true);
-        buttonMsgRecu.setEnabled(true);
+        buttonMsgRecu.setEnabled(false);
         fieldTrainConsidere.setEnabled(true);
-        buttonSignalPassageTrain.setEnabled(true);
+        buttonSignalPassageTrain.setEnabled(false);
         textAreaTrainPartis.setEnabled(true);
     }
 
@@ -70,11 +73,15 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
     }
 
     public HoraireTrain getTrainConsidere() {
-        return trainConsidere;
+        return trainConsidere.peek();
     }
 
     public void setTrainConsidere(HoraireTrain trainConsidere) {
-        this.trainConsidere = trainConsidere;
+        this.trainConsidere.add(trainConsidere);
+    }
+    
+    public HoraireTrain withdrawTrainConsidere() {
+        return trainConsidere.poll();
     }
 
     /**
@@ -122,6 +129,7 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
 
         labelAnnonce.setText("Annonce:");
 
+        fieldAnnonce.setEditable(false);
         fieldAnnonce.setEnabled(false);
 
         labelGare.setText("Gare");
@@ -131,6 +139,7 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
 
         labelTrainConsidere.setText("Train considéré: ");
 
+        fieldTrainConsidere.setEditable(false);
         fieldTrainConsidere.setEnabled(false);
 
         buttonSignalPassageTrain.setText("Signaler passage train");
@@ -138,6 +147,7 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
 
         labelTrainPartis.setText("Trains partis:");
 
+        textAreaTrainPartis.setEditable(false);
         textAreaTrainPartis.setColumns(20);
         textAreaTrainPartis.setRows(5);
         textAreaTrainPartis.setEnabled(false);

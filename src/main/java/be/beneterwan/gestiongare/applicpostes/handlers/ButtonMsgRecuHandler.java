@@ -23,7 +23,11 @@ public class ButtonMsgRecuHandler implements EventHandler{
         if(!(applicPostesFrame.getTrainAnnonce()==null)) {
             applicPostesFrame.setTrainConsidere(applicPostesFrame.getTrainAnnonce());
             applicPostesFrame.setTrainAnnonce(null);
+            applicPostesFrame.getFieldAnnonce().setText("");
             applicPostesFrame.getFieldTrainConsidere().setText(applicPostesFrame.getTrainConsidere().toString());
+            applicPostesFrame.getButtonSignalPassageTrain().setEnabled(true);
+            applicPostesFrame.getButtonMsgRecu().setEnabled(false);
+
             Ack message = new Ack();
             message.send(applicPostes.getNetworkSender());
         }
