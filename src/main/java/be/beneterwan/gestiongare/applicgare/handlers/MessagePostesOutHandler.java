@@ -35,6 +35,7 @@ public class MessagePostesOutHandler implements EventHandler{
             
         } else if(message.getType().equals(Message.Type.Ack)) {
             applicGare.getTrainManager().trainLeaving(applicGare.getTrainManager().getOutCurrent());
+            applicGare.getFrame().getFieldControleIn().setText("ACK");
             applicGare.getFrame().getButtonDepot().setEnabled(true);
         }
     }

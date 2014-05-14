@@ -298,7 +298,6 @@
     <Component class="javax.swing.JTextField" name="fieldProchainTrain">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
-        <Property name="text" type="java.lang.String" value="FieldProchainTrain"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="buttonTrainSuivant">
@@ -406,7 +405,6 @@
     <Component class="javax.swing.JTextField" name="fieldControleIn">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
-        <Property name="text" type="java.lang.String" value="FieldControleIn"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelControleIn">
@@ -422,7 +420,6 @@
     <Component class="javax.swing.JTextField" name="fieldDepot">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
-        <Property name="text" type="java.lang.String" value="FieldDepot"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelDepot">
@@ -438,7 +435,6 @@
     <Component class="javax.swing.JTextField" name="fieldControleOut">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
-        <Property name="text" type="java.lang.String" value="FieldControleOut"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelReponseControleOut">

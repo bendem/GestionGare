@@ -1,7 +1,6 @@
 package be.beneterwan.gestiongare.applicgare.handlers;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGare;
-import be.beneterwan.gestiongare.applicgare.OccupationVoiesTableModel;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.commons.network.messages.Message;
@@ -37,7 +36,7 @@ public class MessagePostesInHandler implements EventHandler {
             
         } else if(message.getType().equals(Message.Type.Ack)) {
             applicGare.getTrainManager().setCurrentTrainInbound();
-
+            applicGare.getFrame().getFieldControleIn().setText("ACK");
             applicGare.getFrame().getButtonTrainSuivant().setEnabled(true);
             applicGare.getFrame().getButtonControleIn().setEnabled(false);
             applicGare.getFrame().getButtonDepot().setEnabled(false);

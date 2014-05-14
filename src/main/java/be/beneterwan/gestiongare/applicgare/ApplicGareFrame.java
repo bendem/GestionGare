@@ -328,7 +328,6 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         labelProchainTrain.setText("Prochain train :");
 
         fieldProchainTrain.setEditable(false);
-        fieldProchainTrain.setText("FieldProchainTrain");
 
         buttonTrainSuivant.setText("Train suivant");
 
@@ -358,21 +357,18 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         labelReponseControleIn.setText("Réponse :");
 
         fieldControleIn.setEditable(false);
-        fieldControleIn.setText("FieldControleIn");
 
         labelControleIn.setText("Contrôle in");
 
         labelReponseDepot.setText("Réponse :");
 
         fieldDepot.setEditable(false);
-        fieldDepot.setText("FieldDepot");
 
         labelDepot.setText("Depot");
 
         labelControleOut.setText("Contrôle out");
 
         fieldControleOut.setEditable(false);
-        fieldControleOut.setText("FieldControleOut");
 
         labelReponseControleOut.setText("Réponse :");
 
