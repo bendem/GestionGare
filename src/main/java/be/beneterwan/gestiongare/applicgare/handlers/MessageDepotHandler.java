@@ -4,9 +4,7 @@ import be.beneterwan.gestiongare.applicgare.ApplicGare;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.commons.network.messages.Message;
-import be.beneterwan.gestiongare.commons.network.messages.TrainTransited;
 import be.beneterwan.gestiongare.commons.network.receiver.MessageEvent;
-import be.beneterwan.gestiongare.commons.trains.Train;
 import java.util.EventObject;
 import java.util.logging.Logger;
 
@@ -30,9 +28,12 @@ public class MessageDepotHandler implements EventHandler{
 
         if(message.getType().equals(Message.Type.Ack)) {
             applicGare.getFrame().getFieldDepot().setText("ACK");
+            applicGare.getTrainManager().storeCurrent();
             applicGare.getFrame().getButtonTrainSuivant().setEnabled(true);
             applicGare.getFrame().getButtonControleIn().setEnabled(false);
             applicGare.getFrame().getButtonDepot().setEnabled(false);
+        } else if(message.getType().equals(Message.Type.Stored)) {
+            applicGare.getFrame().getFieldDepot().setText(applicGare.getTrainManager().getStoreCurrentNum());
         }
     }
 

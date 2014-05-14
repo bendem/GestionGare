@@ -29,7 +29,7 @@
                   <Component id="jScrollPane1" pref="528" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="buttonSignal" max="32767" attributes="0"/>
+                          <Component id="buttonSignalPassageTrain" max="32767" attributes="0"/>
                           <Component id="buttonMsgRecu" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="labelAnnonce" min="-2" max="-2" attributes="0"/>
@@ -94,7 +94,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="buttonValider" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="buttonSignal" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonSignalPassageTrain" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="labelVoie" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="comboBoxVoie" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -163,7 +163,7 @@
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonSignal">
+    <Component class="javax.swing.JButton" name="buttonSignalPassageTrain">
       <Properties>
         <Property name="text" type="java.lang.String" value="Signaler arriv&#xe9;e du train"/>
         <Property name="enabled" type="boolean" value="false"/>

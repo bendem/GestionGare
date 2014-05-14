@@ -39,6 +39,8 @@ abstract public class Message {
         switch(type) {
             case Ack:
                 return gson.fromJson(serialized, Ack.class);
+            case Stored:
+                return gson.fromJson(serialized, Stored.class);
             case TrainTransited:
                 return gson.fromJson(serialized, TrainTransited.class);
             case TrainComing:
@@ -55,6 +57,7 @@ abstract public class Message {
 
     public enum Type {
         Ack,
+        Stored,
         TrainTransited,
         TrainComing
     }

@@ -2,6 +2,7 @@ package be.beneterwan.gestiongare.applicdepot;
 
 import be.beneterwan.gestiongare.applicdepot.handlers.MessageHandler;
 import be.beneterwan.gestiongare.applicdepot.handlers.ButtonMsgRecuHandler;
+import be.beneterwan.gestiongare.applicdepot.handlers.ButtonSignalPassageTrainHandler;
 import be.beneterwan.gestiongare.commons.eventmanagement.NetworkEventManager;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.commons.network.receiver.NetworkReceiver;
@@ -40,6 +41,7 @@ public class ApplicDepot {
         networkReceiver.setPort(50005);
         eventManager.addListener(networkReceiver, new MessageHandler(this));
         eventManager.addListener(applicDepotFrame.getButtonMsgRecu(), new ButtonMsgRecuHandler(this));
+        eventManager.addListener(applicDepotFrame.getButtonSignalPassageTrain(), new ButtonSignalPassageTrainHandler(this));
         startThreads();
     }
 

@@ -31,6 +31,7 @@ public class TrainManager {
     private final LinkedList<HoraireTrain> outboundTrains;
     private final ApplicGare applicGare;
     private HoraireTrain newCurrent;
+    private HoraireTrain storeCurrent;
     private HoraireTrain outCurrent;
 
     public TrainManager(ApplicGare applicGare) {
@@ -96,12 +97,28 @@ public class TrainManager {
         return inboundTrains;
     }
 
+    public HoraireTrain getStoreCurrent() {
+        return storeCurrent;
+    }
+
+    public void setStoreCurrent(HoraireTrain storeCurrent) {
+        this.storeCurrent = storeCurrent;
+    }
+
     public HoraireTrain getOutCurrent() {
         return outCurrent;
     }
 
     public void setOutCurrent(HoraireTrain outCurrent) {
         this.outCurrent = outCurrent;
+    }
+    
+    public void storeCurrent(){
+        this.storeCurrent = this.newCurrent;
+    }
+    
+    public String getStoreCurrentNum(){
+        return storeCurrent.getTrain().toString();
     }
 
     private void saveOutboundTrains() {

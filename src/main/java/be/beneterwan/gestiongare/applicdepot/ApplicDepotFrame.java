@@ -39,6 +39,10 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
         return fieldAnnonce;
     }
     
+    public JButton getButtonSignalPassageTrain() {
+        return buttonSignalPassageTrain;
+    }
+    
     public JButton getButtonMsgRecu() {
         return buttonMsgRecu;
     }
@@ -86,7 +90,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
         fieldAnnonce = new javax.swing.JTextField();
         labelGare = new javax.swing.JLabel();
         buttonValider = new javax.swing.JButton();
-        buttonSignal = new javax.swing.JButton();
+        buttonSignalPassageTrain = new javax.swing.JButton();
         labelVoie = new javax.swing.JLabel();
         comboBoxVoie = new javax.swing.JComboBox();
         labelOccupationHangar = new javax.swing.JLabel();
@@ -120,8 +124,8 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
         buttonValider.setText("Valider");
         buttonValider.setEnabled(false);
 
-        buttonSignal.setText("Signaler arrivée du train");
-        buttonSignal.setEnabled(false);
+        buttonSignalPassageTrain.setText("Signaler arrivée du train");
+        buttonSignalPassageTrain.setEnabled(false);
 
         labelVoie.setText("Voie choisie:");
 
@@ -152,7 +156,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buttonSignal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonSignalPassageTrain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(buttonMsgRecu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelAnnonce)
@@ -202,7 +206,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonValider)
-                    .addComponent(buttonSignal)
+                    .addComponent(buttonSignalPassageTrain)
                     .addComponent(labelVoie)
                     .addComponent(comboBoxVoie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -217,7 +221,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonMsgRecu;
-    private javax.swing.JButton buttonSignal;
+    private javax.swing.JButton buttonSignalPassageTrain;
     private javax.swing.JButton buttonValider;
     private javax.swing.JComboBox comboBoxVoie;
     private javax.swing.JTextField fieldAnnonce;
