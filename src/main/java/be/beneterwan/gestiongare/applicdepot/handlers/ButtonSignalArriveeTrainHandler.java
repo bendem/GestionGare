@@ -8,11 +8,11 @@ import java.util.EventObject;
 /**
  * @author bendem & Curlybear
  */
-public class ButtonSignalPassageTrainHandler implements EventHandler {
+public class ButtonSignalArriveeTrainHandler implements EventHandler {
 
     private final ApplicDepot applicDepot;
 
-    public ButtonSignalPassageTrainHandler(ApplicDepot applicPostes) {
+    public ButtonSignalArriveeTrainHandler(ApplicDepot applicPostes) {
         this.applicDepot = applicPostes;
     }
 
