@@ -5,9 +5,11 @@ import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
 import java.util.LinkedList;
 import java.util.Queue;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JList;
 import javax.swing.JTextField;
 
 /**
@@ -17,7 +19,7 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
 
     private final ApplicPostes applicPostes;
     private HoraireTrain trainAnnonce;
-    private Queue<HoraireTrain> trainConsidere;
+    private final Queue<HoraireTrain> trainConsidere;
 
     public ApplicPostesFrame(ApplicPostes applicController) {
         super("Applic Postes");
@@ -37,7 +39,7 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
         buttonMsgRecu.setEnabled(false);
         fieldTrainConsidere.setEnabled(true);
         buttonSignalPassageTrain.setEnabled(false);
-        textAreaTrainPartis.setEnabled(true);
+        listTrainPartis.setEnabled(true);
     }
 
     public JButton getButtonMsgRecu() {
@@ -83,6 +85,10 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
     public HoraireTrain withdrawTrainConsidere() {
         return trainConsidere.poll();
     }
+    
+    public JList getListTrainPartis() {
+        return listTrainPartis;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -105,8 +111,8 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
         fieldTrainConsidere = new javax.swing.JTextField();
         buttonSignalPassageTrain = new javax.swing.JButton();
         labelTrainPartis = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        textAreaTrainPartis = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        listTrainPartis = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
@@ -147,11 +153,7 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
 
         labelTrainPartis.setText("Trains partis:");
 
-        textAreaTrainPartis.setEditable(false);
-        textAreaTrainPartis.setColumns(20);
-        textAreaTrainPartis.setRows(5);
-        textAreaTrainPartis.setEnabled(false);
-        jScrollPane1.setViewportView(textAreaTrainPartis);
+        jScrollPane2.setViewportView(listTrainPartis);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -161,35 +163,33 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelAnnonce)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(labelGare)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(0, 0, Short.MAX_VALUE)
-                                                .addComponent(buttonValider, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(fieldAnnonce)
-                                            .addComponent(buttonMsgRecu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE))
-                                        .addGap(10, 10, 10)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(comboBoxPostes, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(labelAnnonce)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(labelGare)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(buttonValider, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(fieldAnnonce)
+                                    .addComponent(buttonMsgRecu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE))
+                                .addGap(10, 10, 10)))
+                        .addGap(0, 8, Short.MAX_VALUE)
                         .addComponent(picturePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(labelTrainConsidere)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(fieldTrainConsidere))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(comboBoxPostes, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(buttonSignalPassageTrain, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(labelTrainPartis)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1)))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -222,8 +222,8 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(buttonSignalPassageTrain)
                         .addComponent(labelTrainPartis))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -236,13 +236,13 @@ public class ApplicPostesFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<ApplicPostes.Type> comboBoxPostes;
     private javax.swing.JTextField fieldAnnonce;
     private javax.swing.JTextField fieldTrainConsidere;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelAnnonce;
     private javax.swing.JLabel labelGare;
     private javax.swing.JLabel labelTrainConsidere;
     private javax.swing.JLabel labelTrainPartis;
+    private javax.swing.JList listTrainPartis;
     private javax.swing.JLabel picture;
     private javax.swing.JPanel picturePanel;
-    private javax.swing.JTextArea textAreaTrainPartis;
     // End of variables declaration//GEN-END:variables
 }
