@@ -42,11 +42,6 @@ public class Train implements Serializable {
         return this;
     }
 
-    public static Train deserialize(String serialized) {
-        // TODO deserialize stuff
-        return null;
-    }
-
     public Set<VehiculeRail> getWagons() {
         return wagons;
     }

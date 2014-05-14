@@ -27,7 +27,6 @@ public class DateFormatDialog extends javax.swing.JDialog {
         // Add custom combobox values
         comboBoxPays.setModel(new DefaultComboBoxModel<>(DateFormat.Country.values()));
 
-        // TODO Use parent.getDateFormat to set default values
         dateFormat = parent.getDateFormat().clone();
         comboBoxPays.setSelectedItem(dateFormat.getCountry());
         comboBoxFormatDate.setSelectedItem(dateFormat.getDateFormat());
