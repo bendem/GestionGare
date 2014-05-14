@@ -27,15 +27,18 @@ public class CustomFormatter extends Formatter {
                 .append('\n')
                 .append(header)
                 .append("Error : ")
-                .append(error.getMessage());
+                .append(error.getMessage())
+                .append(error.getStackTrace());
 
             Throwable cause = error.getCause();
-            if(cause != null) {
+            while(cause != null) {
                 message
                     .append('\n')
                     .append(header)
                     .append("Caused by : ")
-                    .append(cause.getMessage());
+                    .append(cause.getMessage())
+                    .append(cause.getStackTrace());
+                cause = cause.getCause();
             }
 
 
