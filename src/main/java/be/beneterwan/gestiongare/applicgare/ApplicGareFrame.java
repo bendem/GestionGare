@@ -92,7 +92,6 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     private void lockInterface() {
         labelResponsableGare.setText("Vous n'êtes pas connecté!");
         menuUtilisateurLog.setText("Login");
-        comboBoxTrain.removeAllItems();
         changeInterfaceEnableState(false);
     }
 
