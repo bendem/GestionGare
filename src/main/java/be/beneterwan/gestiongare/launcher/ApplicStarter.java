@@ -12,20 +12,30 @@ import java.util.logging.Logger;
 public class ApplicStarter implements Runnable {
 
     private static final Logger LOGGER = new CustomLogger(ApplicStarter.class.getSimpleName());
+
     private final Class<?> clazz;
+    private final Class<?>[] argsType;
+    private final Object[] args;
     private Object instance;
 
-    public ApplicStarter(Class<?> clazz) {
+    public ApplicStarter(Class<?> clazz, String ... args) {
         this.clazz = clazz;
+        this.args = args;
+        this.argsType = new Class<?>[args.length];
+        for(int i = 0; i < args.length; i++) {
+            this.argsType[i] = String.class;
+        }
     }
 
     @Override
     public void run() {
         Constructor<?> constructor = null;
         try {
-            constructor = clazz.getConstructor();
-        } catch(NoSuchMethodException | SecurityException ex) {
-            LOGGER.log(Level.SEVERE, "Could not get default constructor of " + clazz.getName(), ex);
+            constructor = clazz.getConstructor(argsType);
+        } catch(NoSuchMethodException ex) {
+            LOGGER.log(Level.SEVERE, "Could not get constructor of " + clazz.getName() + " using " + args.length + " parameters", ex);
+        } catch(SecurityException ex) {
+            LOGGER.log(Level.SEVERE, "Constructor of " + clazz.getName() + " is not accessible", ex);
         }
 
         if(constructor == null) {
@@ -34,7 +44,7 @@ public class ApplicStarter implements Runnable {
         }
 
         try {
-            instance = constructor.newInstance();
+            instance = constructor.newInstance(args);
         } catch(InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
             LOGGER.log(Level.SEVERE, "Could not instanciate " + clazz.getName(), ex);
         }
