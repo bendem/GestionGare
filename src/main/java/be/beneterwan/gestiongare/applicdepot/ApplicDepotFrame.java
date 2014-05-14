@@ -7,7 +7,11 @@
 package be.beneterwan.gestiongare.applicdepot;
 
 import be.beneterwan.gestiongare.commons.ResourceManager;
+import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
+import java.util.LinkedList;
+import java.util.Queue;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JTextField;
 
 /**
@@ -16,11 +20,14 @@ import javax.swing.JTextField;
  */
 public class ApplicDepotFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ApplicDepotFrame
-     */
-    public ApplicDepotFrame() {
+    private final ApplicDepot applicDepot;
+    private HoraireTrain trainAnnonce;
+    private final Queue<HoraireTrain> trainConsidere;
+    
+    public ApplicDepotFrame(ApplicDepot applicController) {
         super("Applic Dépot");
+        applicDepot = applicController;
+        trainConsidere = new LinkedList<>();
         initComponents();
         picture.setIcon(new ImageIcon(ResourceManager.getResourceFile("img/train-3.jpg")));
         pack();
@@ -31,6 +38,35 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
     public JTextField getFieldAnnonce() {
         return fieldAnnonce;
     }
+    
+    public JButton getButtonMsgRecu() {
+        return buttonMsgRecu;
+    }
+
+    public JTextField getFieldTrainConsidere() {
+        return fieldTrainConsidere;
+    }
+
+    public HoraireTrain getTrainAnnonce() {
+        return trainAnnonce;
+    }
+
+    public void setTrainAnnonce(HoraireTrain trainAnnonce) {
+        this.trainAnnonce = trainAnnonce;
+    }
+
+    public HoraireTrain getTrainConsidere() {
+        return trainConsidere.peek();
+    }
+
+    public void addTrainConsidere(HoraireTrain trainConsidere) {
+        this.trainConsidere.add(trainConsidere);
+    }
+
+    public HoraireTrain withdrawTrainConsidere() {
+        return trainConsidere.poll();
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -75,14 +111,17 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
         );
 
         buttonMsgRecu.setText("Message reçu");
+        buttonMsgRecu.setEnabled(false);
 
         labelAnnonce.setText("Annonce:");
 
         labelGare.setText("Gare");
 
         buttonValider.setText("Valider");
+        buttonValider.setEnabled(false);
 
         buttonSignal.setText("Signaler arrivée du train");
+        buttonSignal.setEnabled(false);
 
         labelVoie.setText("Voie choisie:");
 
@@ -175,42 +214,6 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ApplicDepotFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ApplicDepotFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ApplicDepotFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ApplicDepotFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new ApplicDepotFrame().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonMsgRecu;

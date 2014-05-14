@@ -6,7 +6,6 @@ import be.beneterwan.gestiongare.commons.network.messages.Ack;
 import java.util.EventObject;
 
 /**
- *
  * @author Bear
  */
 public class ButtonMsgRecuHandler implements EventHandler{

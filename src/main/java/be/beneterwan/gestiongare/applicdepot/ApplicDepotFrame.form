@@ -142,6 +142,7 @@
     <Component class="javax.swing.JButton" name="buttonMsgRecu">
       <Properties>
         <Property name="text" type="java.lang.String" value="Message re&#xe7;u"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelAnnonce">
@@ -159,11 +160,13 @@
     <Component class="javax.swing.JButton" name="buttonValider">
       <Properties>
         <Property name="text" type="java.lang.String" value="Valider"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="buttonSignal">
       <Properties>
         <Property name="text" type="java.lang.String" value="Signaler arriv&#xe9;e du train"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelVoie">
