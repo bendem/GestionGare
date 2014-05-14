@@ -8,7 +8,7 @@ import java.util.EventObject;
 /**
  * @author bendem & Curlybear
  */
-public class ButtonMsgRecuHandler implements EventHandler{
+public class ButtonMsgRecuHandler implements EventHandler {
 
     private final ApplicPostes applicPostes;
     private final ApplicPostesFrame applicPostesFrame;
@@ -20,7 +20,7 @@ public class ButtonMsgRecuHandler implements EventHandler{
 
     @Override
     public void execute(EventObject event) {
-        if(!(applicPostesFrame.getTrainAnnonce()==null)) {
+        if(applicPostesFrame.getTrainAnnonce()!=null) {
             applicPostesFrame.addTrainConsidere(applicPostesFrame.getTrainAnnonce());
             applicPostesFrame.setTrainAnnonce(null);
             applicPostesFrame.getFieldAnnonce().setText("");

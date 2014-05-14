@@ -12,7 +12,7 @@ import java.util.logging.Logger;
  *
  * @author bendem & Curlybear
  */
-public class MessageDepotHandler implements EventHandler{
+public class MessageDepotHandler implements EventHandler {
 
     private static final Logger LOGGER = new CustomLogger(MessageDepotHandler.class.getSimpleName());
     private final ApplicGare applicGare;

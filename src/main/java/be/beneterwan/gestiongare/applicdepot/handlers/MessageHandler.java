@@ -6,7 +6,6 @@ import be.beneterwan.gestiongare.commons.network.messages.Message;
 import be.beneterwan.gestiongare.commons.network.messages.TrainMessage;
 import be.beneterwan.gestiongare.commons.network.receiver.MessageEvent;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
-import be.beneterwan.gestiongare.commons.trains.Train;
 import java.util.EventObject;
 
 /**
