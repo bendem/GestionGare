@@ -10,6 +10,12 @@ public class HoraireComparator implements Comparator<HoraireTrain>, Serializable
 
     @Override
     public int compare(HoraireTrain t, HoraireTrain t1) {
+        if(t == null) {
+            return 1;
+        }
+        if(t1 == null) {
+            return -1;
+        }
         return Integer.compare(t.getDepart(), t1.getDepart());
     }
 
