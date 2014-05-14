@@ -25,6 +25,14 @@ public class ApplicPostes {
     private NetworkReceiver networkReceiver;
     private Type type;
 
+    public ApplicPostes(String type) {
+        this();
+        Type t = Type.valueOf(type);
+        LOGGER.fine("Auto starting application with type " + type);
+        frame.getComboBoxPostes().setSelectedItem(t);
+        startApplication(t);
+    }
+
     public ApplicPostes() {
         LOGGER.info("Starting up application...");
         frame = new ApplicPostesFrame(this);

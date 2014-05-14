@@ -41,6 +41,10 @@ public class LoginFrame extends Frame implements ActionListener {
         ok = new Button("OK");
         abort = new Button("abort");
 
+        // Cause typing it is boring...
+        login.setText("bendem");
+        pwd.setText("yolo");
+
         add(new Label("Votre Login"));
         add(login);
         add(new Label("Votre mot de passe"));
