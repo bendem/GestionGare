@@ -17,7 +17,7 @@ public class TrainListDialog extends JDialog {
         initComponents();
 
         // Loading train list
-        Set<HoraireTrain> list = frame.getApplicGare().getHoraires();
+        Set<HoraireTrain> list = frame.getApplicGare().getTrainManager().getAllTrains();
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Numero");
         model.addColumn("Wagons");
@@ -26,6 +26,9 @@ public class TrainListDialog extends JDialog {
         model.addColumn("Arrivée");
         model.addColumn("Départ");
         for(HoraireTrain horaire : list) {
+            if(horaire == null) {
+                continue;
+            }
             Train train = horaire.getTrain();
             model.addRow(new Object[] {
                 train.getType().name() + train.getNumero(),

@@ -1,6 +1,7 @@
 package be.beneterwan.gestiongare.applicgare;
 
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
+import be.beneterwan.gestiongare.commons.trains.HoraireComparator;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain.State;
 import java.io.IOException;
@@ -10,6 +11,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import serialize.ObjectLoader;
@@ -111,6 +114,18 @@ public class TrainManager {
 
     public List<HoraireTrain> getOutboundTrains() {
         return outboundTrains;
+    }
+
+    public Set<HoraireTrain> getAllTrains() {
+        Set<HoraireTrain> set = new TreeSet<>(new HoraireComparator());
+
+        set.addAll(incomingTrains);
+        set.addAll(inboundTrains.values());
+        set.addAll(outboundTrains);
+        set.add(newCurrent);
+        set.add(outCurrent);
+
+        return set;
     }
 
 }
