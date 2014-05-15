@@ -43,9 +43,6 @@ public class ApplicGare {
     private Set<HoraireTrain> horaires;
 
     public ApplicGare() {
-        System.out.println("\n  #######################################");
-        System.out.println("  #   Gestion Gare : Application Gare   #");
-        System.out.println("  #######################################\n");
         LOGGER.info("Starting up application...");
 
         // Preparing utilities

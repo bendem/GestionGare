@@ -14,6 +14,10 @@ public class Launcher {
     private static final Logger LOGGER = new CustomLogger(Launcher.class.getSimpleName());
 
     public static void main(String[] args) throws InterruptedException {
+        LOGGER.fine("  #######################################");
+        LOGGER.fine("  #    Launching GestionGare threads    #");
+        LOGGER.fine("  #######################################");
+
         new Thread(new ApplicStarter(ApplicGare.class)).start();
         new Thread(new ApplicStarter(ApplicPostes.class, "In")).start();
         new Thread(new ApplicStarter(ApplicPostes.class, "Out")).start();
