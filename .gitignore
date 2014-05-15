@@ -4,8 +4,8 @@
 build/*
 dist/*
 nbproject/*
-build.xml
 lib/*
+build.xml
 
 ###################
 # Maven stuff
@@ -22,6 +22,7 @@ mvn.bat
 ###################
 # Application data
 ###################
+logs/*
 *.dat
 
 ###################
