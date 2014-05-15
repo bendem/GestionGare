@@ -24,7 +24,7 @@ import serialize.ObjectSaver;
  */
 public class TrainManager {
 
-    private static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class);
 
     public static final int NB_VOIES = 8;
 

@@ -22,7 +22,7 @@ import javax.swing.event.ListSelectionListener;
  */
 public class EventManager implements ActionListener, ListSelectionListener {
 
-    private static final Logger LOGGER = new CustomLogger(EventManager.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(EventManager.class);
     protected static final Map<Object, List<EventHandler>> handlerList = new HashMap<>();
 
     public void addListener(Button button, EventHandler handler) {

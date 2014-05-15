@@ -25,7 +25,7 @@ import javax.swing.JTextField;
  */
 public class ApplicGareFrame extends javax.swing.JFrame {
 
-    public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class.getSimpleName());
+    public static final Logger LOGGER = new CustomLogger(ApplicGareFrame.class);
 
     private final ApplicGare applicGare;
     private boolean loggedIn = false;

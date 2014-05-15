@@ -10,7 +10,7 @@ import network.NetworkStringReceiver;
  */
 /* package */ class ReceiverThread extends AbstractRunnable {
 
-    private static final Logger LOGGER = new CustomLogger(ReceiverThread.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(ReceiverThread.class);
     private NetworkStringReceiver networkStringReceiver;
     private final NetworkReceiver networkReceiver;
 

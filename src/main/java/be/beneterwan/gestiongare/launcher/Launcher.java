@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  */
 public class Launcher {
 
-    private static final Logger LOGGER = new CustomLogger(Launcher.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(Launcher.class);
 
     public static void main(String[] args) throws InterruptedException {
         LOGGER.fine("  #######################################");

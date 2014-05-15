@@ -16,7 +16,7 @@ import serialize.ObjectSaver;
  */
 public class UserManager {
 
-    private final static Logger LOGGER = new CustomLogger(UserManager.class.getSimpleName());
+    private final static Logger LOGGER = new CustomLogger(UserManager.class);
     private final static String FILE_NAME = "users.dat";
     protected static UserManager instance;
 

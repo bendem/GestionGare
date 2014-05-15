@@ -10,7 +10,7 @@ import java.util.logging.Logger;
  */
 public class ThreadRandomGenerator extends AbstractRunnable {
 
-    private static final Logger LOGGER = new CustomLogger(ThreadRandomGenerator.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(ThreadRandomGenerator.class);
 
     private final ApplicGare applicGare;
     private final NumberConsumer consumer;

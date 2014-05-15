@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class MessagePostesInHandler implements EventHandler {
 
-    private static final Logger LOGGER = new CustomLogger(MessagePostesInHandler.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(MessagePostesInHandler.class);
 
     private final ApplicGare applicGare;
 

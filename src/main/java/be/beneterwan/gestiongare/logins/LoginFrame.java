@@ -21,7 +21,7 @@ import java.util.logging.Logger;
  */
 public class LoginFrame extends Frame implements ActionListener {
 
-    private static final Logger LOGGER = new CustomLogger(LoginFrame.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(LoginFrame.class);
 
     private final List<LoginListener> handlers = new ArrayList<>();
 

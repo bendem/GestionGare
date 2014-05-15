@@ -17,7 +17,7 @@ import network.NetworkStringSender;
  */
 public class ApplicPostes {
 
-    private static final Logger LOGGER = new CustomLogger(ApplicPostes.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(ApplicPostes.class);
     private static ApplicPostes instance;
     private final NetworkEventManager eventManager;
     private final ApplicPostesFrame frame;

@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  */
 public class NetworkEventManager extends EventManager implements MessageListener {
 
-    private static final Logger LOGGER = new CustomLogger(NetworkEventManager.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(NetworkEventManager.class);
 
     public void addListener(NetworkReceiver receiver, EventHandler hanlder) {
         receiver.addMessageListener(this);

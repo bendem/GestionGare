@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  */
 public class MessageDepotHandler implements EventHandler {
 
-    private static final Logger LOGGER = new CustomLogger(MessageDepotHandler.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(MessageDepotHandler.class);
     private final ApplicGare applicGare;
 
     public MessageDepotHandler(ApplicGare applicGare) {

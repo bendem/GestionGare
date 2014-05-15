@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  */
 public class ApplicGareEventManager extends NetworkEventManager implements LoginListener {
 
-    private static final Logger LOGGER = new CustomLogger(ApplicGareEventManager.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(ApplicGareEventManager.class);
 
     public void addListener(LoginFrame loginFrame, EventHandler handler) {
         loginFrame.addLoginListener(this);

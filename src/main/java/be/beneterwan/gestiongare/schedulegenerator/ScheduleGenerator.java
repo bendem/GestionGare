@@ -19,7 +19,7 @@ import serialize.ObjectSaver;
  */
 public class ScheduleGenerator {
 
-    private static final Logger LOGGER = new CustomLogger(ScheduleGenerator.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(ScheduleGenerator.class);
 
     public static void main(String[] args) {
         LOGGER.info("Generating schedules...");

@@ -28,7 +28,7 @@ import network.NetworkStringSender;
  */
 public class ApplicGare {
 
-    private static final Logger LOGGER = new CustomLogger(ApplicGare.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(ApplicGare.class);
     private static ApplicGareFrame frame;
 
     private final TrainManager trainManager;

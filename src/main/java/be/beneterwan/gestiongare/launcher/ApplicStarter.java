@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  */
 public class ApplicStarter implements Runnable {
 
-    private static final Logger LOGGER = new CustomLogger(ApplicStarter.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(ApplicStarter.class);
 
     private final Class<?> clazz;
     private final Class<?>[] argsType;

@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  */
 public class Train implements Serializable {
 
-    public static final Logger LOGGER = new CustomLogger(Train.class.getSimpleName());
+    public static final Logger LOGGER = new CustomLogger(Train.class);
 
     protected final Set<VehiculeRail> wagons = new HashSet<>();
     protected Locomotive locomotive;

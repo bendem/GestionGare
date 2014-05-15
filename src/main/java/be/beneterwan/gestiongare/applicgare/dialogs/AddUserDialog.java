@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  */
 public class AddUserDialog extends javax.swing.JDialog {
 
-    private static final Logger LOGGER = new CustomLogger(AddUserDialog.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(AddUserDialog.class);
     private final EventManager eventManager;
 
     public AddUserDialog(ApplicGareFrame parent) {

@@ -10,7 +10,7 @@ import java.util.logging.Logger;
  */
 public class DateFormat implements Cloneable {
 
-    private static final Logger LOGGER = new CustomLogger(DateFormat.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(DateFormat.class);
 
     private String timeFormat;
     private String dateFormat;

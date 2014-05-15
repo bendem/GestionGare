@@ -9,7 +9,7 @@ import java.util.logging.Logger;
  */
 public abstract class AbstractRunnable implements Runnable {
 
-    private static final Logger LOGGER = new CustomLogger(AbstractRunnable.class.getSimpleName());
+    private static final Logger LOGGER = new CustomLogger(AbstractRunnable.class);
 
     private final int waitTime;
     private final Thread thread;
