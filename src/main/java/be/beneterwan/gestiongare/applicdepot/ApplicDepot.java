@@ -40,7 +40,7 @@ public class ApplicDepot {
         });
         eventManager = new NetworkEventManager();
         networkReceiver = new NetworkReceiver();
-        networkSender = new NetworkStringSender(configManager.getString(ApplicationConfig.IpApplicDepot), configManager.getInt(ApplicationConfig.PortApplicDepotToApplicGare));
+        networkSender = new NetworkStringSender(configManager.getString(ApplicationConfig.IpApplicGare), configManager.getInt(ApplicationConfig.PortApplicDepotToApplicGare));
 
         networkReceiver.setPort(configManager.getInt(ApplicationConfig.PortApplicGareToApplicDepot));
         eventManager.addListener(networkReceiver, new MessageHandler(this));
