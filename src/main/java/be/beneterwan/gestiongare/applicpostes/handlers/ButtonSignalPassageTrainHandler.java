@@ -3,6 +3,7 @@ package be.beneterwan.gestiongare.applicpostes.handlers;
 import be.beneterwan.gestiongare.applicpostes.ApplicPostes;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import be.beneterwan.gestiongare.commons.network.messages.TrainTransited;
+import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
 import java.util.EventObject;
 
 /**
@@ -19,7 +20,16 @@ public class ButtonSignalPassageTrainHandler implements EventHandler {
     @Override
     public void execute(EventObject event) {
         applicPostes.getFrame().addTrainPartis(applicPostes.getFrame().getTrainConsidere());
-        TrainTransited message = new TrainTransited(applicPostes.getFrame().withdrawTrainConsidere());
+
+        // The train manager need a train with HoraireTrain.State.Inbound for
+        // consistency, so we set it here before sending it.
+        // This is necessary because the train which was set as Inbound is a clone
+        // (because of the network travel) and this one has therefore not been set
+        // when using TrainManager#setCurrentTrainInbound().
+        HoraireTrain trainConsidere = applicPostes.getFrame().withdrawTrainConsidere();
+        trainConsidere.setState(HoraireTrain.State.Inbound);
+        TrainTransited message = new TrainTransited(trainConsidere);
+
         if(applicPostes.getFrame().getTrainConsidere() != null) {
             applicPostes.getFrame().getFieldTrainConsidere().setText(applicPostes.getFrame().getTrainConsidere().toString());
         } else {

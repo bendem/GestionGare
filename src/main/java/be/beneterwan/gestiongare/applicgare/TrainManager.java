@@ -58,33 +58,55 @@ public class TrainManager {
         }
     }
 
-    // TODO Fucking load of state check and exceptions
-
     public HoraireTrain nextTrain() {
         newCurrent = incomingTrains.poll();
         return newCurrent;
     }
 
     public void setCurrentTrainInbound() {
+        if(newCurrent.getState() != null) {
+            throw new IllegalStateException("Can't set train as coming if it already came!");
+        }
+        if(inboundTrains.get(newCurrent.getQuai()) != null) {
+            throw new IllegalStateException("Can't add train to an occupied platform!");
+        }
         newCurrent.setState(State.Inbound);
         inboundTrains.put(newCurrent.getQuai(), newCurrent);
         updateStationedTrains();
     }
 
     public void trainArrived(HoraireTrain horaire) {
+        if(horaire.getState() != State.Inbound) {
+            throw new IllegalStateException("Can't station train which was not coming!");
+        }
+        if(inboundTrains.get(horaire.getQuai()) == null) {
+            throw new IllegalStateException("Can't update a train which was not displayed!");
+        }
         horaire.setState(State.Stationned);
         inboundTrains.put(horaire.getQuai(), horaire);
         updateStationedTrains();
     }
 
     public void trainLeaving(HoraireTrain horaire) {
+        if(horaire.getState() != State.Stationned) {
+            throw new IllegalStateException("Can't set train as `Leaving` if it was not `Stationned`!");
+        }
+        if(inboundTrains.get(horaire.getQuai()) == null) {
+            throw new IllegalStateException("Can't update a train which was not displayed!");
+        }
         horaire.setState(State.Leaving);
         inboundTrains.put(horaire.getQuai(), horaire);
         updateStationedTrains();
     }
 
     public void trainLeft(HoraireTrain horaire) {
-        inboundTrains.put(horaire.getQuai(),null);
+        if(inboundTrains.get(horaire.getQuai()) == null) {
+            throw new IllegalStateException("Can't remove a train which was not displayed!");
+        }
+        if(outboundTrains.contains(horaire)) {
+            throw new IllegalStateException("Can't mark a train as gone if it already was!");
+        }
+        inboundTrains.put(horaire.getQuai(), null);
         outboundTrains.add(horaire);
         saveOutboundTrains();
         updateStationedTrains();
@@ -115,11 +137,11 @@ public class TrainManager {
         this.outCurrent = outCurrent;
     }
 
-    public void storeCurrent(){
+    public void storeCurrent() {
         this.storeCurrent = this.newCurrent;
     }
 
-    public String getStoreCurrentNum(){
+    public String getStoreCurrentNum() {
         return storeCurrent.getTrain().toString();
     }
 
