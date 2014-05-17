@@ -27,8 +27,8 @@ public class CustomFormatter extends Formatter {
                 .append('\n')
                 .append(header)
                 .append("Error : ")
-                .append(error.getMessage())
-                .append(error.getStackTrace());
+                .append(error.getMessage() == null ? error.getClass().getName() : error.getMessage())
+                .append(getStackTraceString(error.getStackTrace()));
 
             Throwable cause = error.getCause();
             while(cause != null) {
@@ -36,14 +36,22 @@ public class CustomFormatter extends Formatter {
                     .append('\n')
                     .append(header)
                     .append("Caused by : ")
-                    .append(cause.getMessage())
-                    .append(cause.getStackTrace());
+                    .append(error.getMessage() == null ? error.getClass().getName() : error.getMessage())
+                    .append(getStackTraceString(cause.getStackTrace()));
                 cause = cause.getCause();
             }
 
 
         }
         return message.toString();
+    }
+
+    private String getStackTraceString(StackTraceElement[] stackTrace) {
+        StringBuilder stack = new StringBuilder();
+        for(StackTraceElement stackTraceElement : stackTrace) {
+            stack.append("\n\t").append(stackTraceElement.toString());
+        }
+        return stack.toString();
     }
 
 }
