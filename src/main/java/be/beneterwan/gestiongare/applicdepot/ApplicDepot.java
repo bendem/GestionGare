@@ -1,8 +1,10 @@
 package be.beneterwan.gestiongare.applicdepot;
 
-import be.beneterwan.gestiongare.applicdepot.handlers.MessageHandler;
 import be.beneterwan.gestiongare.applicdepot.handlers.ButtonMsgRecuHandler;
 import be.beneterwan.gestiongare.applicdepot.handlers.ButtonSignalArriveeTrainHandler;
+import be.beneterwan.gestiongare.applicdepot.handlers.MessageHandler;
+import be.beneterwan.gestiongare.commons.ApplicationConfig;
+import be.beneterwan.gestiongare.commons.config.ConfigManager;
 import be.beneterwan.gestiongare.commons.eventmanagement.NetworkEventManager;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.commons.network.receiver.NetworkReceiver;
@@ -22,9 +24,11 @@ public class ApplicDepot {
     private final NetworkReceiver networkReceiver;
     private final NetworkStringSender networkSender;
     private final NetworkEventManager eventManager;
+    private final ConfigManager configManager;
 
     public ApplicDepot() {
         LOGGER.info("Starting up application...");
+        configManager = new ConfigManager("settings.properties", true);
         applicDepotFrame = new ApplicDepotFrame(this);
         applicDepotFrame.setVisible(true);
         applicDepotFrame.addWindowListener(new WindowAdapter() {
@@ -36,9 +40,9 @@ public class ApplicDepot {
         });
         eventManager = new NetworkEventManager();
         networkReceiver = new NetworkReceiver();
-        networkSender = new NetworkStringSender("127.0.0.1", 50_015);
+        networkSender = new NetworkStringSender(configManager.getString(ApplicationConfig.IpApplicDepot), configManager.getInt(ApplicationConfig.PortApplicDepotToApplicGare));
 
-        networkReceiver.setPort(50005);
+        networkReceiver.setPort(configManager.getInt(ApplicationConfig.PortApplicGareToApplicDepot));
         eventManager.addListener(networkReceiver, new MessageHandler(this));
         eventManager.addListener(applicDepotFrame.getButtonMsgRecu(), new ButtonMsgRecuHandler(this));
         eventManager.addListener(applicDepotFrame.getButtonSignalArriveeTrain(), new ButtonSignalArriveeTrainHandler(this));
