@@ -29,7 +29,7 @@ public class ConfigManager {
         properties = new Properties();
 
         if(copyDefault) {
-            copyDefaultConfig();
+            copyDefaultConfig(filename);
         }
 
         try {
@@ -74,8 +74,8 @@ public class ConfigManager {
         }
     }
 
-    private void copyDefaultConfig() {
-        ResourceManager.copyRessourceTo(CONFIG_FILE_NAME, new File(CONFIG_FOLDER_PATH), false);
+    private void copyDefaultConfig(String filename) {
+        ResourceManager.copyRessourceTo(filename, new File(CONFIG_FOLDER_PATH), false);
     }
 
 }
