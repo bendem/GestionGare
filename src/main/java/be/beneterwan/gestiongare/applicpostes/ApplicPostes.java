@@ -66,10 +66,12 @@ public class ApplicPostes {
 
     public void stopThreads() {
         LOGGER.info("Stopping threads");
-        if(networkReceiver.isRunning()) {
+        if(networkReceiver != null && networkReceiver.isRunning()) {
             networkReceiver.stop();
         }
-        networkSender.endSending();
+        if(networkSender != null) {
+            networkSender.endSending();
+        }
     }
 
     public NetworkEventManager getEventManager() {
@@ -89,7 +91,11 @@ public class ApplicPostes {
     }
 
     public static void main(String[] args) {
-        instance = new ApplicPostes();
+        if(args.length > 0 && (args[0].equals("In") || args[0].equals("Out"))) {
+            instance = new ApplicPostes(args[0]);
+        } else {
+            instance = new ApplicPostes();
+        }
     }
 
     public enum Type {
