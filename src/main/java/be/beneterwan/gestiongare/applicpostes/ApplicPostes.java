@@ -4,6 +4,8 @@ import be.beneterwan.gestiongare.applicpostes.handlers.ButtonMsgRecuHandler;
 import be.beneterwan.gestiongare.applicpostes.handlers.ButtonSignalPassageTrainHandler;
 import be.beneterwan.gestiongare.applicpostes.handlers.MessageHandler;
 import be.beneterwan.gestiongare.applicpostes.handlers.PosteTypeChoiceHandler;
+import be.beneterwan.gestiongare.commons.ApplicationConfig;
+import be.beneterwan.gestiongare.commons.config.ConfigManager;
 import be.beneterwan.gestiongare.commons.eventmanagement.NetworkEventManager;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.commons.network.receiver.NetworkReceiver;
@@ -21,6 +23,7 @@ public class ApplicPostes {
     private static ApplicPostes instance;
     private final NetworkEventManager eventManager;
     private final ApplicPostesFrame frame;
+    private final ConfigManager configManager;
     private NetworkStringSender networkSender;
     private NetworkReceiver networkReceiver;
     private Type type;
@@ -35,6 +38,7 @@ public class ApplicPostes {
 
     public ApplicPostes() {
         LOGGER.info("Starting up application...");
+        configManager = new ConfigManager(ConfigManager.CONFIG_FILE_NAME, true);
         frame = new ApplicPostesFrame(this);
         eventManager = new NetworkEventManager();
         eventManager.addListener(frame.getButtonValider(), new PosteTypeChoiceHandler(this));
@@ -56,8 +60,18 @@ public class ApplicPostes {
 
         this.type = type;
 
-        networkSender = new NetworkStringSender("127.0.0.1", type.getSendPort());
-        networkReceiver = new NetworkReceiver(type.getReceivePort());
+        int portIn, portOut;
+        String ipOut;
+        ipOut = configManager.getString(ApplicationConfig.IpApplicGare);
+        if(type == Type.In) {
+            portIn = configManager.getInt(ApplicationConfig.PortApplicGareToApplicIn);
+            portOut = configManager.getInt(ApplicationConfig.PortApplicInToApplicGare);
+        } else {
+            portIn = configManager.getInt(ApplicationConfig.PortApplicGareToApplicOut);
+            portOut = configManager.getInt(ApplicationConfig.PortApplicOutToApplicGare);
+        }
+        networkSender = new NetworkStringSender(ipOut, portOut);
+        networkReceiver = new NetworkReceiver(portIn);
         networkReceiver.start();
         eventManager.addListener(networkReceiver, new MessageHandler(this));
 
