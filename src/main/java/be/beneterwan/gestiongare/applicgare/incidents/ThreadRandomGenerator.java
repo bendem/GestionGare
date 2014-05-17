@@ -1,6 +1,5 @@
 package be.beneterwan.gestiongare.applicgare.incidents;
 
-import be.beneterwan.gestiongare.applicgare.ApplicGare;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.commons.threads.AbstractRunnable;
 import java.util.logging.Logger;
@@ -12,13 +11,11 @@ public class ThreadRandomGenerator extends AbstractRunnable {
 
     private static final Logger LOGGER = new CustomLogger(ThreadRandomGenerator.class);
 
-    private final ApplicGare applicGare;
     private final NumberConsumer consumer;
     private final int declencher;
 
-    public ThreadRandomGenerator(ApplicGare applicGare, NumberConsumer consumer, int declencher) {
+    public ThreadRandomGenerator(NumberConsumer consumer, int declencher) {
         super(500);
-        this.applicGare = applicGare;
         this.consumer = consumer;
         this.declencher = declencher;
     }
