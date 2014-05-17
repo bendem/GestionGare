@@ -28,7 +28,7 @@ public class ApplicDepot {
 
     public ApplicDepot() {
         LOGGER.info("Starting up application...");
-        configManager = new ConfigManager("settings.properties", true);
+        configManager = new ConfigManager(ConfigManager.CONFIG_FILE_NAME, true);
         applicDepotFrame = new ApplicDepotFrame(this);
         applicDepotFrame.setVisible(true);
         applicDepotFrame.addWindowListener(new WindowAdapter() {

@@ -49,7 +49,7 @@ public class ApplicGare {
         LOGGER.info("Starting up application...");
 
         // Config
-        configManager = new ConfigManager("settings.properties", true);
+        configManager = new ConfigManager(ConfigManager.CONFIG_FILE_NAME, true);
 
         // Preparing utilities
         postesInNetworkReceiver = new NetworkReceiver(configManager.getInt(ApplicationConfig.PortApplicInToApplicGare));
