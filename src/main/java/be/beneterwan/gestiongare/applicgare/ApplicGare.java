@@ -14,6 +14,8 @@ import be.beneterwan.gestiongare.applicgare.handlers.MessagePostesInHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MessagePostesOutHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.TableSelectionChangedHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.TrainSuivantHandler;
+import be.beneterwan.gestiongare.commons.ApplicationConfig;
+import be.beneterwan.gestiongare.commons.config.ConfigManager;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.commons.network.receiver.NetworkReceiver;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
@@ -36,6 +38,7 @@ public class ApplicGare {
     private final NetworkReceiver postesInNetworkReceiver;
     private final NetworkReceiver postesOutNetworkReceiver;
     private final NetworkReceiver depotNetworkReceiver;
+    private final ConfigManager configManager;
     private NetworkStringSender postesInNetworkSender;
     private NetworkStringSender postesOutNetworkSender;
     private NetworkStringSender depotNetworkSender;
@@ -45,10 +48,13 @@ public class ApplicGare {
     public ApplicGare() {
         LOGGER.info("Starting up application...");
 
+        // Config
+        configManager = new ConfigManager("settings.properties", true);
+
         // Preparing utilities
-        postesInNetworkReceiver = new NetworkReceiver(50_010);
-        postesOutNetworkReceiver = new NetworkReceiver(50_011);
-        depotNetworkReceiver = new NetworkReceiver(50_015);
+        postesInNetworkReceiver = new NetworkReceiver(configManager.getInt(ApplicationConfig.PortApplicInToApplicGare));
+        postesOutNetworkReceiver = new NetworkReceiver(configManager.getInt(ApplicationConfig.PortApplicOutToApplicGare));
+        depotNetworkReceiver = new NetworkReceiver(configManager.getInt(ApplicationConfig.PortApplicDepotToApplicGare));
 
         postesInNetworkReceiver.start();
         postesOutNetworkReceiver.start();
@@ -94,13 +100,13 @@ public class ApplicGare {
         LOGGER.info("Starting utilities...");
 
         if(postesInNetworkSender == null) {
-            postesInNetworkSender = new NetworkStringSender("127.0.0.1", 50_000);
+            postesInNetworkSender = new NetworkStringSender(configManager.getString(ApplicationConfig.IpApplicIn), configManager.getInt(ApplicationConfig.PortApplicGareToApplicIn));
         }
         if(postesOutNetworkSender == null) {
-            postesOutNetworkSender = new NetworkStringSender("127.0.0.1", 50_001);
+            postesOutNetworkSender = new NetworkStringSender(configManager.getString(ApplicationConfig.IpApplicOut), configManager.getInt(ApplicationConfig.PortApplicGareToApplicOut));
         }
         if(depotNetworkSender == null) {
-            depotNetworkSender = new NetworkStringSender("127.0.0.1", 50_005);
+            depotNetworkSender = new NetworkStringSender(configManager.getString(ApplicationConfig.IpApplicDepot), configManager.getInt(ApplicationConfig.PortApplicGareToApplicDepot));
         }
     }
 
