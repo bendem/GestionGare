@@ -10,12 +10,15 @@ import java.util.Random;
 public class StateBean extends AbstractBean implements NumberConsumer {
 
     private final Random rnd;
+    private final ThreadRandomGenerator threadRandomGenerator;
     private final ConfigManager configManager;
     private String info = "Nothing";
 
     public StateBean() {
         rnd = new Random();
+        threadRandomGenerator = new ThreadRandomGenerator(this, 15);
         configManager = new ConfigManager(ConfigManager.CONFIG_FILE_NAME, true);
+        threadRandomGenerator.start();
     }
 
     @Override
@@ -52,6 +55,10 @@ public class StateBean extends AbstractBean implements NumberConsumer {
         String old = info;
         info = "Nothing";
         propertySupport.firePropertyChange("info", old, info);
+    }
+
+    public void kill() {
+        threadRandomGenerator.cancel();
     }
 
 }
