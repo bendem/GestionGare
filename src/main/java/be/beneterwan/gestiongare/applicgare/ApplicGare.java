@@ -14,6 +14,7 @@ import be.beneterwan.gestiongare.applicgare.handlers.MessagePostesInHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MessagePostesOutHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.TableSelectionChangedHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.TrainSuivantHandler;
+import be.beneterwan.gestiongare.applicgare.incidents.ReportBean;
 import be.beneterwan.gestiongare.commons.ApplicationConfig;
 import be.beneterwan.gestiongare.commons.config.ConfigManager;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
@@ -34,6 +35,7 @@ public class ApplicGare {
     private static ApplicGareFrame frame;
 
     private final TrainManager trainManager;
+    private final ReportBean reportBean;
     private final ApplicGareEventManager eventManager;
     private final NetworkReceiver postesInNetworkReceiver;
     private final NetworkReceiver postesOutNetworkReceiver;
@@ -61,6 +63,8 @@ public class ApplicGare {
         depotNetworkReceiver.start();
 
         trainManager = new TrainManager(this);
+
+        reportBean = new ReportBean(this);
 
         // Loading ui
         frame = new ApplicGareFrame(this);
@@ -132,6 +136,9 @@ public class ApplicGare {
         if(depotNetworkSender != null) {
             depotNetworkSender.endSending();
         }
+
+        reportBean.kill();
+
         LOGGER.fine("Utilities stopped");
     }
 
