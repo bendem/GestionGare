@@ -1,6 +1,7 @@
 package be.beneterwan.gestiongare.applicgare.dialogs.handlers;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
+import be.beneterwan.gestiongare.applicgare.dialogs.IncidentDialog;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import java.util.EventObject;
 
@@ -9,15 +10,16 @@ import java.util.EventObject;
  */
 public class IncidentDialogResoudreHandler implements EventHandler {
 
-    private final ApplicGareFrame frame;
+    private final IncidentDialog dialog;
 
-    public IncidentDialogResoudreHandler(ApplicGareFrame frame) {
-        this.frame = frame;
+    public IncidentDialogResoudreHandler(IncidentDialog dialog) {
+        this.dialog = dialog;
     }
 
     @Override
     public void execute(EventObject event) {
-        frame.getApplicGare().shitIsBetter();
+        ((ApplicGareFrame) dialog.getParent()).getApplicGare().shitIsBetter();
+        dialog.dispose();
     }
 
 }

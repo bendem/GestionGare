@@ -24,6 +24,9 @@ public class AlarmBean extends AbstractBean implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent pce) {
+        if(((String) pce.getNewValue()).equalsIgnoreCase("nothing")) {
+            return;
+        }
         IncidentEvent incidentEvent = new IncidentEvent(pce.getSource(), (String) pce.getNewValue());
         for(IncidentListener incidentListener : handlers) {
             incidentListener.onIncident(incidentEvent);

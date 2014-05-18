@@ -12,8 +12,7 @@ public class IncidentDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         text.setText(message);
-        IncidentDialogResoudreHandler  incidentDialogResoudreHandler = new IncidentDialogResoudreHandler(parent);
-        parent.getApplicGare().getEventManager().addListener(button, incidentDialogResoudreHandler);
+        parent.getApplicGare().getEventManager().addListener(button, new IncidentDialogResoudreHandler(this));
 
         setLocationRelativeTo(null);
         pack();
