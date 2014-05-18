@@ -58,7 +58,6 @@ public class OccupationVoiesTableModel extends AbstractTableModel {
         }
     }
 
-
     @Override
     public String getColumnName(int column) {
         switch(column) {
@@ -74,6 +73,23 @@ public class OccupationVoiesTableModel extends AbstractTableModel {
                 return "Présent";
             case 5:
                 return "Retard";
+            default:
+                throw new IllegalArgumentException("Invalid Index");
+        }
+    }
+
+    @Override
+    public Class<?> getColumnClass(int column) {
+        switch(column) {
+            case 0:
+            case 5:
+                return Integer.class;
+            case 1:
+            case 2:
+            case 3:
+                return String.class;
+            case 4:
+                return Boolean.class;
             default:
                 throw new IllegalArgumentException("Invalid Index");
         }
