@@ -15,6 +15,7 @@ public abstract class AbstractRunnable implements Runnable {
     private final Thread thread;
     private boolean cancelled;
     private boolean running;
+    private int delay = 0;
 
     public AbstractRunnable() {
         this(100);
@@ -27,12 +28,16 @@ public abstract class AbstractRunnable implements Runnable {
         this.waitTime = waitTime;
     }
 
-    public final void start() {
-        thread.start();
+    public final void start(int delay) {
+        if(delay < 1) {
+            throw new IllegalArgumentException("Can't schedule thread in the past...");
+        }
+        this.delay = delay;
+        start();
     }
 
-    public final Thread getThread() {
-        return thread;
+    public final void start() {
+        thread.start();
     }
 
     public final synchronized boolean isRunning() {
@@ -41,6 +46,9 @@ public abstract class AbstractRunnable implements Runnable {
 
     @Override
     public final void run() {
+        if(delay > 0) {
+            pause(delay);
+        }
         running = true;
         startup();
         while(!cancelled) {
