@@ -1,7 +1,7 @@
-
 package be.beneterwan.gestiongare.applicgare.dialogs;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
+import be.beneterwan.gestiongare.applicgare.dialogs.handlers.IncidentDialogResoudreHandler;
 
 /**
  * @author bendem & Curlybear
@@ -12,6 +12,9 @@ public class IncidentDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         text.setText(message);
+        IncidentDialogResoudreHandler  incidentDialogResoudreHandler = new IncidentDialogResoudreHandler(parent);
+        parent.getApplicGare().getEventManager().addListener(button, incidentDialogResoudreHandler);
+
         setLocationRelativeTo(null);
         pack();
         setVisible(true);

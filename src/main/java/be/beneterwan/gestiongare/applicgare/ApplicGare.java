@@ -148,6 +148,10 @@ public class ApplicGare {
         frame.openIncidentDialog(shit);
     }
 
+    public void shitIsBetter() {
+        reportBean.reset();
+    }
+
     public Set<HoraireTrain> getHoraires() {
         return horaires;
     }

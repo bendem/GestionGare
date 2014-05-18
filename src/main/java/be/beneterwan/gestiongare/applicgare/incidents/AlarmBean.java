@@ -42,6 +42,10 @@ public class AlarmBean extends AbstractBean implements PropertyChangeListener {
         }
     }
 
+    public void reset() {
+        stateBean.reset();
+    }
+
     @Override
     public void kill() {
         stateBean.kill();
