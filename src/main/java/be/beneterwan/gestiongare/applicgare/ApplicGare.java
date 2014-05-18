@@ -35,7 +35,7 @@ public class ApplicGare {
     private static ApplicGareFrame frame;
 
     private final TrainManager trainManager;
-    private final ReportBean reportBean;
+    private ReportBean reportBean;
     private final ApplicGareEventManager eventManager;
     private final NetworkReceiver postesInNetworkReceiver;
     private final NetworkReceiver postesOutNetworkReceiver;
@@ -63,8 +63,6 @@ public class ApplicGare {
         depotNetworkReceiver.start();
 
         trainManager = new TrainManager(this);
-
-        reportBean = new ReportBean(this);
 
         // Loading ui
         frame = new ApplicGareFrame(this);
@@ -102,6 +100,10 @@ public class ApplicGare {
 
     public void startUtilities() {
         LOGGER.info("Starting utilities...");
+
+        if(reportBean == null) {
+            reportBean = new ReportBean(this);
+        }
 
         if(postesInNetworkSender == null) {
             postesInNetworkSender = new NetworkStringSender(configManager.getString(ApplicationConfig.IpApplicIn), configManager.getInt(ApplicationConfig.PortApplicGareToApplicIn));

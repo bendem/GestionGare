@@ -22,8 +22,9 @@ public class ThreadRandomGenerator extends AbstractRunnable {
 
     @Override
     protected void work() {
-        double number = 0 + Math.random() * 1000;
+        int number = (int) (0 + Math.random() * 1000);
         if(number % declencher == 0) {
+            LOGGER.fine("Stuff happened \\o/");
             consumer.consumeNumber(number);
         }
     }
