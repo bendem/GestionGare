@@ -92,7 +92,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     }
 
     public void openIncidentDialog(String message) {
-        LOGGER.info("Opening Train List window...");
+        LOGGER.info("Opening Incident window...");
         fenIncidentDialog = new IncidentDialog(message, this, true); // TODO Can also be a non modal dialog
     }
 

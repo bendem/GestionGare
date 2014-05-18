@@ -12,6 +12,9 @@ public class IncidentDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         text.setText(message);
+        setLocationRelativeTo(null);
+        pack();
+        setVisible(true);
     }
 
     /**
