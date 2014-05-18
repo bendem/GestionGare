@@ -15,7 +15,7 @@ public class ThreadRandomGenerator extends AbstractRunnable {
     private final int declencher;
 
     public ThreadRandomGenerator(NumberConsumer consumer, int declencher) {
-        super(500);
+        super(1000);
         this.consumer = consumer;
         this.declencher = declencher;
     }

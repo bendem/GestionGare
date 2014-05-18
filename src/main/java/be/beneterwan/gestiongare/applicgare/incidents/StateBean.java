@@ -20,7 +20,7 @@ public class StateBean extends AbstractPropertyChangeSupportedBean implements Nu
 
     public StateBean() {
         rnd = new Random();
-        threadRandomGenerator = new ThreadRandomGenerator(this, 15);
+        threadRandomGenerator = new ThreadRandomGenerator(this, 17);
         configManager = new ConfigManager(ConfigManager.CONFIG_FILE_NAME, true);
         threadRandomGenerator.start(5000);
     }
@@ -32,7 +32,7 @@ public class StateBean extends AbstractPropertyChangeSupportedBean implements Nu
             return;
         }
 
-        int nbType = rnd.nextInt(20);
+        int nbType = rnd.nextInt(100);
         String old = info;
         IncidentType type = IncidentType.getFromNumber(nbType);
 
