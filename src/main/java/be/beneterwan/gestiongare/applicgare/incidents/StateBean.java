@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * @author bendem & Curlybear
  */
-public class StateBean extends AbstractBean implements NumberConsumer {
+public class StateBean extends AbstractPropertyChangeSupportedBean implements NumberConsumer {
 
     private final Random rnd;
     private final ThreadRandomGenerator threadRandomGenerator;

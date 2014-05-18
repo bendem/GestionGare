@@ -1,13 +1,10 @@
 package be.beneterwan.gestiongare.applicgare.incidents;
 
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
-import java.beans.Beans;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -21,7 +18,7 @@ public class AlarmBean extends AbstractBean implements PropertyChangeListener {
 
     public AlarmBean() {
         handlers = new HashSet<>();
-        stateBean = (StateBean) instanciate(StateBean.class.getName());
+        stateBean = (StateBean) instanciate(StateBean.class);
         stateBean.addPropertyChangeListener(this);
     }
 
@@ -42,12 +39,4 @@ public class AlarmBean extends AbstractBean implements PropertyChangeListener {
         }
     }
 
-    private Object instanciate(String className) {
-        try {
-            return Beans.instantiate(null, className);
-        } catch(IOException | ClassNotFoundException ex) {
-            LOGGER.log(Level.SEVERE, "Could not instanciate " + className, ex);
-        }
-        return null;
-    }
 }

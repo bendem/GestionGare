@@ -2,9 +2,6 @@ package be.beneterwan.gestiongare.applicgare.incidents;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGare;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
-import java.beans.Beans;
-import java.io.IOException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -18,22 +15,13 @@ public class ReportBean extends AbstractBean implements IncidentListener {
 
     public ReportBean(ApplicGare applicGare) {
         this.applicGare = applicGare;
-        alarmBean = (AlarmBean) instanciate(AlarmBean.class.getName());
+        alarmBean = (AlarmBean) instanciate(AlarmBean.class);
         alarmBean.addIncidentListener(this);
     }
 
     @Override
     public void onIncident(IncidentEvent event) {
         // TODO Send somehow the event to applicgare
-    }
-
-    private Object instanciate(String className) {
-        try {
-            return Beans.instantiate(null, className);
-        } catch(IOException | ClassNotFoundException ex) {
-            LOGGER.log(Level.SEVERE, "Could not instanciate " + className, ex);
-        }
-        return null;
     }
 
 }
