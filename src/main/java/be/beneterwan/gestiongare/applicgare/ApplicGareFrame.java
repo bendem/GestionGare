@@ -360,7 +360,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
             .addComponent(picture, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
         );
 
-        tableOccupationVoies.setModel(new OccupationVoiesTableModel(getApplicGare().getTrainManager().getInboundTrains()));
+        tableOccupationVoies.setModel(new OccupationVoiesTableModel(applicGare));
         tableOccupationVoies.getTableHeader().setReorderingAllowed(false);
         scrollPaneTable.setViewportView(tableOccupationVoies);
 

@@ -9,11 +9,13 @@ import javax.swing.table.AbstractTableModel;
  */
 public class OccupationVoiesTableModel extends AbstractTableModel {
 
+    private final ApplicGare applicGare;
     private final Map<Integer, HoraireTrain> inboundTrains;
 
-    OccupationVoiesTableModel(Map<Integer, HoraireTrain> inboundTrains) {
+    OccupationVoiesTableModel(ApplicGare applicGare) {
         super();
-        this.inboundTrains = inboundTrains;
+        this.applicGare = applicGare;
+        this.inboundTrains = applicGare.getTrainManager().getInboundTrains();
     }
 
     @Override
@@ -51,7 +53,7 @@ public class OccupationVoiesTableModel extends AbstractTableModel {
             case 4:
                 return horaire.getState().equals(HoraireTrain.State.Stationned);
             case 5:
-                return 1337; //TODO
+                return horaire.getRetard();
             default:
                 throw new IllegalArgumentException("Invalid Index");
 
@@ -93,6 +95,28 @@ public class OccupationVoiesTableModel extends AbstractTableModel {
             default:
                 throw new IllegalArgumentException("Invalid Index");
         }
+    }
+
+    // TODO This is not exactly working...
+    @Override
+    public boolean isCellEditable(int row, int column) {
+        if(column != 4 || inboundTrains.get(row) == null) {
+            return false;
+        }
+
+        HoraireTrain horaire = inboundTrains.get(row);
+        return horaire.getState().equals(HoraireTrain.State.Inbound);
+    }
+
+    @Override
+    public void setValueAt(Object aValue, int row, int col) {
+        if(!isCellEditable(row, col)) {
+            return;
+        }
+
+        // TODO This is not exactly working...
+        applicGare.getTrainManager().trainArrived(inboundTrains.get(row));
+        fireTableDataChanged();
     }
 
 }
