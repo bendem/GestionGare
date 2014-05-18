@@ -45,6 +45,10 @@ public class CustomLogger extends Logger {
         // Log to file
         CustomHandler fileHandler = null;
         try {
+            File logFolder = logFile.getParentFile();
+            if(!logFolder.exists()) {
+                logFolder.mkdir();
+            }
             fileHandler = new CustomHandler(new BufferedWriter(new FileWriter(logFile, true)), formatter);
         } catch(IOException ex) {
             Logger.getLogger(CustomLogger.class.getName())
