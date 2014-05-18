@@ -3,6 +3,7 @@ package be.beneterwan.gestiongare.applicgare.handlers;
 import be.beneterwan.gestiongare.applicgare.ApplicGare;
 import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
+import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
 import java.util.EventObject;
 import javax.swing.event.ListSelectionEvent;
 
@@ -24,9 +25,11 @@ public class TableSelectionChangedHandler implements EventHandler {
         if (((ListSelectionEvent) event).getValueIsAdjusting()) {
             return;
         }
-        
+
         int selectedRow = frame.getTableOccupationVoies().getSelectedRow() + 1;
-        boolean enabled = applicGare.getTrainManager().getInboundTrains().get(selectedRow) != null;
+        HoraireTrain horaire = applicGare.getTrainManager().getInboundTrains().get(selectedRow);
+        // Button is enabled if there's a train on the platform
+        boolean enabled = horaire != null && horaire.getState().equals(HoraireTrain.State.Stationned);
         frame.getButtonControleOut().setEnabled(enabled);
     }
 
