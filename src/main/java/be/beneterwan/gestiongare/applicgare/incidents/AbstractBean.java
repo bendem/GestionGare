@@ -23,4 +23,6 @@ public abstract class AbstractBean implements Serializable {
         return null;
     }
 
+    public abstract void kill();
+
 }

@@ -24,4 +24,9 @@ public class ReportBean extends AbstractBean implements IncidentListener {
         // TODO Send somehow the event to applicgare
     }
 
+    @Override
+    public void kill() {
+        alarmBean.kill();
+    }
+
 }
