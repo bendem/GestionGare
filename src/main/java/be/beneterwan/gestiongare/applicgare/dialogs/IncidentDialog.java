@@ -1,18 +1,17 @@
 
 package be.beneterwan.gestiongare.applicgare.dialogs;
 
+import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
+
 /**
- *
- * @author Bear
+ * @author bendem & Curlybear
  */
 public class IncidentDialog extends javax.swing.JDialog {
 
-    /**
-     * Creates new form IncidentDialog
-     */
-    public IncidentDialog(java.awt.Frame parent, boolean modal) {
+    public IncidentDialog(String message, ApplicGareFrame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        text.setText(message);
     }
 
     /**
@@ -57,53 +56,6 @@ public class IncidentDialog extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for(javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager
-                    .getInstalledLookAndFeels()) {
-                if("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch(ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IncidentDialog.class.getName())
-                    .log(java.util.logging.Level.SEVERE, null, ex);
-        } catch(InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IncidentDialog.class.getName())
-                    .log(java.util.logging.Level.SEVERE, null, ex);
-        } catch(IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IncidentDialog.class.getName())
-                    .log(java.util.logging.Level.SEVERE, null, ex);
-        } catch(javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IncidentDialog.class.getName())
-                    .log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                IncidentDialog dialog = new IncidentDialog(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button;

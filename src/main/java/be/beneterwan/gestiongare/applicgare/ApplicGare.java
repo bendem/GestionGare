@@ -142,6 +142,10 @@ public class ApplicGare {
         LOGGER.fine("Utilities stopped");
     }
 
+    public void shitHappened(String shit) {
+        frame.openIncidentDialog(shit);
+    }
+
     public Set<HoraireTrain> getHoraires() {
         return horaires;
     }
