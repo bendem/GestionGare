@@ -2,7 +2,9 @@ package be.beneterwan.gestiongare.applicdepot;
 
 import be.beneterwan.gestiongare.commons.ResourceManager;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Queue;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,14 +15,18 @@ import javax.swing.JTextField;
  */
 public class ApplicDepotFrame extends javax.swing.JFrame {
 
+    public static final int NB_VOIES = 4;
     private final ApplicDepot applicDepot;
     private HoraireTrain trainAnnonce;
     private final Queue<HoraireTrain> trainConsidere;
+    private final Map<Integer, HoraireTrain> storedTrains;
+
 
     public ApplicDepotFrame(ApplicDepot applicController) {
         super("Applic Dépot");
         applicDepot = applicController;
         trainConsidere = new LinkedList<>();
+        storedTrains = new HashMap<>();
         initComponents();
         picture.setIcon(new ImageIcon(ResourceManager.getResourceFile("img/train-3.jpg")));
         pack();
@@ -56,12 +62,22 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
         return trainConsidere.peek();
     }
 
+    public Map<Integer, HoraireTrain> getStoredTrains() {
+        return storedTrains;
+    }
+
     public void addTrainConsidere(HoraireTrain trainConsidere) {
         this.trainConsidere.add(trainConsidere);
     }
 
     public HoraireTrain withdrawTrainConsidere() {
         return trainConsidere.poll();
+    }
+
+    private void initTable() {
+        for(int i = NB_VOIES; i > 0; --i) {
+            storedTrains.put(i, null);
+        }
     }
 
 
@@ -126,17 +142,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
 
         labelOccupationHangar.setText("Occupation du hangar:");
 
-        tableOccupationHangar.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        tableOccupationHangar.setModel(new OccupationHangarTableModel(applicDepot));
         jScrollPane1.setViewportView(tableOccupationHangar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
