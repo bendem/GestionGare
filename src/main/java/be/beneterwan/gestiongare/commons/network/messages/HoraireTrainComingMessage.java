@@ -5,10 +5,10 @@ import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
 /**
  * @author bendem & Curlybear
  */
-public class TrainTransited extends TrainMessage {
+public class HoraireTrainComingMessage extends HoraireTrainMessage {
 
-    public TrainTransited(HoraireTrain train) {
-        super(train, Type.TrainTransited);
+    public HoraireTrainComingMessage(HoraireTrain train) {
+        super(train, Type.TrainComing);
     }
 
 }

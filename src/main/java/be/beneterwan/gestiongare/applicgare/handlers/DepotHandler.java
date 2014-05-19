@@ -2,7 +2,7 @@ package be.beneterwan.gestiongare.applicgare.handlers;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGare;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
-import be.beneterwan.gestiongare.commons.network.messages.TrainComing;
+import be.beneterwan.gestiongare.commons.network.messages.HoraireTrainComingMessage;
 import java.util.EventObject;
 
 /**
@@ -18,7 +18,7 @@ public class DepotHandler implements EventHandler {
 
     @Override
     public void execute(EventObject event) {
-        TrainComing message = new TrainComing(applicGare.getTrainManager().getCurrent());
+        HoraireTrainComingMessage message = new HoraireTrainComingMessage(applicGare.getTrainManager().getCurrent());
         message.send(applicGare.getDepotNetworkSender());
 
         applicGare.getFrame().getButtonControleIn().setEnabled(false);

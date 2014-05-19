@@ -2,7 +2,7 @@ package be.beneterwan.gestiongare.applicdepot.handlers;
 
 import be.beneterwan.gestiongare.applicdepot.ApplicDepot;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
-import be.beneterwan.gestiongare.commons.network.messages.Stored;
+import be.beneterwan.gestiongare.commons.network.messages.StoredMessage;
 import java.util.EventObject;
 
 /**
@@ -18,7 +18,7 @@ public class ButtonSignalArriveeTrainHandler implements EventHandler {
 
     @Override
     public void execute(EventObject event) {
-        Stored message = new Stored();
+        StoredMessage message = new StoredMessage();
         if(applicDepot.getFrame().getTrainConsidere() != null) {
             applicDepot.getFrame().getFieldTrainConsidere().setText(applicDepot.getFrame().getTrainConsidere().toString());
         } else {

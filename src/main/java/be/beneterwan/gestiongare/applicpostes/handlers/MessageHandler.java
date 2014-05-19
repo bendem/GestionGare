@@ -4,7 +4,7 @@ import be.beneterwan.gestiongare.applicpostes.ApplicPostes;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import be.beneterwan.gestiongare.commons.network.messages.Message;
 import be.beneterwan.gestiongare.commons.network.messages.Message.Type;
-import be.beneterwan.gestiongare.commons.network.messages.TrainMessage;
+import be.beneterwan.gestiongare.commons.network.messages.HoraireTrainMessage;
 import be.beneterwan.gestiongare.commons.network.receiver.MessageEvent;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
 import java.util.EventObject;
@@ -23,7 +23,7 @@ public class MessageHandler implements EventHandler {
     @Override
     public void execute(EventObject event) {
         Message message = ((MessageEvent) event).getMessage();
-        HoraireTrain horaire = ((TrainMessage) message).getHoraireTrain();
+        HoraireTrain horaire = ((HoraireTrainMessage) message).getHoraireTrain();
 
         if(message.getType().equals(Type.TrainComing)){
             applicPostes.getFrame().setTrainAnnonce(horaire);

@@ -3,7 +3,7 @@ package be.beneterwan.gestiongare.applicpostes.handlers;
 import be.beneterwan.gestiongare.applicpostes.ApplicPostes;
 import be.beneterwan.gestiongare.applicpostes.ApplicPostesFrame;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
-import be.beneterwan.gestiongare.commons.network.messages.Ack;
+import be.beneterwan.gestiongare.commons.network.messages.AckMessage;
 import java.util.EventObject;
 /**
  * @author bendem & Curlybear
@@ -28,7 +28,7 @@ public class ButtonMsgRecuHandler implements EventHandler {
             applicPostesFrame.getButtonSignalPassageTrain().setEnabled(true);
             applicPostesFrame.getButtonMsgRecu().setEnabled(false);
 
-            Ack message = new Ack();
+            AckMessage message = new AckMessage();
             message.send(applicPostes.getNetworkSender());
         }
     }

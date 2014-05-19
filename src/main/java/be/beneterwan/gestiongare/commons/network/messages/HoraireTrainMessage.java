@@ -5,11 +5,11 @@ import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
 /**
  * @author bendem & Curlybear
  */
-public class TrainMessage extends Message {
+public class HoraireTrainMessage extends Message {
 
     private final HoraireTrain train;
 
-    public TrainMessage(HoraireTrain train, Type type) {
+    public HoraireTrainMessage(HoraireTrain train, Type type) {
         super(type);
         this.train = train;
     }

@@ -3,9 +3,9 @@ package be.beneterwan.gestiongare.commons.network.messages;
 /**
  * @author bendem & Curlybear
  */
-public class Stored extends Message {
+public class StoredMessage extends Message {
 
-    public Stored() {
+    public StoredMessage() {
         super(Type.Stored);
     }
 

@@ -38,13 +38,13 @@ abstract public class Message {
         Type type = Type.valueOf(json.get("type").getAsString());
         switch(type) {
             case Ack:
-                return gson.fromJson(serialized, Ack.class);
+                return gson.fromJson(serialized, AckMessage.class);
             case Stored:
-                return gson.fromJson(serialized, Stored.class);
+                return gson.fromJson(serialized, StoredMessage.class);
             case TrainTransited:
-                return gson.fromJson(serialized, TrainTransited.class);
+                return gson.fromJson(serialized, HoraireTrainTransitedMessage.class);
             case TrainComing:
-                return gson.fromJson(serialized, TrainComing.class);
+                return gson.fromJson(serialized, HoraireTrainComingMessage.class);
             default:
                 throw new AssertionError(type.name());
         }

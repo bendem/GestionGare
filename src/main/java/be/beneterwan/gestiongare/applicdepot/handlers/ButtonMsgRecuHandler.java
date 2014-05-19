@@ -3,7 +3,7 @@ package be.beneterwan.gestiongare.applicdepot.handlers;
 import be.beneterwan.gestiongare.applicdepot.ApplicDepot;
 import be.beneterwan.gestiongare.applicdepot.ApplicDepotFrame;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
-import be.beneterwan.gestiongare.commons.network.messages.Ack;
+import be.beneterwan.gestiongare.commons.network.messages.AckMessage;
 import java.util.EventObject;
 
 /**
@@ -29,7 +29,7 @@ public class ButtonMsgRecuHandler implements EventHandler {
             applicDepotFrame.getButtonSignalArriveeTrain().setEnabled(true);
             applicDepotFrame.getButtonMsgRecu().setEnabled(false);
 
-            Ack message = new Ack();
+            AckMessage message = new AckMessage();
             message.send(applicDepot.getNetworkSender());
         }
     }
