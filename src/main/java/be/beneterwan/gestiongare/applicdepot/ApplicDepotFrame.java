@@ -125,6 +125,8 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
 
         labelTrainConsidere.setText("Train considéré:");
 
+        fieldTrainConsidere.setEditable(false);
+
         picturePanel.setBackground(new java.awt.Color(153, 153, 153));
 
         javax.swing.GroupLayout picturePanelLayout = new javax.swing.GroupLayout(picturePanel);
@@ -142,6 +144,8 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
         buttonMsgRecu.setEnabled(false);
 
         labelAnnonce.setText("Annonce:");
+
+        fieldAnnonce.setEditable(false);
 
         labelGare.setText("Gare");
 

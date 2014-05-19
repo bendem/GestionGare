@@ -114,6 +114,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="fieldTrainConsidere">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="picturePanel">
       <Properties>
@@ -151,6 +154,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="fieldAnnonce">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelGare">
       <Properties>
