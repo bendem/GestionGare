@@ -53,7 +53,7 @@ public class OccupationVoiesTableModel extends AbstractTableModel {
             case 4:
                 return horaire.getState().equals(HoraireTrain.State.Stationned);
             case 5:
-                return horaire.getRetard();
+                return String.valueOf(horaire.getRetard()/60) + "h" + horaire.getRetard()%60;
             default:
                 throw new IllegalArgumentException("Invalid Index");
 
@@ -84,11 +84,11 @@ public class OccupationVoiesTableModel extends AbstractTableModel {
     public Class<?> getColumnClass(int column) {
         switch(column) {
             case 0:
-            case 5:
                 return Integer.class;
             case 1:
             case 2:
             case 3:
+            case 5:
                 return String.class;
             case 4:
                 return Boolean.class;
