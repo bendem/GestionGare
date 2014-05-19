@@ -1,6 +1,7 @@
 package be.beneterwan.gestiongare.applicdepot.handlers;
 
 import be.beneterwan.gestiongare.applicdepot.ApplicDepot;
+import be.beneterwan.gestiongare.applicdepot.OccupationHangarTableModel;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import be.beneterwan.gestiongare.commons.network.messages.CreatedNewTrainMessage;
 import be.beneterwan.gestiongare.commons.network.messages.HoraireTrainMessage;
@@ -40,6 +41,7 @@ public class MessageHandler implements EventHandler {
                     CreatedNewTrainMessage mess = new CreatedNewTrainMessage(object1.getTrain());
                     mess.send(applicDepot.getNetworkSender());
                     applicDepot.getFrame().getStoredTrains().put(object, null);
+                    ((OccupationHangarTableModel) applicDepot.getFrame().getTableOccupationHangar().getModel()).fireTableDataChanged();
                     return;
                 }
 
