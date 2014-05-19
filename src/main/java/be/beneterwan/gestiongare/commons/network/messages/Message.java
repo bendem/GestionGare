@@ -45,6 +45,10 @@ abstract public class Message {
                 return gson.fromJson(serialized, HoraireTrainTransitedMessage.class);
             case TrainComing:
                 return gson.fromJson(serialized, HoraireTrainComingMessage.class);
+            case CreateNewTrain:
+                return gson.fromJson(serialized, CreateNewTrainMessage.class);
+            case CreatedNewTrain:
+                return gson.fromJson(serialized, CreatedNewTrainMessage.class);
             default:
                 throw new AssertionError(type.name());
         }
@@ -59,7 +63,9 @@ abstract public class Message {
         Ack,
         Stored,
         TrainTransited,
-        TrainComing
+        TrainComing,
+        CreateNewTrain,
+        CreatedNewTrain
     }
 
 }
