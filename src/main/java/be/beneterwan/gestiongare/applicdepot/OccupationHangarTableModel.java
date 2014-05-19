@@ -25,7 +25,7 @@ public class OccupationHangarTableModel extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 4;
+        return 3;
     }
 
     @Override
@@ -46,13 +46,7 @@ public class OccupationHangarTableModel extends AbstractTableModel {
             case 1:
                 return horaire.getTrain().getType().name() + horaire.getTrain().getNumero();
             case 2:
-                return String.format("%02d:%02d - %s", horaire.getArriveeHeure(), horaire.getArriveeMinute(), horaire.getOrigine());
-            case 3:
-                return String.format("%02d:%02d - %s", horaire.getDepartHeure(), horaire.getDepartMinute(), horaire.getDestination());
-            case 4:
-                return horaire.getState().equals(HoraireTrain.State.Stationned);
-            case 5:
-                return String.valueOf(horaire.getRetard()/60) + "h" + horaire.getRetard()%60;
+                return horaire.getTrain().getWagons().size();
             default:
                 throw new IllegalArgumentException("Invalid Index");
 
@@ -68,8 +62,6 @@ public class OccupationHangarTableModel extends AbstractTableModel {
                 return "Numéro";
             case 2:
                 return "Nbr de wagons";
-            case 3:
-                return "Présent";
             default:
                 throw new IllegalArgumentException("Invalid Index");
         }
@@ -79,36 +71,13 @@ public class OccupationHangarTableModel extends AbstractTableModel {
     public Class<?> getColumnClass(int column) {
         switch(column) {
             case 0:
+            case 2:
                 return Integer.class;
             case 1:
                 return String.class;
-            case 2:
-                return Integer.class;
-            case 3:
-                return Boolean.class;
             default:
                 throw new IllegalArgumentException("Invalid Index");
         }
-    }
-
-    @Override
-    public boolean isCellEditable(int row, int column) {
-        if(column != 4 || storedTrains.get(row+1) == null) {
-            return false;
-        }
-
-        HoraireTrain horaire = storedTrains.get(row+1);
-        return horaire.getState().equals(HoraireTrain.State.Inbound);
-    }
-
-    @Override
-    public void setValueAt(Object aValue, int row, int col) {
-        if(!isCellEditable(row, col)) {
-            return;
-        }
-
-        frame.getStoredTrains().get(row+1);
-        fireTableDataChanged();
     }
 
 }

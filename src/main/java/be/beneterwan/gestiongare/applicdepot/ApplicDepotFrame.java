@@ -8,6 +8,8 @@ import java.util.Map;
 import java.util.Queue;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -27,6 +29,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
         applicDepot = applicController;
         trainConsidere = new LinkedList<>();
         storedTrains = new HashMap<>();
+        initTable();
         initComponents();
         picture.setIcon(new ImageIcon(ResourceManager.getResourceFile("img/train-3.jpg")));
         pack();
@@ -64,6 +67,18 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
 
     public Map<Integer, HoraireTrain> getStoredTrains() {
         return storedTrains;
+    }
+
+    public JButton getButtonValider() {
+        return buttonValider;
+    }
+
+    public JComboBox getComboBoxVoie() {
+        return comboBoxVoie;
+    }
+
+    public JTable getTableOccupationHangar() {
+        return tableOccupationHangar;
     }
 
     public void addTrainConsidere(HoraireTrain trainConsidere) {
@@ -138,7 +153,8 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
 
         labelVoie.setText("Voie choisie:");
 
-        comboBoxVoie.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxVoie.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4" }));
+        comboBoxVoie.setEnabled(false);
 
         labelOccupationHangar.setText("Occupation du hangar:");
 
