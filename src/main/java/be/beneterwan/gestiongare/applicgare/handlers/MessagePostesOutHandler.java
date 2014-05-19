@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class MessagePostesOutHandler implements EventHandler {
 
-    private static final Logger LOGGER = new CustomLogger(MessagePostesInHandler.class);
+    private static final Logger LOGGER = new CustomLogger(MessagePostesOutHandler.class);
     private final ApplicGare applicGare;
 
     public MessagePostesOutHandler(ApplicGare applicGare) {
@@ -24,7 +24,7 @@ public class MessagePostesOutHandler implements EventHandler {
     }
 
     @Override
-    public void execute(EventObject event) {        
+    public void execute(EventObject event) {
         Message message = ((MessageEvent) event).getMessage();
         LOGGER.info("Message reçu!");
 
@@ -32,7 +32,7 @@ public class MessagePostesOutHandler implements EventHandler {
             Train train = ((TrainTransited) message).getHoraireTrain().getTrain();
             applicGare.getFrame().getFieldControleOut().setText(train.toString());
             applicGare.getTrainManager().trainLeft(((TrainTransited) message).getHoraireTrain());
-            
+
         } else if(message.getType().equals(Message.Type.Ack)) {
             applicGare.getTrainManager().trainLeaving(applicGare.getTrainManager().getOutCurrent());
             applicGare.getFrame().getFieldControleOut().setText("ACK");

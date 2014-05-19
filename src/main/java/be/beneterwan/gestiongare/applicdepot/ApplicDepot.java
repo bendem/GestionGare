@@ -18,7 +18,7 @@ import network.NetworkStringSender;
  */
 public class ApplicDepot {
 
-    private static final Logger LOGGER = new CustomLogger(ApplicDepotFrame.class);
+    private static final Logger LOGGER = new CustomLogger(ApplicDepot.class);
     protected static ApplicDepotFrame applicDepotFrame;
     private static ApplicDepot instance;
     private final NetworkReceiver networkReceiver;
