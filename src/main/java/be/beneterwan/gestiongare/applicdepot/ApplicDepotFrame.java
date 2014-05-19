@@ -116,7 +116,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
         buttonValider = new javax.swing.JButton();
         buttonSignalArriveeTrain = new javax.swing.JButton();
         labelVoie = new javax.swing.JLabel();
-        comboBoxVoie = new javax.swing.JComboBox();
+        comboBoxVoie = new javax.swing.JComboBox<Integer>();
         labelOccupationHangar = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableOccupationHangar = new javax.swing.JTable();
@@ -153,7 +153,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
 
         labelVoie.setText("Voie choisie:");
 
-        comboBoxVoie.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4" }));
+        comboBoxVoie.setModel(new javax.swing.DefaultComboBoxModel(new Integer[] {1, 2, 3, 4}));
         comboBoxVoie.setEnabled(false);
 
         labelOccupationHangar.setText("Occupation du hangar:");
@@ -238,7 +238,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
     private javax.swing.JButton buttonMsgRecu;
     private javax.swing.JButton buttonSignalArriveeTrain;
     private javax.swing.JButton buttonValider;
-    private javax.swing.JComboBox comboBoxVoie;
+    private javax.swing.JComboBox<Integer> comboBoxVoie;
     private javax.swing.JTextField fieldAnnonce;
     private javax.swing.JTextField fieldTrainConsidere;
     private javax.swing.JScrollPane jScrollPane1;

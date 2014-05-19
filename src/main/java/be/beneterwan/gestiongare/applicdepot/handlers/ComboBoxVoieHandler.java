@@ -10,14 +10,14 @@ import java.util.EventObject;
 public class ComboBoxVoieHandler implements EventHandler {
 
     private final ApplicDepotFrame frame;
+
     public ComboBoxVoieHandler(ApplicDepotFrame frame) {
         this.frame = frame;
     }
 
     @Override
     public void execute(EventObject event) {
-
-        if(frame.getStoredTrains().get(Integer.parseInt((String)frame.getComboBoxVoie().getSelectedItem()))==null) {
+        if(frame.getStoredTrains().get((int) frame.getComboBoxVoie().getSelectedItem()) == null) {
             frame.getButtonValider().setEnabled(true);
         } else {
             frame.getButtonValider().setEnabled(false);

@@ -17,7 +17,7 @@ public class ButtonValiderHandler implements EventHandler {
 
     @Override
     public void execute(EventObject event) {
-        frame.getStoredTrains().put( Integer.parseInt((String)frame.getComboBoxVoie().getSelectedItem()), frame.withdrawTrainConsidere());
+        frame.getStoredTrains().put((int) frame.getComboBoxVoie().getSelectedItem(), frame.withdrawTrainConsidere());
         ((OccupationHangarTableModel) frame.getTableOccupationHangar().getModel()).fireTableDataChanged();
         frame.getButtonValider().setEnabled(false);
         frame.getComboBoxVoie().setEnabled(false);
