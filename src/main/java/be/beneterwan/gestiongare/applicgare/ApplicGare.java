@@ -49,8 +49,8 @@ public class ApplicGare {
     private NetworkStringSender postesOutNetworkSender;
     private NetworkStringSender depotNetworkSender;
 
+    private final LinkedList<IncidentEvent> listEvents = new LinkedList<>();
     private Set<HoraireTrain> horaires;
-    private LinkedList<IncidentEvent> listEvents = new LinkedList<>();
 
     public ApplicGare() {
         LOGGER.info("Starting up application...");
@@ -96,6 +96,8 @@ public class ApplicGare {
         eventManager.addListener(frame.getTableOccupationVoies().getSelectionModel(), new TableSelectionChangedHandler(this));
         eventManager.addListener(frame.getMenuIncidentsListe(), new MenuIncidentListHandler(frame));
         eventManager.addListener(frame.getMenuIncidentsEnregistrer(), new MenuIncidentEnregistrerHandler(this));
+        eventManager.addListener(frame.getMenuTrainFormation(), new MenuTrainFormationHandler(this));
+
 
         // Opening login frame
         frame.openLoginFrame();
