@@ -11,12 +11,16 @@ public class IncidentDialog extends javax.swing.JDialog {
     public IncidentDialog(String message, ApplicGareFrame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        text.setText(message);
+        setText(message);
         parent.getApplicGare().getEventManager().addListener(button, new IncidentDialogResoudreHandler(this));
 
         setLocationRelativeTo(null);
         pack();
         setVisible(true);
+    }
+
+    public void setText(String message) {
+        text.setText(String.format("<html><div style=\"width:%dpx;\">%s</div><html>", 200, message));
     }
 
     /**
