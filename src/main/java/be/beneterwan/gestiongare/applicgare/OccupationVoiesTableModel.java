@@ -97,14 +97,13 @@ public class OccupationVoiesTableModel extends AbstractTableModel {
         }
     }
 
-    // TODO This is not exactly working...
     @Override
     public boolean isCellEditable(int row, int column) {
-        if(column != 4 || inboundTrains.get(row) == null) {
+        if(column != 4 || inboundTrains.get(row+1) == null) {
             return false;
         }
 
-        HoraireTrain horaire = inboundTrains.get(row);
+        HoraireTrain horaire = inboundTrains.get(row+1);
         return horaire.getState().equals(HoraireTrain.State.Inbound);
     }
 
@@ -114,8 +113,7 @@ public class OccupationVoiesTableModel extends AbstractTableModel {
             return;
         }
 
-        // TODO This is not exactly working...
-        applicGare.getTrainManager().trainArrived(inboundTrains.get(row));
+        applicGare.getTrainManager().trainArrived(inboundTrains.get(row+1));
         fireTableDataChanged();
     }
 
