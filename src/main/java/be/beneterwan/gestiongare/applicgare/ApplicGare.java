@@ -14,6 +14,7 @@ import be.beneterwan.gestiongare.applicgare.handlers.MessagePostesInHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MessagePostesOutHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.TableSelectionChangedHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.TrainSuivantHandler;
+import be.beneterwan.gestiongare.applicgare.incidents.IncidentEvent;
 import be.beneterwan.gestiongare.applicgare.incidents.ReportBean;
 import be.beneterwan.gestiongare.commons.ApplicationConfig;
 import be.beneterwan.gestiongare.commons.config.ConfigManager;
@@ -22,6 +23,7 @@ import be.beneterwan.gestiongare.commons.network.receiver.NetworkReceiver;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.LinkedList;
 import java.util.Set;
 import java.util.logging.Logger;
 import network.NetworkStringSender;
@@ -46,6 +48,7 @@ public class ApplicGare {
     private NetworkStringSender depotNetworkSender;
 
     private Set<HoraireTrain> horaires;
+    private LinkedList<IncidentEvent> listEvents = new LinkedList<>();
 
     public ApplicGare() {
         LOGGER.info("Starting up application...");
@@ -144,8 +147,9 @@ public class ApplicGare {
         LOGGER.fine("Utilities stopped");
     }
 
-    public void shitHappened(String shit) {
-        frame.openIncidentDialog(shit);
+    public void shitHappened(IncidentEvent shit) {
+        listEvents.add(shit);
+        frame.openIncidentDialog(shit.getIncidentMessage());
     }
 
     public void shitIsBetter() {

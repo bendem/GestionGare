@@ -18,14 +18,14 @@ public class ReportBean extends AbstractBean implements IncidentListener {
         alarmBean = (AlarmBean) instanciate(AlarmBean.class);
         alarmBean.addIncidentListener(this);
     }
-    
+
     public void reset(){
         alarmBean.reset();
     }
 
     @Override
     public void onIncident(IncidentEvent event) {
-        applicGare.shitHappened(event.getIncidentMessage());
+        applicGare.shitHappened(event);
     }
 
     @Override
