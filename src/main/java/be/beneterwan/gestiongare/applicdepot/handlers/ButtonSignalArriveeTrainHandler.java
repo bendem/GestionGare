@@ -18,13 +18,13 @@ public class ButtonSignalArriveeTrainHandler implements EventHandler {
 
     @Override
     public void execute(EventObject event) {
-        StoredMessage message = new StoredMessage();
         if(applicDepot.getFrame().getTrainConsidere() != null) {
+            StoredMessage message = new StoredMessage();
             applicDepot.getFrame().getFieldTrainConsidere().setText(applicDepot.getFrame().getTrainConsidere().toString());
-        } else {
-            applicDepot.getFrame().getFieldTrainConsidere().setText("");
             applicDepot.getFrame().getButtonSignalArriveeTrain().setEnabled(false);
+            applicDepot.getFrame().getComboBoxVoie().setEnabled(true);
+            message.send(applicDepot.getNetworkSender());
         }
-        message.send(applicDepot.getNetworkSender());
     }
+
 }

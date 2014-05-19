@@ -2,10 +2,14 @@ package be.beneterwan.gestiongare.applicdepot;
 
 import be.beneterwan.gestiongare.commons.ResourceManager;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Queue;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -13,14 +17,19 @@ import javax.swing.JTextField;
  */
 public class ApplicDepotFrame extends javax.swing.JFrame {
 
+    public static final int NB_VOIES = 4;
     private final ApplicDepot applicDepot;
     private HoraireTrain trainAnnonce;
     private final Queue<HoraireTrain> trainConsidere;
+    private final Map<Integer, HoraireTrain> storedTrains;
+
 
     public ApplicDepotFrame(ApplicDepot applicController) {
         super("Applic Dépot");
         applicDepot = applicController;
         trainConsidere = new LinkedList<>();
+        storedTrains = new HashMap<>();
+        initTable();
         initComponents();
         picture.setIcon(new ImageIcon(ResourceManager.getResourceFile("img/train-3.jpg")));
         pack();
@@ -56,12 +65,34 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
         return trainConsidere.peek();
     }
 
+    public Map<Integer, HoraireTrain> getStoredTrains() {
+        return storedTrains;
+    }
+
+    public JButton getButtonValider() {
+        return buttonValider;
+    }
+
+    public JComboBox getComboBoxVoie() {
+        return comboBoxVoie;
+    }
+
+    public JTable getTableOccupationHangar() {
+        return tableOccupationHangar;
+    }
+
     public void addTrainConsidere(HoraireTrain trainConsidere) {
         this.trainConsidere.add(trainConsidere);
     }
 
     public HoraireTrain withdrawTrainConsidere() {
         return trainConsidere.poll();
+    }
+
+    private void initTable() {
+        for(int i = NB_VOIES; i > 0; --i) {
+            storedTrains.put(i, null);
+        }
     }
 
 
@@ -85,7 +116,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
         buttonValider = new javax.swing.JButton();
         buttonSignalArriveeTrain = new javax.swing.JButton();
         labelVoie = new javax.swing.JLabel();
-        comboBoxVoie = new javax.swing.JComboBox();
+        comboBoxVoie = new javax.swing.JComboBox<Integer>();
         labelOccupationHangar = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableOccupationHangar = new javax.swing.JTable();
@@ -122,21 +153,12 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
 
         labelVoie.setText("Voie choisie:");
 
-        comboBoxVoie.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxVoie.setModel(new javax.swing.DefaultComboBoxModel(new Integer[] {1, 2, 3, 4}));
+        comboBoxVoie.setEnabled(false);
 
         labelOccupationHangar.setText("Occupation du hangar:");
 
-        tableOccupationHangar.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        tableOccupationHangar.setModel(new OccupationHangarTableModel(this));
         jScrollPane1.setViewportView(tableOccupationHangar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -216,7 +238,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
     private javax.swing.JButton buttonMsgRecu;
     private javax.swing.JButton buttonSignalArriveeTrain;
     private javax.swing.JButton buttonValider;
-    private javax.swing.JComboBox comboBoxVoie;
+    private javax.swing.JComboBox<Integer> comboBoxVoie;
     private javax.swing.JTextField fieldAnnonce;
     private javax.swing.JTextField fieldTrainConsidere;
     private javax.swing.JScrollPane jScrollPane1;

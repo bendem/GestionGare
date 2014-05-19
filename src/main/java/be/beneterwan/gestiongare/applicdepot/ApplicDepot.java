@@ -2,6 +2,8 @@ package be.beneterwan.gestiongare.applicdepot;
 
 import be.beneterwan.gestiongare.applicdepot.handlers.ButtonMsgRecuHandler;
 import be.beneterwan.gestiongare.applicdepot.handlers.ButtonSignalArriveeTrainHandler;
+import be.beneterwan.gestiongare.applicdepot.handlers.ButtonValiderHandler;
+import be.beneterwan.gestiongare.applicdepot.handlers.ComboBoxVoieHandler;
 import be.beneterwan.gestiongare.applicdepot.handlers.MessageHandler;
 import be.beneterwan.gestiongare.commons.ApplicationConfig;
 import be.beneterwan.gestiongare.commons.config.ConfigManager;
@@ -46,6 +48,8 @@ public class ApplicDepot {
         eventManager.addListener(networkReceiver, new MessageHandler(this));
         eventManager.addListener(applicDepotFrame.getButtonMsgRecu(), new ButtonMsgRecuHandler(this));
         eventManager.addListener(applicDepotFrame.getButtonSignalArriveeTrain(), new ButtonSignalArriveeTrainHandler(this));
+        eventManager.addListener(applicDepotFrame.getButtonValider(), new ButtonValiderHandler(getFrame()));
+        eventManager.addListener(applicDepotFrame.getComboBoxVoie(), new ComboBoxVoieHandler(getFrame()));
         startThreads();
     }
 
