@@ -1,7 +1,9 @@
 package be.beneterwan.gestiongare.applicgare.dialogs;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
+import be.beneterwan.gestiongare.applicgare.DateFormat;
 import be.beneterwan.gestiongare.applicgare.incidents.IncidentEvent;
+import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,6 +22,8 @@ public class IncidentListDialog extends javax.swing.JDialog {
         model.addColumn("Date");
         model.addColumn("Message de l'incident");
 
+        DateFormat dateFormat = frame.getDateFormat();
+        SimpleDateFormat sdf = new SimpleDateFormat(dateFormat.getDateFormat() + " " + dateFormat.getTimeFormat());
 
         for(IncidentEvent incident : list) {
             if(incident == null) {
@@ -27,7 +31,7 @@ public class IncidentListDialog extends javax.swing.JDialog {
             }
 
             model.addRow(new Object[] {
-                incident.getIncidentDate(),
+                sdf.format(incident.getIncidentDate()),
                 incident.getIncidentMessage()
             });
         }
