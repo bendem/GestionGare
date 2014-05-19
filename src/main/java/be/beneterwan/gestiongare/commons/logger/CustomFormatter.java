@@ -36,7 +36,7 @@ public class CustomFormatter extends Formatter {
                     .append('\n')
                     .append(header)
                     .append("Caused by : ")
-                    .append(error.getMessage() == null ? error.getClass().getName() : error.getMessage())
+                    .append(cause.getMessage() == null ? cause.getClass().getName() : cause.getMessage())
                     .append(getStackTraceString(cause.getStackTrace(), header));
                 cause = cause.getCause();
             }
