@@ -99,7 +99,6 @@ public class ApplicGare {
         eventManager.addListener(frame.getMenuIncidentsEnregistrer(), new MenuIncidentEnregistrerHandler(this));
         eventManager.addListener(frame.getMenuTrainFormation(), new MenuTrainFormationHandler(this));
 
-
         // Opening login frame
         frame.openLoginFrame();
 

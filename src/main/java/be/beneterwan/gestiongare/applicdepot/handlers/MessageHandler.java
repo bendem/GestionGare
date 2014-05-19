@@ -26,26 +26,27 @@ public class MessageHandler implements EventHandler {
     @Override
     public void execute(EventObject event) {
         Message message = ((MessageEvent) event).getMessage();
-        HoraireTrain horaire = ((HoraireTrainMessage) message).getHoraireTrain();
 
-        if(message.getType().equals(Message.Type.TrainComing)){
+        if(message.getType().equals(Message.Type.TrainComing)) {
+            HoraireTrain horaire = ((HoraireTrainMessage) message).getHoraireTrain();
             applicDepot.getFrame().setTrainAnnonce(horaire);
             applicDepot.getFrame().getButtonMsgRecu().setEnabled(true);
             applicDepot.getFrame().getFieldAnnonce().setText(horaire.toString());
-        } else if(message.getType().equals(Message.Type.CreateNewTrain)){
-            for(Map.Entry<Integer, HoraireTrain> en : applicDepot.getFrame().getStoredTrains().entrySet()) {
-                Integer object = en.getKey();
-                HoraireTrain object1 = en.getValue();
 
-                if(object1 != null) {
-                    CreatedNewTrainMessage mess = new CreatedNewTrainMessage(object1.getTrain());
-                    mess.send(applicDepot.getNetworkSender());
-                    applicDepot.getFrame().getStoredTrains().put(object, null);
+        } else if(message.getType().equals(Message.Type.CreateNewTrain)) {
+            CreatedNewTrainMessage toSend = new CreatedNewTrainMessage();
+
+            for(Map.Entry<Integer, HoraireTrain> entry : applicDepot.getFrame().getStoredTrains().entrySet()) {
+                HoraireTrain value = entry.getValue();
+
+                if(value != null) {
+                    toSend.setTrain(value.getTrain());
+                    applicDepot.getFrame().getStoredTrains().put(entry.getKey(), null);
                     ((OccupationHangarTableModel) applicDepot.getFrame().getTableOccupationHangar().getModel()).fireTableDataChanged();
-                    return;
+                    break;
                 }
-
             }
+            toSend.send(applicDepot.getNetworkSender());
         }
     }
 

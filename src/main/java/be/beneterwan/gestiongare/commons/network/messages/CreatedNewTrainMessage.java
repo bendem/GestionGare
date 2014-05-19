@@ -7,10 +7,18 @@ import be.beneterwan.gestiongare.commons.trains.Train;
  */
 public class CreatedNewTrainMessage extends Message {
 
-    private final Train train;
+    private Train train;
+
+    public CreatedNewTrainMessage() {
+        this(null);
+    }
 
     public CreatedNewTrainMessage(Train train) {
         super(Type.CreatedNewTrain);
+        this.train = train;
+    }
+
+    public void setTrain(Train train) {
         this.train = train;
     }
 
