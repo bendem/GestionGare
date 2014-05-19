@@ -5,6 +5,7 @@ import be.beneterwan.gestiongare.applicgare.handlers.ControleOutHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.DepotHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuAideAboutHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuAideDateHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.MenuIncidentEnregistrerHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuIncidentListHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuTrainListHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurAddHandler;
@@ -94,6 +95,7 @@ public class ApplicGare {
         eventManager.addListener(frame.getButtonControleOut(), new ControleOutHandler(this));
         eventManager.addListener(frame.getTableOccupationVoies().getSelectionModel(), new TableSelectionChangedHandler(this));
         eventManager.addListener(frame.getMenuIncidentsListe(), new MenuIncidentListHandler(frame));
+        eventManager.addListener(frame.getMenuIncidentsEnregistrer(), new MenuIncidentEnregistrerHandler(this));
 
         // Opening login frame
         frame.openLoginFrame();
