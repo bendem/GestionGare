@@ -142,7 +142,7 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
 
         labelOccupationHangar.setText("Occupation du hangar:");
 
-        tableOccupationHangar.setModel(new OccupationHangarTableModel(applicDepot));
+        tableOccupationHangar.setModel(new OccupationHangarTableModel(this));
         jScrollPane1.setViewportView(tableOccupationHangar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

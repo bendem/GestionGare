@@ -9,13 +9,13 @@ import javax.swing.table.AbstractTableModel;
  */
 public class OccupationHangarTableModel extends AbstractTableModel {
 
-    private final ApplicDepot applicDepot;
+    private final ApplicDepotFrame frame;
     private final Map<Integer, HoraireTrain> storedTrains;
 
-    OccupationHangarTableModel(ApplicDepot applicDepot) {
+    public OccupationHangarTableModel(ApplicDepotFrame frame) {
         super();
-        this.applicDepot = applicDepot;
-        this.storedTrains = applicDepot.getFrame().getStoredTrains();
+        this.frame = frame;
+        this.storedTrains = frame.getStoredTrains();
     }
 
     @Override
@@ -107,7 +107,7 @@ public class OccupationHangarTableModel extends AbstractTableModel {
             return;
         }
 
-        applicDepot.getFrame().getStoredTrains().get(row+1);
+        frame.getStoredTrains().get(row+1);
         fireTableDataChanged();
     }
 
