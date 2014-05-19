@@ -4,6 +4,7 @@ import be.beneterwan.gestiongare.applicgare.dialogs.AProposDialog;
 import be.beneterwan.gestiongare.applicgare.dialogs.AddUserDialog;
 import be.beneterwan.gestiongare.applicgare.dialogs.DateFormatDialog;
 import be.beneterwan.gestiongare.applicgare.dialogs.IncidentDialog;
+import be.beneterwan.gestiongare.applicgare.dialogs.IncidentListDialog;
 import be.beneterwan.gestiongare.applicgare.dialogs.TrainListDialog;
 import be.beneterwan.gestiongare.applicgare.dialogs.UserListDialog;
 import be.beneterwan.gestiongare.applicgare.handlers.LoginHandler;
@@ -41,6 +42,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     private UserListDialog fenListUser;
     private TrainListDialog fenTrainList;
     private IncidentDialog fenIncidentDialog;
+    private IncidentListDialog fenIncidentListDialog;
 
     public ApplicGareFrame(ApplicGare applicController) {
         super("== ApplicGare ==");
@@ -94,6 +96,11 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     public void openIncidentDialog(String message) {
         LOGGER.info("Opening Incident window...");
         fenIncidentDialog = new IncidentDialog(message, this, true); // TODO Can also be a non modal dialog
+    }
+
+    public void openIncidentListDialog() {
+        LOGGER.info("Opening Incident list window...");
+        fenIncidentListDialog = new IncidentListDialog(this);
     }
 
     private void lockInterface() {
