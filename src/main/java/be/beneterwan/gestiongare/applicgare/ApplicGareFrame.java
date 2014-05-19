@@ -21,6 +21,7 @@ import javax.swing.JDialog;
 import javax.swing.JMenuItem;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.TableColumnModel;
 
 /**
  * @author bendem & Curlybear
@@ -53,6 +54,15 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
         // Setting default windows params
         dateFormat = new DateFormat();
+
+        // Setting up table column sizes
+        TableColumnModel columnModel = tableOccupationVoies.getColumnModel();
+        columnModel.getColumn(0).setPreferredWidth(40);
+        columnModel.getColumn(1).setPreferredWidth(70);
+        columnModel.getColumn(2).setPreferredWidth(330);
+        columnModel.getColumn(3).setPreferredWidth(330);
+        columnModel.getColumn(4).setPreferredWidth(74);
+        columnModel.getColumn(5).setPreferredWidth(60);
 
         // Packing windows to fit constructor changes
         pack();
@@ -368,6 +378,8 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         );
 
         tableOccupationVoies.setModel(new OccupationVoiesTableModel(applicGare));
+        tableOccupationVoies.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tableOccupationVoies.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tableOccupationVoies.getTableHeader().setReorderingAllowed(false);
         scrollPaneTable.setViewportView(tableOccupationVoies);
 

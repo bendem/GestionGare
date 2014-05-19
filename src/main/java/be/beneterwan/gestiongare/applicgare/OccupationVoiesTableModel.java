@@ -47,9 +47,9 @@ public class OccupationVoiesTableModel extends AbstractTableModel {
             case 1:
                 return horaire.getTrain().getType().name() + horaire.getTrain().getNumero();
             case 2:
-                return String.format("%02d:%02d", horaire.getArriveeHeure(), horaire.getArriveeMinute());
+                return String.format("%02d:%02d - %s", horaire.getArriveeHeure(), horaire.getArriveeMinute(), horaire.getOrigine());
             case 3:
-                return String.format("%02d:%02d", horaire.getDepartHeure(), horaire.getDepartMinute());
+                return String.format("%02d:%02d - %s", horaire.getDepartHeure(), horaire.getDepartMinute(), horaire.getDestination());
             case 4:
                 return horaire.getState().equals(HoraireTrain.State.Stationned);
             case 5:
