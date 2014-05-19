@@ -24,6 +24,7 @@ public class MenuIncidentEnregistrerHandler implements EventHandler {
 
     @Override
     public void execute(EventObject event) {
+        LOGGER.info("Saving incidents...");
         ObjectSaver objectSaver = new ObjectSaver("." + File.separator + "incidents.dat");
         try {
             objectSaver.save(applicGare.getListEvents());
