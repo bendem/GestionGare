@@ -6,6 +6,7 @@ import be.beneterwan.gestiongare.applicgare.incidents.IncidentEvent;
 import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
 /**
  * @author bendem & Curlybear
@@ -37,6 +38,11 @@ public class IncidentListDialog extends javax.swing.JDialog {
         }
         incidentList.setModel(model);
 
+        // Setting up table column sizes
+        TableColumnModel columnModel = incidentList.getColumnModel();
+        columnModel.getColumn(0).setPreferredWidth(105);
+        columnModel.getColumn(1).setPreferredWidth(392);
+
         setLocationRelativeTo(null);
         pack();
         setVisible(true);
@@ -62,13 +68,15 @@ public class IncidentListDialog extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        incidentList.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        incidentList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(incidentList);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

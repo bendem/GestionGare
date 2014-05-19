@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package be.beneterwan.gestiongare.applicdepot;
 
 import be.beneterwan.gestiongare.commons.ResourceManager;
@@ -15,7 +9,6 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 
 /**
- *
  * @author bendem & Curlybear
  */
 public class ApplicDepotFrame extends javax.swing.JFrame {
