@@ -1,6 +1,8 @@
 package be.beneterwan.gestiongare.commons.trains;
 
 import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @author bendem & Curlybear
@@ -109,6 +111,17 @@ public class HoraireTrain implements Serializable {
 
     public void setRetard(int retard) {
         this.retard = retard;
+    }
+
+    public void computeDelay(Date time) {
+        Calendar instance = Calendar.getInstance();
+        instance.setTime(time);
+        int hour = instance.get(Calendar.HOUR_OF_DAY);
+        int min = instance.get(Calendar.MINUTE);
+        int delay = (hour - getArriveeHeure())*60 + min - getArriveeMinute();
+        if(delay > 0) {
+            retard = delay;
+        }
     }
 
     @Override

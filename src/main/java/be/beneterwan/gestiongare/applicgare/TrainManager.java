@@ -7,6 +7,7 @@ import be.beneterwan.gestiongare.commons.trains.HoraireTrain.State;
 import be.beneterwan.gestiongare.commons.trains.Train;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -82,6 +83,9 @@ public class TrainManager {
         if(inboundTrains.get(horaire.getQuai()) == null) {
             throw new IllegalStateException("Can't update a train which was not displayed!");
         }
+
+        horaire.computeDelay(new Date());
+
         horaire.setState(State.Stationned);
         inboundTrains.put(horaire.getQuai(), horaire);
         updateStationedTrains();
