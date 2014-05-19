@@ -56,6 +56,7 @@ public class IncidentListDialog extends javax.swing.JDialog {
         incidentList = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         incidentList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
