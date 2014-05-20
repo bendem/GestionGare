@@ -5,6 +5,7 @@ import be.beneterwan.gestiongare.applicgare.handlers.ControleOutHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.DepotHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuAideAboutHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuAideDateHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.MenuAideLogHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuIncidentEnregistrerHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuIncidentListHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuTrainFormationHandler;
@@ -24,6 +25,7 @@ import be.beneterwan.gestiongare.commons.config.ConfigManager;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.commons.network.receiver.NetworkReceiver;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
+import java.awt.Frame;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.LinkedList;
@@ -77,6 +79,10 @@ public class ApplicGare {
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent event) {
+                Frame fenLogin = frame.getFenLogin();
+                if(fenLogin != null) {
+                    fenLogin.dispose();
+                }
                 stopUtilities();
                 frame.dispose();
             }
@@ -98,6 +104,7 @@ public class ApplicGare {
         eventManager.addListener(frame.getMenuIncidentsListe(), new MenuIncidentListHandler(frame));
         eventManager.addListener(frame.getMenuIncidentsEnregistrer(), new MenuIncidentEnregistrerHandler(this));
         eventManager.addListener(frame.getMenuTrainFormation(), new MenuTrainFormationHandler(this));
+        eventManager.addListener(frame.getMenuAideAfficherLog(), new MenuAideLogHandler());
 
         // Opening login frame
         frame.openLoginFrame();
@@ -148,7 +155,9 @@ public class ApplicGare {
             depotNetworkSender.endSending();
         }
 
-        reportBean.kill();
+        if(reportBean != null) {
+            reportBean.kill();
+        }
 
         LOGGER.fine("Utilities stopped");
     }

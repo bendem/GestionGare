@@ -19,6 +19,7 @@ public class Launcher {
         LOGGER.fine("  #######################################");
 
         new Thread(new ApplicStarter(ApplicGare.class)).start();
+        Thread.sleep(1500);
         new Thread(new ApplicStarter(ApplicPostes.class, "In")).start();
         new Thread(new ApplicStarter(ApplicPostes.class, "Out")).start();
         new Thread(new ApplicStarter(ApplicDepot.class)).start();
