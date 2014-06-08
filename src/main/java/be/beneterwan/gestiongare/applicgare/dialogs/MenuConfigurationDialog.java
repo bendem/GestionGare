@@ -1,6 +1,8 @@
 package be.beneterwan.gestiongare.applicgare.dialogs;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
+import be.beneterwan.gestiongare.commons.ApplicationConfig;
+import be.beneterwan.gestiongare.commons.config.ConfigManager;
 
 /**
  * @author bendem & Curlybear
@@ -10,6 +12,22 @@ public class MenuConfigurationDialog extends javax.swing.JDialog {
     public MenuConfigurationDialog(ApplicGareFrame parent) {
         super(parent, true);
         initComponents();
+
+        ConfigManager config = parent.getApplicGare().getConfigManager();
+        textAreaMessageGreve.setText(config.getString(ApplicationConfig.MessageIncidentGreve));
+        textAreaMessageManifestation.setText(config.getString(ApplicationConfig.MessageIncidentManifestation));
+        textAreaMessageRetard.setText(config.getString(ApplicationConfig.MessageIncidentRetard));
+        textFieldIPApplicDepot.setText(config.getString(ApplicationConfig.IpApplicDepot));
+        textFieldIPApplicGare.setText(config.getString(ApplicationConfig.IpApplicGare));
+        textFieldIPApplicPosteIn.setText(config.getString(ApplicationConfig.IpApplicIn));
+        textFieldIPApplicPosteOut.setText(config.getString(ApplicationConfig.IpApplicOut));
+        textFieldPortApplicDepot.setText(config.getString(ApplicationConfig.PortApplicGareToApplicDepot));
+        textFieldPortApplicPosteIn.setText(config.getString(ApplicationConfig.PortApplicGareToApplicIn));
+        textFieldPortApplicPosteOut.setText(config.getString(ApplicationConfig.PortApplicGareToApplicOut));
+        textFieldPortDepotToGare.setText(config.getString(ApplicationConfig.PortApplicDepotToApplicGare));
+        textFieldPortPosteInToGare.setText(config.getString(ApplicationConfig.PortApplicInToApplicGare));
+        textFieldPortPosteOutToGare.setText(config.getString(ApplicationConfig.PortApplicOutToApplicGare));
+
         pack();
         setLocationRelativeTo(null);
         setVisible(true);

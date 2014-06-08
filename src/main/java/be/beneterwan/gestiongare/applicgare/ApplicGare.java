@@ -182,6 +182,10 @@ public class ApplicGare {
         return eventManager;
     }
 
+    public ConfigManager getConfigManager() {
+        return configManager;
+    }
+
     public ApplicGareFrame getFrame() {
         return frame;
     }
