@@ -1,18 +1,16 @@
 package be.beneterwan.gestiongare.applicgare;
 
-import be.beneterwan.gestiongare.applicgare.dialogs.AProposDialog;
-import be.beneterwan.gestiongare.applicgare.dialogs.AddUserDialog;
-import be.beneterwan.gestiongare.applicgare.dialogs.DateFormatDialog;
-import be.beneterwan.gestiongare.applicgare.dialogs.IncidentDialog;
-import be.beneterwan.gestiongare.applicgare.dialogs.IncidentListDialog;
-import be.beneterwan.gestiongare.applicgare.dialogs.TrainListDialog;
-import be.beneterwan.gestiongare.applicgare.dialogs.UserListDialog;
 import be.beneterwan.gestiongare.applicgare.handlers.LoginHandler;
 import be.beneterwan.gestiongare.authenticate.User;
 import be.beneterwan.gestiongare.commons.ResourceManager;
 import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import be.beneterwan.gestiongare.logins.LoginFrame;
 import java.awt.Frame;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -33,23 +31,18 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     private final ApplicGare applicGare;
     private boolean loggedIn = false;
     private User currentUser;
-
-    // All other windows
     private DateFormat dateFormat;
     private LoginFrame fenLogin;
-    private AProposDialog fenAbout;
-    private DateFormatDialog fenDate;
-    private AddUserDialog fenAddUser;
-    private UserListDialog fenListUser;
-    private TrainListDialog fenTrainList;
-    private IncidentDialog fenIncidentDialog;
-    private IncidentListDialog fenIncidentListDialog;
+
+    private final Map<String, JDialog> dialogs;
 
     public ApplicGareFrame(ApplicGare applicController) {
         super("== ApplicGare ==");
         LOGGER.info("Building window...");
         this.applicGare = applicController;
+        dialogs = new HashMap<>();
         initComponents();
+
         picture.setIcon(new ImageIcon(ResourceManager.getResourceFile("img/train-1.jpg")));
 
         // Setting default windows params
@@ -70,47 +63,54 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         LOGGER.fine("Window built");
     }
 
+    public void openDialog(Class<? extends JDialog> dialogClass, Object...params) {
+        if(dialogs.containsKey(dialogClass.getName())) {
+            dialogs.get(dialogClass.getName()).requestFocus();
+            return;
+        }
+        Class<?>[] paramTypes = new Class<?>[params.length];
+        for(int i = 0; i < params.length; i++) {
+            paramTypes[i] = params[i].getClass();
+        }
+        Constructor<? extends JDialog> ctor;
+        try {
+            ctor = dialogClass.getConstructor(paramTypes);
+        } catch(NoSuchMethodException | SecurityException ex) {
+            LOGGER.log(Level.SEVERE, null, ex);
+            return;
+        }
+        try {
+            dialogs.put(dialogClass.getName(), ctor.newInstance(params));
+        } catch(InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
+            LOGGER.log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void closeDialog(Class<? extends JDialog> dialogClass) {
+        JDialog diag = dialogs.get(dialogClass.getName());
+        if(diag != null) {
+            LOGGER.info("Closing " + dialogClass.getSimpleName() + "...");
+            diag.dispose();
+        }
+    }
+
+    @Override
+    public void dispose() {
+        for(Map.Entry<String, JDialog> entry : dialogs.entrySet()) {
+            JDialog jDialog = entry.getValue();
+            if(jDialog != null) {
+                jDialog.dispose();
+            }
+        }
+        super.dispose();
+    }
+
     public void openLoginFrame() {
         LOGGER.info("Opening Login window...");
         fenLogin = new LoginFrame();
         applicGare.getEventManager().addListener(fenLogin, new LoginHandler(this));
         fenLogin.requestFocusInWindow();
         LOGGER.fine("Login window opened.");
-    }
-
-    public void openAboutDialog() {
-        LOGGER.info("Opening About window...");
-        fenAbout = new AProposDialog(this);
-    }
-
-    public void openDateFormatDialog() {
-        LOGGER.info("Opening Date format window...");
-        fenDate = new DateFormatDialog(this);
-    }
-
-    public void openAddUserDialog() {
-        LOGGER.info("Opening Add User window...");
-        fenAddUser = new AddUserDialog(this);
-    }
-
-    public void openListUserDialog() {
-        LOGGER.info("Opening User List window...");
-        fenListUser = new UserListDialog(this);
-    }
-
-    public void openTrainListDialog() {
-        LOGGER.info("Opening Train List window...");
-        fenTrainList = new TrainListDialog(this);
-    }
-
-    public void openIncidentDialog(String message) {
-        LOGGER.info("Opening Incident window...");
-        fenIncidentDialog = new IncidentDialog(message, this, true); // TODO Can also be a non modal dialog
-    }
-
-    public void openIncidentListDialog() {
-        LOGGER.info("Opening Incident list window...");
-        fenIncidentListDialog = new IncidentListDialog(this);
     }
 
     private void lockInterface() {
@@ -161,26 +161,6 @@ public class ApplicGareFrame extends javax.swing.JFrame {
 
     public Frame getFenLogin() {
         return fenLogin;
-    }
-
-    public JDialog getFenAbout() {
-        return fenAbout;
-    }
-
-    public JDialog getFenDateFormat() {
-        return fenDate;
-    }
-
-    public JDialog getFenAddUser() {
-        return fenAddUser;
-    }
-
-    public JDialog getFenListUser() {
-        return fenListUser;
-    }
-
-    public JDialog getFenIncidentDialog() {
-        return fenIncidentDialog;
     }
 
     public DateFormat getDateFormat() {

@@ -1,6 +1,7 @@
 package be.beneterwan.gestiongare.applicgare.handlers;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
+import be.beneterwan.gestiongare.applicgare.dialogs.AddUserDialog;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import java.util.EventObject;
 
@@ -17,7 +18,7 @@ public class MenuUtilisateurAddHandler implements EventHandler {
 
     @Override
     public void execute(EventObject event) {
-        frame.openAddUserDialog();
+        frame.openDialog(AddUserDialog.class, frame);
     }
 
 }
