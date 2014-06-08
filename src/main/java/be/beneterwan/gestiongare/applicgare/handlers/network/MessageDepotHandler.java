@@ -1,4 +1,4 @@
-package be.beneterwan.gestiongare.applicgare.handlers;
+package be.beneterwan.gestiongare.applicgare.handlers.network;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGare;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
@@ -26,7 +26,7 @@ public class MessageDepotHandler implements EventHandler {
     @Override
     public void execute(EventObject event) {
         Message message = ((MessageEvent) event).getMessage();
-        LOGGER.info("Message reçu!");
+        LOGGER.info("Message reçu: " + message.getType());
 
         switch(message.getType()) {
             case Ack:

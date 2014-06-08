@@ -1,4 +1,4 @@
-package be.beneterwan.gestiongare.applicgare.handlers;
+package be.beneterwan.gestiongare.applicgare.handlers.network;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGare;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
@@ -14,13 +14,12 @@ import java.util.logging.Logger;
  *
  * @author bendem & Curlybear
  */
-public class MessagePostesInHandler implements EventHandler {
+public class MessagePostesOutHandler implements EventHandler {
 
-    private static final Logger LOGGER = new CustomLogger(MessagePostesInHandler.class);
-
+    private static final Logger LOGGER = new CustomLogger(MessagePostesOutHandler.class);
     private final ApplicGare applicGare;
 
-    public MessagePostesInHandler(ApplicGare applicGare) {
+    public MessagePostesOutHandler(ApplicGare applicGare) {
         this.applicGare = applicGare;
     }
 
@@ -31,14 +30,13 @@ public class MessagePostesInHandler implements EventHandler {
 
         if(message.getType().equals(Message.Type.TrainTransited)){
             Train train = ((HoraireTrainTransitedMessage) message).getHoraireTrain().getTrain();
-            applicGare.getFrame().getFieldControleIn().setText(train.toString());
-            applicGare.getTrainManager().setCurrentTrainInbound();
+            applicGare.getFrame().getFieldControleOut().setText(train.toString());
+            applicGare.getTrainManager().trainLeft(((HoraireTrainTransitedMessage) message).getHoraireTrain());
 
         } else if(message.getType().equals(Message.Type.Ack)) {
-            applicGare.getFrame().getFieldControleIn().setText("ACK");
-            applicGare.getFrame().getButtonTrainSuivant().setEnabled(true);
-            applicGare.getFrame().getButtonControleIn().setEnabled(false);
-            applicGare.getFrame().getButtonDepot().setEnabled(false);
+            applicGare.getTrainManager().trainLeaving(applicGare.getTrainManager().getOutCurrent());
+            applicGare.getFrame().getFieldControleOut().setText("ACK");
+            applicGare.getFrame().getButtonDepot().setEnabled(true);
         }
     }
 
