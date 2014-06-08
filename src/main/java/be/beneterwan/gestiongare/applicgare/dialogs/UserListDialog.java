@@ -1,12 +1,12 @@
 package be.beneterwan.gestiongare.applicgare.dialogs;
 
+import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
 import be.beneterwan.gestiongare.authenticate.User;
 import be.beneterwan.gestiongare.commons.UserManager;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventManager;
 import java.util.EventObject;
 import java.util.Set;
-import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class UserListDialog extends javax.swing.JDialog {
 
-    public UserListDialog(JFrame parent) {
+    public UserListDialog(ApplicGareFrame parent) {
         super(parent, "User list", true);
         initComponents();
 

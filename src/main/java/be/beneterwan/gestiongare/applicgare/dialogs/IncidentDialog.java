@@ -8,8 +8,8 @@ import be.beneterwan.gestiongare.applicgare.dialogs.handlers.IncidentDialogResou
  */
 public class IncidentDialog extends javax.swing.JDialog {
 
-    public IncidentDialog(String message, ApplicGareFrame parent, boolean modal) {
-        super(parent, modal);
+    public IncidentDialog(String message, ApplicGareFrame parent) {
+        super(parent, true);
         initComponents();
         setText(message);
         parent.getApplicGare().getEventManager().addListener(button, new IncidentDialogResoudreHandler(this));

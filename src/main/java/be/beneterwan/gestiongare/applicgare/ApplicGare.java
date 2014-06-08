@@ -7,6 +7,7 @@ import be.beneterwan.gestiongare.applicgare.handlers.DepotHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuAideAboutHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuAideDateHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuAideLogHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.MenuConfigurationReseauHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuIncidentEnregistrerHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuIncidentListHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuTrainFormationHandler;
@@ -106,6 +107,7 @@ public class ApplicGare {
         eventManager.addListener(frame.getMenuIncidentsEnregistrer(), new MenuIncidentEnregistrerHandler(this));
         eventManager.addListener(frame.getMenuTrainFormation(), new MenuTrainFormationHandler(this));
         eventManager.addListener(frame.getMenuAideAfficherLog(), new MenuAideLogHandler());
+        eventManager.addListener(frame.getMenuConfigurationParametreReseau(), new MenuConfigurationReseauHandler(frame));
 
         // Opening login frame
         frame.openLoginFrame();
@@ -165,7 +167,7 @@ public class ApplicGare {
 
     public void shitHappened(IncidentEvent shit) {
         listEvents.add(shit);
-        frame.openDialog(IncidentDialog.class, shit.getIncidentMessage(), frame, true);
+        frame.openDialog(IncidentDialog.class, shit.getIncidentMessage(), frame);
     }
 
     public void shitIsBetter() {
