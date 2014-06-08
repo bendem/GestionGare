@@ -30,7 +30,7 @@ public class ApplicDepot {
 
     public ApplicDepot() {
         LOGGER.info("Starting up application...");
-        configManager = new ConfigManager(ConfigManager.CONFIG_FILE_NAME, true);
+        configManager = new ConfigManager(ConfigManager.CONFIG_FILE_NAME);
         applicDepotFrame = new ApplicDepotFrame(this);
         applicDepotFrame.setVisible(true);
         applicDepotFrame.addWindowListener(new WindowAdapter() {

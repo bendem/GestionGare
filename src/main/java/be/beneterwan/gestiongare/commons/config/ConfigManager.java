@@ -24,13 +24,11 @@ public class ConfigManager {
     private final Properties properties;
     private final File configFile;
 
-    public ConfigManager(String filename, boolean copyDefault) {
+    public ConfigManager(String filename) {
         configFile = new File(CONFIG_FOLDER_PATH + filename);
         properties = new Properties();
 
-        if(copyDefault) {
-            copyDefaultConfig(filename);
-        }
+        ResourceManager.copyRessourceTo(filename, new File(CONFIG_FOLDER_PATH), false);
 
         try {
             properties.load(new FileInputStream(configFile));
@@ -73,10 +71,6 @@ public class ConfigManager {
             LOGGER.log(Level.SEVERE, null, ex);
             return false;
         }
-    }
-
-    private void copyDefaultConfig(String filename) {
-        ResourceManager.copyRessourceTo(filename, new File(CONFIG_FOLDER_PATH), false);
     }
 
 }

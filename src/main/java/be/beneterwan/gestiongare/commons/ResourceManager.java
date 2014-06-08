@@ -64,11 +64,11 @@ public class ResourceManager {
                 in.close();
                 return true;
             } catch(IOException ex) {
-                LOGGER.log(Level.SEVERE, null, ex);
+                LOGGER.log(Level.SEVERE, "Could not write to file", ex);
                 return false;
             }
         } else {
-            LOGGER.warning("Could not save " + outFile.getName() + " to " + outFile + " because " + outFile.getName() + " already exists.");
+            LOGGER.info(outFile.getName() + " already exists.");
             return !replace;
         }
     }

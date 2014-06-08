@@ -21,7 +21,7 @@ public class StateBean extends AbstractPropertyChangeSupportedBean implements Nu
     public StateBean() {
         rnd = new Random();
         threadRandomGenerator = new ThreadRandomGenerator(this, 17);
-        configManager = new ConfigManager(ConfigManager.CONFIG_FILE_NAME, true);
+        configManager = new ConfigManager(ConfigManager.CONFIG_FILE_NAME);
         threadRandomGenerator.start(5000);
     }
 

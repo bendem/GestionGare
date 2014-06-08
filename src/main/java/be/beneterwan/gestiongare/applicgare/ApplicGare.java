@@ -61,7 +61,7 @@ public class ApplicGare {
         LOGGER.info("Starting up application...");
 
         // Config
-        configManager = new ConfigManager(ConfigManager.CONFIG_FILE_NAME, true);
+        configManager = new ConfigManager(ConfigManager.CONFIG_FILE_NAME);
 
         // Preparing utilities
         postesInNetworkReceiver = new NetworkReceiver(configManager.getInt(ApplicationConfig.PortApplicInToApplicGare));

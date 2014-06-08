@@ -38,7 +38,7 @@ public class ApplicPostes {
 
     public ApplicPostes() {
         LOGGER.info("Starting up application...");
-        configManager = new ConfigManager(ConfigManager.CONFIG_FILE_NAME, true);
+        configManager = new ConfigManager(ConfigManager.CONFIG_FILE_NAME);
         frame = new ApplicPostesFrame(this);
         eventManager = new NetworkEventManager();
         eventManager.addListener(frame.getButtonValider(), new PosteTypeChoiceHandler(this));
