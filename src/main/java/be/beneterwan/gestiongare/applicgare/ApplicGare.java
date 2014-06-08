@@ -1,5 +1,6 @@
 package be.beneterwan.gestiongare.applicgare;
 
+import be.beneterwan.gestiongare.applicgare.dialogs.IncidentDialog;
 import be.beneterwan.gestiongare.applicgare.handlers.ControleInHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.ControleOutHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.DepotHandler;
@@ -13,11 +14,11 @@ import be.beneterwan.gestiongare.applicgare.handlers.MenuTrainListHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurAddHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurListHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.MenuUtilisateurLogHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.TableSelectionChangedHandler;
+import be.beneterwan.gestiongare.applicgare.handlers.TrainSuivantHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.network.MessageDepotHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.network.MessagePostesInHandler;
 import be.beneterwan.gestiongare.applicgare.handlers.network.MessagePostesOutHandler;
-import be.beneterwan.gestiongare.applicgare.handlers.TableSelectionChangedHandler;
-import be.beneterwan.gestiongare.applicgare.handlers.TrainSuivantHandler;
 import be.beneterwan.gestiongare.applicgare.incidents.IncidentEvent;
 import be.beneterwan.gestiongare.applicgare.incidents.ReportBean;
 import be.beneterwan.gestiongare.commons.ApplicationConfig;
@@ -164,7 +165,7 @@ public class ApplicGare {
 
     public void shitHappened(IncidentEvent shit) {
         listEvents.add(shit);
-        frame.openIncidentDialog(shit.getIncidentMessage());
+        frame.openDialog(IncidentDialog.class, shit.getIncidentMessage(), frame, true);
     }
 
     public void shitIsBetter() {

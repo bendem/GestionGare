@@ -91,6 +91,7 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         if(diag != null) {
             LOGGER.info("Closing " + dialogClass.getSimpleName() + "...");
             diag.dispose();
+            dialogs.remove(dialogClass.getName());
         }
     }
 
