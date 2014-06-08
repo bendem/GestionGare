@@ -3,17 +3,23 @@ package be.beneterwan.gestiongare.applicgare.dialogs;
 import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
 import be.beneterwan.gestiongare.commons.ApplicationConfig;
 import be.beneterwan.gestiongare.commons.config.ConfigManager;
+import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
+import be.beneterwan.gestiongare.commons.eventmanagement.EventManager;
+import java.util.EventObject;
 
 /**
  * @author bendem & Curlybear
  */
 public class MenuConfigurationDialog extends javax.swing.JDialog {
 
+    private final EventManager eventManager;
+    private final ConfigManager config;
+
     public MenuConfigurationDialog(ApplicGareFrame parent) {
         super(parent, true);
         initComponents();
 
-        ConfigManager config = parent.getApplicGare().getConfigManager();
+        config = parent.getApplicGare().getConfigManager();
         textAreaMessageGreve.setText(config.getString(ApplicationConfig.MessageIncidentGreve));
         textAreaMessageManifestation.setText(config.getString(ApplicationConfig.MessageIncidentManifestation));
         textAreaMessageRetard.setText(config.getString(ApplicationConfig.MessageIncidentRetard));
@@ -28,9 +34,69 @@ public class MenuConfigurationDialog extends javax.swing.JDialog {
         textFieldPortPosteInToGare.setText(config.getString(ApplicationConfig.PortApplicInToApplicGare));
         textFieldPortPosteOutToGare.setText(config.getString(ApplicationConfig.PortApplicOutToApplicGare));
 
+        eventManager = new EventManager();
+        eventManager.addListener(buttonOK, new EventHandler() {
+            @Override
+            public void execute(EventObject event) {
+                if(save()) {
+                    dispose();
+                }
+            }
+        });
+        eventManager.addListener(buttonAnnuler, new EventHandler() {
+            @Override
+            public void execute(EventObject event) {
+                dispose();
+            }
+        });
+
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
+    }
+
+    private boolean save() {
+        config.set(ApplicationConfig.MessageIncidentGreve, textAreaMessageGreve.getText());
+        config.set(ApplicationConfig.MessageIncidentManifestation, textAreaMessageManifestation.getText());
+        config.set(ApplicationConfig.MessageIncidentRetard, textAreaMessageRetard.getText());
+        config.set(ApplicationConfig.IpApplicDepot, textFieldIPApplicDepot.getText());
+        config.set(ApplicationConfig.IpApplicGare, textFieldIPApplicGare.getText());
+        config.set(ApplicationConfig.IpApplicIn, textFieldIPApplicPosteIn.getText());
+        config.set(ApplicationConfig.IpApplicOut, textFieldIPApplicPosteOut.getText());
+        if(!isInt(textFieldPortApplicDepot.getText())) {
+            return false;
+        }
+        config.set(ApplicationConfig.PortApplicGareToApplicDepot, textFieldPortApplicDepot.getText());
+        if(!isInt(textFieldPortApplicPosteIn.getText())) {
+            return false;
+        }
+        config.set(ApplicationConfig.PortApplicGareToApplicIn, textFieldPortApplicPosteIn.getText());
+        if(!isInt(textFieldPortApplicPosteOut.getText())) {
+            return false;
+        }
+        config.set(ApplicationConfig.PortApplicGareToApplicOut, textFieldPortApplicPosteOut.getText());
+        if(!isInt(textFieldPortDepotToGare.getText())) {
+            return false;
+        }
+        config.set(ApplicationConfig.PortApplicDepotToApplicGare, textFieldPortDepotToGare.getText());
+        if(!isInt(textFieldPortPosteInToGare.getText())) {
+            return false;
+        }
+        config.set(ApplicationConfig.PortApplicInToApplicGare, textFieldPortPosteInToGare.getText());
+        if(!isInt(textFieldPortPosteOutToGare.getText())) {
+            return false;
+        }
+        config.set(ApplicationConfig.PortApplicOutToApplicGare, textFieldPortPosteOutToGare.getText());
+        return config.save();
+    }
+
+    private boolean isInt(String toCheck) {
+        try {
+            Integer.parseInt(toCheck);
+        } catch(NumberFormatException e) {
+            return false;
+        }
+        return true;
     }
 
     @SuppressWarnings("unchecked")
