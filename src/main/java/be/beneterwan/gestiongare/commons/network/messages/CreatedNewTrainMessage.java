@@ -18,6 +18,10 @@ public class CreatedNewTrainMessage extends Message {
         this.train = train;
     }
 
+    public Train getTrain() {
+        return train;
+    }
+
     public void setTrain(Train train) {
         this.train = train;
     }
