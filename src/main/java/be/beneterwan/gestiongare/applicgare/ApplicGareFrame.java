@@ -64,8 +64,10 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     }
 
     public void openDialog(Class<? extends JDialog> dialogClass, Object...params) {
-        if(dialogs.containsKey(dialogClass.getName())) {
-            dialogs.get(dialogClass.getName()).requestFocus();
+        JDialog diag = dialogs.get(dialogClass.getName());
+        if(diag != null && diag.isVisible()) {
+            LOGGER.fine("Dialog already opened");
+            diag.requestFocus();
             return;
         }
         Class<?>[] paramTypes = new Class<?>[params.length];
@@ -76,10 +78,11 @@ public class ApplicGareFrame extends javax.swing.JFrame {
         try {
             ctor = dialogClass.getConstructor(paramTypes);
         } catch(NoSuchMethodException | SecurityException ex) {
-            LOGGER.log(Level.SEVERE, null, ex);
+            LOGGER.log(Level.SEVERE, "No corresponding constructor", ex);
             return;
         }
         try {
+            LOGGER.fine("Opening " + dialogClass.getSimpleName() + "...");
             dialogs.put(dialogClass.getName(), ctor.newInstance(params));
         } catch(InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
             LOGGER.log(Level.SEVERE, null, ex);
@@ -89,9 +92,11 @@ public class ApplicGareFrame extends javax.swing.JFrame {
     public void closeDialog(Class<? extends JDialog> dialogClass) {
         JDialog diag = dialogs.get(dialogClass.getName());
         if(diag != null) {
-            LOGGER.info("Closing " + dialogClass.getSimpleName() + "...");
+            LOGGER.fine("Closing " + dialogClass.getSimpleName() + "...");
             diag.dispose();
             dialogs.remove(dialogClass.getName());
+        } else {
+            LOGGER.severe("Can't close not opened dialog!");
         }
     }
 

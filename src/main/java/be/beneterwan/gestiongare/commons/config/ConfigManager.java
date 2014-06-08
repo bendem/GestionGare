@@ -67,6 +67,7 @@ public class ConfigManager {
         }
         try {
             properties.store(outputStream, null);
+            outputStream.close();
             return true;
         } catch(IOException ex) {
             LOGGER.log(Level.SEVERE, null, ex);
