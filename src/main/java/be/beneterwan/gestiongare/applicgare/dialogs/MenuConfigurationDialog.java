@@ -5,7 +5,9 @@ import be.beneterwan.gestiongare.commons.ApplicationConfig;
 import be.beneterwan.gestiongare.commons.config.ConfigManager;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventManager;
+import java.awt.Component;
 import java.util.EventObject;
+import javax.swing.JOptionPane;
 
 /**
  * @author bendem & Curlybear
@@ -40,6 +42,8 @@ public class MenuConfigurationDialog extends javax.swing.JDialog {
             public void execute(EventObject event) {
                 if(save()) {
                     dispose();
+                } else {
+                    JOptionPane.showMessageDialog((Component) event.getSource(), "Unable to save, check the fields");
                 }
             }
         });
@@ -56,6 +60,24 @@ public class MenuConfigurationDialog extends javax.swing.JDialog {
     }
 
     private boolean save() {
+        if(!isInt(textFieldPortApplicDepot.getText())) {
+            return false;
+        }
+        if(!isInt(textFieldPortApplicPosteIn.getText())) {
+            return false;
+        }
+        if(!isInt(textFieldPortDepotToGare.getText())) {
+            return false;
+        }
+        if(!isInt(textFieldPortApplicPosteOut.getText())) {
+            return false;
+        }
+        if(!isInt(textFieldPortPosteInToGare.getText())) {
+            return false;
+        }
+        if(!isInt(textFieldPortPosteOutToGare.getText())) {
+            return false;
+        }
         config.set(ApplicationConfig.MessageIncidentGreve, textAreaMessageGreve.getText());
         config.set(ApplicationConfig.MessageIncidentManifestation, textAreaMessageManifestation.getText());
         config.set(ApplicationConfig.MessageIncidentRetard, textAreaMessageRetard.getText());
@@ -63,29 +85,11 @@ public class MenuConfigurationDialog extends javax.swing.JDialog {
         config.set(ApplicationConfig.IpApplicGare, textFieldIPApplicGare.getText());
         config.set(ApplicationConfig.IpApplicIn, textFieldIPApplicPosteIn.getText());
         config.set(ApplicationConfig.IpApplicOut, textFieldIPApplicPosteOut.getText());
-        if(!isInt(textFieldPortApplicDepot.getText())) {
-            return false;
-        }
         config.set(ApplicationConfig.PortApplicGareToApplicDepot, textFieldPortApplicDepot.getText());
-        if(!isInt(textFieldPortApplicPosteIn.getText())) {
-            return false;
-        }
         config.set(ApplicationConfig.PortApplicGareToApplicIn, textFieldPortApplicPosteIn.getText());
-        if(!isInt(textFieldPortApplicPosteOut.getText())) {
-            return false;
-        }
         config.set(ApplicationConfig.PortApplicGareToApplicOut, textFieldPortApplicPosteOut.getText());
-        if(!isInt(textFieldPortDepotToGare.getText())) {
-            return false;
-        }
         config.set(ApplicationConfig.PortApplicDepotToApplicGare, textFieldPortDepotToGare.getText());
-        if(!isInt(textFieldPortPosteInToGare.getText())) {
-            return false;
-        }
         config.set(ApplicationConfig.PortApplicInToApplicGare, textFieldPortPosteInToGare.getText());
-        if(!isInt(textFieldPortPosteOutToGare.getText())) {
-            return false;
-        }
         config.set(ApplicationConfig.PortApplicOutToApplicGare, textFieldPortPosteOutToGare.getText());
         return config.save();
     }
