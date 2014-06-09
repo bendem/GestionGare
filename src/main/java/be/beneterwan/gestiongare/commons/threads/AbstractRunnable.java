@@ -15,6 +15,7 @@ public abstract class AbstractRunnable implements Runnable {
     private final Thread thread;
     private volatile boolean cancelled;
     private volatile boolean running;
+    private volatile boolean idling;
     private int delay = 0;
 
     public AbstractRunnable() {
@@ -24,6 +25,7 @@ public abstract class AbstractRunnable implements Runnable {
     public AbstractRunnable(int waitTime) {
         cancelled = false;
         running = false;
+        idling = false;
         thread = new Thread(this);
         this.waitTime = waitTime;
     }
@@ -49,10 +51,10 @@ public abstract class AbstractRunnable implements Runnable {
 
     @Override
     public final void run() {
+        running = true;
         if(delay > 0) {
             pause(delay);
         }
-        running = true;
         startup();
         while(!cancelled) {
             work();
@@ -71,7 +73,9 @@ public abstract class AbstractRunnable implements Runnable {
             throw new IllegalStateException("Thread is not running");
         }
         this.cancelled = true;
-        thread.interrupt();
+        if(idling) {
+            thread.interrupt();
+        }
         try {
             thread.join(500);
         } catch(InterruptedException ex) {
@@ -80,10 +84,12 @@ public abstract class AbstractRunnable implements Runnable {
     }
 
     protected final void pause(long time) {
+        idling = true;
         try {
             Thread.sleep(time);
-        } catch(InterruptedException ex) {
-            // Discard silently
+        } catch(InterruptedException ignored) {
+        } finally {
+            idling = false;
         }
     }
 
