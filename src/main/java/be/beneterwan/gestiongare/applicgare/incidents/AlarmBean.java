@@ -1,18 +1,15 @@
 package be.beneterwan.gestiongare.applicgare.incidents;
 
-import be.beneterwan.gestiongare.commons.logger.CustomLogger;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.logging.Logger;
 
 /**
  * @author bendem & Curlybear
  */
 public class AlarmBean extends AbstractBean implements PropertyChangeListener {
 
-    private static final Logger LOGGER = new CustomLogger(AlarmBean.class);
     private final StateBean stateBean;
     private final Set<IncidentListener> handlers;
 

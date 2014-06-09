@@ -37,8 +37,9 @@ public class AddUserDialog extends javax.swing.JDialog {
                     if(UserManager.getInstance().add(newUser)) {
                         UserManager.getInstance().save();
                         dispose();
+                    } else {
+                        errorMessage.setText("O_o Cet utilisateur existe déjà...");
                     }
-                    errorMessage.setText("O_o Cet utilisateur existe déjà...");
                 }
             }
         });

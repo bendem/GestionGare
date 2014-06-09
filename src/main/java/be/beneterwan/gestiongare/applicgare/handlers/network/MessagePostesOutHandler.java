@@ -28,7 +28,7 @@ public class MessagePostesOutHandler implements EventHandler {
         Message message = ((MessageEvent) event).getMessage();
         LOGGER.info("Message reçu!");
 
-        if(message.getType().equals(Message.Type.TrainTransited)){
+        if(message.getType().equals(Message.Type.TrainTransited)) {
             Train train = ((HoraireTrainTransitedMessage) message).getHoraireTrain().getTrain();
             applicGare.getFrame().getFieldControleOut().setText(train.toString());
             applicGare.getTrainManager().trainLeft(((HoraireTrainTransitedMessage) message).getHoraireTrain());

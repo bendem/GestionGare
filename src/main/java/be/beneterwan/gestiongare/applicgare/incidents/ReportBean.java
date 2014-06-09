@@ -1,15 +1,12 @@
 package be.beneterwan.gestiongare.applicgare.incidents;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGare;
-import be.beneterwan.gestiongare.commons.logger.CustomLogger;
-import java.util.logging.Logger;
 
 /**
  * @author bendem & Curlybear
  */
 public class ReportBean extends AbstractBean implements IncidentListener {
 
-    private static final Logger LOGGER = new CustomLogger(ReportBean.class);
     private final AlarmBean alarmBean;
     private final ApplicGare applicGare;
 

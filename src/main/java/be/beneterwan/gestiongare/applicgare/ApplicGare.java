@@ -44,15 +44,15 @@ public class ApplicGare {
     private static ApplicGareFrame frame;
 
     private final TrainManager trainManager;
-    private ReportBean reportBean;
+    private final ConfigManager configManager;
     private final ApplicGareEventManager eventManager;
     private final NetworkReceiver postesInNetworkReceiver;
     private final NetworkReceiver postesOutNetworkReceiver;
     private final NetworkReceiver depotNetworkReceiver;
-    private final ConfigManager configManager;
     private NetworkStringSender postesInNetworkSender;
     private NetworkStringSender postesOutNetworkSender;
     private NetworkStringSender depotNetworkSender;
+    private ReportBean reportBean;
 
     private final LinkedList<IncidentEvent> listEvents = new LinkedList<>();
     private Set<HoraireTrain> horaires;

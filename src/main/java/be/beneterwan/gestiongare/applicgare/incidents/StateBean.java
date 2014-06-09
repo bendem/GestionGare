@@ -65,6 +65,7 @@ public class StateBean extends AbstractPropertyChangeSupportedBean implements Nu
         propertySupport.firePropertyChange("info", old, info);
     }
 
+    @Override
     public void kill() {
         threadRandomGenerator.cancel();
     }
