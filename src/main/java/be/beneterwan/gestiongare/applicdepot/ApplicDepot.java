@@ -22,7 +22,6 @@ public class ApplicDepot {
 
     private static final Logger LOGGER = new CustomLogger(ApplicDepot.class);
     protected static ApplicDepotFrame applicDepotFrame;
-    private static ApplicDepot instance;
     private final NetworkReceiver networkReceiver;
     private final NetworkStringSender networkSender;
     private final NetworkEventManager eventManager;
@@ -41,15 +40,14 @@ public class ApplicDepot {
             }
         });
         eventManager = new NetworkEventManager();
-        networkReceiver = new NetworkReceiver();
+        networkReceiver = new NetworkReceiver(configManager.getInt(ApplicationConfig.PortApplicGareToApplicDepot));
         networkSender = new NetworkStringSender(configManager.getString(ApplicationConfig.IpApplicGare), configManager.getInt(ApplicationConfig.PortApplicDepotToApplicGare));
 
-        networkReceiver.setPort(configManager.getInt(ApplicationConfig.PortApplicGareToApplicDepot));
         eventManager.addListener(networkReceiver, new MessageHandler(this));
         eventManager.addListener(applicDepotFrame.getButtonMsgRecu(), new ButtonMsgRecuHandler(this));
         eventManager.addListener(applicDepotFrame.getButtonSignalArriveeTrain(), new ButtonSignalArriveeTrainHandler(this));
-        eventManager.addListener(applicDepotFrame.getButtonValider(), new ButtonValiderHandler(getFrame()));
-        eventManager.addListener(applicDepotFrame.getComboBoxVoie(), new ComboBoxVoieHandler(getFrame()));
+        eventManager.addListener(applicDepotFrame.getButtonValider(), new ButtonValiderHandler(applicDepotFrame));
+        eventManager.addListener(applicDepotFrame.getComboBoxVoie(), new ComboBoxVoieHandler(applicDepotFrame));
         startThreads();
     }
 
@@ -77,7 +75,7 @@ public class ApplicDepot {
     }
 
     public static void main(String[] args) {
-        instance = new ApplicDepot();
+        new ApplicDepot();
     }
 
 }

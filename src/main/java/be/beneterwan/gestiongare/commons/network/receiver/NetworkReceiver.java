@@ -3,8 +3,6 @@ package be.beneterwan.gestiongare.commons.network.receiver;
 import be.beneterwan.gestiongare.commons.network.messages.Message;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * @author bendem & Curlybear
@@ -13,7 +11,6 @@ public class NetworkReceiver {
 
     private final List<MessageListener> handlers;
     private final ReceiverThread receiverThread;
-    private final Queue<String> messages;
     private int port;
 
     public NetworkReceiver() {
@@ -23,7 +20,6 @@ public class NetworkReceiver {
     public NetworkReceiver(int port) {
         handlers = new ArrayList<>();
         receiverThread = new ReceiverThread(this);
-        messages = new ConcurrentLinkedQueue<>();
         this.port = port;
     }
 

@@ -64,12 +64,6 @@ public class CustomLogger extends Logger {
         return new File(clazz.getProtectionDomain().getCodeSource().getLocation().getPath()).getName();
     }
 
-    private void createLogFolder(File folder) {
-        if(!folder.exists()) {
-            folder.mkdir();
-        }
-    }
-
     private void backupLogs() {
         File previousLogs = new File(LOG_FOLDER_PATH + "previous_" + logFile.getName());
         if(previousLogs.exists()) {

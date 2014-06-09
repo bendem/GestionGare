@@ -13,8 +13,8 @@ public abstract class AbstractRunnable implements Runnable {
 
     private final int waitTime;
     private final Thread thread;
-    private boolean cancelled;
-    private boolean running;
+    private volatile boolean cancelled;
+    private volatile boolean running;
     private int delay = 0;
 
     public AbstractRunnable() {
@@ -64,7 +64,11 @@ public abstract class AbstractRunnable implements Runnable {
     protected void shutdown() {}
 
     public final synchronized void cancel() {
+        if(!running) {
+            throw new IllegalStateException("Thread is not running");
+        }
         this.cancelled = true;
+        thread.interrupt();
         try {
             thread.join(500);
         } catch(InterruptedException ex) {

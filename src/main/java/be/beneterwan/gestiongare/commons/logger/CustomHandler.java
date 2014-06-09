@@ -45,7 +45,7 @@ public class CustomHandler extends Handler {
         String toPublish = getFormatter().format(lr) + '\n';
         try {
             writer.write(toPublish, 0, toPublish.length());
-            flush(); // TEMP, to remove when working...
+            flush();
         } catch(IOException ex) {
             Logger.getLogger(CustomHandler.class.getName())
                     .log(Level.SEVERE, null, ex);

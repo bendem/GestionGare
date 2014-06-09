@@ -23,7 +23,6 @@ public class ApplicDepotFrame extends javax.swing.JFrame {
     private final Queue<HoraireTrain> trainConsidere;
     private final Map<Integer, HoraireTrain> storedTrains;
 
-
     public ApplicDepotFrame(ApplicDepot applicController) {
         super("Applic Dépot");
         applicDepot = applicController;
