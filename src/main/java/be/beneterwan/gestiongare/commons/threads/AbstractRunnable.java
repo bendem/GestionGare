@@ -37,6 +37,9 @@ public abstract class AbstractRunnable implements Runnable {
     }
 
     public final void start() {
+        if(running) {
+            throw new IllegalStateException("Thread is already running");
+        }
         thread.start();
     }
 
