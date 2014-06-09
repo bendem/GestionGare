@@ -20,7 +20,6 @@ import network.NetworkStringSender;
 public class ApplicPostes {
 
     private static final Logger LOGGER = new CustomLogger(ApplicPostes.class);
-    private static ApplicPostes instance;
     private final NetworkEventManager eventManager;
     private final ApplicPostesFrame frame;
     private final ConfigManager configManager;
@@ -106,31 +105,14 @@ public class ApplicPostes {
 
     public static void main(String[] args) {
         if(args.length > 0 && (args[0].equals("In") || args[0].equals("Out"))) {
-            instance = new ApplicPostes(args[0]);
+            new ApplicPostes(args[0]);
         } else {
-            instance = new ApplicPostes();
+            new ApplicPostes();
         }
     }
 
     public enum Type {
-        In(50_010, 50_000), Out(50_011, 50_001);
-
-        private final int sendPort;
-        private final int receivePort;
-
-        Type(int sendPort, int receivePort) {
-            this.sendPort = sendPort;
-            this.receivePort = receivePort;
-        }
-
-        public int getSendPort() {
-            return sendPort;
-        }
-
-        public int getReceivePort() {
-            return receivePort;
-        }
-
+        In, Out;
     }
 
 }
