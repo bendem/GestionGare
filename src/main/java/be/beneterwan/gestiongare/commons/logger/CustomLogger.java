@@ -64,21 +64,6 @@ public class CustomLogger extends Logger {
         return new File(clazz.getProtectionDomain().getCodeSource().getLocation().getPath()).getName();
     }
 
-    private File createLogFile() {
-        File file = new File(LOG_FOLDER_PATH + "logs.txt");
-        createLogFolder(file.getParentFile());
-        if(!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch(IOException ex) {
-                Logger.getLogger(CustomLogger.class.getName())
-                    .log(Level.SEVERE, "Could not create log file", ex);
-                return null;
-            }
-        }
-        return file;
-    }
-
     private void createLogFolder(File folder) {
         if(!folder.exists()) {
             folder.mkdir();

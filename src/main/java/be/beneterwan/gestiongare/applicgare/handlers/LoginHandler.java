@@ -1,8 +1,8 @@
 package be.beneterwan.gestiongare.applicgare.handlers;
 
 import be.beneterwan.gestiongare.applicgare.ApplicGareFrame;
-import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import be.beneterwan.gestiongare.authenticate.User;
+import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
 import be.beneterwan.gestiongare.logins.LoginEvent;
 import java.util.EventObject;
 

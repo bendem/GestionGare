@@ -2,9 +2,9 @@ package be.beneterwan.gestiongare.applicpostes.handlers;
 
 import be.beneterwan.gestiongare.applicpostes.ApplicPostes;
 import be.beneterwan.gestiongare.commons.eventmanagement.EventHandler;
+import be.beneterwan.gestiongare.commons.network.messages.HoraireTrainMessage;
 import be.beneterwan.gestiongare.commons.network.messages.Message;
 import be.beneterwan.gestiongare.commons.network.messages.Message.Type;
-import be.beneterwan.gestiongare.commons.network.messages.HoraireTrainMessage;
 import be.beneterwan.gestiongare.commons.network.receiver.MessageEvent;
 import be.beneterwan.gestiongare.commons.trains.HoraireTrain;
 import java.util.EventObject;
