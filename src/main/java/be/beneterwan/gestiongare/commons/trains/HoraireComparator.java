@@ -16,7 +16,7 @@ public class HoraireComparator implements Comparator<HoraireTrain>, Serializable
         if(t1 == null) {
             return -1;
         }
-        return Integer.compare(t.getDepart(), t1.getDepart());
+        return Integer.compare(t.getArrivee(), t1.getArrivee());
     }
 
 }

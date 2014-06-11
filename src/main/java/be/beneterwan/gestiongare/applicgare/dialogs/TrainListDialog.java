@@ -23,6 +23,7 @@ public class TrainListDialog extends JDialog {
         model.addColumn("Wagons");
         model.addColumn("Origine");
         model.addColumn("Destination");
+        model.addColumn("Quai");
         model.addColumn("Arrivée");
         model.addColumn("Départ");
         for(HoraireTrain horaire : list) {
@@ -35,6 +36,7 @@ public class TrainListDialog extends JDialog {
                 train.getWagons().size(),
                 horaire.getOrigine(),
                 horaire.getDestination(),
+                horaire.getQuai(),
                 String.format("%02d:%02d", horaire.getArriveeHeure(), horaire.getArriveeMinute()),
                 String.format("%02d:%02d", horaire.getDepartHeure(), horaire.getDepartMinute())
             });
